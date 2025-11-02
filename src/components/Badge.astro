@@ -1,0 +1,42 @@
+---
+interface Props {
+  label: string;
+  variant?: 'accent-1' | 'accent-2' | 'accent-3' | 'accent-4';
+  size?: 'sm' | 'md';
+}
+
+const { label, variant = 'accent-1', size = 'md' } = Astro.props;
+const accentMap = {
+  'accent-1': 'var(--color-accent-1)',
+  'accent-2': 'var(--color-accent-2)',
+  'accent-3': 'var(--color-accent-3)',
+  'accent-4': 'var(--color-accent-4)',
+};
+const bgColor = accentMap[variant];
+const sizeMap = {
+  sm: 'var(--space-1) var(--space-2)',
+  md: 'var(--space-2) var(--space-3)',
+};
+const padding = sizeMap[size];
+---
+
+<span
+  class="badge"
+  style={`background-color: ${bgColor}; padding: ${padding};`}
+>
+  {label}
+</span>
+
+<style>
+  .badge {
+    display: inline-block;
+    border-radius: var(--radius-lg);
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1;
+    white-space: nowrap;
+  }
+</style>
+
+
+

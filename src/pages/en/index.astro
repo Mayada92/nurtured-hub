@@ -1,0 +1,277 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FloatingLayer from '../../components/FloatingLayer';
+import SectionReveal from '../../components/SectionReveal';
+import ProjectCard from '../../components/ProjectCard.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getCollection } from 'astro:content';
+
+const featuredProjects = (await getCollection('projects'))
+  .filter((p) => p.data.lang === 'en' && p.data.featured)
+  .slice(0, 6)
+  .sort((a, b) => b.data.year - a.data.year);
+
+const recentPosts = (await getCollection('posts'))
+  .filter((p) => p.data.lang === 'en')
+  .slice(0, 3)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<BaseLayout
+  title="Home"
+  description="Welcome to NurtureLens - A bilingual portfolio showcasing projects, writing, and professional profiles"
+  lang="en"
+>
+  <div style="position: relative; min-height: 100vh;">
+    <FloatingLayer client:load />
+    <section class="hero">
+      <div class="hero__background">
+        <img src="/images/hero/kaaba-serenity.jpg" alt="" aria-hidden="true" />
+        <div class="hero__overlay"></div>
+      </div>
+      <div class="container">
+        <SectionReveal client:load>
+          <div class="hero__content">
+            <h1>Welcome to NurtureLens</h1>
+            <p class="hero__subtitle">
+              Exploring children & education, data science, volunteering, and engineering
+            </p>
+          <div class="hero__cta">
+            <a href="/en/projects" class="cta-button cta-button--primary">Projects</a>
+            <a href="/en/writing" class="cta-button">Writing</a>
+            <a href="/en/profile" class="cta-button">Profiles</a>
+          </div>
+        </SectionReveal>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <SectionReveal client:load delay={0.1}>
+          <h2>Featured Projects</h2>
+          <div class="grid grid--projects">
+            {featuredProjects.map((project, i) => (
+              <SectionReveal client:load delay={0.1 + i * 0.1}>
+                <ProjectCard project={project} />
+              </SectionReveal>
+            ))}
+          </div>
+        </SectionReveal>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <SectionReveal client:load delay={0.2}>
+          <h2>Recent Writing</h2>
+          <div class="grid grid--posts">
+            {recentPosts.map((post, i) => (
+              <SectionReveal client:load delay={0.2 + i * 0.1}>
+                <PostCard post={post} />
+              </SectionReveal>
+            ))}
+          </div>
+        </SectionReveal>
+      </div>
+    </section>
+
+    <section class="section section--banner">
+      <div class="container">
+        <SectionReveal client:load delay={0.3}>
+          <div class="banner">
+            <div class="banner__logo">
+              <img src="/images/brand/nurtured-mind-logo.webp" alt="NurtureLens" width="120" height="120" />
+            </div>
+            <h2>NurtureLens</h2>
+            <p>
+              A platform for exploring the intersection of education, data, and social impact.
+              Bridging perspectives through research, writing, and practical applications.
+            </p>
+          </div>
+        </SectionReveal>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-block: var(--space-8);
+    overflow: hidden;
+  }
+
+  .hero__background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero__background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.15;
+    filter: blur(2px);
+  }
+
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-hero);
+    z-index: 1;
+  }
+
+  .hero__content {
+    position: relative;
+    z-index: 2;
+    max-width: var(--hero-content-width);
+    margin-inline: auto;
+  }
+
+  .hero h1 {
+    font-size: var(--font-size-hero);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-block-end: var(--space-6);
+    letter-spacing: -0.03em;
+  }
+
+  .hero__subtitle {
+    font-size: 1.375rem;
+    color: var(--color-muted-ink);
+    margin-block-end: var(--space-8);
+    max-width: var(--hero-content-width);
+    margin-inline: auto;
+    line-height: 1.6;
+    font-weight: 400;
+  }
+
+  .hero__cta {
+    display: flex;
+    gap: var(--space-3);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-4) var(--space-8);
+    background: white;
+    border: 2px solid var(--color-ink);
+    border-radius: var(--radius-xl);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.0625rem;
+    letter-spacing: -0.01em;
+    transition: all var(--motion-duration-normal) var(--motion-easing-smooth);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .cta-button:hover {
+    transform: translateY(-3px) scale(1.02);
+    background: var(--color-accent-4);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-accent-1);
+  }
+
+  .cta-button--primary {
+    background: var(--color-ink);
+    color: var(--color-bg);
+    border-color: var(--color-ink);
+  }
+
+  .cta-button--primary:hover {
+    background: var(--color-muted-ink);
+    border-color: var(--color-muted-ink);
+    transform: translateY(-3px) scale(1.02);
+  }
+
+  .section {
+    padding-block: var(--section-spacing);
+  }
+
+  .section--banner {
+    background: var(--gradient-section);
+    padding-block: var(--space-10);
+    border-radius: var(--radius-xl);
+    margin-block: var(--section-spacing);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .section--banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .banner {
+    text-align: center;
+    color: var(--color-ink);
+    max-width: 700px;
+    margin-inline: auto;
+  }
+
+  .banner__logo {
+    margin-block-end: var(--space-4);
+  }
+
+  .banner__logo img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    border-radius: var(--radius-lg);
+  }
+
+  .grid {
+    display: grid;
+    gap: var(--space-6);
+  }
+
+  .grid--projects {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--space-8);
+  }
+
+  .grid--posts {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-8);
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      min-height: 85vh;
+      padding-block: var(--space-6);
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    .hero__subtitle {
+      font-size: 1.125rem;
+    }
+
+    .section {
+      padding-block: var(--section-spacing-mobile);
+    }
+
+    .grid--projects,
+    .grid--posts {
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+    }
+  }
+</style>
+
+
+

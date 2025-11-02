@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+import SectionReveal from '../../components/SectionReveal';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('posts'))
+  .filter((p) => p.data.lang === 'ar')
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<BaseLayout title="الكتابات" description="مقالات ومنشورات وكتابات" lang="ar">
+  <section class="section">
+    <div class="container">
+      <SectionReveal client:load>
+        <h1>الكتابات</h1>
+        <p>أفكار ومقالات وتأملات حول مواضيع مختلفة.</p>
+      </SectionReveal>
+      <div class="grid grid--posts">
+        {posts.map((post, i) => (
+          <SectionReveal client:load delay={i * 0.1}>
+            <PostCard post={post} />
+          </SectionReveal>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .section {
+    padding-block: var(--space-8);
+  }
+
+  .grid {
+    display: grid;
+    gap: var(--space-6);
+    margin-block-start: var(--space-6);
+  }
+
+  .grid--posts {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+</style>
+
+
+

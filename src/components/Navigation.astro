@@ -1,0 +1,121 @@
+---
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import { getLanguageFromPath } from '../utils/path';
+
+const currentPath = Astro.url.pathname;
+const lang = getLanguageFromPath(currentPath);
+const langPrefix = lang === 'ar' ? '/ar' : '/en';
+
+const navItems = {
+  en: [
+    { label: 'Home', href: `${langPrefix}/` },
+    { label: 'Projects', href: `${langPrefix}/projects` },
+    { label: 'Writing', href: `${langPrefix}/writing` },
+    { label: 'Papers', href: `${langPrefix}/papers` },
+    { label: 'Profiles', href: `${langPrefix}/profile` },
+    { label: 'Wiki', href: `${langPrefix}/wiki` },
+  ],
+  ar: [
+    { label: 'الرئيسية', href: `${langPrefix}/` },
+    { label: 'المشاريع', href: `${langPrefix}/projects` },
+    { label: 'الكتابات', href: `${langPrefix}/writing` },
+    { label: 'الأوراق', href: `${langPrefix}/papers` },
+    { label: 'الملفات الشخصية', href: `${langPrefix}/profile` },
+    { label: 'ويكي', href: `${langPrefix}/wiki` },
+  ],
+};
+
+const items = navItems[lang];
+---
+
+<nav class="navigation" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <div class="navigation__inner">
+      <a href={`${langPrefix}/`} class="navigation__logo">
+        {lang === 'ar' ? 'نورتشور' : 'NurtureLens'}
+      </a>
+      <ul class="navigation__list">
+        {items.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class:list={{
+                active: currentPath === item.href || currentPath.startsWith(item.href + '/'),
+              }}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <div class="navigation__actions">
+        <LanguageSwitcher />
+      </div>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .navigation {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 100;
+    background: rgba(250, 247, 242, 0.8);
+    backdrop-filter: blur(10px);
+    border-block-end: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .navigation__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: var(--space-3);
+    gap: var(--space-4);
+  }
+
+  .navigation__logo {
+    font-weight: 700;
+    font-size: 1.25rem;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .navigation__list {
+    display: flex;
+    list-style: none;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .navigation__list a {
+    text-decoration: none;
+    font-weight: 500;
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-md);
+    transition: background-color var(--motion-duration-fast) var(--motion-easing);
+  }
+
+  .navigation__list a:hover,
+  .navigation__list a.active {
+    background: var(--color-accent-4);
+  }
+
+  .navigation__actions {
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 768px) {
+    .navigation__list {
+      display: none;
+    }
+
+    .navigation__inner {
+      justify-content: space-between;
+    }
+  }
+</style>
+
+
+

@@ -1,0 +1,361 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProfileHeader from '../../../components/ProfileHeader.astro';
+import ProjectCard from '../../../components/ProjectCard.astro';
+import PostCard from '../../../components/PostCard.astro';
+import PaperCard from '../../../components/PaperCard.astro';
+import VolunteeringCard from '../../../components/VolunteeringCard.astro';
+import TrainingCard from '../../../components/TrainingCard.astro';
+import SpeakingCard from '../../../components/SpeakingCard.astro';
+import CourseCard from '../../../components/CourseCard.astro';
+import WorkCard from '../../../components/WorkCard.astro';
+import ExpandableWorkExample from '../../../components/ExpandableWorkExample.astro';
+import TableOfContents from '../../../components/TableOfContents.astro';
+import { getCollection } from 'astro:content';
+import { organizeByDomain, getDomainOrder, domainLabels } from '../../../utils/organize-by-domain';
+import type { Domain } from '../../../utils/organize-by-domain';
+
+export async function getStaticPaths() {
+  const profiles = await getCollection('profiles');
+  return profiles.map((profile) => ({
+    params: { focus: profile.data.focus },
+  }));
+}
+
+interface Props {
+  focus: string;
+}
+
+const { focus } = Astro.params;
+const lang = 'ar';
+
+const profile = (await getCollection('profiles')).find((p) => p.data.focus === focus);
+if (!profile) {
+  return Astro.redirect('/ar/profile', 404);
+}
+
+const { data } = profile;
+const allProjects = await getCollection('projects');
+const allPosts = await getCollection('posts').catch(() => []);
+const allPapers = await getCollection('papers').catch(() => []);
+const allVolunteering = await getCollection('volunteering').catch(() => []);
+const allTraining = await getCollection('training').catch(() => []);
+const allSpeaking = await getCollection('speaking').catch(() => []);
+const allCourses = await getCollection('courses').catch(() => []);
+const allWork = await getCollection('work').catch(() => []);
+
+// Filter by language
+const volunteering = allVolunteering.filter((v) => v.data.lang === lang);
+const training = allTraining.filter((t) => t.data.lang === lang);
+const speaking = allSpeaking.filter((s) => s.data.lang === lang);
+const courses = allCourses.filter((c) => c.data.lang === lang);
+const work = allWork.filter((w) => w.data.lang === lang);
+
+// Separate hackathons
+const hackathons = volunteering.filter((v) => v.data.is_hackathon);
+const nonHackathonVolunteering = volunteering.filter((v) => !v.data.is_hackathon);
+
+// Map profile focus to primary domain
+const focusToDomain: Record<string, Domain[]> = {
+  'children-education': ['educational-psychology'],
+  'data-science': ['data-science'],
+  'volunteering': ['general'], // Volunteering can span all domains
+  'engineering': ['engineering'],
+};
+
+// Get relevant domains for this profile focus
+const relevantDomains = focusToDomain[focus] || getDomainOrder();
+
+// Filter work by relevant domains for this profile
+const workForProfile = work.filter((w) => {
+  const workDomains = Array.isArray(w.data.domain) ? w.data.domain : [w.data.domain];
+  return workDomains.some((d) => relevantDomains.includes(d));
+});
+
+// Organize by domain - only show relevant domains
+const workByDomain = organizeByDomain(workForProfile, lang);
+const coursesByDomain = organizeByDomain(courses, lang);
+const trainingByDomain = organizeByDomain(training, lang);
+const speakingByDomain = organizeByDomain(speaking, lang);
+const projectsByDomain = organizeByDomain(
+  allProjects.filter((p) => p.data.lang === lang && data.include_tags.some((tag) => p.data.tags.includes(tag))),
+  lang
+);
+
+const focusLabels: Record<string, string> = {
+  'children-education': 'الأطفال والتعليم',
+  'data-science': 'علم البيانات',
+  volunteering: 'التطوع',
+  engineering: 'الهندسة',
+};
+
+const title = focusLabels[focus] || focus;
+
+// Build headings for TOC
+const headings = [{ id: 'overview', text: 'نظرة عامة', level: 2 }];
+
+if (nonHackathonVolunteering.length > 0 || hackathons.length > 0) {
+  headings.push({ id: 'volunteering', text: 'التطوع', level: 2 });
+  if (hackathons.length > 0) {
+    headings.push({ id: 'hackathons', text: 'هاكاثونات', level: 3 });
+  }
+}
+if (training.length > 0) headings.push({ id: 'training', text: 'التدريب والمحاضرات', level: 2 });
+if (speaking.length > 0) headings.push({ id: 'speaking', text: 'التحدث العام وتبادل المعرفة', level: 2 });
+if (courses.length > 0) headings.push({ id: 'courses', text: 'الدورات', level: 2 });
+
+// Add domain sections for work - only relevant domains
+relevantDomains.forEach((domain) => {
+  if (workByDomain[domain] && workByDomain[domain].length > 0) {
+    headings.push({ id: `work-${domain}`, text: `${domainLabels.ar[domain]} - العمل`, level: 2 });
+  }
+  if (projectsByDomain[domain] && projectsByDomain[domain].length > 0) {
+    headings.push({ id: `projects-${domain}`, text: `${domainLabels.ar[domain]} - المشاريع`, level: 2 });
+  }
+});
+---
+
+<BaseLayout title={title} description={data.headline} lang="ar">
+  <div class="content">
+    <div style="display: grid; grid-template-columns: 1fr 300px; gap: var(--space-6); align-items: start;">
+      <article>
+        <ProfileHeader title={title} headline={data.headline} focus={focus} />
+        
+        <section id="overview">
+          <h2>نظرة عامة</h2>
+          <p>{data.headline}</p>
+        </section>
+
+        {(nonHackathonVolunteering.length > 0 || hackathons.length > 0) && (
+          <section id="volunteering">
+            <h2>التطوع</h2>
+            {nonHackathonVolunteering.length > 0 && (
+              <div class="section-content">
+                {nonHackathonVolunteering
+                  .sort((a, b) => new Date(b.data.start_date).getTime() - new Date(a.data.start_date).getTime())
+                  .map((vol) => (
+                    <VolunteeringCard volunteering={vol} />
+                  ))}
+              </div>
+            )}
+            {hackathons.length > 0 && (
+              <div id="hackathons">
+                <h3>هاكاثونات</h3>
+                <div class="section-content">
+                  {hackathons
+                    .sort((a, b) => new Date(b.data.start_date).getTime() - new Date(a.data.start_date).getTime())
+                    .map((hack) => (
+                      <VolunteeringCard volunteering={hack} />
+                    ))}
+                </div>
+              </div>
+            )}
+          </section>
+        )}
+
+        {training.length > 0 && (
+          <section id="training">
+            <h2>التدريب والمحاضرات</h2>
+            <div class="section-content">
+              {training
+                .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+                .map((t) => (
+                  <TrainingCard training={t} />
+                ))}
+            </div>
+          </section>
+        )}
+
+        {speaking.length > 0 && (
+          <section id="speaking">
+            <h2>التحدث العام وتبادل المعرفة</h2>
+            <div class="section-content">
+              {speaking
+                .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+                .map((s) => (
+                  <SpeakingCard speaking={s} />
+                ))}
+            </div>
+          </section>
+        )}
+
+        {courses.length > 0 && (
+          <section id="courses">
+            <h2>الدورات</h2>
+            {getDomainOrder().map((domain) => {
+              const domainCourses = coursesByDomain[domain];
+              if (!domainCourses || domainCourses.length === 0) return null;
+              return (
+                <div id={`courses-${domain}`} class="domain-section">
+                  <h3>{domainLabels.ar[domain]}</h3>
+                  <div class="section-content">
+                    {domainCourses
+                      .sort((a, b) => {
+                        if (b.data.year !== a.data.year) return b.data.year - a.data.year;
+                        return (b.data.term || '').localeCompare(a.data.term || '');
+                      })
+                      .map((course) => (
+                        <CourseCard course={course} />
+                      ))}
+                  </div>
+                </div>
+              );
+            })}
+          </section>
+        )}
+
+        {relevantDomains.map((domain) => {
+          const domainWork = workByDomain[domain];
+          const domainProjects = projectsByDomain[domain];
+          
+          // Work examples for specific domains
+          const workExamples: any[] = [];
+          
+          if ((!domainWork || domainWork.length === 0) && 
+              (!domainProjects || domainProjects.length === 0) && 
+              workExamples.length === 0) {
+            return null;
+          }
+          return (
+            <section id={`work-${domain}`}>
+              <h2>{domainLabels.ar[domain]}</h2>
+              
+              {workExamples.length > 0 && (
+                <div class="subsection">
+                  <h3>أمثلة العمل</h3>
+                  <p class="subsection-intro">
+                    عمل مختار من المشاريع الأكاديمية والتدريبات. انقر للتوسع وعرض التفاصيل والملفات والمواد.
+                  </p>
+                  <div class="section-content">
+                    {workExamples.map((example) => (
+                      <ExpandableWorkExample
+                        title={example.title}
+                        institution={example.institution}
+                        course={example.course}
+                        year={example.year}
+                        description={example.description}
+                        images={example.images}
+                        files={example.files}
+                        domain={example.domain}
+                        lang={lang}
+                      />
+                    ))}
+                  </div>
+                </div>
+              )}
+              
+              {domainWork && domainWork.length > 0 && (
+                <div class="subsection">
+                  <h3>خبرة العمل</h3>
+                  <div class="section-content">
+                    {domainWork
+                      .sort((a, b) => {
+                        if (a.data.ongoing !== b.data.ongoing) return a.data.ongoing ? -1 : 1;
+                        return new Date(b.data.start_date).getTime() - new Date(a.data.start_date).getTime();
+                      })
+                      .map((w) => (
+                        <WorkCard work={w} />
+                      ))}
+                  </div>
+                </div>
+              )}
+
+              {domainProjects && domainProjects.length > 0 && (
+                <div class="subsection">
+                  <h3>المشاريع</h3>
+                  <div class="section-content">
+                    {domainProjects
+                      .sort((a, b) => b.data.year - a.data.year)
+                      .map((p) => (
+                        <ProjectCard project={p} />
+                      ))}
+                  </div>
+                </div>
+              )}
+            </section>
+          );
+        })}
+
+        {allPosts.filter((p) => p.data.lang === lang && data.pin_posts.includes(p.slug)).length > 0 && (
+          <section id="writing">
+            <h2>الكتابات</h2>
+            <div class="section-content">
+              {allPosts
+                .filter((p) => p.data.lang === lang && data.pin_posts.includes(p.slug))
+                .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+                .map((post) => (
+                  <PostCard post={post} />
+                ))}
+            </div>
+          </section>
+        )}
+
+        {allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.slug)).length > 0 && (
+          <section id="papers">
+            <h2>الأوراق</h2>
+            <div class="section-content">
+              {allPapers
+                .filter((p) => p.data.lang === lang && data.pin_papers.includes(p.slug))
+                .sort((a, b) => b.data.year - a.data.year)
+                .map((paper) => (
+                  <PaperCard paper={paper} />
+                ))}
+            </div>
+          </section>
+        )}
+      </article>
+
+      <aside style="position: sticky; top: 80px;">
+        <TableOfContents headings={headings} />
+      </aside>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  @media (max-width: 1024px) {
+    div[style*='grid-template-columns'] {
+      display: block !important;
+    }
+
+    aside {
+      position: static !important;
+      margin-block-start: var(--space-6);
+    }
+  }
+
+  section {
+    margin-block-end: var(--space-10);
+  }
+
+  section h2 {
+    margin-block-end: var(--space-6);
+    scroll-margin-block-start: var(--space-6);
+  }
+
+  section h3 {
+    margin-block-end: var(--space-4);
+    margin-block-start: var(--space-6);
+  }
+
+  .section-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .subsection {
+    margin-block-end: var(--space-8);
+  }
+
+  .domain-section {
+    margin-block-end: var(--space-8);
+  }
+
+  .subsection-intro {
+    color: var(--color-muted-ink);
+    font-size: var(--font-size-small);
+    margin-block-end: var(--space-4);
+    font-style: italic;
+  }
+</style>

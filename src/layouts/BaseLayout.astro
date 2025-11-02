@@ -1,0 +1,52 @@
+---
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import { getLanguageFromPath } from '../utils/path';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  lang?: 'en' | 'ar';
+}
+
+const { title = 'NurtureLens', description = 'Personal bilingual portfolio', lang } = Astro.props;
+const currentPath = Astro.url.pathname;
+const detectedLang = lang || getLanguageFromPath(currentPath);
+const htmlLang = detectedLang;
+const dir = detectedLang === 'ar' ? 'rtl' : 'ltr';
+
+const fullTitle = title === 'NurtureLens' ? title : `${title} | NurtureLens`;
+---
+
+<!doctype html>
+<html lang={htmlLang} dir={dir}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <title>{fullTitle}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Cairo:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+    <Navigation />
+    <main id="main-content">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+
+

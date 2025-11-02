@@ -1,0 +1,164 @@
+---
+import Badge from './Badge.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  work: CollectionEntry<'work'>;
+}
+
+const { work } = Astro.props;
+const { data } = work;
+const isRTL = data.lang === 'ar';
+const dateFormat = isRTL ? 'ar-SA' : 'en-US';
+const startDate = new Date(data.start_date).toLocaleDateString(dateFormat, {
+  year: 'numeric',
+  month: 'short',
+});
+const endDate = data.end_date
+  ? new Date(data.end_date).toLocaleDateString(dateFormat, {
+      year: 'numeric',
+      month: 'short',
+    })
+  : null;
+
+const domainLabels = {
+  en: {
+    sports: 'Sports',
+    'educational-psychology': 'Educational Psychology',
+    engineering: 'Engineering',
+    'data-science': 'Data Science',
+  },
+  ar: {
+    sports: 'الرياضة',
+    'educational-psychology': 'علم النفس التربوي',
+    engineering: 'الهندسة',
+    'data-science': 'علم البيانات',
+  },
+};
+---
+
+<article class="work-card">
+  <header>
+    <h3>{data.title}</h3>
+    <div class="work-card__meta">
+      <span class="organization">{data.organization}</span>
+      <span class="role">{data.role}</span>
+    </div>
+    <div class="work-card__details">
+      <span class="date">
+        {startDate} {data.ongoing ? (isRTL ? '- حتى الآن' : '- Present') : endDate ? ` - ${endDate}` : ''}
+      </span>
+    </div>
+    <div class="work-card__domains">
+      {data.domain.map((d) => (
+        <Badge label={domainLabels[data.lang][d]} variant="accent-1" size="sm" />
+      ))}
+    </div>
+  </header>
+  <p>{data.description}</p>
+  {data.achievements && data.achievements.length > 0 && (
+    <ul class="achievements">
+      {data.achievements.map((achievement) => (
+        <li>{achievement}</li>
+      ))}
+    </ul>
+  )}
+  {data.skills && data.skills.length > 0 && (
+    <div class="work-card__skills">
+      {data.skills.map((skill) => (
+        <Badge label={skill} variant="accent-3" size="sm" />
+      ))}
+    </div>
+  )}
+  {data.url && (
+    <footer>
+      <a href={data.url} target="_blank" rel="noopener noreferrer">
+        {isRTL ? 'الموقع الإلكتروني ←' : 'Website →'}
+      </a>
+    </footer>
+  )}
+</article>
+
+<style>
+  .work-card {
+    background: var(--gradient-card);
+    padding: var(--space-6);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-card);
+    transition: all var(--motion-duration-normal) var(--motion-easing-smooth);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .work-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  .work-card__meta {
+    display: flex;
+    gap: var(--space-3);
+    align-items: center;
+    margin-block-end: var(--space-2);
+    flex-wrap: wrap;
+  }
+
+  .organization {
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+
+  .role {
+    font-weight: 500;
+    color: var(--color-muted-ink);
+  }
+
+  .work-card__details {
+    margin-block-end: var(--space-3);
+    font-size: var(--font-size-small);
+    color: var(--color-muted-ink);
+  }
+
+  .work-card__domains {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-block-end: var(--space-4);
+  }
+
+  .achievements {
+    list-style: none;
+    padding-inline-start: var(--space-4);
+    margin-block: var(--space-4);
+  }
+
+  .achievements li {
+    position: relative;
+    padding-inline-start: var(--space-4);
+    margin-block-end: var(--space-2);
+  }
+
+  .achievements li::before {
+    content: '•';
+    position: absolute;
+    inset-inline-start: 0;
+    color: var(--color-accent-1);
+    font-weight: bold;
+  }
+
+  .work-card__skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-block-start: var(--space-4);
+  }
+
+  footer {
+    margin-block-start: var(--space-4);
+  }
+
+  footer a {
+    text-decoration: none;
+    font-weight: 500;
+  }
+</style>
+

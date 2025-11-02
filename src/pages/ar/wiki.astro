@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionReveal from '../../components/SectionReveal';
+---
+
+<BaseLayout title="ويكي" description="ويكي وقاعدة المعرفة" lang="ar">
+  <section class="section">
+    <div class="container">
+      <div class="content">
+        <SectionReveal client:load>
+          <h1>ويكي</h1>
+          <p>هذه صفحة تجريبية للويكي. أضف رابط الويكي الخاص بك هنا عندما تكون جاهزاً.</p>
+        </SectionReveal>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .section {
+    padding-block: var(--space-8);
+  }
+</style>
+
+
+

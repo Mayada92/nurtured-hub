@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import SectionReveal from '../../components/SectionReveal';
+import { getCollection } from 'astro:content';
+
+const projects = (await getCollection('projects'))
+  .filter((p) => p.data.lang === 'en')
+  .sort((a, b) => b.data.year - a.data.year);
+---
+
+<BaseLayout title="Projects" description="Explore my projects and work" lang="en">
+  <section class="section">
+    <div class="container">
+      <SectionReveal client:load>
+        <h1>Projects</h1>
+        <p>A collection of projects across different domains.</p>
+      </SectionReveal>
+      <div class="grid grid--projects">
+        {projects.map((project, i) => (
+          <SectionReveal client:load delay={i * 0.1}>
+            <ProjectCard project={project} />
+          </SectionReveal>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .section {
+    padding-block: var(--space-8);
+  }
+
+  .grid {
+    display: grid;
+    gap: var(--space-6);
+    margin-block-start: var(--space-6);
+  }
+
+  .grid--projects {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+</style>
+
+
+

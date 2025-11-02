@@ -1,0 +1,156 @@
+import { defineCollection, z } from 'astro:content';
+
+const projectsCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    lang: z.enum(['en', 'ar']),
+    year: z.number(),
+    tags: z.array(z.string()),
+    summary: z.string(),
+    repo: z.string().url().optional(),
+    demo: z.string().url().optional(),
+    cover: z.string().optional(), // path to image in public
+    featured: z.boolean().default(false),
+  }),
+});
+
+const postsCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    lang: z.enum(['en', 'ar']),
+    date: z.date(),
+    excerpt: z.string(),
+    canonical_url: z.string().url().optional(),
+  }),
+});
+
+const papersCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    lang: z.enum(['en', 'ar']),
+    venue: z.string(),
+    year: z.number(),
+    authors: z.array(z.string()),
+    doi: z.string().optional(),
+    pdf_url: z.string().optional(),
+    citation_bibtex: z.string().optional(),
+  }),
+});
+
+const profilesCollection = defineCollection({
+  type: 'data',
+  schema: z.object({
+    focus: z.enum(['children-education', 'data-science', 'volunteering', 'engineering']),
+    headline: z.string(),
+    include_tags: z.array(z.string()),
+    pin_projects: z.array(z.string()).default([]),
+    pin_posts: z.array(z.string()).default([]),
+    pin_papers: z.array(z.string()).default([]),
+  }),
+});
+
+const volunteeringCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    lang: z.enum(['en', 'ar']),
+    organization: z.string(),
+    role: z.string(),
+    start_date: z.date(),
+    end_date: z.date().optional(),
+    ongoing: z.boolean().default(false),
+    domain: z.array(z.enum(['sports', 'educational-psychology', 'engineering', 'data-science', 'general'])),
+    description: z.string(),
+    achievements: z.array(z.string()).optional(),
+    skills: z.array(z.string()).optional(),
+    url: z.string().url().optional(),
+    is_hackathon: z.boolean().default(false),
+  }),
+});
+
+const trainingCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    lang: z.enum(['en', 'ar']),
+    type: z.enum(['training', 'lecture', 'workshop']),
+    organization: z.string(),
+    venue: z.string().optional(),
+    date: z.date(),
+    audience: z.string().optional(),
+    domain: z.array(z.enum(['sports', 'educational-psychology', 'engineering', 'data-science', 'general'])),
+    description: z.string(),
+    materials_url: z.string().url().optional(),
+    slides_url: z.string().url().optional(),
+  }),
+});
+
+const speakingCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    lang: z.enum(['en', 'ar']),
+    type: z.enum(['talk', 'presentation', 'panel', 'keynote', 'webinar']),
+    event: z.string(),
+    venue: z.string().optional(),
+    date: z.date(),
+    domain: z.array(z.enum(['sports', 'educational-psychology', 'engineering', 'data-science', 'general'])),
+    description: z.string(),
+    recording_url: z.string().url().optional(),
+    slides_url: z.string().url().optional(),
+    event_url: z.string().url().optional(),
+  }),
+});
+
+const coursesCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    lang: z.enum(['en', 'ar']),
+    course_code: z.string().optional(),
+    institution: z.string(),
+    term: z.string().optional(), // e.g., "Fall 2024", "Summer 2024"
+    year: z.number(),
+    domain: z.enum(['sports', 'educational-psychology', 'engineering', 'data-science']),
+    level: z.enum(['undergraduate', 'graduate', 'professional', 'certification']).optional(),
+    description: z.string(),
+    syllabus_url: z.string().optional(),
+    credits: z.number().optional(),
+  }),
+});
+
+const workCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    lang: z.enum(['en', 'ar']),
+    organization: z.string(),
+    role: z.string(),
+    start_date: z.date(),
+    end_date: z.date().optional(),
+    ongoing: z.boolean().default(false),
+    domain: z.array(z.enum(['sports', 'educational-psychology', 'engineering', 'data-science'])),
+    description: z.string(),
+    achievements: z.array(z.string()).optional(),
+    skills: z.array(z.string()).optional(),
+    url: z.string().url().optional(),
+  }),
+});
+
+export const collections = {
+  projects: projectsCollection,
+  posts: postsCollection,
+  papers: papersCollection,
+  profiles: profilesCollection,
+  volunteering: volunteeringCollection,
+  training: trainingCollection,
+  speaking: speakingCollection,
+  courses: coursesCollection,
+  work: workCollection,
+};
+
+
+

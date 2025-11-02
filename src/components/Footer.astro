@@ -1,0 +1,92 @@
+---
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import { getLanguageFromPath } from '../utils/path';
+
+const currentPath = Astro.url.pathname;
+const lang = getLanguageFromPath(currentPath);
+const langPrefix = lang === 'ar' ? '/ar' : '/en';
+
+const footerLinks = {
+  en: [
+    { label: 'Home', href: `${langPrefix}/` },
+    { label: 'Projects', href: `${langPrefix}/projects` },
+    { label: 'Writing', href: `${langPrefix}/writing` },
+    { label: 'Papers', href: `${langPrefix}/papers` },
+    { label: 'Profiles', href: `${langPrefix}/profile` },
+    { label: 'About', href: `${langPrefix}/about` },
+    { label: 'Contact', href: `${langPrefix}/contact` },
+  ],
+  ar: [
+    { label: 'الرئيسية', href: `${langPrefix}/` },
+    { label: 'المشاريع', href: `${langPrefix}/projects` },
+    { label: 'الكتابات', href: `${langPrefix}/writing` },
+    { label: 'الأوراق', href: `${langPrefix}/papers` },
+    { label: 'الملفات الشخصية', href: `${langPrefix}/profile` },
+    { label: 'حولي', href: `${langPrefix}/about` },
+    { label: 'اتصل', href: `${langPrefix}/contact` },
+  ],
+};
+
+const links = footerLinks[lang];
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <nav class="footer__nav" aria-label="Footer navigation">
+        <ul class="footer__list">
+          {links.map((link) => (
+            <li>
+              <a href={link.href}>{link.label}</a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+      <div class="footer__actions">
+        <LanguageSwitcher />
+      </div>
+    </div>
+    <p class="footer__copyright">
+      © {new Date().getFullYear()} {lang === 'ar' ? 'نورتشور' : 'NurtureLens'}
+    </p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    margin-block-start: var(--space-8);
+    padding-block: var(--space-6);
+    border-block-start: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .footer__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-block-end: var(--space-4);
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+
+  .footer__list {
+    display: flex;
+    list-style: none;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  .footer__list a {
+    text-decoration: none;
+    font-size: 0.875rem;
+  }
+
+  .footer__copyright {
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--color-muted-ink);
+    margin-block-start: var(--space-4);
+  }
+</style>
+
+
+

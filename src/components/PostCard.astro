@@ -1,0 +1,69 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  post: CollectionEntry<'posts'>;
+}
+
+const { post } = Astro.props;
+const { data } = post;
+const isRTL = data.lang === 'ar';
+const arrow = isRTL ? '←' : '→';
+const date = new Date(data.date).toLocaleDateString(data.lang === 'ar' ? 'ar-SA' : 'en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<article class="post-card">
+  <header>
+    <time datetime={data.date.toISOString()} class="post-card__date">
+      {date}
+    </time>
+    <h3>{data.title}</h3>
+  </header>
+  <p class="post-card__excerpt">{data.excerpt}</p>
+  <footer>
+    <a href={Astro.url.pathname + '/' + post.slug}>
+      Read more {arrow}
+    </a>
+  </footer>
+</article>
+
+<style>
+  .post-card {
+    background: var(--gradient-card);
+    padding: var(--space-6);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-card);
+    transition: all var(--motion-duration-normal) var(--motion-easing-smooth);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .post-card:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: var(--shadow-card-hover);
+    border-color: rgba(191, 215, 234, 0.3);
+  }
+
+  .post-card__date {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--color-muted-ink);
+    margin-block-end: var(--space-2);
+  }
+
+  .post-card__excerpt {
+    color: var(--color-muted-ink);
+    margin-block: var(--space-3);
+  }
+
+  .post-card footer a {
+    text-decoration: none;
+    font-weight: 500;
+  }
+</style>
+
+
+

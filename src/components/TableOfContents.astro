@@ -1,0 +1,132 @@
+---
+interface Props {
+  headings: Array<{ id: string; text: string; level: number }>;
+}
+
+const { headings } = Astro.props;
+---
+
+<aside class="toc" id="toc">
+  <button
+    class="toc__toggle"
+    aria-expanded="false"
+    aria-controls="toc-list"
+    aria-label="Toggle table of contents"
+  >
+    <span class="toc__toggle-text">On this page</span>
+    <span class="toc__toggle-icon" aria-hidden="true">▼</span>
+  </button>
+  <nav class="toc__nav" id="toc-list" aria-label="Table of contents">
+    <ul class="toc__list">
+      {headings.map((heading) => (
+        <li class={`toc__item toc__item--level-${heading.level}`}>
+          <a href={`#${heading.id}`}>{heading.text}</a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</aside>
+
+<script>
+  const toggle = document.querySelector('.toc__toggle');
+  const nav = document.querySelector('.toc__nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+      const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!isExpanded));
+      nav.classList.toggle('toc__nav--open');
+    });
+  }
+</script>
+
+<style>
+  .toc {
+    position: relative;
+  }
+
+  .toc__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: var(--space-3);
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: var(--radius-lg);
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color var(--motion-duration-fast) var(--motion-easing);
+  }
+
+  .toc__toggle:hover {
+    background: var(--color-accent-4);
+  }
+
+  .toc__toggle-icon {
+    transition: transform var(--motion-duration-fast) var(--motion-easing);
+  }
+
+  .toc__toggle[aria-expanded='true'] .toc__toggle-icon {
+    transform: rotate(180deg);
+  }
+
+  .toc__nav {
+    display: none;
+    margin-block-start: var(--space-2);
+    padding: var(--space-3);
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: var(--radius-lg);
+  }
+
+  .toc__nav--open {
+    display: block;
+  }
+
+  .toc__list {
+    list-style: none;
+  }
+
+  .toc__item {
+    margin-block-end: var(--space-2);
+  }
+
+  .toc__item--level-2 {
+    padding-inline-start: 0;
+  }
+
+  .toc__item--level-3 {
+    padding-inline-start: var(--space-4);
+  }
+
+  .toc__item a {
+    text-decoration: none;
+    color: var(--color-muted-ink);
+    font-size: 0.875rem;
+    transition: color var(--motion-duration-fast) var(--motion-easing);
+  }
+
+  .toc__item a:hover {
+    color: var(--color-ink);
+  }
+
+  @media (min-width: 1024px) {
+    .toc {
+      position: sticky;
+      inset-block-start: calc(var(--space-6) + 60px);
+      max-height: calc(100vh - 120px);
+      overflow-y: auto;
+    }
+
+    .toc__toggle {
+      display: none;
+    }
+
+    .toc__nav {
+      display: block;
+    }
+  }
+</style>
+
+
+

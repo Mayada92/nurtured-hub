@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionReveal from '../../components/SectionReveal';
+---
+
+<BaseLayout title="About" description="Learn more about me" lang="en">
+  <section class="section">
+    <div class="container">
+      <div class="content">
+        <SectionReveal client:load>
+          <h1>About</h1>
+          <p>This is a placeholder for the about page. Add your personal information here.</p>
+        </SectionReveal>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .section {
+    padding-block: var(--space-8);
+  }
+</style>
+
+
+

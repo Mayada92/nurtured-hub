@@ -1,0 +1,91 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  paper: CollectionEntry<'papers'>;
+}
+
+const { paper } = Astro.props;
+const { data } = paper;
+const isRTL = data.lang === 'ar';
+const arrow = isRTL ? '←' : '→';
+---
+
+<article class="paper-card">
+  <header>
+    <h3>{data.title}</h3>
+    <div class="paper-card__meta">
+      <span class="venue">{data.venue}</span>
+      <span class="year">{data.year}</span>
+    </div>
+  </header>
+  <p class="paper-card__authors">
+    {data.authors.join(data.lang === 'ar' ? '، ' : ', ')}
+  </p>
+  <footer class="paper-card__links">
+    {data.pdf_url && (
+      <a href={data.pdf_url} target="_blank" rel="noopener noreferrer">
+        PDF {arrow}
+      </a>
+    )}
+    {data.doi && (
+      <a href={`https://doi.org/${data.doi}`} target="_blank" rel="noopener noreferrer">
+        DOI {arrow}
+      </a>
+    )}
+  </footer>
+</article>
+
+<style>
+  .paper-card {
+    background: var(--gradient-card);
+    padding: var(--space-6);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-card);
+    transition: all var(--motion-duration-normal) var(--motion-easing-smooth);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .paper-card:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: var(--shadow-card-hover);
+    border-color: rgba(234, 199, 199, 0.3);
+  }
+
+  .paper-card__meta {
+    display: flex;
+    gap: var(--space-3);
+    align-items: center;
+    margin-block-end: var(--space-2);
+  }
+
+  .venue {
+    font-weight: 500;
+    color: var(--color-muted-ink);
+  }
+
+  .year {
+    font-size: 0.875rem;
+    color: var(--color-muted-ink);
+  }
+
+  .paper-card__authors {
+    color: var(--color-muted-ink);
+    font-size: 0.9375rem;
+    margin-block: var(--space-3);
+  }
+
+  .paper-card__links {
+    display: flex;
+    gap: var(--space-4);
+    margin-block-start: var(--space-3);
+  }
+
+  .paper-card__links a {
+    text-decoration: none;
+    font-weight: 500;
+  }
+</style>
+
+
+

@@ -1,0 +1,113 @@
+---
+import Badge from './Badge.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+}
+
+const { project } = Astro.props;
+const { data } = project;
+const isRTL = data.lang === 'ar';
+const arrow = isRTL ? '←' : '→';
+---
+
+<article class="project-card">
+  {data.cover && (
+    <div class="project-card__cover">
+      <img
+        src={data.cover}
+        alt={`${data.title} - Project cover`}
+        loading="lazy"
+        width="600"
+        height="400"
+        decoding="async"
+      />
+    </div>
+  )}
+  <div class="project-card__content">
+    <header>
+      <h3>{data.title}</h3>
+      <div class="project-card__meta">
+        <span class="year">{data.year}</span>
+        {data.tags.slice(0, 3).map((tag) => (
+          <Badge label={tag} variant="accent-2" size="sm" />
+        ))}
+      </div>
+    </header>
+    <p>{data.summary}</p>
+    <footer class="project-card__links">
+      {data.repo && (
+        <a href={data.repo} target="_blank" rel="noopener noreferrer">
+          Repository {arrow}
+        </a>
+      )}
+      {data.demo && (
+        <a href={data.demo} target="_blank" rel="noopener noreferrer">
+          Demo {arrow}
+        </a>
+      )}
+    </footer>
+  </div>
+</article>
+
+<style>
+  .project-card {
+    background: var(--gradient-card);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    transition: all var(--motion-duration-normal) var(--motion-easing-smooth);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .project-card:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: var(--shadow-card-hover);
+    border-color: rgba(185, 209, 192, 0.3);
+  }
+
+  .project-card:focus-within {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 4px;
+  }
+
+  .project-card__cover img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    display: block;
+  }
+
+  .project-card__content {
+    padding: var(--space-4);
+  }
+
+  .project-card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    align-items: center;
+    margin-block-end: var(--space-3);
+  }
+
+  .year {
+    font-size: 0.875rem;
+    color: var(--color-muted-ink);
+  }
+
+  .project-card__links {
+    display: flex;
+    gap: var(--space-4);
+    margin-block-start: var(--space-3);
+  }
+
+  .project-card__links a {
+    text-decoration: none;
+    font-weight: 500;
+  }
+</style>
+
+
+

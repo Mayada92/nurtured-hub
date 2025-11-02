@@ -1,0 +1,144 @@
+---
+import Badge from './Badge.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  training: CollectionEntry<'training'>;
+}
+
+const { training } = Astro.props;
+const { data } = training;
+const isRTL = data.lang === 'ar';
+const dateFormat = isRTL ? 'ar-SA' : 'en-US';
+const date = new Date(data.date).toLocaleDateString(dateFormat, {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+const typeLabels = {
+  en: {
+    training: 'Training',
+    lecture: 'Lecture',
+    workshop: 'Workshop',
+  },
+  ar: {
+    training: 'تدريب',
+    lecture: 'محاضرة',
+    workshop: 'ورشة عمل',
+  },
+};
+
+const domainLabels = {
+  en: {
+    sports: 'Sports',
+    'educational-psychology': 'Educational Psychology',
+    engineering: 'Engineering',
+    'data-science': 'Data Science',
+    general: 'General',
+  },
+  ar: {
+    sports: 'الرياضة',
+    'educational-psychology': 'علم النفس التربوي',
+    engineering: 'الهندسة',
+    'data-science': 'علم البيانات',
+    general: 'عام',
+  },
+};
+---
+
+<article class="training-card">
+  <header>
+    <h3>{data.title}</h3>
+    <div class="training-card__meta">
+      <Badge label={typeLabels[data.lang][data.type]} variant="accent-3" size="sm" />
+      <span class="organization">{data.organization}</span>
+    </div>
+    <div class="training-card__details">
+      {data.venue && <span class="venue">{data.venue}</span>}
+      <span class="date">{date}</span>
+    </div>
+    {data.audience && <p class="audience">{data.audience}</p>}
+    <div class="training-card__domains">
+      {data.domain.map((d) => (
+        <Badge label={domainLabels[data.lang][d]} variant="accent-1" size="sm" />
+      ))}
+    </div>
+  </header>
+  <p>{data.description}</p>
+  <footer class="training-card__links">
+    {data.materials_url && (
+      <a href={data.materials_url} target="_blank" rel="noopener noreferrer">
+        {isRTL ? 'المواد ←' : 'Materials →'}
+      </a>
+    )}
+    {data.slides_url && (
+      <a href={data.slides_url} target="_blank" rel="noopener noreferrer">
+        {isRTL ? 'العروض ←' : 'Slides →'}
+      </a>
+    )}
+  </footer>
+</article>
+
+<style>
+  .training-card {
+    background: var(--gradient-card);
+    padding: var(--space-6);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-card);
+    transition: all var(--motion-duration-normal) var(--motion-easing-smooth);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .training-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  .training-card__meta {
+    display: flex;
+    gap: var(--space-2);
+    align-items: center;
+    margin-block-end: var(--space-2);
+  }
+
+  .organization {
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+
+  .training-card__details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-block-end: var(--space-3);
+    font-size: var(--font-size-small);
+    color: var(--color-muted-ink);
+  }
+
+  .audience {
+    margin-block: var(--space-2);
+    font-size: var(--font-size-small);
+    color: var(--color-muted-ink);
+    font-style: italic;
+  }
+
+  .training-card__domains {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-block-end: var(--space-4);
+  }
+
+  .training-card__links {
+    display: flex;
+    gap: var(--space-4);
+    margin-block-start: var(--space-4);
+  }
+
+  .training-card__links a {
+    text-decoration: none;
+    font-weight: 500;
+  }
+</style>
+

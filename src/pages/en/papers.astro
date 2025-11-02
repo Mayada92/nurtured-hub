@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PaperCard from '../../components/PaperCard.astro';
+import SectionReveal from '../../components/SectionReveal';
+import { getCollection } from 'astro:content';
+
+const papers = (await getCollection('papers'))
+  .filter((p) => p.data.lang === 'en')
+  .sort((a, b) => b.data.year - a.data.year);
+---
+
+<BaseLayout title="Papers" description="Research papers and publications" lang="en">
+  <section class="section">
+    <div class="container">
+      <SectionReveal client:load>
+        <h1>Papers</h1>
+        <p>Research publications and academic work.</p>
+      </SectionReveal>
+      <div class="grid grid--papers">
+        {papers.map((paper, i) => (
+          <SectionReveal client:load delay={i * 0.1}>
+            <PaperCard paper={paper} />
+          </SectionReveal>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .section {
+    padding-block: var(--space-8);
+  }
+
+  .grid {
+    display: grid;
+    gap: var(--space-6);
+    margin-block-start: var(--space-6);
+  }
+
+  .grid--papers {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+</style>
+
+
+

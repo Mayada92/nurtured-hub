@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionReveal from '../../components/SectionReveal';
+import { getCollection } from 'astro:content';
+
+const profiles = await getCollection('profiles');
+
+const profileLinks = {
+  'children-education': { label: 'Children & Education', href: '/en/profile/children-education' },
+  'data-science': { label: 'Data Science', href: '/en/profile/data-science' },
+  volunteering: { label: 'Volunteering', href: '/en/profile/volunteering' },
+  engineering: { label: 'Engineering', href: '/en/profile/engineering' },
+};
+---
+
+<BaseLayout title="Profiles" description="Professional profiles by focus area" lang="en">
+  <section class="section">
+    <div class="container">
+      <SectionReveal client:load>
+        <h1>Professional Profiles</h1>
+        <p>Explore customized CV views organized by professional focus areas.</p>
+      </SectionReveal>
+      <div class="profile-grid">
+        {profiles.map((profile, i) => {
+          const link = profileLinks[profile.data.focus];
+          return (
+            <SectionReveal client:load delay={i * 0.1}>
+              <a href={link.href} class="profile-card">
+                <h2>{link.label}</h2>
+                <p>{profile.data.headline}</p>
+              </a>
+            </SectionReveal>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .section {
+    padding-block: var(--space-8);
+  }
+
+  .profile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-6);
+    margin-block-start: var(--space-6);
+  }
+
+  .profile-card {
+    display: block;
+    padding: var(--space-6);
+    background: white;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-soft);
+    text-decoration: none;
+    transition: transform var(--motion-duration-normal) var(--motion-easing),
+      box-shadow var(--motion-duration-normal) var(--motion-easing);
+  }
+
+  .profile-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .profile-card h2 {
+    margin-block-end: var(--space-3);
+    color: var(--color-ink);
+  }
+
+  .profile-card p {
+    color: var(--color-muted-ink);
+    margin: 0;
+  }
+</style>
+
+
+

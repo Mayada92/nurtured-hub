@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionReveal from '../../components/SectionReveal';
+---
+
+<BaseLayout title="اتصل" description="تواصل معي" lang="ar">
+  <section class="section">
+    <div class="container">
+      <div class="content">
+        <SectionReveal client:load>
+          <h1>اتصل</h1>
+          <p>هذه صفحة تجريبية لصفحة الاتصال. أضف معلومات الاتصال الخاصة بك هنا.</p>
+        </SectionReveal>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .section {
+    padding-block: var(--space-8);
+  }
+</style>
+
+
+

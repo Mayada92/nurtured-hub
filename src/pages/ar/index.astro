@@ -1,0 +1,243 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FloatingLayer from '../../components/FloatingLayer';
+import SectionReveal from '../../components/SectionReveal';
+import ProjectCard from '../../components/ProjectCard.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getCollection } from 'astro:content';
+
+const featuredProjects = (await getCollection('projects'))
+  .filter((p) => p.data.lang === 'ar' && p.data.featured)
+  .slice(0, 6)
+  .sort((a, b) => b.data.year - a.data.year);
+
+const recentPosts = (await getCollection('posts'))
+  .filter((p) => p.data.lang === 'ar')
+  .slice(0, 3)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<BaseLayout
+  title="الرئيسية"
+  description="مرحباً بك في نورتشور - محفظة ثنائية اللغة تعرض المشاريع والكتابات والملفات الشخصية المهنية"
+  lang="ar"
+>
+  <div style="position: relative; min-height: 100vh;">
+    <FloatingLayer client:load />
+    <section class="hero">
+      <div class="container">
+        <SectionReveal client:load>
+          <h1>مرحباً بك في نورتشور</h1>
+          <p class="hero__subtitle">
+            استكشاف الأطفال والتعليم، علم البيانات، التطوع، والهندسة
+          </p>
+          <div class="hero__cta">
+            <a href="/ar/projects" class="cta-button cta-button--primary">المشاريع</a>
+            <a href="/ar/writing" class="cta-button">الكتابات</a>
+            <a href="/ar/profile" class="cta-button">الملفات الشخصية</a>
+          </div>
+        </SectionReveal>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <SectionReveal client:load delay={0.1}>
+          <h2>مشاريع مميزة</h2>
+          <div class="grid grid--projects">
+            {featuredProjects.map((project, i) => (
+              <SectionReveal client:load delay={0.1 + i * 0.1}>
+                <ProjectCard project={project} />
+              </SectionReveal>
+            ))}
+          </div>
+        </SectionReveal>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <SectionReveal client:load delay={0.2}>
+          <h2>كتابات حديثة</h2>
+          <div class="grid grid--posts">
+            {recentPosts.map((post, i) => (
+              <SectionReveal client:load delay={0.2 + i * 0.1}>
+                <PostCard post={post} />
+              </SectionReveal>
+            ))}
+          </div>
+        </SectionReveal>
+      </div>
+    </section>
+
+    <section class="section section--banner">
+      <div class="container">
+        <SectionReveal client:load delay={0.3}>
+          <div class="banner">
+            <h2>نورتشور</h2>
+            <p>
+              منصة لاستكشاف تقاطع التعليم والبيانات والتأثير الاجتماعي. ربط وجهات النظر من خلال البحث والكتابة والتطبيقات العملية.
+            </p>
+          </div>
+        </SectionReveal>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-block: var(--space-8);
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-hero);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .hero > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero h1 {
+    font-size: var(--font-size-hero);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-block-end: var(--space-6);
+    letter-spacing: -0.03em;
+  }
+
+  .hero__subtitle {
+    font-size: 1.375rem;
+    color: var(--color-muted-ink);
+    margin-block-end: var(--space-8);
+    max-width: var(--hero-content-width);
+    margin-inline: auto;
+    line-height: 1.6;
+    font-weight: 400;
+  }
+
+  .hero__cta {
+    display: flex;
+    gap: var(--space-3);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-4) var(--space-8);
+    background: white;
+    border: 2px solid var(--color-ink);
+    border-radius: var(--radius-xl);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.0625rem;
+    letter-spacing: -0.01em;
+    transition: all var(--motion-duration-normal) var(--motion-easing-smooth);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .cta-button:hover {
+    transform: translateY(-3px) scale(1.02);
+    background: var(--color-accent-4);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-accent-1);
+  }
+
+  .cta-button--primary {
+    background: var(--color-ink);
+    color: var(--color-bg);
+    border-color: var(--color-ink);
+  }
+
+  .cta-button--primary:hover {
+    background: var(--color-muted-ink);
+    border-color: var(--color-muted-ink);
+    transform: translateY(-3px) scale(1.02);
+  }
+
+  .section {
+    padding-block: var(--section-spacing);
+  }
+
+  .section--banner {
+    background: var(--gradient-section);
+    padding-block: var(--space-10);
+    border-radius: var(--radius-xl);
+    margin-block: var(--section-spacing);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .section--banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .banner {
+    text-align: center;
+    color: var(--color-ink);
+    max-width: 700px;
+    margin-inline: auto;
+  }
+
+  .grid {
+    display: grid;
+    gap: var(--space-6);
+  }
+
+  .grid--projects {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--space-8);
+  }
+
+  .grid--posts {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-8);
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      min-height: 85vh;
+      padding-block: var(--space-6);
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    .hero__subtitle {
+      font-size: 1.125rem;
+    }
+
+    .section {
+      padding-block: var(--section-spacing-mobile);
+    }
+
+    .grid--projects,
+    .grid--posts {
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+    }
+  }
+</style>
+
+
+

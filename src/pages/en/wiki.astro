@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionReveal from '../../components/SectionReveal';
+---
+
+<BaseLayout title="Wiki" description="Wiki and knowledge base" lang="en">
+  <section class="section">
+    <div class="container">
+      <div class="content">
+        <SectionReveal client:load>
+          <h1>Wiki</h1>
+          <p>This is a placeholder for the wiki. Add your wiki URL here when ready.</p>
+        </SectionReveal>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .section {
+    padding-block: var(--space-8);
+  }
+</style>
+
+
+

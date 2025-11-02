@@ -1,0 +1,226 @@
+---
+import ImageStage from './ImageStage';
+import Badge from './Badge.astro';
+
+interface Props {
+  title: string;
+  institution: string;
+  course?: string;
+  year: number;
+  description: string;
+  images?: string[];
+  files?: Array<{ name: string; url: string; type: 'pdf' | 'docx' | 'zip' | 'mp4' }>;
+  domain: 'sports' | 'educational-psychology' | 'engineering' | 'data-science';
+  lang?: 'en' | 'ar';
+}
+
+const { title, institution, course, year, description, images = [], files = [], domain, lang = 'en' } = Astro.props;
+
+const fileTypeIcons = {
+  pdf: '📄',
+  docx: '📝',
+  zip: '📦',
+  mp4: '🎥',
+};
+
+const domainColors = {
+  sports: 'accent-2',
+  'educational-psychology': 'accent-1',
+  engineering: 'accent-3',
+  'data-science': 'accent-2',
+} as const;
+---
+
+<div class="work-example" data-expandable>
+  <button class="work-example__header" aria-expanded="false" aria-controls={`example-${title.toLowerCase().replace(/\s+/g, '-')}`}>
+    <div class="work-example__title-group">
+      <h3>{title}</h3>
+      <div class="work-example__meta">
+        <span class="institution">{institution}</span>
+        {course && <Badge label={course} variant={domainColors[domain]} size="sm" />}
+        <span class="year">{year}</span>
+      </div>
+    </div>
+    <span class="work-example__toggle" aria-hidden="true">▼</span>
+  </button>
+  
+  <div class="work-example__content" id={`example-${title.toLowerCase().replace(/\s+/g, '-')}`} hidden>
+    <p class="work-example__description">{description}</p>
+    
+    {images.length > 0 && (
+      <div class="work-example__images">
+        {images.map((img, idx) => (
+          <ImageStage client:load src={img} alt={`${title} - Image ${idx + 1}`} width={1200} height={600} />
+        ))}
+      </div>
+    )}
+    
+    {files.length > 0 && (
+      <div class="work-example__files">
+        <h4>{lang === 'ar' ? 'الملفات' : 'Files'}</h4>
+        <ul>
+          {files.map((file) => (
+            <li>
+              <a href={file.url} target="_blank" rel="noopener noreferrer" download>
+                <span class="file-icon">{fileTypeIcons[file.type]}</span>
+                {file.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('[data-expandable]').forEach((example) => {
+    const button = example.querySelector('.work-example__header');
+    const content = example.querySelector('.work-example__content');
+    
+    if (!button || !content) return;
+    
+    button.addEventListener('click', () => {
+      const isExpanded = button.getAttribute('aria-expanded') === 'true';
+      button.setAttribute('aria-expanded', String(!isExpanded));
+      content.hidden = isExpanded;
+      
+      // Animate toggle icon
+      const toggle = button.querySelector('.work-example__toggle');
+      if (toggle) {
+        toggle.style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(180deg)';
+      }
+    });
+  });
+</script>
+
+<style>
+  .work-example {
+    margin-block-end: var(--space-4);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all var(--motion-duration-normal) var(--motion-easing-smooth);
+  }
+
+  .work-example:hover {
+    border-color: var(--color-accent-1);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .work-example__header {
+    width: 100%;
+    padding: var(--space-4);
+    background: var(--gradient-card);
+    border: none;
+    text-align: start;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-4);
+    transition: background-color var(--motion-duration-fast) var(--motion-easing);
+  }
+
+  .work-example__header:hover {
+    background: var(--color-accent-4);
+  }
+
+  .work-example__title-group {
+    flex: 1;
+  }
+
+  .work-example__title-group h3 {
+    margin-block-end: var(--space-2);
+    font-size: 1.25rem;
+  }
+
+  .work-example__meta {
+    display: flex;
+    gap: var(--space-3);
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: var(--font-size-small);
+    color: var(--color-muted-ink);
+  }
+
+  .work-example__toggle {
+    font-size: 0.875rem;
+    transition: transform var(--motion-duration-fast) var(--motion-easing);
+    color: var(--color-muted-ink);
+  }
+
+  .work-example__content {
+    padding: var(--space-6);
+    background: white;
+    animation: slideDown var(--motion-duration-normal) var(--motion-easing-smooth);
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .work-example__description {
+    margin-block-end: var(--space-6);
+    line-height: 1.7;
+  }
+
+  .work-example__images {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    margin-block-end: var(--space-6);
+  }
+
+  .work-example__files {
+    margin-block-start: var(--space-6);
+    padding-block-start: var(--space-6);
+    border-block-start: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .work-example__files h4 {
+    margin-block-end: var(--space-3);
+    font-size: 1rem;
+  }
+
+  .work-example__files ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .work-example__files a {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    background: var(--color-accent-4);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: all var(--motion-duration-fast) var(--motion-easing);
+  }
+
+  .work-example__files a:hover {
+    background: var(--color-accent-1);
+    transform: translateX(4px);
+  }
+
+  .file-icon {
+    font-size: 1.25rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .work-example__content {
+      animation: none;
+    }
+  }
+</style>
+
