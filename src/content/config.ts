@@ -41,7 +41,7 @@ const papersCollection = defineCollection({
     pdf_url: z.string().optional(),
     citation_bibtex: z.string().optional(),
     cover: z.string().optional(), // Image path for paper cover
-    video_url: z.string().url().optional(), // Video presentation if available
+    video_url: z.string().optional(), // Video URL or relative path if available
   }),
 });
 
@@ -75,7 +75,7 @@ const volunteeringCollection = defineCollection({
     is_hackathon: z.boolean().default(false),
     cover: z.string().optional(), // Image path for volunteering cover
     images: z.array(z.string()).optional(), // Additional images
-    video_url: z.string().url().optional(), // Video if available
+    video_url: z.string().optional(), // Video URL or relative path if available
   }),
 });
 
@@ -95,7 +95,7 @@ const trainingCollection = defineCollection({
     slides_url: z.string().url().optional(),
     cover: z.string().optional(), // Image path for training cover
     images: z.array(z.string()).optional(), // Additional images
-    video_url: z.string().url().optional(), // Video if available
+    video_url: z.string().optional(), // Video URL or relative path if available
   }),
 });
 
@@ -115,7 +115,7 @@ const speakingCollection = defineCollection({
     event_url: z.string().url().optional(),
     cover: z.string().optional(), // Image path for speaking cover
     images: z.array(z.string()).optional(), // Additional images
-    video_url: z.string().url().optional(), // Video if available
+    video_url: z.string().optional(), // Video URL or relative path if available
   }),
 });
 
@@ -156,7 +156,7 @@ const workCollection = defineCollection({
     url: z.string().url().optional(),
     cover: z.string().optional(), // Image path for work cover
     images: z.array(z.string()).optional(), // Additional images
-    video_url: z.string().url().optional(), // Video if available
+    video_url: z.string().optional(), // Video URL or relative path if available
   }),
 });
 
