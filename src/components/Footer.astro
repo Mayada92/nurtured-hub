@@ -1,29 +1,30 @@
 ---
 import LanguageSwitcher from './LanguageSwitcher.astro';
-import { getLanguageFromPath } from '../utils/path';
+import { getLanguageFromPath, getBasePath } from '../utils/path';
 
 const currentPath = Astro.url.pathname;
 const lang = getLanguageFromPath(currentPath);
+const base = getBasePath();
 const langPrefix = lang === 'ar' ? '/ar' : '/en';
 
 const footerLinks = {
   en: [
-    { label: 'Home', href: `${langPrefix}/` },
-    { label: 'Projects', href: `${langPrefix}/projects` },
-    { label: 'Writing', href: `${langPrefix}/writing` },
-    { label: 'Papers', href: `${langPrefix}/papers` },
-    { label: 'Profiles', href: `${langPrefix}/profile` },
-    { label: 'About', href: `${langPrefix}/about` },
-    { label: 'Contact', href: `${langPrefix}/contact` },
+    { label: 'Home', href: `${base}${langPrefix}/`.replace(/\/+/g, '/') },
+    { label: 'Projects', href: `${base}${langPrefix}/projects`.replace(/\/+/g, '/') },
+    { label: 'Writing', href: `${base}${langPrefix}/writing`.replace(/\/+/g, '/') },
+    { label: 'Papers', href: `${base}${langPrefix}/papers`.replace(/\/+/g, '/') },
+    { label: 'Profiles', href: `${base}${langPrefix}/profile`.replace(/\/+/g, '/') },
+    { label: 'About', href: `${base}${langPrefix}/about`.replace(/\/+/g, '/') },
+    { label: 'Contact', href: `${base}${langPrefix}/contact`.replace(/\/+/g, '/') },
   ],
   ar: [
-    { label: 'الرئيسية', href: `${langPrefix}/` },
-    { label: 'المشاريع', href: `${langPrefix}/projects` },
-    { label: 'الكتابات', href: `${langPrefix}/writing` },
-    { label: 'الأوراق', href: `${langPrefix}/papers` },
-    { label: 'الملفات الشخصية', href: `${langPrefix}/profile` },
-    { label: 'حولي', href: `${langPrefix}/about` },
-    { label: 'اتصل', href: `${langPrefix}/contact` },
+    { label: 'الرئيسية', href: `${base}${langPrefix}/`.replace(/\/+/g, '/') },
+    { label: 'المشاريع', href: `${base}${langPrefix}/projects`.replace(/\/+/g, '/') },
+    { label: 'الكتابات', href: `${base}${langPrefix}/writing`.replace(/\/+/g, '/') },
+    { label: 'الأوراق', href: `${base}${langPrefix}/papers`.replace(/\/+/g, '/') },
+    { label: 'الملفات الشخصية', href: `${base}${langPrefix}/profile`.replace(/\/+/g, '/') },
+    { label: 'حولي', href: `${base}${langPrefix}/about`.replace(/\/+/g, '/') },
+    { label: 'اتصل', href: `${base}${langPrefix}/contact`.replace(/\/+/g, '/') },
   ],
 };
 
