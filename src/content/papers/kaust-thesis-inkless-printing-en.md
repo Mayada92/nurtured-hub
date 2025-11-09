@@ -5,7 +5,7 @@ venue: "King Abdullah University of Science and Technology (KAUST) - Master's Th
 year: 2017
 authors: ["Mayadah Alhashem"]
 pdf_url: "https://repository.kaust.edu.sa/handle/10754/625000"
-cover: "/images/papers/kaust-thesis.webp"
+cover: "/images/papers/adipec-2019.webp"
 ---
 
 **Supervisor:** Dr. Robert Dibble, Clean Combustion Research Center

@@ -2,14 +2,17 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SectionReveal from '../../components/SectionReveal';
 import { getCollection } from 'astro:content';
+import { getBasePath } from '../../utils/path';
+
+const base = getBasePath();
 
 const profiles = await getCollection('profiles');
 
 const profileLinks = {
-  'children-education': { label: 'Children & Education', href: '/en/profile/children-education' },
-  'data-science': { label: 'Data Science', href: '/en/profile/data-science' },
-  volunteering: { label: 'Volunteering', href: '/en/profile/volunteering' },
-  engineering: { label: 'Engineering', href: '/en/profile/engineering' },
+  'children-education': { label: 'Children & Education', href: `${base}en/profile/children-education` },
+  'data-science': { label: 'Data Science', href: `${base}en/profile/data-science` },
+  volunteering: { label: 'Volunteering', href: `${base}en/profile/volunteering` },
+  engineering: { label: 'Engineering', href: `${base}en/profile/engineering` },
 };
 ---
 
