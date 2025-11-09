@@ -6,6 +6,9 @@ import ProjectCard from '../../components/ProjectCard.astro';
 import PostCard from '../../components/PostCard.astro';
 import StatsSection from '../../components/StatsSection';
 import { getCollection } from 'astro:content';
+import { getBasePath } from '../../utils/path';
+
+const base = getBasePath();
 
 const featuredProjects = (await getCollection('projects'))
   .filter((p) => p.data.lang === 'ar' && p.data.featured)
@@ -64,9 +67,9 @@ const stats = [
             استكشاف الأطفال والتعليم، علم البيانات، التطوع، والهندسة
           </p>
           <div class="hero__cta">
-            <a href="/ar/profile" class="cta-button cta-button--profile">الملفات الشخصية</a>
-            <a href="/ar/projects" class="cta-button cta-button--projects">المشاريع</a>
-            <a href="/ar/writing" class="cta-button cta-button--articles">استكشف المقالات</a>
+            <a href={`${base}ar/profile`} class="cta-button cta-button--profile">الملفات الشخصية</a>
+            <a href={`${base}ar/projects`} class="cta-button cta-button--projects">المشاريع</a>
+            <a href={`${base}ar/writing`} class="cta-button cta-button--articles">استكشف المقالات</a>
           </div>
         </SectionReveal>
       </div>

@@ -3,6 +3,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import SectionReveal from '../../components/SectionReveal';
 import ImageStage from '../../components/ImageStage';
 import Icon from '../../components/Icon.astro';
+import { getBasePath } from '../../utils/path';
+
+const base = getBasePath();
 ---
 
 <BaseLayout
@@ -135,15 +138,15 @@ import Icon from '../../components/Icon.astro';
             I'm excited to share this journey with you. Let's nurture our minds and grow together.
           </p>
           <div class="cta-buttons">
-            <a href="/en/profile" class="cta-button cta-button--profile">
+            <a href={`${base}en/profile`} class="cta-button cta-button--profile">
               <Icon name="user" size={20} />
               <span>Explore Profiles</span>
             </a>
-            <a href="/en/projects" class="cta-button cta-button--projects">
+            <a href={`${base}en/projects`} class="cta-button cta-button--projects">
               <Icon name="folder" size={20} />
               <span>View Projects</span>
             </a>
-            <a href="/en/writing" class="cta-button cta-button--articles">
+            <a href={`${base}en/writing`} class="cta-button cta-button--articles">
               <Icon name="document" size={20} />
               <span>Read Articles</span>
             </a>

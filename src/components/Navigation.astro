@@ -1,28 +1,29 @@
 ---
 import LanguageSwitcher from './LanguageSwitcher.astro';
 import Icon from './Icon.astro';
-import { getLanguageFromPath } from '../utils/path';
+import { getLanguageFromPath, getBasePath } from '../utils/path';
 
+const base = getBasePath();
 const currentPath = Astro.url.pathname;
 const lang = getLanguageFromPath(currentPath);
 const langPrefix = lang === 'ar' ? '/ar' : '/en';
 
 const navItems = {
   en: [
-    { label: 'Home', href: `${langPrefix}/`, icon: 'home' },
-    { label: 'My Story', href: `${langPrefix}/about`, icon: 'sparkles' },
-    { label: 'Profiles', href: `${langPrefix}/profile`, icon: 'user' },
-    { label: 'Projects', href: `${langPrefix}/projects`, icon: 'folder' },
-    { label: 'Writing', href: `${langPrefix}/writing`, icon: 'document' },
-    { label: 'Papers', href: `${langPrefix}/papers`, icon: 'academic' },
+    { label: 'Home', href: `${base}${langPrefix}/`.replace(/\/+/g, '/'), icon: 'home' },
+    { label: 'My Story', href: `${base}${langPrefix}/about`.replace(/\/+/g, '/'), icon: 'sparkles' },
+    { label: 'Profiles', href: `${base}${langPrefix}/profile`.replace(/\/+/g, '/'), icon: 'user' },
+    { label: 'Projects', href: `${base}${langPrefix}/projects`.replace(/\/+/g, '/'), icon: 'folder' },
+    { label: 'Writing', href: `${base}${langPrefix}/writing`.replace(/\/+/g, '/'), icon: 'document' },
+    { label: 'Papers', href: `${base}${langPrefix}/papers`.replace(/\/+/g, '/'), icon: 'academic' },
   ],
   ar: [
-    { label: 'الرئيسية', href: `${langPrefix}/`, icon: 'home' },
-    { label: 'قصتي', href: `${langPrefix}/about`, icon: 'sparkles' },
-    { label: 'الملفات الشخصية', href: `${langPrefix}/profile`, icon: 'user' },
-    { label: 'المشاريع', href: `${langPrefix}/projects`, icon: 'folder' },
-    { label: 'الكتابات', href: `${langPrefix}/writing`, icon: 'document' },
-    { label: 'الأوراق', href: `${langPrefix}/papers`, icon: 'academic' },
+    { label: 'الرئيسية', href: `${base}${langPrefix}/`.replace(/\/+/g, '/'), icon: 'home' },
+    { label: 'قصتي', href: `${base}${langPrefix}/about`.replace(/\/+/g, '/'), icon: 'sparkles' },
+    { label: 'الملفات الشخصية', href: `${base}${langPrefix}/profile`.replace(/\/+/g, '/'), icon: 'user' },
+    { label: 'المشاريع', href: `${base}${langPrefix}/projects`.replace(/\/+/g, '/'), icon: 'folder' },
+    { label: 'الكتابات', href: `${base}${langPrefix}/writing`.replace(/\/+/g, '/'), icon: 'document' },
+    { label: 'الأوراق', href: `${base}${langPrefix}/papers`.replace(/\/+/g, '/'), icon: 'academic' },
   ],
 };
 
@@ -32,7 +33,7 @@ const items = navItems[lang];
 <nav class="navigation" role="navigation" aria-label="Main navigation">
   <div class="container">
     <div class="navigation__inner">
-      <a href={`${langPrefix}/`} class="navigation__logo">
+      <a href={`${base}${langPrefix}/`.replace(/\/+/g, '/')} class="navigation__logo">
         <img 
           src="/images/brand/nurtured-mind-logo.jpg" 
           alt={lang === 'ar' ? 'محور الرعاية' : 'Nurtured Hub'}
