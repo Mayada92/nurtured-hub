@@ -1,26 +1,419 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SectionReveal from '../../components/SectionReveal';
+import ImageStage from '../../components/ImageStage';
+import Icon from '../../components/Icon.astro';
 ---
 
-<BaseLayout title="About" description="Learn more about me" lang="en">
-  <section class="section">
+<BaseLayout
+  title="My Story"
+  description="Learn about the journey behind Nurtured Hub - exploring the intersection of data science, education, engineering, and human development"
+  lang="en"
+>
+  <section class="hero-section">
     <div class="container">
-      <div class="content">
-        <SectionReveal client:load>
-          <h1>About</h1>
-          <p>This is a placeholder for the about page. Add your personal information here.</p>
-        </SectionReveal>
-      </div>
+      <SectionReveal client:load>
+        <div class="hero-content">
+          <div class="hero-image">
+            <ImageStage
+              src="/images/brand/nurtured-mind-logo.webp"
+              alt="Nurtured Hub"
+              width={400}
+              height={400}
+              parallax={true}
+            />
+          </div>
+          <div class="hero-text">
+            <h1>My Story</h1>
+            <p class="hero-intro">
+              I'm Mayada Alhashem, and I also go by Maya — an engineer, data scientist, and lifelong learner 
+              with a passion for education, artificial intelligence, and human development. My journey spans 
+              fields as diverse as AI, psychology, and child development, all driven by a deep desire to make 
+              knowledge accessible and meaningful.
+            </p>
+          </div>
+        </div>
+      </SectionReveal>
+    </div>
+  </section>
+
+  <section class="section section--story">
+    <div class="container">
+      <SectionReveal client:load delay={0.1}>
+        <div class="story-content">
+          <p>
+            With an in-progress master's in Data Science and graduate certificate in Human Development and Learning, 
+            I combine technical expertise with an understanding of human behavior to explore how technology can 
+            empower growth and learning. I'm also deeply invested in integrating cultural and ethical values into 
+            modern education.
+          </p>
+        </div>
+      </SectionReveal>
+    </div>
+  </section>
+
+  <section class="section section--purpose">
+    <div class="container">
+      <SectionReveal client:load delay={0.2}>
+        <div class="purpose-header">
+          <Icon name="sparkles" size={48} class="purpose-icon" />
+          <h2>Purpose and Vision</h2>
+        </div>
+        <div class="purpose-content">
+          <p>
+            <strong>Nurtured Hub</strong> was created as a platform to:
+          </p>
+          <ul class="purpose-list">
+            <li>
+              <Icon name="chart" size={24} class="list-icon" />
+              <span>Share insights and ideas gained through my academic and professional experiences</span>
+            </li>
+            <li>
+              <Icon name="lightbulb" size={24} class="list-icon" />
+              <span>Explore the intersection of AI, education, and psychology to inspire meaningful learning</span>
+            </li>
+            <li>
+              <Icon name="rocket" size={24} class="list-icon" />
+              <span>Provide resources and reflections that help others grow intellectually and emotionally</span>
+            </li>
+            <li>
+              <Icon name="users" size={24} class="list-icon" />
+              <span>Foster a community of thinkers and learners who are curious, open-minded, and purpose-driven</span>
+            </li>
+          </ul>
+        </div>
+      </SectionReveal>
+    </div>
+  </section>
+
+  <section class="section section--what-youll-find">
+    <div class="container">
+      <SectionReveal client:load delay={0.3}>
+        <h2>What You'll Find Here</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <Icon name="user" size={32} class="feature-icon" />
+            <h3>My Profile</h3>
+            <p>My experience and background in various domains to invite collaboration opportunities</p>
+          </div>
+          <div class="feature-card">
+            <Icon name="document" size={32} class="feature-icon" />
+            <h3>Articles & Reflections</h3>
+            <p>Personal thoughts and lessons from my academic and professional journey</p>
+          </div>
+          <div class="feature-card">
+            <Icon name="code" size={32} class="feature-icon" />
+            <h3>AI & Education Insights</h3>
+            <p>Exploring how technology shapes modern learning and development</p>
+          </div>
+          <div class="feature-card">
+            <Icon name="briefcase" size={32} class="feature-icon" />
+            <h3>Projects & Resources</h3>
+            <p>Practical tools, strategies, and templates for growth and organization</p>
+          </div>
+          <div class="feature-card">
+            <Icon name="academic" size={32} class="feature-icon" />
+            <h3>Publications & Research</h3>
+            <p>Academic papers, conference presentations, and research contributions</p>
+          </div>
+          <div class="feature-card">
+            <Icon name="sparkles" size={32} class="feature-icon" />
+            <h3>Stories & Reflections</h3>
+            <p>Sharing ideas to spark curiosity and creativity</p>
+          </div>
+        </div>
+      </SectionReveal>
+    </div>
+  </section>
+
+  <section class="section section--cta">
+    <div class="container">
+      <SectionReveal client:load delay={0.4}>
+        <div class="cta-content">
+          <h2>Thank you for visiting Nurtured Hub!</h2>
+          <p>
+            I'm excited to share this journey with you. Let's nurture our minds and grow together.
+          </p>
+          <div class="cta-buttons">
+            <a href="/en/profile" class="cta-button cta-button--profile">
+              <Icon name="user" size={20} />
+              <span>Explore Profiles</span>
+            </a>
+            <a href="/en/projects" class="cta-button cta-button--projects">
+              <Icon name="folder" size={20} />
+              <span>View Projects</span>
+            </a>
+            <a href="/en/writing" class="cta-button cta-button--articles">
+              <Icon name="document" size={20} />
+              <span>Read Articles</span>
+            </a>
+          </div>
+        </div>
+      </SectionReveal>
     </div>
   </section>
 </BaseLayout>
 
 <style>
+  .hero-section {
+    padding-block: var(--space-12);
+    background: var(--gradient-hero);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: var(--space-10);
+    align-items: center;
+  }
+
+  .hero-image {
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-text h1 {
+    font-size: var(--font-size-hero);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-block-end: var(--space-6);
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-intro {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-ink);
+    opacity: 0.9;
+  }
+
   .section {
-    padding-block: var(--space-8);
+    padding-block: var(--section-spacing);
+  }
+
+  .section--story {
+    background: var(--color-bg);
+  }
+
+  .story-content {
+    max-width: 800px;
+    margin-inline: auto;
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--color-muted-ink);
+    text-align: center;
+  }
+
+  .section--purpose {
+    background: var(--gradient-section);
+    border-radius: var(--radius-xl);
+    margin-block: var(--section-spacing);
+    padding: var(--space-12);
+  }
+
+  .purpose-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin-block-end: var(--space-8);
+    justify-content: center;
+  }
+
+  .purpose-icon {
+    color: var(--color-accent-1);
+  }
+
+  .purpose-header h2 {
+    font-size: var(--font-size-h1);
+    font-weight: 700;
+    color: var(--color-ink);
+  }
+
+  .purpose-content {
+    max-width: 900px;
+    margin-inline: auto;
+  }
+
+  .purpose-content > p {
+    font-size: 1.25rem;
+    margin-block-end: var(--space-6);
+    color: var(--color-ink);
+  }
+
+  .purpose-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  .purpose-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: var(--radius-lg);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+
+  .list-icon {
+    flex-shrink: 0;
+    color: var(--color-accent-1);
+    margin-block-start: 2px;
+  }
+
+  .section--what-youll-find h2 {
+    font-size: var(--font-size-h1);
+    font-weight: 700;
+    text-align: center;
+    margin-block-end: var(--space-10);
+    color: var(--color-ink);
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .feature-card {
+    padding: var(--space-6);
+    background: var(--gradient-card);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-card);
+    transition: all var(--motion-duration-normal) var(--motion-easing-smooth);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  .feature-icon {
+    color: var(--color-accent-1);
+    margin-block-end: var(--space-3);
+  }
+
+  .feature-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-block-end: var(--space-2);
+    color: var(--color-ink);
+  }
+
+  .feature-card p {
+    color: var(--color-muted-ink);
+    line-height: 1.6;
+  }
+
+  .section--cta {
+    background: var(--gradient-section);
+    border-radius: var(--radius-xl);
+    margin-block: var(--section-spacing);
+    padding: var(--space-12);
+    text-align: center;
+  }
+
+  .cta-content h2 {
+    font-size: var(--font-size-h1);
+    font-weight: 700;
+    margin-block-end: var(--space-4);
+    color: var(--color-ink);
+  }
+
+  .cta-content > p {
+    font-size: 1.25rem;
+    color: var(--color-muted-ink);
+    margin-block-end: var(--space-8);
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-4) var(--space-8);
+    border-radius: var(--radius-xl);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.0625rem;
+    transition: all var(--motion-duration-normal) var(--motion-easing-smooth);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .cta-button svg {
+    flex-shrink: 0;
+  }
+
+  .cta-button--profile {
+    background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+    color: white;
+    box-shadow: 0 4px 14px rgba(139, 92, 246, 0.3);
+  }
+
+  .cta-button--profile:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+  }
+
+  .cta-button--projects {
+    background: linear-gradient(135deg, #06b6d4 0%, #22d3ee 100%);
+    color: white;
+    box-shadow: 0 4px 14px rgba(6, 182, 212, 0.3);
+  }
+
+  .cta-button--projects:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 6px 20px rgba(6, 182, 212, 0.4);
+  }
+
+  .cta-button--articles {
+    background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+    color: white;
+    box-shadow: 0 4px 14px rgba(245, 158, 11, 0.3);
+  }
+
+  .cta-button--articles:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+  }
+
+  @media (max-width: 768px) {
+    .hero-content {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .purpose-header {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+    }
+
+    .cta-button {
+      width: 100%;
+      justify-content: center;
+    }
   }
 </style>
-
-
-
