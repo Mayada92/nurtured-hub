@@ -10,5 +10,6 @@ domain: engineering
 level: professional
 description: "Completed a course on Circular Economy from edX offered by Delft University of Technology. This course explores circular economy principles and their applications in sustainable engineering and business practices."
 certificate_url: "https://www.edx.org/course/circular-economy"
+cover: "/images/courses/circular-economy-course.webp"
 ---
 

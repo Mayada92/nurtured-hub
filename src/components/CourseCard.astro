@@ -42,6 +42,18 @@ const levelLabels = {
 ---
 
 <article class="course-card">
+  {data.cover && (
+    <div class="course-card__cover">
+      <img
+        src={data.cover}
+        alt={`${data.title} - Course certificate`}
+        loading="lazy"
+        width="600"
+        height="400"
+        decoding="async"
+      />
+    </div>
+  )}
   <header>
     <h3>{data.title}</h3>
     {data.course_code && <span class="course-code">{data.course_code}</span>}
@@ -73,16 +85,38 @@ const levelLabels = {
 <style>
   .course-card {
     background: var(--gradient-card);
-    padding: var(--space-6);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-card);
     transition: all var(--motion-duration-normal) var(--motion-easing-smooth);
     border: 1px solid rgba(0, 0, 0, 0.05);
+    overflow: hidden;
   }
 
   .course-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-card-hover);
+  }
+
+  .course-card__cover {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: var(--gradient-section);
+  }
+
+  .course-card__cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--motion-duration-slow) var(--motion-easing-smooth);
+  }
+
+  .course-card:hover .course-card__cover img {
+    transform: scale(1.1);
+  }
+
+  .course-card header {
+    padding: var(--space-6);
   }
 
   .course-code {

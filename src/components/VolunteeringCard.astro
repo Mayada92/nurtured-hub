@@ -40,6 +40,18 @@ const domainLabels = {
 ---
 
 <article class="volunteering-card">
+  {data.cover && (
+    <div class="volunteering-card__cover">
+      <img
+        src={data.cover}
+        alt={`${data.title} - Cover image`}
+        loading="lazy"
+        width="600"
+        height="400"
+        decoding="async"
+      />
+    </div>
+  )}
   <header>
     <h3>{data.title}</h3>
     <div class="volunteering-card__meta">
@@ -87,16 +99,51 @@ const domainLabels = {
 <style>
   .volunteering-card {
     background: var(--gradient-card);
-    padding: var(--space-6);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-card);
     transition: all var(--motion-duration-normal) var(--motion-easing-smooth);
     border: 1px solid rgba(0, 0, 0, 0.05);
+    overflow: hidden;
   }
 
   .volunteering-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-card-hover);
+  }
+
+  .volunteering-card__cover {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: var(--gradient-section);
+  }
+
+  .volunteering-card__cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--motion-duration-slow) var(--motion-easing-smooth);
+  }
+
+  .volunteering-card:hover .volunteering-card__cover img {
+    transform: scale(1.1);
+  }
+
+  .volunteering-card header {
+    padding: var(--space-6);
+  }
+
+  .volunteering-card > p {
+    padding: 0 var(--space-6);
+  }
+
+  .volunteering-card .achievements,
+  .volunteering-card .volunteering-card__skills {
+    padding: 0 var(--space-6);
+  }
+
+  .volunteering-card footer {
+    padding: 0 var(--space-6) var(--space-6);
   }
 
   .volunteering-card__meta {

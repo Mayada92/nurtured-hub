@@ -10,5 +10,6 @@ domain: general
 level: professional
 description: "Completed Design Thinking for Innovation from University of Virginia. This course teaches the design thinking methodology for creative problem-solving and innovation in business and product development."
 certificate_url: "https://www.coursera.org/learn/design-thinking-innovation"
+cover: "/images/courses/org-psych-course.webp"
 ---
 

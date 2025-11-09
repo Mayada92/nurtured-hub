@@ -48,6 +48,26 @@ const domainLabels = {
 ---
 
 <article class="training-card">
+  {data.cover && (
+    <div class="training-card__cover">
+      <img
+        src={data.cover}
+        alt={`${data.title} - Cover image`}
+        loading="lazy"
+        width="600"
+        height="400"
+        decoding="async"
+      />
+    </div>
+  )}
+  {data.video_url && (
+    <div class="training-card__video">
+      <video controls preload="metadata" poster={data.cover}>
+        <source src={data.video_url} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  )}
   <header>
     <h3>{data.title}</h3>
     <div class="training-card__meta">
@@ -83,16 +103,59 @@ const domainLabels = {
 <style>
   .training-card {
     background: var(--gradient-card);
-    padding: var(--space-6);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-card);
     transition: all var(--motion-duration-normal) var(--motion-easing-smooth);
     border: 1px solid rgba(0, 0, 0, 0.05);
+    overflow: hidden;
   }
 
   .training-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-card-hover);
+  }
+
+  .training-card__cover {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: var(--gradient-section);
+  }
+
+  .training-card__cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--motion-duration-slow) var(--motion-easing-smooth);
+  }
+
+  .training-card:hover .training-card__cover img {
+    transform: scale(1.1);
+  }
+
+  .training-card__video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: var(--gradient-section);
+  }
+
+  .training-card__video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .training-card header {
+    padding: var(--space-6);
+  }
+
+  .training-card > p {
+    padding: 0 var(--space-6);
+  }
+
+  .training-card footer {
+    padding: 0 var(--space-6) var(--space-6);
   }
 
   .training-card__meta {
