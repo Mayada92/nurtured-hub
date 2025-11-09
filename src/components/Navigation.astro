@@ -1,5 +1,6 @@
 ---
 import LanguageSwitcher from './LanguageSwitcher.astro';
+import Icon from './Icon.astro';
 import { getLanguageFromPath } from '../utils/path';
 
 const currentPath = Astro.url.pathname;
@@ -8,20 +9,20 @@ const langPrefix = lang === 'ar' ? '/ar' : '/en';
 
 const navItems = {
   en: [
-    { label: 'Home', href: `${langPrefix}/` },
-    { label: 'Profiles', href: `${langPrefix}/profile` },
-    { label: 'Projects', href: `${langPrefix}/projects` },
-    { label: 'Writing', href: `${langPrefix}/writing` },
-    { label: 'Papers', href: `${langPrefix}/papers` },
-    { label: 'Wiki', href: `${langPrefix}/wiki` },
+    { label: 'Home', href: `${langPrefix}/`, icon: 'home' },
+    { label: 'Profiles', href: `${langPrefix}/profile`, icon: 'user' },
+    { label: 'Projects', href: `${langPrefix}/projects`, icon: 'folder' },
+    { label: 'Writing', href: `${langPrefix}/writing`, icon: 'document' },
+    { label: 'Papers', href: `${langPrefix}/papers`, icon: 'academic' },
+    { label: 'Wiki', href: `${langPrefix}/wiki`, icon: 'book' },
   ],
   ar: [
-    { label: 'الرئيسية', href: `${langPrefix}/` },
-    { label: 'الملفات الشخصية', href: `${langPrefix}/profile` },
-    { label: 'المشاريع', href: `${langPrefix}/projects` },
-    { label: 'الكتابات', href: `${langPrefix}/writing` },
-    { label: 'الأوراق', href: `${langPrefix}/papers` },
-    { label: 'ويكي', href: `${langPrefix}/wiki` },
+    { label: 'الرئيسية', href: `${langPrefix}/`, icon: 'home' },
+    { label: 'الملفات الشخصية', href: `${langPrefix}/profile`, icon: 'user' },
+    { label: 'المشاريع', href: `${langPrefix}/projects`, icon: 'folder' },
+    { label: 'الكتابات', href: `${langPrefix}/writing`, icon: 'document' },
+    { label: 'الأوراق', href: `${langPrefix}/papers`, icon: 'academic' },
+    { label: 'ويكي', href: `${langPrefix}/wiki`, icon: 'book' },
   ],
 };
 
@@ -52,7 +53,8 @@ const items = navItems[lang];
                 active: currentPath === item.href || currentPath.startsWith(item.href + '/'),
               }}
             >
-              {item.label}
+              <Icon name={item.icon} size={18} class="nav-icon" />
+              <span>{item.label}</span>
             </a>
           </li>
         ))}
@@ -124,11 +126,25 @@ const items = navItems[lang];
   }
 
   .navigation__list a {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
     text-decoration: none;
     font-weight: 500;
     padding: var(--space-2) var(--space-3);
     border-radius: var(--radius-md);
     transition: background-color var(--motion-duration-fast) var(--motion-easing);
+  }
+
+  .navigation__list .nav-icon {
+    flex-shrink: 0;
+    opacity: 0.7;
+    transition: opacity var(--motion-duration-fast) var(--motion-easing);
+  }
+
+  .navigation__list a:hover .nav-icon,
+  .navigation__list a.active .nav-icon {
+    opacity: 1;
   }
 
   .navigation__list a:hover,

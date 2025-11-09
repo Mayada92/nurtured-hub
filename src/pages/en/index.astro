@@ -6,6 +6,7 @@ import ImageStage from '../../components/ImageStage';
 import ProjectCard from '../../components/ProjectCard.astro';
 import PostCard from '../../components/PostCard.astro';
 import StatsSection from '../../components/StatsSection';
+import Icon from '../../components/Icon.astro';
 import { getCollection } from 'astro:content';
 
 const featuredProjects = (await getCollection('projects'))
@@ -71,9 +72,18 @@ const stats = [
               data science, volunteering, and engineering through research, innovation, and impact.
             </p>
             <div class="hero__cta">
-              <a href="/en/profile" class="cta-button cta-button--profile">View Profiles</a>
-              <a href="/en/projects" class="cta-button cta-button--projects">Explore Projects</a>
-              <a href="/en/writing" class="cta-button cta-button--articles">Explore Articles</a>
+              <a href="/en/profile" class="cta-button cta-button--profile">
+                <Icon name="user" size={20} />
+                <span>View Profiles</span>
+              </a>
+              <a href="/en/projects" class="cta-button cta-button--projects">
+                <Icon name="folder" size={20} />
+                <span>Explore Projects</span>
+              </a>
+              <a href="/en/writing" class="cta-button cta-button--articles">
+                <Icon name="document" size={20} />
+                <span>Explore Articles</span>
+              </a>
             </div>
           </div>
         </SectionReveal>
@@ -309,6 +319,7 @@ const stats = [
   .cta-button {
     display: inline-flex;
     align-items: center;
+    gap: var(--space-2);
     padding: var(--space-4) var(--space-8);
     background: white;
     border: 2px solid transparent;
@@ -321,6 +332,10 @@ const stats = [
     box-shadow: var(--shadow-soft);
     position: relative;
     overflow: hidden;
+  }
+
+  .cta-button svg {
+    flex-shrink: 0;
   }
 
   .cta-button::before {
