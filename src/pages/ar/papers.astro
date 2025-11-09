@@ -7,6 +7,8 @@ import { getCollection } from 'astro:content';
 const papers = (await getCollection('papers'))
   .filter((p) => p.data.lang === 'ar')
   .sort((a, b) => b.data.year - a.data.year);
+
+const paperCount = papers.length;
 ---
 
 <BaseLayout title="الأوراق" description="أوراق بحثية ومنشورات أكاديمية" lang="ar">
@@ -14,13 +16,11 @@ const papers = (await getCollection('papers'))
     <div class="container">
       <SectionReveal client:load>
         <h1>الأوراق</h1>
-        <p>منشورات بحثية وأعمال أكاديمية.</p>
+        <p>منشورات بحثية وأعمال أكاديمية. <span class="paper-count">({paperCount} منشور)</span></p>
       </SectionReveal>
       <div class="grid grid--papers">
-        {papers.map((paper, i) => (
-          <SectionReveal client:load delay={i * 0.1}>
-            <PaperCard paper={paper} />
-          </SectionReveal>
+        {papers.map((paper) => (
+          <PaperCard paper={paper} />
         ))}
       </div>
     </div>
@@ -34,12 +34,24 @@ const papers = (await getCollection('papers'))
 
   .grid {
     display: grid;
-    gap: var(--space-6);
+    gap: var(--space-3);
     margin-block-start: var(--space-6);
   }
 
   .grid--papers {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+
+  @media (min-width: 768px) {
+    .grid--papers {
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+  }
+
+  .paper-count {
+    color: var(--color-muted-ink);
+    font-size: 0.9375rem;
+    font-weight: 500;
   }
 </style>
 

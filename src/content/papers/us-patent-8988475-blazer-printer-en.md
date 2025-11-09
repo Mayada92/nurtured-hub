@@ -5,6 +5,7 @@ venue: "United States Patent and Trademark Office"
 year: 2015
 authors: ["Mayadah Alhashem"]
 pdf_url: "https://patents.google.com/patent/US8988475B2/en"
+cover: "/images/papers/adipec-2019.webp"
 ---
 
 **Patent Number:** US 8,988,475 B2  

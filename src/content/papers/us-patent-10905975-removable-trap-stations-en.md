@@ -5,6 +5,7 @@ venue: "United States Patent and Trademark Office"
 year: 2021
 authors: ["Mayadah Alhashem"]
 pdf_url: "https://patents.google.com/patent/US10905975B2/en"
+cover: "/images/papers/adipec-2019.webp"
 ---
 
 **Patent Number:** US 10,905,975 B2  
