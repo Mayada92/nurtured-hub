@@ -4,6 +4,7 @@ import FloatingLayer from '../../components/FloatingLayer';
 import SectionReveal from '../../components/SectionReveal';
 import ProjectCard from '../../components/ProjectCard.astro';
 import PostCard from '../../components/PostCard.astro';
+import StatsSection from '../../components/StatsSection';
 import { getCollection } from 'astro:content';
 
 const featuredProjects = (await getCollection('projects'))
@@ -15,6 +16,34 @@ const recentPosts = (await getCollection('posts'))
   .filter((p) => p.data.lang === 'ar')
   .slice(0, 3)
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+// Calculate actual stats from content
+const allProjects = await getCollection('projects');
+const allPapers = await getCollection('papers');
+const allWork = await getCollection('work');
+
+// Calculate years of experience (from 2017 when started at Saudi Aramco to now)
+const workStartYear = 2017; // Started at Saudi Aramco in October 2017
+const currentYear = new Date().getFullYear();
+const yearsExperience = currentYear - workStartYear;
+
+// Count projects (all languages, but display Arabic count if available, otherwise English)
+const projectCountAr = allProjects.filter((p) => p.data.lang === 'ar').length;
+const projectCount = projectCountAr > 0 ? projectCountAr : allProjects.filter((p) => p.data.lang === 'en').length;
+
+// Count publications/papers (all languages, but display Arabic count if available, otherwise English)
+const paperCountAr = allPapers.filter((p) => p.data.lang === 'ar').length;
+const paperCount = paperCountAr > 0 ? paperCountAr : allPapers.filter((p) => p.data.lang === 'en').length;
+
+// Domains are fixed: sports, educational-psychology, engineering, data-science
+const domainCount = 4;
+
+const stats = [
+  { number: yearsExperience.toString(), label: 'سنوات خبرة' },
+  { number: projectCount.toString(), label: 'مشاريع' },
+  { number: paperCount.toString(), label: 'منشورات' },
+  { number: domainCount.toString(), label: 'مجالات' },
+];
 ---
 
 <BaseLayout
@@ -40,6 +69,12 @@ const recentPosts = (await getCollection('posts'))
             <a href="/ar/profile" class="cta-button">الملفات الشخصية</a>
           </div>
         </SectionReveal>
+      </div>
+    </section>
+
+    <section class="section section--stats">
+      <div class="container">
+        <StatsSection client:load stats={stats} />
       </div>
     </section>
 
@@ -211,6 +246,23 @@ const recentPosts = (await getCollection('posts'))
 
   .section {
     padding-block: var(--section-spacing);
+  }
+
+  .section--stats {
+    background: var(--gradient-section);
+    padding-block: var(--space-12);
+    border-radius: var(--radius-xl);
+    margin-block: var(--section-spacing);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .section--stats::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+    pointer-events: none;
   }
 
   .section--banner {

@@ -18,11 +18,30 @@ const recentPosts = (await getCollection('posts'))
   .slice(0, 3)
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
+// Calculate actual stats from content
+const allProjects = await getCollection('projects');
+const allPapers = await getCollection('papers');
+const allWork = await getCollection('work');
+
+// Calculate years of experience (from 2017 when started at Saudi Aramco to now)
+const workStartYear = 2017; // Started at Saudi Aramco in October 2017
+const currentYear = new Date().getFullYear();
+const yearsExperience = currentYear - workStartYear;
+
+// Count projects (English only for display)
+const projectCount = allProjects.filter((p) => p.data.lang === 'en').length;
+
+// Count publications/papers
+const paperCount = allPapers.filter((p) => p.data.lang === 'en').length;
+
+// Domains are fixed: sports, educational-psychology, engineering, data-science
+const domainCount = 4;
+
 const stats = [
-  { number: '10+', label: 'Years Experience' },
-  { number: '50+', label: 'Projects' },
-  { number: '20+', label: 'Publications' },
-  { number: '4', label: 'Domains' },
+  { number: yearsExperience.toString(), label: 'Years Experience' },
+  { number: projectCount.toString(), label: 'Projects' },
+  { number: paperCount.toString(), label: 'Publications' },
+  { number: domainCount.toString(), label: 'Domains' },
 ];
 ---
 
