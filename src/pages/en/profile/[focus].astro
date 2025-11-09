@@ -28,10 +28,11 @@ interface Props {
 
 const { focus } = Astro.params;
 const lang = 'en';
+const base = import.meta.env.BASE_URL;
 
 const profile = (await getCollection('profiles')).find((p) => p.data.focus === focus);
 if (!profile) {
-  return Astro.redirect('/en/profile', 404);
+  return Astro.redirect(`${base}en/profile`, 404);
 }
 
 const { data } = profile;
