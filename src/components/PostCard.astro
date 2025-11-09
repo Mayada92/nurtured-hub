@@ -23,28 +23,76 @@ const date = new Date(data.date).toLocaleDateString(data.lang === 'ar' ? 'ar-SA'
     </time>
     <h3>{data.title}</h3>
   </header>
+  {data.cover && (
+    <div class="post-card__cover">
+      <img
+        src={data.cover}
+        alt={`${data.title} - Cover image`}
+        loading="lazy"
+        width="600"
+        height="400"
+        decoding="async"
+      />
+    </div>
+  )}
   <p class="post-card__excerpt">{data.excerpt}</p>
   <footer>
-    <a href={Astro.url.pathname + '/' + post.slug}>
-      Read more {arrow}
-    </a>
+    {data.is_external && data.canonical_url ? (
+      <a href={data.canonical_url} target="_blank" rel="noopener noreferrer">
+        {isRTL ? 'اقرأ على LinkedIn ←' : 'Read on LinkedIn →'}
+      </a>
+    ) : (
+      <a href={Astro.url.pathname + '/' + post.slug}>
+        {isRTL ? 'اقرأ المزيد ←' : 'Read more →'}
+      </a>
+    )}
   </footer>
 </article>
 
 <style>
   .post-card {
     background: var(--gradient-card);
-    padding: var(--space-6);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-card);
     transition: all var(--motion-duration-normal) var(--motion-easing-smooth);
     border: 1px solid rgba(0, 0, 0, 0.05);
+    overflow: hidden;
   }
 
   .post-card:hover {
     transform: translateY(-6px) scale(1.01);
     box-shadow: var(--shadow-card-hover);
     border-color: rgba(191, 215, 234, 0.3);
+  }
+
+  .post-card__cover {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: var(--gradient-section);
+  }
+
+  .post-card__cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--motion-duration-slow) var(--motion-easing-smooth);
+  }
+
+  .post-card:hover .post-card__cover img {
+    transform: scale(1.1);
+  }
+
+  .post-card header {
+    padding: var(--space-6);
+  }
+
+  .post-card__excerpt {
+    padding: 0 var(--space-6);
+  }
+
+  .post-card footer {
+    padding: 0 var(--space-6) var(--space-6);
   }
 
   .post-card__date {
