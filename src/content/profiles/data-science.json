@@ -1,10 +1,10 @@
 {
   "focus": "data-science",
-  "headline": "Exploring data-driven insights and machine learning applications for social good.",
-  "include_tags": ["data-science", "machine-learning", "analytics", "python", "statistics", "visualization"],
+  "headline": "Data science capabilities and machine learning expertise. Building predictive models and data-driven solutions for real-world impact.",
+  "include_tags": ["data-science", "machine-learning", "analytics", "python", "statistics", "visualization", "ml", "deep-learning"],
   "pin_projects": [],
   "pin_posts": ["when-not-to-use-ml-en"],
-  "pin_papers": []
+  "pin_papers": ["iptc-2020-multiphase-flow-ml-en", "iptc-2024-esp-diagnosis-ml-en", "adipec-2019-multiphase-flow-ml-en"]
 }
 
 

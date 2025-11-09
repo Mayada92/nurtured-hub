@@ -1,10 +1,10 @@
 {
   "focus": "engineering",
-  "headline": "Building scalable software solutions and engineering systems.",
-  "include_tags": ["engineering", "software", "development", "web"],
+  "headline": "Technical engineering background and project implementation expertise. Specializing in ESP optimization, flow assurance, and innovative hardware solutions.",
+  "include_tags": ["engineering", "software", "development", "web", "esp", "patents", "mechanical-engineering"],
   "pin_projects": [],
   "pin_posts": [],
-  "pin_papers": []
+  "pin_papers": ["us-patent-10905975-removable-trap-stations-en", "us-patent-8988475-blazer-printer-en"]
 }
 
 
