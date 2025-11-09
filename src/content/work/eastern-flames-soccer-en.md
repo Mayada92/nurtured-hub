@@ -15,6 +15,11 @@ skills:
   - "Team Collaboration"
   - "Sports Leadership"
   - "Community Engagement"
+cover: "/images/sports/community-championship-soccer.webp"
+images:
+  - "/images/sports/al-ain-football-game.webp"
+  - "/images/sports/bahrain-fc-game.webp"
+  - "/images/sports/community-championship-soccer.webp"
 ---
 
 Playing with Eastern Flames has been a significant part of my life, combining my passion for sports with community involvement and promoting women's participation in competitive soccer.
