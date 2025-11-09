@@ -8,7 +8,7 @@ cover: "/images/blog/dallc2b7e-2025-01-21-18.28.53-an-artistic-and-fun-represent
 
 ---
 
-![Image](/images/blog/dallc2b7e-2025-01-21-18.28.53-an-artistic-and-fun-representation-of-learning-using-abstract-and-vibrant-visuals.-the-image-should-incorporate-playful-elements-like-lightbulbs-bo-1.webp?w=1024)
+![Image](https://mayadaalhashem.wordpress.com/wp-content/uploads/2025/01/dallc2b7e-2025-01-21-18.28.53-an-artistic-and-fun-representation-of-learning-using-abstract-and-vibrant-visuals.-the-image-should-incorporate-playful-elements-like-lightbulbs-bo-1.webp?w=1024)
 
 Learning is a dynamic process that underpins our ability to acquire knowledge, adapt behaviors, and develop skills. It’s a cornerstone of human development, yet understanding how learning occurs involves exploring diverse theories, methods, and philosophical foundations. From classical rationalism and empiricism to modern behavioral and cognitive approaches, learning theories offer insights into the ways we process information, store memories, and apply knowledge across contexts. By bridging research and practice, we can enhance educational strategies to foster motivation, self-regulation, and meaningful learning experiences.
 
@@ -16,13 +16,13 @@ This guide distills the core concepts and criteria of learning, illustrating how
 
 There are many key terms that define learning theory. The diagram below summaries some of the most important terms:
 
-![Image](/images/blog/unlocking-the-fundamentals-of-learning-visual-selection.png?w=995)
+![Image](https://mayadaalhashem.wordpress.com/wp-content/uploads/2025/01/unlocking-the-fundamentals-of-learning-visual-selection.png?w=995)
 
 **Now what defines learning?**
 
 To truly understand how learning unfolds, it&#8217;s essential to recognize its core criteria. These criteria form the foundation of what we define as learning:
 
-![Image](/images/blog/unlocking-the-fundamentals-of-learning-visual-selection-3.png?w=1024)
+![Image](https://mayadaalhashem.wordpress.com/wp-content/uploads/2025/01/unlocking-the-fundamentals-of-learning-visual-selection-3.png?w=1024)
 
 To understand how we come to know and learn, it’s helpful to look at the philosophical ideas that laid the groundwork for modern learning theories. These early thinkers explored the origins of knowledge and the ways in which humans acquire understanding. Let’s take a brief journey through the foundational ideas of three pivotal philosophers who shaped the way we think about learning.
 
@@ -32,7 +32,7 @@ Enter **Aristotle**, Plato&#8217;s star student, with a completely different tak
 
 Fast forward to **John Locke**, who takes an even bolder stance. He suggests we&#8217;re born with minds like blank slates &#8211; completely empty, waiting to be written on by experience. No pre-loaded knowledge, no innate ideas. Everything we know, we learn through interacting with the world.
 
-![Image](/images/blog/unlocking-the-fundamentals-of-learning-visual-selection-4-edited.png)
+![Image](https://mayadaalhashem.wordpress.com/wp-content/uploads/2025/01/unlocking-the-fundamentals-of-learning-visual-selection-4-edited.png)
 
 These three perspectives laid the groundwork for how we think about learning today. While they might seem like ancient history, their influence shows up everywhere from classroom teaching methods to modern psychology. Next time you learn something new, ask yourself: was *Plato *right about uncovering hidden knowledge? Was *Aristotle *onto something with his focus on experience? Or does *Locke*&#8216;s blank slate better explain how we come to understand the world?
 
@@ -50,7 +50,7 @@ In the world of **research paradigms**, we dive into different approaches that h
 
 As we explore these research methods, we also need effective **assessment methods** to measure learning. These methods can take many forms, from observing behavior in real-time to writing essays, engaging in discussions, or gathering feedback from peers. The right assessment tool helps us gauge how well learning is taking place, and each method adds a valuable layer to understanding the learning process.
 
-![Image](/images/blog/unlocking-the-fundamentals-of-learning-visual-selection-5.png?w=1024)
+![Image](https://mayadaalhashem.wordpress.com/wp-content/uploads/2025/01/unlocking-the-fundamentals-of-learning-visual-selection-5.png?w=1024)
 
 In conclusion, understanding learning is a multifaceted journey, shaped by both historical philosophical insights and modern research methods. By utilizing different research paradigms and assessment methods, we gain a deeper understanding of the learning process, helping to refine educational practices and ultimately enhance how we teach and learn.
 

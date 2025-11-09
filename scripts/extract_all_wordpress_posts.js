@@ -73,35 +73,89 @@ function extractImagesFromContent(content) {
   return [...new Set(imageUrls)]; // Remove duplicates
 }
 
-function cleanHtmlForMarkdown(html) {
-  // Basic HTML to Markdown conversion
+function cleanHtmlForMarkdown(html, imageMap) {
+  // Preserve HTML structure better for markdown conversion
   let markdown = html
-    // Remove WordPress-specific tags
-    .replace(/<figure[^>]*>/gi, '')
-    .replace(/<\/figure>/gi, '')
+    // Handle WordPress blocks and figures - preserve structure
+    .replace(/<figure[^>]*class=["']([^"']*)["'][^>]*>/gi, (match, className) => {
+      // Keep figure structure for images
+      return '\n\n<figure class="' + className + '">\n';
+    })
+    .replace(/<\/figure>/gi, '\n</figure>\n\n')
+    // Handle captions
+    .replace(/<figcaption[^>]*>(.*?)<\/figcaption>/gi, '\n<figcaption>$1</figcaption>\n')
+    // Paragraphs with proper spacing
     .replace(/<p[^>]*>/gi, '\n\n')
     .replace(/<\/p>/gi, '')
+    // Strong/bold
     .replace(/<strong[^>]*>/gi, '**')
     .replace(/<\/strong>/gi, '**')
+    .replace(/<b[^>]*>/gi, '**')
+    .replace(/<\/b>/gi, '**')
+    // Emphasis/italic
     .replace(/<em[^>]*>/gi, '*')
     .replace(/<\/em>/gi, '*')
+    .replace(/<i[^>]*>/gi, '*')
+    .replace(/<\/i>/gi, '*')
+    // Headings
     .replace(/<h([1-6])[^>]*>/gi, (match, level) => '\n\n' + '#'.repeat(parseInt(level)) + ' ')
     .replace(/<\/h[1-6]>/gi, '\n')
+    // Lists
     .replace(/<ul[^>]*>/gi, '\n')
     .replace(/<\/ul>/gi, '\n')
     .replace(/<ol[^>]*>/gi, '\n')
     .replace(/<\/ol>/gi, '\n')
     .replace(/<li[^>]*>/gi, '- ')
     .replace(/<\/li>/gi, '\n')
-    // Replace images with markdown syntax
-    .replace(/<img[^>]+src=["']([^"']+)["'][^>]*>/gi, (match, src) => {
+    // Links
+    .replace(/<a[^>]+href=["']([^"']+)["'][^>]*>(.*?)<\/a>/gi, '[$2]($1)')
+    // Blockquotes
+    .replace(/<blockquote[^>]*>/gi, '\n\n> ')
+    .replace(/<\/blockquote>/gi, '\n\n')
+    // Code blocks
+    .replace(/<pre[^>]*><code[^>]*>/gi, '\n\n```\n')
+    .replace(/<\/code><\/pre>/gi, '\n```\n\n')
+    .replace(/<code[^>]*>/gi, '`')
+    .replace(/<\/code>/gi, '`')
+    // Line breaks
+    .replace(/<br[^>]*\/?>/gi, '\n')
+    // Horizontal rules
+    .replace(/<hr[^>]*\/?>/gi, '\n\n---\n\n')
+    // Replace images with markdown syntax using local paths
+    .replace(/<img[^>]+src=["']([^"']+)["'][^>]*(?:alt=["']([^"']*)["'])?[^>]*>/gi, (match, src, alt) => {
       const cleanSrc = src.split('?')[0];
-      const filename = path.basename(cleanSrc);
-      return `\n![Image](${src})\n`; // Keep original URL for now, will replace later
+      // Find matching local path in imageMap
+      let localPath = imageMap[src] || imageMap[cleanSrc];
+      if (!localPath) {
+        // Try to find by filename
+        const filename = path.basename(cleanSrc);
+        for (const [origUrl, local] of Object.entries(imageMap)) {
+          if (path.basename(origUrl.split('?')[0]) === filename) {
+            localPath = local;
+            break;
+          }
+        }
+      }
+      const imagePath = localPath || src;
+      const altText = alt || 'Image';
+      return `\n\n![${altText}](${imagePath})\n\n`;
     })
-    // Remove other HTML tags
+    // Remove remaining HTML tags but preserve content
     .replace(/<[^>]+>/g, '')
+    // Decode HTML entities
+    .replace(/&#8217;/g, "'")
+    .replace(/&#8220;/g, '"')
+    .replace(/&#8221;/g, '"')
+    .replace(/&#8211;/g, '–')
+    .replace(/&#8212;/g, '—')
+    .replace(/&#8230;/g, '...')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
     // Clean up extra newlines
+    .replace(/\n{4,}/g, '\n\n\n')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
     
@@ -109,12 +163,25 @@ function cleanHtmlForMarkdown(html) {
 }
 
 function createSlug(title) {
+  // For Arabic titles, use a transliteration or fallback
+  const arabicRegex = /[\u0600-\u06FF]/;
+  if (arabicRegex.test(title)) {
+    // Use first few words transliterated or a hash
+    const words = title.split(/\s+/).slice(0, 3);
+    return words
+      .map(w => w.replace(/[^\w\u0600-\u06FF]/g, ''))
+      .filter(w => w.length > 0)
+      .join('-')
+      .toLowerCase()
+      .substring(0, 50) || 'post';
+  }
+  
   return title
     .toLowerCase()
     .replace(/[^\w\s-]/g, '')
     .replace(/\s+/g, '-')
     .replace(/-+/g, '-')
-    .trim();
+    .trim() || 'post';
 }
 
 function detectLanguage(title, content) {
@@ -161,15 +228,8 @@ async function processPost(item) {
     }
   }
   
-  // Replace image URLs in content
-  let processedContent = content;
-  for (const [originalUrl, localPath] of Object.entries(imageMap)) {
-    const regex = new RegExp(originalUrl.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
-    processedContent = processedContent.replace(regex, localPath);
-  }
-  
-  // Convert HTML to Markdown (basic)
-  const markdownContent = cleanHtmlForMarkdown(processedContent);
+  // Convert HTML to Markdown (pass imageMap to preserve image references)
+  const markdownContent = cleanHtmlForMarkdown(content, imageMap);
   
   // Create frontmatter
   const tags = Array.isArray(categories) ? categories.map(c => c.toLowerCase().replace(/\s+/g, '-')) : [];
