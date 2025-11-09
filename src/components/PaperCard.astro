@@ -12,6 +12,18 @@ const arrow = isRTL ? '←' : '→';
 ---
 
 <article class="paper-card">
+  {data.cover && (
+    <div class="paper-card__cover">
+      <img
+        src={data.cover}
+        alt={`${data.title} - Cover image`}
+        loading="lazy"
+        width="600"
+        height="300"
+        decoding="async"
+      />
+    </div>
+  )}
   <header>
     <h3>{data.title}</h3>
     <div class="paper-card__meta">
@@ -24,12 +36,12 @@ const arrow = isRTL ? '←' : '→';
   </p>
   <footer class="paper-card__links">
     {data.pdf_url && (
-      <a href={data.pdf_url} target="_blank" rel="noopener noreferrer">
-        PDF {arrow}
+      <a href={data.pdf_url} target="_blank" rel="noopener noreferrer" class="paper-link">
+        {data.lang === 'ar' ? 'الورقة ←' : 'View Paper →'}
       </a>
     )}
     {data.doi && (
-      <a href={`https://doi.org/${data.doi}`} target="_blank" rel="noopener noreferrer">
+      <a href={data.doi.startsWith('http') ? data.doi : `https://doi.org/${data.doi}`} target="_blank" rel="noopener noreferrer" class="paper-link">
         DOI {arrow}
       </a>
     )}
@@ -39,17 +51,39 @@ const arrow = isRTL ? '←' : '→';
 <style>
   .paper-card {
     background: var(--gradient-card);
-    padding: var(--space-6);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-card);
     transition: all var(--motion-duration-normal) var(--motion-easing-smooth);
     border: 1px solid rgba(0, 0, 0, 0.05);
+    overflow: hidden;
   }
 
   .paper-card:hover {
     transform: translateY(-6px) scale(1.01);
     box-shadow: var(--shadow-card-hover);
     border-color: rgba(234, 199, 199, 0.3);
+  }
+
+  .paper-card__cover {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: var(--gradient-section);
+  }
+
+  .paper-card__cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--motion-duration-slow) var(--motion-easing-smooth);
+  }
+
+  .paper-card:hover .paper-card__cover img {
+    transform: scale(1.1);
+  }
+
+  .paper-card header {
+    padding: var(--space-6);
   }
 
   .paper-card__meta {
@@ -73,17 +107,25 @@ const arrow = isRTL ? '←' : '→';
     color: var(--color-muted-ink);
     font-size: 0.9375rem;
     margin-block: var(--space-3);
+    padding: 0 var(--space-6);
   }
 
   .paper-card__links {
     display: flex;
     gap: var(--space-4);
+    padding: 0 var(--space-6) var(--space-6);
     margin-block-start: var(--space-3);
   }
 
   .paper-card__links a {
     text-decoration: none;
     font-weight: 500;
+    color: var(--color-accent-1);
+    transition: color var(--motion-duration-fast) var(--motion-easing);
+  }
+
+  .paper-card__links a:hover {
+    color: var(--color-accent-2);
   }
 </style>
 
