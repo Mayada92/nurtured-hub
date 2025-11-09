@@ -1,0 +1,228 @@
+Contact Mayada (Maya) Alhashem
+mayadah.alhashem@kaust.edu.
+sa Artificial Lift Engineer | AI/Data Science | Motivational Speaker |
+Athlete | MIDS @ UC Berkeley
+www.linkedin.com/in/mayada-
+Eastern, Saudi Arabia
+alhashem (LinkedIn)
+www.instagram.com/
+mayadaalhashem (Personal) Summary
+Driven by purpose, values, and passion.
+Top Skills
+Plotly
+A passionate machine learning engineer, confident public speaker,
+Dashboards
+and avid football player – that's me in a nutshell.
+Vercel
+I'm very interested in AI in EdTech for personalized learning. If you
+Languages
+are too - send me a message.
+English
+Arabic
+I obtained my bachelor's degree in chemical engineering from
+UC Santa Barbara, California, followed by a master's degree in
+Certifications
+mechanical engineering from KAUST, Saudi Arabia. During my
+CircularX: Circular Economy - an
+academic journey, I explored the world of combustion reaction
+Introduction
+Applying Machine Learning to models in engines using cutting-edge machine learning and data
+Engineering & Science science techniques.
+Leading People
+SPE Petroleum Engineering
+Now, as an artificial lift engineer at Aramco in the Production Facility
+Certification
+and Development Department (PFDD), I leverage these skills to
+Introduction to Machine Learning
+optimize electrical submersible pump operations. But that's not
+Operations
+all; I have been committed to my own professional development
+Honors-Awards by furthering my digital and ML skills, which I've self-learned and
+continue to apply at work.
+3M Company Invent a New Future
+Challenge Business Competition
+UCSB Engineering Writing Award Outside of work, I find joy and challenge in sports. I play football
+UCSB Honors regularly with the Aramco Desert Roses team, and for years, I
+KAUST Gifted Students Program trained as a boxer, kickboxer, and Muay Thai fighter, earning the
+STAR Award
+opportunity to compete in national competitions.
+Dhahran Ahliyya Schools Awards
+Publications
+Experience
+Synthesis of few-layer graphene-like
+sheets from carbon-based powders
+aramco
+via electrochemical exfoliation, using
+carbon black as an example 8 years 2 months
+Petroleum Engineer (NA Production - Artificial Lift Unit)
+March 2025 - Present (9 months)
+Page 1 of 6Supervised Machine Learning in ● Monitor daily Electrical Submersible Pump (ESP) operations, providing
+Predicting Multiphase Flow Regimes
+troubleshooting support and recommendations
+in Horizontal Pipes
+● Development of an automated digital troubleshooting solution leveraging
+Optimization of Paper Discoloration
+via Pyrolysis Using Lasers field data
+● Conducting field-visits to oversee ESP operations and develop practical
+High Rate Slim ESP Viability
+experience in ESP operations
+Assessment in the Field
+● Deliver AI training sessions and contribute to knowledge-sharing initiatives
+Patents for employee upskilling and digital transformation
+Inkless printer
+Data Scientist at PEASD/Upstream Digital Center
+Removable Trap Stations for
+February 2024 - February 2025 (1 year 1 month)
+Hydrocarbon Flowlines
+Working on AI applications for ESPs
+Expec Advanced Research Center Engineer
+January 2023 - January 2024 (1 year 1 month)
+Working in the Artificial Lift Focus Area in projects related to ESP automation
+and AI
+Artificial Lift Engineer
+April 2021 - December 2022 (1 year 9 months)
+Artificial Lift Division in the Production and Facilities Development Department
+(P&FDD)
+Engineer in Reservoir Management
+April 2020 - April 2021 (1 year 1 month)
+Long Range Reservoir Studies Division (NA Reservoir Management Dept)
+Upstream Facilities Engineer
+October 2017 - April 2020 (2 years 7 months)
+Dhahran, Saudi Arabia
+Flow Assurance Engineer in the Production Facility and Dev. Department
+(P&FDD)
+Northern Area Offshore Facilities engineer
+Freelance
+Freelance AI & Data Projects
+April 2025 - Present (8 months)
+1) Business Analytics Dashboard (BizDeal):
+Designed and deployed a full-stack Python Dash web app with interactive
+visualizations, secure multi-user authentication, and automated data pipeline
+Page 2 of 6from Google Drive. Deployed on Render with GitHub integration for version
+control.
+2) Corporate Learning Platform (Nadec English Platform – in progress):
+Developing a Next.js-based web app for employee English training with
+structured lessons and demo mode features. Implemented environment-based
+configuration, and managed CI/CD workflows on Vercel.
+Oakland Natives Give Back
+Data Scientist
+September 2024 - January 2025 (5 months)
+California, United States
+Working on a data science project addressing a challenge under education/
+schooling - details are confidential (NDA).
+Alnahdah Saudi Club يدوعسلا ةضهنلا يدان
+Football Player
+October 2023 - February 2024 (5 months)
+REAL FITNESS MIXED MARTIAL ARTS (MMA)
+Kickboxer / Muay Thai fighter
+June 2021 - December 2022 (1 year 7 months)
+Eastern Flames FC.
+5 years 1 month
+Football Player
+October 2017 - October 2022 (5 years 1 month)
+Dhahran, Saudi Arabia
+Defender/wing player at the Eastern Flames female Football club
+Vice President
+August 2020 - August 2021 (1 year 1 month)
+Dhahran, Eastern, Saudi Arabia
+Vice President of EFFC
+Pro Direct Academy Portugal
+Football Player in Training
+March 2019 - April 2019 (2 months)
+Aveiro, Aveiro, Portugal
+Football Training 6 days per week:
+- Individual training
+Page 3 of 6- Strength building program
+- Team practice
+- Attended practices with Clube de Albergaria (junior female team)
+Portuguese class 2 days per week
+Bahrain Football Association
+Bahrain Football Association Women Football League
+February 2019 - April 2019 (3 months)
+Bahrain
+Played as a right back/full back in the Eastern Flames Team at the BFAWFL
+league
+Bahrain Football Association
+Bahrain Football Association Women Football League
+November 2017 - March 2018 (5 months)
+BFA
+Played as a defender/full back in the Eastern Flames team at the Bahrain
+Football Association Women Football League 2017/2018
+KAUST
+1 year 10 months
+Master's Student in Mechanical Engineering (Laser Inkless Printer
+Project)
+January 2017 - May 2017 (5 months)
+Thuwal, Saudi Arabia
+• Working on my patented idea: inkless black and white printing via paper
+pyrolsis
+• Studying the effect of varying laser power density, speed of moving the laser,
+and laser type on the paper discoloration
+• Planning to use a UV absorption test to measure the extent of paper
+discoloration
+• Completed safety training on lasers and UV
+• Supervised by Dr. Robert Dibble, in collaboration with Dr. Boon Ooi's
+Photonics lab
+Master's Student in Mechanical Engineering (Biodiesel Production)
+August 2015 - January 2017 (1 year 6 months)
+Thuwal, Saudi Arabia
+• Worked in Dr. Robert Dibble’s laboratory in the Clean Combustion Research
+Center to continuously produce biodiesel from reacting methanol with corn oil
+Page 4 of 6• Designed the reactor, ordered parts, and worked on the reactor assembly
+• Performed design & kinetic calculations on MATLAB to determine reactor
+specifications & reaction rates.
+• Used Gas Chromatography (already certified) to conduct analyses on the
+produced biodiesel
+Masdar Institute of Science and Technology
+Research Intern
+June 2015 - August 2015 (3 months)
+Masdar City, Abu Dhabi
+• Designed experiments to produce graphene from graphite via
+electrochemical exfoliation
+• Was trained on safety, Scanning Electron Microscopy (SEM), centrifugation
+and ultracentrifugation
+• Showcased research poster titled “Graphene Synthesis from Low Cost
+Carbonaceous Materials” in the 6th TRC-JCCP/Idemitsu International
+Symposium, (February 10-11 2016)
+UC Santa Barbara
+Programs After Dark Manager
+November 2014 - June 2015 (8 months)
+Planned, advertised for, and implemented weekly programs for the university
+apartments residents.
+UC Santa Barbara
+Undergraduate Research Intern
+June 2014 - September 2014 (4 months)
+• Modeled reactions in 3D to determine the most probable reaction path with
+the lowest energy
+• Investigated the hydrogenolysis of dihydrobenzofurane (a model compound
+for lignin) on a copper surface
+• Used UCSB’s High Performance Computing Center in the Materials
+Research Lab to perform electronic structure
+calculations using VASP software
+KAUST
+Research Intern
+July 2012 - August 2012 (2 months)
+Thuwal, Saudi Arabia
+Page 5 of 6• Synthesized and analyzed crystals with photovoltaic properties for solar cells
+applications
+• Operated advanced chemical lab machines to create base crystals for the
+future publications
+American Institute of Chemical Engineers
+Freshman Representative
+October 2011 - June 2012 (9 months)
+• Created a network for freshman chemical engineers in UCSB to utilize each
+other's skills and connections.
+• Organized social events and gatherings
+Education
+UC Berkeley School of Information
+Masters of Information and Data Science, Data Science · (May
+2024 - December 2025)
+King Abdullah University of Science and Technology
+Master’s Degree, Mechanical Engineering · (2015 - 2017)
+University of California, Santa Barbara
+Bachelor's Degree, Chemical Engineering · (2011 - 2015)
+Transformation Academy
+Life Coaching Training , Advanced Life Coaching · (2019 - 2020)
+KAUST Gifted Student Program (KGSP)
+Bachelor's degree, Chemical Engineering · (August 2010 - June 2015)
+Page 6 of 6

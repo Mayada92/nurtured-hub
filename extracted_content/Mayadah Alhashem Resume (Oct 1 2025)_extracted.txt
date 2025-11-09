@@ -1,0 +1,125 @@
+Mayadah Mahmoud Alhashem
+Olaya, Alkhobar 34447 - Saudi Arabia, Saudi National
+Mobile: (+966) 542833858 E-mail: Mayadah.Alhashem@aramco.com
+Summary of Qualifications
+Results-driven engineer and data scientist with expertise in:
+• Designing and implementing AI-driven tools for complex engineering challenges, particularly in petroleum engineering
+• Leading cross-functional teams and mentoring peers in both technical and soft skills
+• Driving technological advancements through patent publications and conference presentations
+Education
+M.S. UC Berkeley (online degree) Expected Dec 2025
+Master of Information and Data Science (ranked 2nd top DS online master’s degree)
+Graduate Certificate Ball State University (online degree) Expected Dec 2025
+Human Development and Learning
+Nanodegree Udacity (online) Jan 2018
+Machine Learning Engineering
+M.S. King Abdullah University of Science and Technology (Thuwal, Saudi Arabia) May 2017
+Mechanical Engineering.
+B.S. UC Santa Barbara (Santa Barbara, California) June 2015
+Chemical Engineering .
+Experience
+Saudi Aramco (2017 – Present)
+(Oct 2025 – Present) – Production Optimization and Surveillance Hub (POSH), Northern Area Production Engineering Department (NAPED)
+● Tracking performance in the ESP Energy Efficiency Enhancement (4Es) advisory tool to optimize power consumption
+● Utilize the ESP monitoring hub utilizing PI data to analyze and prevent potential ESP trips
+● Act as technical liaison between artificial lift engineers, developers, and IT support, proposing innovative solutions
+● Technical consultant and proponent collaborating with ExpecARC digital team to develop an intelligent ESP troubleshooting solution
+● Lead NA ALD digital projects and roadmap, driving digital transformation and optimization
+(Mar 2025 – Sep 2025) – Ras Tanura Artificial Lift Unit (RT ALU), Northern Area Production Engineering Department (NAPED)
+● Monitor daily Electrical Submersible Pump (ESP) operations, providing troubleshooting support and recommendations
+● Development of an automated digital troubleshooting solution leveraging field data
+● Conducting field-visits to oversee ESP operations and develop practical experience in ESP operations
+● Deliver AI training sessions and contribute to knowledge-sharing initiatives for employee upskilling and digital transformation
+(Feb 2024 – 2025) – PE Application Services Department (PEASD), Upstream Digital Center (UDC)
+● Data scientist role in prototyping an automation solution for ESP troubleshooting using real-time field data
+● Collaborate with production engineering clients to understand current processes and develop automated intelligent digital solutions
+● Actively engage in knowledge and experience sharing initiatives within the department and across divisions
+(2023 – 2024) – Artificial Lift Focus Area (ALFA) EXPEC Advanced Research Center (ExpecARC)
+● Deployment of the ESP Replacement Forecast (RF) module of for MIDAS, a data-driven monitoring and predictive tool for
+Aramco’s Electrical Submersible Pumps (ESPs)
+● Creating a Microsoft Azure Repository and building the web application on OpenShift to run the RF module on the server
+(2021 – 2022) – Artificial Lift Div. (ALD) Production & Facilities Development Department (P&FDD)
+● Technical evaluation of vendors’ digital and data-driven solutions
+● Attending Dismantle and Inspection Failure Analysis jobs at service companies facilities regularly
+● Issuing performance reports to executive management
+(2020 – 2021) – Long Range Reservoir Studies Div. (LRRSD) NA Reservoir Management Department (NRMD)
+● Engaged in initial phases of an integrated reservoir study
+● Developed Python scripts that automates time-consuming internal processes
+● Worked in collaboration with the Petroleum Engineering 4.0 team in Formation Testing Digital Solutions (FTDS)
+(2017 – 2019) – Flow Assurance Unit (FAU), Production & Facilities Development Department (P&FDD)
+● Completed flow assurance reports and studies using OLGA simulations, analyzing results, and reporting recommendations
+Oakland Natives Give Back (Sep 2024 – Present)
+● Data Science internship, working on a project addressing a challenge under education/schooling. Details are confidential.
+Research Experience
+King Abdullah University for Science and Technology Saudi Arabia, Thuwal
+Machine Learning in Combustion Kinetics Research Project (May 2017 – Sep 2017)
+● Built regression models to study the kinetics of combustion reactions in Dr. Mani Sarathy’s lab on MATLAB
+● Built a training and testing database using ChemKin to acquire combustion data for n-heptane.
+Non-Business Use● Developed a machine learning model to predict ignition delay times based on selected features for the n-heptane fuel
+Inkless Printer Research Project (Jan 2017 – May 2017)
+● Studied my patented idea: inkless black-and-white printing via paper pyrolysis with lasers under the supervision of Dr. Robert Dibble
+● Studied the effect of varying laser power density, speed of moving the laser, and laser distance via UV-Vis absorption test
+Biodiesel Production Research Project (Jul 2016 –Dec 2016)
+● Worked in Dr. Robert Dibble’s lab in the Clean Combustion Research Center to experimentally produce biodiesel and test product
+● Performed design and kinetic calculations on MATLAB to determine reactor specifications and reaction rates.
+Research Intern (Jul 2012 – Aug 2012)
+● Synthesized and analyzed crystals with photovoltaic properties for solar cells applications
+Masdar Institute - Masdar City, Abu Dhabi, UAE
+Research Intern (Jul 2015 – Aug 2015)
+● Designed experiments to produce graphene from graphite via electrochemical exfoliation
+UC Santa Barbara Santa Barbara, USA
+Research Intern (Jun 2014 – Sept 2014)
+● Investigated the hydrogenolysis of dihydrobenzofurane (a model compound for lignin) on a copper surface
+● Used the High Performance Computing Center in the Materials Research Lab for electronic structure calculations with VASP software
+Patents, Publications, & Projects
+Middle East Artificial Lift Conference & Exhibition 2024 Presented “Leveraging Circular Economy Principles for Electrical Submersible Pump
+Equipment” (Oct 2024)
+International Petroleum Technology Conference 2024 Presented “Evaluation of Machine Learning Techniques for ESP Diagnosis Using a
+Synthetic Time Series Dataset” (Feb 2024)
+Middle East Artificial Lift Conference & Exhibition 2022 (SPE-206943-MS) Presented High Rate Slim ESP Viability Assessment in the Field and
+published in OnePetro (Oct 2022)
+US Patent (Publication #: US 10,905,975 B2) Published Removable trap stations for hydrocarbon flowlines as co-inventor (Feb 2021)
+International Petroleum Technology Conference 2020 Presented “Machine Learning Classification Model for Multiphase Flow Regimes in
+Horizontal Pipes” (Jan 2020)
+Abu Dhabi International Conference & Exhibition 2019 Presented “Supervised Machine Learning in Predicting Multiphase Flow Regimes in
+Horizontal Pipes” (Nov 2019)
+Journal of Materials Science, Issue 18/2017 Published “Synthesis of few-layer graphene-like sheets from carbon-based powders via
+electrochemical exfoliation, using carbon black as an example ” (Saad Sharief, Rahmat Susantyoko, Mayada Alhashem, Saif Almheiri) (Jun 2017)
+7th Saudi Arabian Section of the Combustion Institute (SAS-CI) Annual Meeting
+Presented “The Optimization of Paper Discoloration via Carbonization Using a CO Laser for Inkless Black-and-White Printing” (May 2017)
+2
+US Patent (Publication #: US8988475 B2) Published Blazer Printer as lead inventor, a patent for a laser printer without ink using lasers (Mar 2015)
+Lab7 Professional Innovator Bootcamp, Aramco Lab7
+Developing interactive live dashboard and computer vision model for caffeine to biofuel reactor prototype (Mar 2023)
+Identifying Flow Regimes via Machine Learning
+Machine Learning Engineering, Udacity Nanodegree Capstone project on developing a classification algorithm for fluid flow regimes (Jan 2016)
+Awards
+Generative AI Accelerator Winner Toastmasters International
+May 2023 – 4th place winner out of 80 in the Saudi Data & AI Authority Sep 2018 – Completed Competent Communicator (CC) manual.
+and National Technology Development Program’s Generative AI Feb 2018 – 3rd place winner in TM International Contest (Area level)
+Accelerator Hackathon in Riyadh for the web-app ‘MindFlow’
+4th Middle East Process Engineering Conference (Technical Debate)
+Aramco VP Recognized Youth-Initiated Study Oct 2017 – Won 1st place in the technical debate competition
+May 2022 –Youth Initiated Study certificate obtained for Coaching
+Program to Foster Passion & Purpose in Employees. Recognition by Institution of Engineering & Technology, Present Around the World
+Strategy & Market Analysis VP Competition (Engineering Presentation)
+Jul 2017 – Won 2nd place in the regional competition (Europe/MENA)
+Leadership & Community Involvement
+● MEALC Session Chair – Session chair for the Digital Transformation & AI technical session in the Middle East Artificial Lift Conference (2024)
+● Monshaat AI for Business Bootcamp – Led a 3-day bootcamp on AI applications in business development and hands-on genAI projects. (2024)
+● WIDS Poster Evaluator domain - Domain evaluator for the Women in Data Science Annual Event poster presentations at KFUPM (2024)
+● Aramco’s AI Center of Excellence – SME and active participant and presenter (2023)
+● Aramco’s Petroleum Engineering & Development Community of Practice (CoP) – SME and Core Member (2022)
+● Petroleum Engineering Instructor – Volunteered to teach 2018 Gifted Students (Mawhiba) basic petroleum engineering concepts.
+● Football Trainer / Vice President– Aramco: Volunteered with the Eastern Flames football team to hold the 2nd Soccer Clinic for children with
+special needs (2017) and the 1st Soccer Clinic for females (2018). Served as VP in 2021.
+● United Football Association President – KAUST: Elected to become the president, advocated and carried out logistics to organize football
+matches and practices for male and female students. (Aug 2016 – June 2017)
+Certifications
+● Society of Petroleum Engineers Certification (SPE, 2024) ● Design Thinking for Innovation (University of Virginia, 2022)
+Non -Business Use● Architecture of Complex Systems (MIT xPro, 2024) ● Machine Learning Rapid Prototyping with IBM Watson Studio (IBM,
+● LangChain for LLM Application Development (DeepLearning, 2023) 2022)
+● ChatGPT Prompt Engineering for Developers (DeepLearning, 2023) ● TIBCO Spotfire Data Analytics (Udemy, 2021)
+● Containers, Kubernetes, and OpenShift (IBM, 2023) ● Introduction to Python by Microsoft (edX, 2018)
+● Cloud Computing (IBM, 2023) ● 30 Days of Code in Python (Hackerrank, 2018)
+● Interactive Python Dashboards with Plotly & Dash (2023) ● Machine Learning Engineering Nanodegree (Udacity, 2018)

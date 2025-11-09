@@ -1,4 +1,4 @@
-# NurtureLens - Bilingual Portfolio Website
+# Nurtured Hub - Bilingual Portfolio Website
 
 A modern, clean bilingual (English/Arabic) portfolio website built with Astro, featuring multiple professional focus areas, content collections, and smooth animations.
 

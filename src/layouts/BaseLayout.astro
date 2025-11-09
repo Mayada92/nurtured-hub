@@ -10,13 +10,16 @@ interface Props {
   lang?: 'en' | 'ar';
 }
 
-const { title = 'NurtureLens', description = 'Personal bilingual portfolio', lang } = Astro.props;
+const { title = 'Nurtured Hub', description = 'Personal bilingual portfolio', lang } = Astro.props;
 const currentPath = Astro.url.pathname;
 const detectedLang = lang || getLanguageFromPath(currentPath);
 const htmlLang = detectedLang;
 const dir = detectedLang === 'ar' ? 'rtl' : 'ltr';
 
-const fullTitle = title === 'NurtureLens' ? title : `${title} | NurtureLens`;
+const siteName = detectedLang === 'ar' ? 'محور الرعاية' : 'Nurtured Hub';
+const defaultTitle = detectedLang === 'ar' ? 'محور الرعاية' : 'Nurtured Hub';
+const pageTitle = title === 'Nurtured Hub' || title === 'محور الرعاية' ? defaultTitle : title;
+const fullTitle = pageTitle === defaultTitle ? pageTitle : `${pageTitle} | ${siteName}`;
 ---
 
 <!doctype html>

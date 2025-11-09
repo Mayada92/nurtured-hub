@@ -19,7 +19,7 @@ const recentPosts = (await getCollection('posts'))
 
 <BaseLayout
   title="الرئيسية"
-  description="مرحباً بك في نورتشور - محفظة ثنائية اللغة تعرض المشاريع والكتابات والملفات الشخصية المهنية"
+  description="مرحباً بك في محور الرعاية - محفظة ثنائية اللغة تعرض المشاريع والكتابات والملفات الشخصية المهنية"
   lang="ar"
 >
   <div style="position: relative; min-height: 100vh;">
@@ -27,7 +27,10 @@ const recentPosts = (await getCollection('posts'))
     <section class="hero">
       <div class="container">
         <SectionReveal client:load>
-          <h1>مرحباً بك في نورتشور</h1>
+          <div class="hero__logo">
+            <img src="/images/brand/nurtured-mind-logo.webp" alt="محور الرعاية" width="180" height="180" />
+          </div>
+          <h1>مرحباً بك في محور الرعاية</h1>
           <p class="hero__subtitle">
             استكشاف الأطفال والتعليم، علم البيانات، التطوع، والهندسة
           </p>
@@ -74,7 +77,10 @@ const recentPosts = (await getCollection('posts'))
       <div class="container">
         <SectionReveal client:load delay={0.3}>
           <div class="banner">
-            <h2>نورتشور</h2>
+            <div class="banner__logo">
+              <img src="/images/brand/nurtured-mind-logo.webp" alt="محور الرعاية" width="120" height="120" />
+            </div>
+            <h2>محور الرعاية</h2>
             <p>
               منصة لاستكشاف تقاطع التعليم والبيانات والتأثير الاجتماعي. ربط وجهات النظر من خلال البحث والكتابة والتطبيقات العملية.
             </p>
@@ -111,6 +117,19 @@ const recentPosts = (await getCollection('posts'))
     z-index: 1;
   }
 
+  .hero__logo {
+    margin-block-end: var(--space-6);
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero__logo img {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+  }
+
   .hero h1 {
     font-size: var(--font-size-hero);
     font-weight: 700;
@@ -141,7 +160,7 @@ const recentPosts = (await getCollection('posts'))
     align-items: center;
     padding: var(--space-4) var(--space-8);
     background: white;
-    border: 2px solid var(--color-ink);
+    border: 2px solid transparent;
     border-radius: var(--radius-xl);
     text-decoration: none;
     font-weight: 600;
@@ -149,25 +168,45 @@ const recentPosts = (await getCollection('posts'))
     letter-spacing: -0.01em;
     transition: all var(--motion-duration-normal) var(--motion-easing-smooth);
     box-shadow: var(--shadow-soft);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-button);
+    opacity: 0;
+    transition: opacity var(--motion-duration-normal) var(--motion-easing-smooth);
+    z-index: -1;
   }
 
   .cta-button:hover {
-    transform: translateY(-3px) scale(1.02);
-    background: var(--color-accent-4);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--color-accent-1);
+    transform: translateY(-4px) scale(1.03);
+    color: white;
+    box-shadow: var(--shadow-button-hover);
+    border-color: transparent;
+  }
+
+  .cta-button:hover::before {
+    opacity: 1;
   }
 
   .cta-button--primary {
-    background: var(--color-ink);
-    color: var(--color-bg);
-    border-color: var(--color-ink);
+    background: var(--gradient-button);
+    color: white;
+    border-color: transparent;
+    box-shadow: var(--shadow-button);
+  }
+
+  .cta-button--primary::before {
+    background: var(--gradient-button-hover);
   }
 
   .cta-button--primary:hover {
-    background: var(--color-muted-ink);
-    border-color: var(--color-muted-ink);
-    transform: translateY(-3px) scale(1.02);
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: var(--shadow-button-hover);
   }
 
   .section {
@@ -176,7 +215,7 @@ const recentPosts = (await getCollection('posts'))
 
   .section--banner {
     background: var(--gradient-section);
-    padding-block: var(--space-10);
+    padding-block: var(--space-6);
     border-radius: var(--radius-xl);
     margin-block: var(--section-spacing);
     position: relative;
@@ -196,6 +235,18 @@ const recentPosts = (await getCollection('posts'))
     color: var(--color-ink);
     max-width: 700px;
     margin-inline: auto;
+  }
+
+  .banner__logo {
+    margin-block-end: var(--space-3);
+  }
+
+  .banner__logo img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: var(--radius-lg);
+    opacity: 0.8;
   }
 
   .grid {

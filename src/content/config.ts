@@ -23,6 +23,9 @@ const postsCollection = defineCollection({
     date: z.date(),
     excerpt: z.string(),
     canonical_url: z.string().url().optional(),
+    cover: z.string().optional(), // Image path for blog post cover
+    is_external: z.boolean().default(false), // For LinkedIn/Medium links vs full content
+    tags: z.array(z.string()).optional(),
   }),
 });
 
@@ -37,6 +40,8 @@ const papersCollection = defineCollection({
     doi: z.string().optional(),
     pdf_url: z.string().optional(),
     citation_bibtex: z.string().optional(),
+    cover: z.string().optional(), // Image path for paper cover
+    video_url: z.string().url().optional(), // Video presentation if available
   }),
 });
 
@@ -68,6 +73,9 @@ const volunteeringCollection = defineCollection({
     skills: z.array(z.string()).optional(),
     url: z.string().url().optional(),
     is_hackathon: z.boolean().default(false),
+    cover: z.string().optional(), // Image path for volunteering cover
+    images: z.array(z.string()).optional(), // Additional images
+    video_url: z.string().url().optional(), // Video if available
   }),
 });
 
@@ -85,6 +93,9 @@ const trainingCollection = defineCollection({
     description: z.string(),
     materials_url: z.string().url().optional(),
     slides_url: z.string().url().optional(),
+    cover: z.string().optional(), // Image path for training cover
+    images: z.array(z.string()).optional(), // Additional images
+    video_url: z.string().url().optional(), // Video if available
   }),
 });
 
@@ -102,6 +113,9 @@ const speakingCollection = defineCollection({
     recording_url: z.string().url().optional(),
     slides_url: z.string().url().optional(),
     event_url: z.string().url().optional(),
+    cover: z.string().optional(), // Image path for speaking cover
+    images: z.array(z.string()).optional(), // Additional images
+    video_url: z.string().url().optional(), // Video if available
   }),
 });
 
@@ -110,15 +124,18 @@ const coursesCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     lang: z.enum(['en', 'ar']),
-    course_code: z.string().optional(),
-    institution: z.string(),
-    term: z.string().optional(), // e.g., "Fall 2024", "Summer 2024"
+    course_code: z.string().optional(), // e.g., "DATASCI 201" or certification ID
+    institution: z.string(), // e.g., "UC Berkeley", "Coursera", "Google", "AWS", etc.
+    platform: z.enum(['university', 'coursera', 'edx', 'udemy', 'linkedin-learning', 'google', 'microsoft', 'aws', 'ibm', 'other']).optional(), // Platform type
+    term: z.string().optional(), // e.g., "Fall 2024", "Summer 2024", or completion date for certifications
     year: z.number(),
-    domain: z.enum(['sports', 'educational-psychology', 'engineering', 'data-science']),
+    domain: z.enum(['sports', 'educational-psychology', 'engineering', 'data-science', 'general']),
     level: z.enum(['undergraduate', 'graduate', 'professional', 'certification']).optional(),
     description: z.string(),
     syllabus_url: z.string().optional(),
+    certificate_url: z.string().url().optional(), // For certifications - link to credential
     credits: z.number().optional(),
+    cover: z.string().optional(), // Image path for course certificate/cover
   }),
 });
 
@@ -137,6 +154,9 @@ const workCollection = defineCollection({
     achievements: z.array(z.string()).optional(),
     skills: z.array(z.string()).optional(),
     url: z.string().url().optional(),
+    cover: z.string().optional(), // Image path for work cover
+    images: z.array(z.string()).optional(), // Additional images
+    video_url: z.string().url().optional(), // Video if available
   }),
 });
 
