@@ -54,15 +54,18 @@ const arrow = isRTL ? '←' : '→';
 <style>
   .project-card {
     background: var(--gradient-card);
-    border-radius: var(--radius-xl);
+    border-radius: var(--radius-lg);
     overflow: hidden;
     box-shadow: var(--shadow-card);
     transition: all var(--motion-duration-normal) var(--motion-easing-smooth);
     border: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
   }
 
   .project-card:hover {
-    transform: translateY(-6px) scale(1.01);
+    transform: translateY(-2px);
     box-shadow: var(--shadow-card-hover);
     border-color: rgba(185, 209, 192, 0.3);
   }
@@ -72,16 +75,37 @@ const arrow = isRTL ? '←' : '→';
     outline-offset: 4px;
   }
 
+  .project-card__cover {
+    height: 160px;
+    overflow: hidden;
+  }
+
   .project-card__cover img {
     width: 100%;
-    height: auto;
-    aspect-ratio: 3 / 2;
+    height: 100%;
     object-fit: cover;
     display: block;
   }
 
   .project-card__content {
-    padding: var(--space-4);
+    padding: var(--space-3);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .project-card h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-block-end: var(--space-2);
+    line-height: 1.3;
+  }
+
+  .project-card p {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--color-muted-ink);
+    margin-block-end: var(--space-2);
   }
 
   .project-card__meta {
@@ -100,7 +124,8 @@ const arrow = isRTL ? '←' : '→';
   .project-card__links {
     display: flex;
     gap: var(--space-4);
-    margin-block-start: var(--space-3);
+    margin-block-start: auto;
+    padding-block-start: var(--space-2);
   }
 
   .project-card__links a {

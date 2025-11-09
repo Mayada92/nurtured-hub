@@ -34,12 +34,18 @@ const projects = (await getCollection('projects'))
 
   .grid {
     display: grid;
-    gap: var(--space-6);
+    gap: var(--space-4);
     margin-block-start: var(--space-6);
   }
 
   .grid--projects {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+
+  @media (min-width: 768px) {
+    .grid--projects {
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    }
   }
 </style>
 
