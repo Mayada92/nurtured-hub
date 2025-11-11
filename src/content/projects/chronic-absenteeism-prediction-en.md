@@ -54,3 +54,9 @@ This project demonstrates the application of data science to educational challen
 - Understanding factors contributing to absenteeism
 - Supporting educational equity and student success
 
+## Presentation
+
+This project was presented as a conference poster at UC Berkeley, demonstrating the application of machine learning to predict chronic absenteeism in the Oakland Unified School District. The presentation highlighted key findings including attendance time trends, GPA-attendance correlations, and demographic patterns in chronic absenteeism.
+
+[View LinkedIn Post](https://www.linkedin.com/posts/mayada-alhashem_datascience-educationequity-chronicabsenteeism-activity-7272470921959927809-dJlp)
+
