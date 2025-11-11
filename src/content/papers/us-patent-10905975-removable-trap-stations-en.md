@@ -4,7 +4,6 @@ lang: en
 venue: "United States Patent and Trademark Office"
 year: 2021
 authors: ["Mayadah Alhashem"]
-pdf_url: "https://patents.google.com/patent/US11786944B2/en"
 cover: "/images/papers/adipec-2019.webp"
 ---
 
