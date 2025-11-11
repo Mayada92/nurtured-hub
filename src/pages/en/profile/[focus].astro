@@ -374,10 +374,6 @@ if (allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.s
           </section>
         )}
       </article>
-
-      <aside style="position: sticky; top: 80px;">
-        <TableOfContents headings={headings} />
-      </aside>
     </div>
   </div>
 </BaseLayout>
@@ -396,14 +392,31 @@ if (allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.s
     z-index: -1;
     pointer-events: none;
   }
+  .profile-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: var(--space-6);
+    align-items: start;
+  }
+
+  .profile-toc {
+    position: sticky;
+    top: 80px;
+    align-self: start;
+  }
+
+  .profile-main {
+    min-width: 0; /* Prevent grid overflow */
+  }
+
   @media (max-width: 1024px) {
-    div[style*='grid-template-columns'] {
-      display: block !important;
+    .profile-layout {
+      display: block;
     }
 
-    aside {
+    .profile-toc {
       position: static !important;
-      margin-block-start: var(--space-6);
+      margin-block-end: var(--space-6);
     }
   }
 
