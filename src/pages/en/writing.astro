@@ -7,12 +7,9 @@ import { getCollection } from 'astro:content';
 const allPosts = (await getCollection('posts'))
   .filter((p) => p.data.lang === 'en');
 
-// Sort posts: nurtured-mind-intro first, then by date
+// Sort posts by date (newest first)
 const posts = allPosts.sort((a, b) => {
-  // Put nurtured-mind-intro first
-  if (a.slug === 'nurtured-mind-intro-en') return -1;
-  if (b.slug === 'nurtured-mind-intro-en') return 1;
-  // Then sort by date (newest first)
+  // Sort by date (newest first)
   return b.data.date.getTime() - a.data.date.getTime();
 });
 ---

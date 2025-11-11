@@ -52,7 +52,16 @@ const papersCollection = defineCollection({
     pdf_url: z.string().optional(),
     citation_bibtex: z.string().optional(),
     cover: z.string().optional(), // Image path for paper cover
+    images: z.array(z.string()).optional(), // Additional images for gallery
     video_url: z.string().optional(), // Video URL or relative path if available
+    gallery: z.array(
+      z.object({
+        type: z.enum(['image', 'video']),
+        src: z.string(),
+        alt: z.string().optional(),
+        caption: z.string().optional(),
+      })
+    ).optional(),
   }),
 });
 

@@ -13,11 +13,17 @@ gallery:
     src: "/images/projects/chronic-absenteeism.png"
     alt: "Chronic Absenteeism Prediction - Educational Data Science"
     caption: "Chronic Absenteeism Prediction - Educational Data Science Project"
+  - type: image
+    src: "/images/projects/chronic-absenteeism-poster.png"
+    alt: "ONGB: Student Absenteeism in Oakland Unified School District - Conference Poster"
+    caption: "Conference poster presentation: ONGB Student Absenteeism in Oakland Unified School District"
 ---
 
 **Educational Data Science Application**
 
 Developed a machine learning model to predict chronic absenteeism in students, enabling early identification of at-risk students and supporting intervention strategies to improve educational outcomes.
+
+This project was presented as a conference poster at UC Berkeley, showcasing the application of machine learning techniques to educational data science challenges.
 
 ## Project Overview
 
