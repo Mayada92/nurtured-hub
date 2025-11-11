@@ -64,7 +64,7 @@ const base = getBasePath();
         <SectionReveal client:load delay={0.3}>
           <div class="project-gallery">
             <h2>Project Gallery</h2>
-            <div class="gallery-grid">
+            <div class="gallery-grid gallery-grid--horizontal">
               {data.images.map((imagePath, i) => (
                 <div class="gallery-item">
                   <img
@@ -243,6 +243,17 @@ const base = getBasePath();
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: var(--space-4);
+  }
+
+  .gallery-grid--horizontal {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-3);
+  }
+
+  @media (min-width: 768px) {
+    .gallery-grid--horizontal {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
   }
 
   .gallery-item {
