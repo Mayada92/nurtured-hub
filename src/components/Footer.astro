@@ -55,9 +55,10 @@ const links = footerLinks[lang];
 
 <style>
   .footer {
-    margin-block-start: var(--space-8);
-    padding-block: var(--space-6);
-    border-block-start: 1px solid rgba(0, 0, 0, 0.1);
+    margin-block-start: var(--space-12);
+    padding-block: var(--space-8);
+    border-block-start: 1px solid rgba(0, 0, 0, 0.08);
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.3) 0%, transparent 100%);
   }
 
   .footer__inner {
@@ -72,20 +73,47 @@ const links = footerLinks[lang];
   .footer__list {
     display: flex;
     list-style: none;
-    gap: var(--space-4);
+    gap: var(--space-2);
     flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer__list li {
+    margin: 0;
   }
 
   .footer__list a {
     text-decoration: none;
-    font-size: 0.6125rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-md);
+    transition: all var(--motion-duration-fast) var(--motion-easing);
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .footer__list a:hover {
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--color-accent-1);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-color: rgba(234, 199, 199, 0.3);
   }
 
   .footer__copyright {
     text-align: center;
-    font-size: 0.6125rem;
+    font-size: 0.7rem;
     color: var(--color-muted-ink);
-    margin-block-start: var(--space-4);
+    margin-block-start: var(--space-6);
+    padding: var(--space-3);
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(8px);
+    border-radius: var(--radius-md);
   }
 </style>
 
