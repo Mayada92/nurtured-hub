@@ -64,6 +64,7 @@ const stats = [
         <div class="hero__gradient"></div>
       </div>
       <div class="container">
+        <div class="hero__banner"></div>
         <SectionReveal client:load>
           <div class="hero__content">
             <div class="hero__logo">
@@ -283,6 +284,17 @@ const stats = [
     background: transparent;
     z-index: 1;
     pointer-events: none;
+  }
+
+  .hero__banner {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(8px);
+    border-radius: var(--radius-xl);
+    z-index: 1;
+    pointer-events: none;
+    margin: var(--space-8);
   }
 
   .hero__content {
