@@ -4,10 +4,10 @@ lang: ar
 date: 2025-02-20
 excerpt: "في جلسة قهوة عفوية مع زوجي، تطور نقاشنا من حديث بسيط إلى تأمل عميق في طبيعة التعلم والاستماع. كالعادة، بدأنا نخط أفكارنا على الورق، نرسم ونخطط، حتى تبلورت نظرية جميلة عن كيفية تلقينا للمعرفة وتفاعلنا معها."
 canonical_url: "https://mayadaalhashem.wordpress.com/2025/02/20/%d9%81%d9%86-%d8%a7%d9%84%d8%a7%d8%b3%d8%aa%d9%85%d8%a7%d8%b9-%d8%b1%d8%ad%d9%84%d8%a9-%d8%a8%d9%8a%d9%86-%d8%a7%d9%84%d9%86%d9%82%d8%af-%d9%88%d8%a7%d9%84%d8%aa%d8%b9%d9%84%d9%85/"
-cover: "/images/blog/listening-art.jpg"
+cover: "/images/blog/fan-al-istima.png"
 tags: ["educational-psychology", "learning", "communication", "arabic"]
 images:
-  - "/images/blog/listening-art.jpg"
+  - "/images/blog/fan-al-istima.png"
   - "/images/blog/visual-selection-2-1.png"
 ---
 
