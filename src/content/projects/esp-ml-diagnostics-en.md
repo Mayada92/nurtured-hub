@@ -8,6 +8,11 @@ featured: true
 cover: "/images/papers/iptc-paper-ml.webp"
 images:
   - "/images/papers/iptc-paper-ml.webp"
+gallery:
+  - type: image
+    src: "/images/papers/iptc-paper-ml.webp"
+    alt: "ESP ML Diagnostics - IPTC 2024 Presentation"
+    caption: "IPTC 2024 - Machine Learning for ESP Diagnosis"
 repo: "https://pure.kfupm.edu.sa/en/publications/evaluation-of-machine-learning-techniques-for-esp-diagnosis-using"
 demo: "https://onepetro.org/IPTCONF/proceedings-abstract/24IPTC/24IPTC/542214"
 relatedPapers:
