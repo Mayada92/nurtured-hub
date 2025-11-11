@@ -44,6 +44,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Landing page specific background overlay */
+body:has(.landing-page) {
+  background-image: 
+    url('/images/background/background3.png'),
+    radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 40% 20%, rgba(236, 72, 153, 0.04) 0%, transparent 50%),
+    linear-gradient(135deg, rgba(250, 248, 245, 0.3) 0%, rgba(255, 255, 255, 0.4) 100%);
+}
+
 /* Typography - Enhanced */
 h1,
 h2,

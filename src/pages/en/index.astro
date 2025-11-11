@@ -54,7 +54,8 @@ const stats = [
   description="Welcome to Nurtured Mind - A bilingual portfolio showcasing projects, writing, and professional profiles"
   lang="en"
 >
-  <div style="position: relative; min-height: 100vh;">
+  <div class="landing-page">
+    <div class="landing-page__overlay"></div>
     <FloatingLayer client:load />
     <section class="hero">
       <div class="hero__background">
@@ -209,9 +210,30 @@ const stats = [
       </div>
     </section>
   </div>
+  </div>
 </BaseLayout>
 
 <style>
+  .landing-page {
+    position: relative;
+    min-height: 100vh;
+  }
+
+  .landing-page__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50vh;
+    background-image: url('/images/background/background1.png');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    opacity: 0.4;
+    z-index: -1;
+    pointer-events: none;
+  }
+
   .hero {
     position: relative;
     min-height: 100vh;
