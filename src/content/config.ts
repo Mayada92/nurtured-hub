@@ -12,6 +12,7 @@ const projectsCollection = defineCollection({
     demo: z.string().url().optional(),
     cover: z.string().optional(), // path to image in public
     images: z.array(z.string()).optional(), // Additional images for gallery
+    video: z.string().optional(), // path to video file in public
     featured: z.boolean().default(false),
   }),
 });

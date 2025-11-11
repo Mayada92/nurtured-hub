@@ -81,12 +81,17 @@ const base = getBasePath();
         </SectionReveal>
       )}
 
-      {data.demo && (
+      {(data.demo || data.video) && (
         <SectionReveal client:load delay={0.4}>
           <div class="project-demo">
             <h2>Demo</h2>
             <div class="demo-container">
-              {data.demo.includes('youtube.com') || data.demo.includes('youtu.be') ? (
+              {data.video ? (
+                <video controls class="demo-video" poster={data.cover}>
+                  <source src={getImagePath(data.video)} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              ) : data.demo && (data.demo.includes('youtube.com') || data.demo.includes('youtu.be')) ? (
                 <iframe
                   src={(() => {
                     let embedUrl = data.demo;
@@ -108,11 +113,11 @@ const base = getBasePath();
                   allowfullscreen
                   class="demo-video"
                 ></iframe>
-              ) : (
+              ) : data.demo ? (
                 <a href={data.demo} target="_blank" rel="noopener noreferrer" class="project-link">
-                  View Demo →
+                  View Article on Medium →
                 </a>
-              )}
+              ) : null}
             </div>
           </div>
         </SectionReveal>
