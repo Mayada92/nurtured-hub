@@ -1,0 +1,162 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { getImagePath } from '../../../utils/path';
+import { Content } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts', ({ data }) => data.lang === 'ar');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+interface Props {
+  post: Content<'posts'>;
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+const date = new Date(post.data.date).toLocaleDateString('ar-SA', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<BaseLayout title={post.data.title} description={post.data.excerpt} lang="ar">
+  <article class="post">
+    <header class="post__header">
+      <time datetime={post.data.date.toISOString()} class="post__date">
+        {date}
+      </time>
+      <h1>{post.data.title}</h1>
+      {post.data.cover && (
+        <div class="post__cover">
+          <img
+            src={getImagePath(post.data.cover)}
+            alt={`${post.data.title} - صورة الغلاف`}
+            loading="eager"
+            width="1200"
+            height="600"
+          />
+        </div>
+      )}
+    </header>
+    <div class="post__content">
+      <Content />
+    </div>
+    {post.data.canonical_url && (
+      <footer class="post__footer">
+        <p>
+          <a href={post.data.canonical_url} target="_blank" rel="noopener noreferrer">
+            اقرأ الأصل على WordPress ←
+          </a>
+        </p>
+      </footer>
+    )}
+  </article>
+</BaseLayout>
+
+<style>
+  .post {
+    max-width: var(--content-max-width);
+    margin-inline: auto;
+    padding: var(--space-8) var(--space-4);
+  }
+
+  .post__header {
+    margin-block-end: var(--space-8);
+  }
+
+  .post__date {
+    display: block;
+    font-size: var(--font-size-small);
+    color: var(--color-muted-ink);
+    margin-block-end: var(--space-3);
+  }
+
+  .post h1 {
+    font-size: var(--font-size-h1);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-block-end: var(--space-6);
+    color: var(--color-ink);
+  }
+
+  .post__cover {
+    width: 100%;
+    max-height: 500px;
+    overflow: hidden;
+    border-radius: var(--radius-xl);
+    margin-block-end: var(--space-6);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .post__cover img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+  }
+
+  .post__content {
+    font-size: var(--font-size-body);
+    line-height: 1.8;
+    color: var(--color-ink);
+  }
+
+  .post__content :global(h2) {
+    font-size: var(--font-size-h2);
+    margin-block-start: var(--space-8);
+    margin-block-end: var(--space-4);
+    color: var(--color-ink);
+  }
+
+  .post__content :global(h3) {
+    font-size: var(--font-size-h3);
+    margin-block-start: var(--space-6);
+    margin-block-end: var(--space-3);
+    color: var(--color-ink);
+  }
+
+  .post__content :global(p) {
+    margin-block-end: var(--space-4);
+  }
+
+  .post__content :global(img) {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+    margin-block: var(--space-6);
+    box-shadow: var(--shadow-md);
+  }
+
+  .post__content :global(ul),
+  .post__content :global(ol) {
+    margin-block: var(--space-4);
+    padding-inline-start: var(--space-6);
+  }
+
+  .post__content :global(li) {
+    margin-block-end: var(--space-2);
+  }
+
+  .post__footer {
+    margin-block-start: var(--space-8);
+    padding-block-start: var(--space-6);
+    border-block-start: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .post__footer a {
+    color: var(--color-accent-1);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .post__footer a:hover {
+    text-decoration: underline;
+  }
+</style>
+
