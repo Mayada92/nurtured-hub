@@ -138,7 +138,26 @@ if (data.relatedPapers && data.relatedPapers.length > 0) {
         </SectionReveal>
       )}
 
-      <SectionReveal client:load delay={0.5}>
+      {relatedPapers.length > 0 && (
+        <SectionReveal client:load delay={0.5}>
+          <div class="project-related-papers">
+            <h2>Related Publications</h2>
+            <div class="related-papers-list">
+              {relatedPapers.map((paper) => (
+                <a
+                  href={`${base}en/papers#${paper.slug}`.replace(/\/+/g, '/')}
+                  class="related-paper-link"
+                >
+                  <span class="paper-title">{paper.data.title}</span>
+                  <span class="paper-venue">{paper.data.venue} {paper.data.year}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </SectionReveal>
+      )}
+
+      <SectionReveal client:load delay={0.6}>
         <div class="project-links">
           {data.repo && (
             <a href={data.repo} target="_blank" rel="noopener noreferrer" class="project-link">
