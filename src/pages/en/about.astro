@@ -175,6 +175,18 @@ const base = getBasePath();
   .hero-image {
     display: flex;
     justify-content: center;
+    align-items: flex-start;
+  }
+
+  .hero-image .image-stage {
+    max-width: 100%;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+    object-fit: contain;
   }
 
   .hero-text h1 {

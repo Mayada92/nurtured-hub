@@ -68,14 +68,12 @@ export default function ImageStage({
       <img
         src={src}
         alt={alt}
-        width={width}
-        height={height}
         loading="lazy"
         style={{
           width: '100%',
           height: 'auto',
-          aspectRatio: `${width} / ${height}`,
-          objectFit: 'cover',
+          maxWidth: `${width}px`,
+          objectFit: 'contain',
           borderRadius: 'var(--radius-xl)',
           boxShadow: 'var(--shadow-lg)',
           display: 'block',
