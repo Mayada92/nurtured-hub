@@ -10,6 +10,8 @@ cover: "/images/work/productease.png"
 
 ProductEASE is a product that automates the creation of tutorials, training materials, and customer support content directly from application documentation. It helps developers focus on developing by automating the answering of IT support tickets directly from app documentation.
 
+**Co-founded with [Dalal Alharbi](https://www.linkedin.com/in/dalalalharbi11/), Lead Innovator.**
+
 ## Features
 
 - Automatic tutorial generation from documentation
