@@ -4,7 +4,7 @@ lang: en
 venue: "United States Patent and Trademark Office"
 year: 2015
 authors: ["Mayadah Alhashem"]
-pdf_url: "https://patents.google.com/patent/US8988475B2/en"
+pdf_url: "https://patentimages.storage.googleapis.com/92/4a/b9/c8ff71349e3c0a/US20140267533A1.pdf"
 cover: "/images/papers/adipec-2019.webp"
 ---
 

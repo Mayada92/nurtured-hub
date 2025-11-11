@@ -4,8 +4,8 @@ lang: en
 venue: "Journal of Materials Science, Issue 18/2017"
 year: 2017
 authors: ["Saad Sharief", "Rahmat Susantyoko", "Mayada Alhashem", "Saif Almheiri"]
-doi: "https://doi.org/10.1007/s10853-017-1183-6"
-pdf_url: "https://link.springer.com/article/10.1007/s10853-017-1183-6"
+pdf_url: "https://www.researchgate.net/publication/318009172_Synthesis_of_few-layer_graphene-like_sheets_from_carbon-based_powders_via_electrochemical_exfoliation_using_carbon_black_as_an_example"
+doi: "https://www.semanticscholar.org/paper/433b9931fcb329360134d08e8aee9c92281e8692"
 cover: "/images/papers/adipec-2019.webp"
 ---
 

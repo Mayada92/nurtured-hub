@@ -4,7 +4,8 @@ lang: en
 venue: "King Abdullah University of Science and Technology (KAUST) - Master's Thesis in Mechanical Engineering"
 year: 2017
 authors: ["Mayadah Alhashem"]
-pdf_url: "https://repository.kaust.edu.sa/handle/10754/625000"
+pdf_url: "https://academia.kaust.edu.sa/en/studentTheses/optimization-of-paper-discoloration-via-pyrolysis-using-lasers-3"
+doi: "https://www.academia.edu/112259558/Optimization_of_Paper_Discoloration_via_Pyrolysis_Using_Lasers"
 cover: "/images/papers/adipec-2019.webp"
 ---
 

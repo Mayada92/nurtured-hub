@@ -4,7 +4,7 @@ lang: en
 venue: "Abu Dhabi International Petroleum Exhibition and Conference (ADIPEC) 2019"
 year: 2019
 authors: ["Mayadah Alhashem"]
-pdf_url: "https://onepetro.org/ADIPEC/proceedings-abstract/ADIPEC19/All-ADIPEC19/ADIPEC-19000-MS/490000"
+pdf_url: "https://onepetro.org/SPEADIP/proceedings-pdf/19ADIP/19ADIP/D021S043R003/1123736/spe-197545-ms.pdf"
 cover: "/images/papers/adipec-2019.webp"
 ---
 

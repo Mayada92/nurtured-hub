@@ -4,7 +4,8 @@ lang: en
 venue: "International Petroleum Technology Conference (IPTC) 2024"
 year: 2024
 authors: ["M. Alhashem", "R. Lastra Melo", "M. Ahmed", "L. Ghouti"]
-pdf_url: "https://onepetro.org/IPTC/proceedings-abstract/IPTC24/All-IPTC24/IPTC-24210-MS/530000"
+pdf_url: "https://onepetro.org/IPTCONF/proceedings-abstract/24IPTC/24IPTC/542214"
+doi: "https://pure.kfupm.edu.sa/en/publications/evaluation-of-machine-learning-techniques-for-esp-diagnosis-using"
 cover: "/images/papers/iptc-paper-ml.webp"
 ---
 
