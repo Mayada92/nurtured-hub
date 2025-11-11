@@ -244,7 +244,8 @@ const stats = [
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding-block: var(--space-4);
+    padding-block: var(--space-8);
+    padding-block-end: var(--space-12);
     overflow: hidden;
   }
 
@@ -289,13 +290,16 @@ const stats = [
 
   .hero__banner {
     position: absolute;
-    inset: 0;
+    top: var(--space-8);
+    left: var(--space-8);
+    right: var(--space-8);
+    bottom: var(--space-8);
     background: rgba(255, 255, 255, 0.25);
     backdrop-filter: blur(8px);
     border-radius: var(--radius-xl);
     z-index: 1;
     pointer-events: none;
-    margin: var(--space-8);
+    min-height: fit-content;
   }
 
   .hero__content {
