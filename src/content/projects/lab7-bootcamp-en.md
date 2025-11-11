@@ -5,8 +5,11 @@ year: 2023
 tags: ["engineering", "data-science", "sustainability"]
 summary: "Developed interactive live dashboard and computer vision model for caffeine to biofuel reactor prototype as part of Lab7 Professional Innovator Bootcamp at Aramco Lab7."
 featured: true
-cover: "/images/projects/lab7-bootcamp.webp"
-repo: "https://github.com"
+cover: "/images/projects/lab7-bootcamp-prototype.webp"
+images:
+  - "/images/projects/lab7-bootcamp-prototype.webp"
+  - "/images/projects/lab7-bootcamp-dashboard.webp"
+  - "/images/projects/lab7-bootcamp-team.webp"
 ---
 
 This project was developed during the Lab7 Professional Innovator Bootcamp at Aramco Lab7. The goal was to create an innovative solution for converting caffeine to biofuel, demonstrating the intersection of engineering, data science, and sustainability.
@@ -25,3 +28,16 @@ This project was developed during the Lab7 Professional Innovator Bootcamp at Ar
 - Data Visualization
 - Reactor Engineering
 
+## Project Gallery
+
+![Reactor Prototype](/images/projects/lab7-bootcamp-prototype.webp)
+
+The caffeine to biofuel reactor prototype, showcasing the physical implementation of the conversion system.
+
+![Interactive Dashboard](/images/projects/lab7-bootcamp-dashboard.webp)
+
+The live dashboard interface providing real-time monitoring and data visualization of the reactor's performance.
+
+![Lab7 Bootcamp Team](/images/projects/lab7-bootcamp-team.webp)
+
+Our team at the Lab7 Professional Innovator Bootcamp, celebrating the completion of the project.
