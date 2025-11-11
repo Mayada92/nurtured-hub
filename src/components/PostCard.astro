@@ -44,7 +44,7 @@ const date = new Date(data.date).toLocaleDateString(data.lang === 'ar' ? 'ar-SA'
         {isRTL ? 'اقرأ على LinkedIn ←' : 'Read on LinkedIn →'}
       </a>
     ) : (
-      <a href={`${base}${data.lang}/writing/${post.slug}`.replace(/\/+/g, '/')}>
+      <a href={`${base}${data.lang}/writing/${post.slug}/`.replace(/\/+/g, '/')}>
         {isRTL ? 'اقرأ المزيد ←' : 'Read more →'}
       </a>
     )}
