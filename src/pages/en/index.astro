@@ -58,6 +58,7 @@ const stats = [
     <div class="landing-page__overlay"></div>
     <FloatingLayer client:load />
     <section class="hero">
+      <div class="hero__light-header"></div>
       <div class="hero__background">
         <div class="hero__light-overlay"></div>
         <div class="hero__scroll-overlay"></div>
@@ -219,6 +220,8 @@ const stats = [
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const overlay = document.querySelector('.hero__scroll-overlay');
+    const lightHeader = document.querySelector('.hero__light-header');
+    const triggerPoint = 100; // Adjust this value to control when the effect starts
     
     if (overlay) {
       window.addEventListener('scroll', () => {
@@ -232,6 +235,18 @@ const stats = [
       
       // Set initial opacity
       overlay.style.opacity = '1';
+    }
+    
+    if (lightHeader) {
+      window.addEventListener('scroll', () => {
+        const scrollPosition = window.scrollY;
+        
+        if (scrollPosition > triggerPoint) {
+          lightHeader.classList.add('scrolled');
+        } else {
+          lightHeader.classList.remove('scrolled');
+        }
+      });
     }
   });
 </script>
@@ -268,10 +283,28 @@ const stats = [
     overflow: hidden;
   }
 
+  .hero__light-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f4f8 50%, #f9f9f9 100%);
+    z-index: 0;
+    pointer-events: none;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .hero__light-header.scrolled {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
   .hero__background {
     position: absolute;
     inset: 0;
-    z-index: 0;
+    z-index: -1;
     background-image: url('/images/background/background3.png');
     background-size: cover;
     background-position: center;
