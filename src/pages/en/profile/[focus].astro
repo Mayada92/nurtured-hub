@@ -126,7 +126,7 @@ if (allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.s
 ---
 
 <BaseLayout title={title} description={data.headline} lang="en">
-  <div class="content">
+  <div class="content profile-content">
     <div class="profile-layout">
       <aside class="profile-toc">
         <TableOfContents headings={headings} />
@@ -395,21 +395,32 @@ if (allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.s
     z-index: -1;
     pointer-events: none;
   }
+  .profile-content {
+    max-width: 100%;
+    padding-inline: 0;
+  }
+
   .profile-layout {
     display: grid;
     grid-template-columns: 280px 1fr;
     gap: var(--space-6);
     align-items: start;
+    position: relative;
+    max-width: 100%;
   }
 
   .profile-toc {
     position: sticky;
-    top: 80px;
+    top: calc(var(--header-height, 80px) + var(--space-4));
     align-self: start;
+    left: 0;
+    padding-inline-start: var(--space-4);
   }
 
   .profile-main {
     min-width: 0; /* Prevent grid overflow */
+    margin-inline-start: 0;
+    padding-inline-end: var(--space-4);
   }
 
   @media (max-width: 1024px) {
