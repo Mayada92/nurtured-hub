@@ -75,26 +75,50 @@ if (data.relatedPapers && data.relatedPapers.length > 0) {
         </div>
       </SectionReveal>
 
-      {data.images && data.images.length > 0 && (
+      {(data.gallery && data.gallery.length > 0) || (data.images && data.images.length > 0) ? (
         <SectionReveal client:load delay={0.3}>
           <div class="project-gallery">
             <h2>Project Gallery</h2>
             <div class="gallery-grid gallery-grid--horizontal">
-              {data.images.map((imagePath, i) => (
-                <div class="gallery-item">
-                  <img
-                    src={getImagePath(imagePath)}
-                    alt={`${data.title} - Image ${i + 1}`}
-                    loading="lazy"
-                    width="800"
-                    height="600"
-                  />
-                </div>
-              ))}
+              {data.gallery && data.gallery.length > 0 ? (
+                data.gallery.map((item, i) => (
+                  <div class="gallery-item">
+                    {item.type === 'video' ? (
+                      <video controls class="gallery-video" poster={data.cover}>
+                        <source src={getImagePath(item.src)} type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
+                    ) : (
+                      <img
+                        src={getImagePath(item.src)}
+                        alt={item.alt || `${data.title} - Image ${i + 1}`}
+                        loading="lazy"
+                        width="800"
+                        height="600"
+                      />
+                    )}
+                    {item.caption && (
+                      <p class="gallery-caption">{item.caption}</p>
+                    )}
+                  </div>
+                ))
+              ) : (
+                data.images?.map((imagePath, i) => (
+                  <div class="gallery-item">
+                    <img
+                      src={getImagePath(imagePath)}
+                      alt={`${data.title} - Image ${i + 1}`}
+                      loading="lazy"
+                      width="800"
+                      height="600"
+                    />
+                  </div>
+                ))
+              )}
             </div>
           </div>
         </SectionReveal>
-      )}
+      ) : null}
 
       {(data.demo || data.video) && (
         <SectionReveal client:load delay={0.4}>
@@ -356,21 +380,36 @@ if (data.relatedPapers && data.relatedPapers.length > 0) {
     box-shadow: var(--shadow-card-hover);
   }
 
-  .gallery-item img {
+  .gallery-item {
+    max-width: 33%;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .gallery-grid--horizontal .gallery-item {
+    max-width: 30%;
+  }
+
+  .gallery-item img,
+  .gallery-item video {
     width: 100%;
     max-width: 100%;
     height: auto;
     display: block;
     object-fit: contain;
   }
-  
-  .gallery-item {
-    max-width: 33%;
-    margin-inline: auto;
+
+  .gallery-video {
+    border-radius: var(--radius-lg);
+    background: var(--gradient-section);
   }
-  
-  .gallery-grid--horizontal .gallery-item {
-    max-width: 30%;
+
+  .gallery-caption {
+    margin-block-start: var(--space-2);
+    font-size: 0.75rem;
+    color: var(--color-muted-ink);
+    text-align: center;
   }
 
   .project-demo {

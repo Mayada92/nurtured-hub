@@ -8,6 +8,14 @@ featured: true
 cover: "/images/projects/gaza-hackathon.webp"
 images:
   - "/images/projects/gaza-hackathon.webp"
+gallery:
+  - type: image
+    src: "/images/projects/gaza-hackathon.webp"
+    alt: "GazaChat - Offline Communication App"
+  - type: video
+    src: "/videos/projects/gaza-hackathon.mp4"
+    alt: "Hackathon (Gaza) - Project Video"
+    caption: "Hack for Gaza Hackathon - Project Development"
 ---
 
 **Hackathon with a Cause - Hack for Gaza**
