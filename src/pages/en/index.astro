@@ -218,37 +218,72 @@ const stats = [
 </BaseLayout>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const overlay = document.querySelector('.hero__scroll-overlay');
-    const lightHeader = document.querySelector('.hero__light-header');
-    const triggerPoint = 100; // Adjust this value to control when the effect starts
+  // Enhanced scroll effects for hero section with performance optimization
+  (function() {
+    'use strict';
     
-    if (overlay) {
-      window.addEventListener('scroll', () => {
-        // Fade out based on scroll position
-        const scrollPosition = window.scrollY;
-        const fadeDistance = 400; // Adjust this to control fade speed (larger = slower fade)
-        const opacity = Math.max(1 - scrollPosition / fadeDistance, 0);
-        
-        overlay.style.opacity = opacity.toString();
-      });
+    function initHeroScroll() {
+      const overlay = document.querySelector('.hero__scroll-overlay');
+      const lightHeader = document.querySelector('.hero__light-header');
+      const heroLightOverlay = document.querySelector('.hero__light-overlay');
       
-      // Set initial opacity
-      overlay.style.opacity = '1';
+      if (!overlay && !lightHeader && !heroLightOverlay) {
+        setTimeout(initHeroScroll, 100);
+        return;
+      }
+      
+      let ticking = false;
+      
+      function updateHeroStyles() {
+        const scrollY = window.scrollY;
+        const fadeDistance = 400; // Distance to fade out completely
+        
+        // Hero scroll overlay - fades out as you scroll
+        if (overlay) {
+          const opacity = Math.max(1 - scrollY / fadeDistance, 0);
+          overlay.style.opacity = opacity.toString();
+        }
+        
+        // Hero light overlay - also fades out
+        if (heroLightOverlay) {
+          const opacity = Math.max(1 - scrollY / fadeDistance, 0);
+          heroLightOverlay.style.opacity = opacity.toString();
+        }
+        
+        // Hero light header - scrolls away completely
+        if (lightHeader) {
+          const triggerPoint = 100;
+          if (scrollY > triggerPoint) {
+            lightHeader.classList.add('scrolled');
+          } else {
+            lightHeader.classList.remove('scrolled');
+          }
+        }
+        
+        ticking = false;
+      }
+      
+      function onScroll() {
+        if (!ticking) {
+          window.requestAnimationFrame(updateHeroStyles);
+          ticking = true;
+        }
+      }
+      
+      // Initial state
+      updateHeroStyles();
+      
+      // Listen for scroll events
+      window.addEventListener('scroll', onScroll, { passive: true });
     }
     
-    if (lightHeader) {
-      window.addEventListener('scroll', () => {
-        const scrollPosition = window.scrollY;
-        
-        if (scrollPosition > triggerPoint) {
-          lightHeader.classList.add('scrolled');
-        } else {
-          lightHeader.classList.remove('scrolled');
-        }
-      });
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initHeroScroll);
+    } else {
+      initHeroScroll();
     }
-  });
+  })();
 </script>
 
 <style>
