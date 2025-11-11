@@ -60,6 +60,7 @@ const stats = [
     <section class="hero">
       <div class="hero__background">
         <div class="hero__light-overlay"></div>
+        <div class="hero__scroll-overlay"></div>
         <div class="hero__overlay"></div>
         <div class="hero__gradient"></div>
       </div>
@@ -215,6 +216,26 @@ const stats = [
   </div>
 </BaseLayout>
 
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const overlay = document.querySelector('.hero__scroll-overlay');
+    
+    if (overlay) {
+      window.addEventListener('scroll', () => {
+        // Fade out based on scroll position
+        const scrollPosition = window.scrollY;
+        const fadeDistance = 400; // Adjust this to control fade speed (larger = slower fade)
+        const opacity = Math.max(1 - scrollPosition / fadeDistance, 0);
+        
+        overlay.style.opacity = opacity.toString();
+      });
+      
+      // Set initial opacity
+      overlay.style.opacity = '1';
+    }
+  });
+</script>
+
 <style>
   .landing-page {
     position: relative;
@@ -270,11 +291,20 @@ const stats = [
     pointer-events: none;
   }
 
+  .hero__scroll-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(255, 255, 255, 0.5); /* White with 50% opacity - adjust as needed */
+    pointer-events: none; /* Let clicks pass through */
+    transition: opacity 0.1s ease-out; /* Smooth transition */
+    z-index: 2; /* Above background, below content */
+  }
+
   .hero__overlay {
     position: absolute;
     inset: 0;
     background: transparent;
-    z-index: 2;
+    z-index: 3;
     pointer-events: none;
   }
 
@@ -299,7 +329,7 @@ const stats = [
 
   .hero__content {
     position: relative;
-    z-index: 2;
+    z-index: 10; /* Above scroll overlay */
     max-width: var(--hero-content-width);
     margin-inline: auto;
   }
