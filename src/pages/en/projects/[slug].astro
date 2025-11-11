@@ -3,23 +3,29 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import SectionReveal from '../../../components/SectionReveal';
 import { getCollection } from 'astro:content';
 import { getImagePath, getBasePath } from '../../../utils/path';
-import { Content } from 'astro:content';
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
-  return projects
-    .filter((p) => p.data.lang === 'en')
-    .map((project) => ({
-      params: { slug: project.slug },
-      props: { project },
-    }));
+  const paths = await Promise.all(
+    projects
+      .filter((p) => p.data.lang === 'en')
+      .map(async (project) => {
+        const { Content } = await project.render();
+        return {
+          params: { slug: project.slug },
+          props: { project, Content },
+        };
+      })
+  );
+  return paths;
 }
 
 interface Props {
-  project: Content<'projects'>;
+  project: Awaited<ReturnType<typeof getCollection<'projects'>>>[number];
+  Content: any;
 }
 
-const { project } = Astro.props;
+const { project, Content } = Astro.props;
 const { data } = project;
 const base = getBasePath();
 ---
@@ -370,6 +376,56 @@ const base = getBasePath();
   .project-link:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-button-hover);
+  }
+
+  .project-related-papers {
+    margin-block: var(--space-8);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    padding: var(--space-6);
+    border-radius: var(--radius-xl);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .project-related-papers h2 {
+    font-size: var(--font-size-h2);
+    margin-block-end: var(--space-6);
+    text-align: center;
+  }
+
+  .related-papers-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .related-paper-link {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-4);
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: all var(--motion-duration-normal) var(--motion-easing-smooth);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .related-paper-link:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateX(4px);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .paper-title {
+    font-weight: 600;
+    color: var(--color-ink);
+    margin-block-end: var(--space-1);
+    font-size: 0.9375rem;
+  }
+
+  .paper-venue {
+    font-size: 0.8125rem;
+    color: var(--color-muted-ink);
   }
 </style>
 

@@ -14,6 +14,15 @@ const projectsCollection = defineCollection({
     images: z.array(z.string()).optional(), // Additional images for gallery
     video: z.string().optional(), // path to video file in public
     featured: z.boolean().default(false),
+    relatedPapers: z.array(z.string()).optional(), // Array of paper slugs
+    gallery: z.array(
+      z.object({
+        type: z.enum(['image', 'video']),
+        src: z.string(),
+        alt: z.string().optional(),
+        caption: z.string().optional(),
+      })
+    ).optional(),
   }),
 });
 

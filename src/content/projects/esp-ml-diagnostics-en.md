@@ -10,6 +10,8 @@ images:
   - "/images/papers/iptc-paper-ml.webp"
 repo: "https://pure.kfupm.edu.sa/en/publications/evaluation-of-machine-learning-techniques-for-esp-diagnosis-using"
 demo: "https://onepetro.org/IPTCONF/proceedings-abstract/24IPTC/24IPTC/542214"
+relatedPapers:
+  - "iptc-2024-esp-diagnosis-ml-en"
 ---
 
 **IPTC 2024 Research Project**
