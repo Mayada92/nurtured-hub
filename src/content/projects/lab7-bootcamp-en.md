@@ -10,6 +10,7 @@ images:
   - "/images/projects/lab7-bootcamp-prototype.webp"
   - "/images/projects/lab7-bootcamp-dashboard.webp"
   - "/images/projects/lab7-bootcamp-team.webp"
+  - "/images/projects/lab7-bootcamp.webp"
 ---
 
 This project was developed during the Lab7 Professional Innovator Bootcamp at Aramco Lab7. The goal was to create an innovative solution for converting caffeine to biofuel, demonstrating the intersection of engineering, data science, and sustainability.

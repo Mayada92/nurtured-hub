@@ -38,6 +38,9 @@ const arrow = isRTL ? '←' : '→';
     </header>
     <p>{data.summary}</p>
     <footer class="project-card__links">
+      <a href={`${import.meta.env.BASE_URL}${data.lang}/projects/${project.slug}`.replace(/\/+/g, '/')}>
+        View Details {arrow}
+      </a>
       {data.repo && (
         <a href={data.repo} target="_blank" rel="noopener noreferrer">
           Repository {arrow}

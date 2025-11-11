@@ -11,6 +11,7 @@ const projectsCollection = defineCollection({
     repo: z.string().url().optional(),
     demo: z.string().url().optional(),
     cover: z.string().optional(), // path to image in public
+    images: z.array(z.string()).optional(), // Additional images for gallery
     featured: z.boolean().default(false),
   }),
 });

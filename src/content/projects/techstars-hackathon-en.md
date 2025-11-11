@@ -6,6 +6,8 @@ tags: ["educational-psychology", "data-science", "early-childhood"]
 summary: "Created early childhood education app with adaptive learning for toddlers during Techstars Startup Weekend hackathon."
 featured: true
 cover: "/images/projects/techstars-hackathon.webp"
+images:
+  - "/images/projects/techstars-hackathon.webp"
 ---
 
 FlexED/Labeeb was developed during a Techstars Startup Weekend hackathon focused on educational technology. The app provides adaptive learning experiences for toddlers, combining educational psychology principles with modern technology.
