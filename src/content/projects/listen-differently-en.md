@@ -5,12 +5,19 @@ year: 2024
 tags: ["data-science", "machine-learning", "graph-databases"]
 summary: "A smart music recommendation system for emerging artists (SMRSEA). Collaborated with UC Berkeley MIDS teammates to create a graph-based music discovery platform that prioritizes musical quality over popularity metrics."
 featured: true
-cover: "/images/projects/listen-differently.webp"
+cover: "/images/projects/smrsea-cover.png"
 images:
-  - "/images/projects/listen-differently.webp"
-repo: "https://github.com/your-repo/smrsea"
+  - "/images/projects/smrsea-cover.png"
 demo: "https://medium.com/@clara.rhoades/a-smart-music-recommendation-system-for-emerging-artists-afe11b9ebdeb"
-video: "/videos/smrsea-demo.mp4"
+gallery:
+  - type: image
+    src: "/images/projects/smrsea-cover.png"
+    alt: "SMRSEA Project Cover"
+    caption: "SMRSEA - Smart Music Recommendation System for Emerging Artists"
+  - type: video
+    src: "/videos/smrsea-demo.mp4"
+    alt: "SMRSEA Demo Video"
+    caption: "SMRSEA Project Demonstration Video"
 ---
 
 **Smart Music Recommendation System for Emerging Artists (SMRSEA)**

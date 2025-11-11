@@ -8,13 +8,14 @@ featured: true
 cover: "/images/projects/chronic-absenteeism.png"
 images:
   - "/images/projects/chronic-absenteeism.png"
+  - "/images/projects/chronic-absenteeism-poster.jpg"
 gallery:
   - type: image
     src: "/images/projects/chronic-absenteeism.png"
     alt: "Chronic Absenteeism Prediction - Educational Data Science"
     caption: "Chronic Absenteeism Prediction - Educational Data Science Project"
   - type: image
-    src: "/images/projects/chronic-absenteeism-poster.png"
+    src: "/images/projects/chronic-absenteeism-poster.jpg"
     alt: "ONGB: Student Absenteeism in Oakland Unified School District - Conference Poster"
     caption: "Conference poster presentation: ONGB Student Absenteeism in Oakland Unified School District"
 ---

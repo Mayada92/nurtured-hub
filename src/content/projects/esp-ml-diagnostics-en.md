@@ -5,10 +5,15 @@ year: 2024
 tags: ["engineering", "data-science", "machine-learning"]
 summary: "Developed machine learning techniques for Electrical Submersible Pump (ESP) diagnosis using synthetic time series data. Presented at IPTC 2024, demonstrating ML approaches for identifying and classifying ESP operational issues."
 featured: true
-cover: "/images/papers/iptc-paper-ml.webp"
+cover: "/images/projects/esp-ml-diagnostics.png"
 images:
+  - "/images/projects/esp-ml-diagnostics.png"
   - "/images/papers/iptc-paper-ml.webp"
 gallery:
+  - type: image
+    src: "/images/projects/esp-ml-diagnostics.png"
+    alt: "ESP ML Diagnostics"
+    caption: "Machine Learning for ESP Fault Detection"
   - type: image
     src: "/images/papers/iptc-paper-ml.webp"
     alt: "ESP ML Diagnostics - IPTC 2024 Presentation"

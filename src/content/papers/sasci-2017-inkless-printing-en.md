@@ -4,7 +4,14 @@ lang: en
 venue: "7th Saudi Arabian Section of the Combustion Institute (SAS-CI) Annual Meeting"
 year: 2017
 authors: ["Mayadah Alhashem"]
-cover: "/images/papers/adipec-2019.webp"
+cover: "/images/papers/co2-sasci-laser-discoloration.png"
+images:
+  - "/images/papers/co2-sasci-laser-discoloration.png"
+gallery:
+  - type: image
+    src: "/images/papers/co2-sasci-laser-discoloration.png"
+    alt: "CO2 Laser Discoloration Research"
+    caption: "Paper Discoloration via Carbonization Using a CO2 Laser"
 ---
 
 This paper presents research on optimizing paper discoloration through carbonization using a CO2 laser, contributing to the development of inkless printing technology. The work explores the relationship between laser parameters and paper carbonization for black-and-white printing applications.
