@@ -4,7 +4,7 @@ lang: en
 venue: "United States Patent and Trademark Office"
 year: 2021
 authors: ["Mayadah Alhashem"]
-cover: "/images/papers/adipec-2019.webp"
+cover: "/images/papers/us-patent-10905975-removable-trap.png"
 ---
 
 **Patent Number:** US 10,905,975 B2  

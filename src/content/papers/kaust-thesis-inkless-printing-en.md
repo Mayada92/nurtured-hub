@@ -6,7 +6,7 @@ year: 2017
 authors: ["Mayadah Alhashem"]
 pdf_url: "https://academia.kaust.edu.sa/en/studentTheses/optimization-of-paper-discoloration-via-pyrolysis-using-lasers-3"
 doi: "https://www.academia.edu/112259558/Optimization_of_Paper_Discoloration_via_Pyrolysis_Using_Lasers"
-cover: "/images/papers/adipec-2019.webp"
+cover: "/images/papers/kaust-thesis-inkless-printing.png"
 ---
 
 **Supervisor:** Dr. Robert Dibble, Clean Combustion Research Center
