@@ -127,8 +127,11 @@ if (allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.s
 
 <BaseLayout title={title} description={data.headline} lang="en">
   <div class="content">
-    <div style="display: grid; grid-template-columns: 1fr 300px; gap: var(--space-6); align-items: start;">
-      <article>
+    <div class="profile-layout">
+      <aside class="profile-toc">
+        <TableOfContents headings={headings} />
+      </aside>
+      <article class="profile-main">
         <ProfileHeader title={title} headline={data.headline} focus={focus} />
         
         <section id="overview">
