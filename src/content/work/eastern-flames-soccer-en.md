@@ -1,20 +1,24 @@
 ---
-title: "Eastern Flames Soccer Team - Player & Community"
+title: "Eastern Flames FC - Football Trainer & Vice President"
 lang: en
-organization: "Eastern Flames Soccer"
-role: "Player & Team Member"
+organization: "Eastern Flames FC"
+role: "Football Trainer & Vice President"
 start_date: 2020-01-01
 ongoing: true
 domain: ["sports"]
-description: "Active member of Eastern Flames women's soccer team, participating in competitive matches, community events, and promoting women's sports in the region."
+description: "Football trainer and Vice President at Eastern Flames FC, actively involved in coaching, team management, and promoting women's football in the region. Leading training sessions, organizing competitive matches, and participating in community events to advance women's sports."
 achievements:
-  - "Competitive play in regional women's soccer leagues"
+  - "Vice President of Eastern Flames FC"
+  - "Football trainer and coach for women's team"
+  - "Competitive play in regional women's football leagues"
   - "Community engagement and sports advocacy"
   - "Team collaboration and leadership"
 skills:
-  - "Team Collaboration"
+  - "Football Coaching"
+  - "Team Management"
   - "Sports Leadership"
   - "Community Engagement"
+  - "Team Collaboration"
 cover: "/images/sports/community-championship-soccer.webp"
 images:
   - "/images/sports/al-ain-football-game.webp"
@@ -22,5 +26,5 @@ images:
   - "/images/sports/community-championship-soccer.webp"
 ---
 
-Playing with Eastern Flames has been a significant part of my life, combining my passion for sports with community involvement and promoting women's participation in competitive soccer.
+As Football Trainer and Vice President at Eastern Flames FC, I've been actively involved in coaching, team management, and promoting women's football in the region. This role combines my passion for sports with leadership responsibilities, organizing training sessions, competitive matches, and community events to advance women's participation in football.
 
