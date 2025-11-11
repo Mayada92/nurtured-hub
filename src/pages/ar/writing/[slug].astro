@@ -68,6 +68,11 @@ const date = new Date(post.data.date).toLocaleDateString('ar-SA', {
 
   .post__header {
     margin-block-end: var(--space-8);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    padding: var(--space-6);
+    border-radius: var(--radius-xl);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   }
 
   .post__date {
@@ -105,6 +110,11 @@ const date = new Date(post.data.date).toLocaleDateString('ar-SA', {
     font-size: var(--font-size-body);
     line-height: 1.8;
     color: var(--color-ink);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    padding: var(--space-6);
+    border-radius: var(--radius-xl);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   }
 
   .post__content :global(h2) {
