@@ -51,7 +51,7 @@ const stats = [
 
 <BaseLayout
   title="الرئيسية"
-  description="مرحباً بك في محور الرعاية - محفظة ثنائية اللغة تعرض المشاريع والكتابات والملفات الشخصية المهنية"
+  description="مرحباً بك في العقل المربى - محفظة ثنائية اللغة تعرض المشاريع والكتابات والملفات الشخصية المهنية"
   lang="ar"
 >
   <div style="position: relative; min-height: 100vh;">
@@ -60,16 +60,16 @@ const stats = [
       <div class="container">
         <SectionReveal client:load>
           <div class="hero__logo">
-            <img src={getImagePath('/images/brand/nurtured-mind-logo.jpg')} alt="محور الرعاية" width="180" height="180" />
+            <img src={getImagePath('/images/brand/nurtured-mind-logo.jpg')} alt="العقل المربى" width="180" height="180" />
           </div>
-          <h1>مرحباً بك في محور الرعاية</h1>
+          <h1>مرحباً بك في العقل المربى</h1>
           <p class="hero__subtitle">
             استكشاف الأطفال والتعليم، علم البيانات، التطوع، والهندسة
           </p>
           <div class="hero__cta">
-            <a href={`${base}ar/profile`} class="cta-button cta-button--profile">الملفات الشخصية</a>
-            <a href={`${base}ar/projects`} class="cta-button cta-button--projects">المشاريع</a>
-            <a href={`${base}ar/writing`} class="cta-button cta-button--articles">استكشف المقالات</a>
+            <a href={`${base}ar/profile`.replace(/\/+/g, '/')} class="cta-button cta-button--profile">الملفات الشخصية</a>
+            <a href={`${base}ar/projects`.replace(/\/+/g, '/')} class="cta-button cta-button--projects">المشاريع</a>
+            <a href={`${base}ar/writing`.replace(/\/+/g, '/')} class="cta-button cta-button--articles">استكشف المقالات</a>
           </div>
         </SectionReveal>
       </div>
@@ -116,9 +116,9 @@ const stats = [
         <SectionReveal client:load delay={0.3}>
           <div class="banner">
             <div class="banner__logo">
-              <img src={`${base}images/brand/nurtured-mind-logo.jpg`.replace(/\/+/g, '/')} alt="محور الرعاية" width="120" height="120" />
+              <img src={`${base}images/brand/nurtured-mind-logo.jpg`.replace(/\/+/g, '/')} alt="العقل المربى" width="120" height="120" />
             </div>
-            <h2>محور الرعاية</h2>
+            <h2>العقل المربى</h2>
             <p>
               منصة لاستكشاف تقاطع التعليم والبيانات والتأثير الاجتماعي. ربط وجهات النظر من خلال البحث والكتابة والتطبيقات العملية.
             </p>

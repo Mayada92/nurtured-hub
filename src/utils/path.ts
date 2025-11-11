@@ -44,5 +44,24 @@ export function getImagePath(path: string): string {
   return `${BASE_PATH}${cleanPath}`.replace(/\/+/g, '/');
 }
 
+/**
+ * Build a URL path with base path and language prefix
+ * Ensures proper slash handling
+ */
+export function buildPath(lang: 'en' | 'ar', ...segments: string[]): string {
+  // Remove leading/trailing slashes from segments and join
+  const cleanSegments = segments
+    .map(seg => seg.replace(/^\/+|\/+$/g, ''))
+    .filter(seg => seg.length > 0);
+  
+  // Build path: base + lang + segments
+  const path = [BASE_PATH.replace(/\/+$/, ''), lang, ...cleanSegments]
+    .filter(Boolean)
+    .join('/');
+  
+  // Ensure it starts with / and normalize slashes
+  return `/${path.replace(/^\/+|\/+$/g, '')}`.replace(/\/+/g, '/');
+}
+
 
 

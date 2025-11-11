@@ -9,10 +9,10 @@ const base = getBasePath();
 const profiles = await getCollection('profiles');
 
 const profileLinks = {
-  'children-education': { label: 'الأطفال والتعليم', href: `${base}ar/profile/children-education` },
-  'data-science': { label: 'علم البيانات', href: `${base}ar/profile/data-science` },
-  volunteering: { label: 'التطوع', href: `${base}ar/profile/volunteering` },
-  engineering: { label: 'الهندسة', href: `${base}ar/profile/engineering` },
+  'children-education': { label: 'الأطفال والتعليم', href: `${base}ar/profile/children-education`.replace(/\/+/g, '/') },
+  'data-science': { label: 'علم البيانات', href: `${base}ar/profile/data-science`.replace(/\/+/g, '/') },
+  volunteering: { label: 'التطوع', href: `${base}ar/profile/volunteering`.replace(/\/+/g, '/') },
+  engineering: { label: 'الهندسة', href: `${base}ar/profile/engineering`.replace(/\/+/g, '/') },
 };
 ---
 

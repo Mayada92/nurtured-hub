@@ -35,14 +35,14 @@ const items = navItems[lang];
     <div class="navigation__inner">
       <a href={`${base}${langPrefix}/`.replace(/\/+/g, '/')} class="navigation__logo">
         <img 
-          src={getImagePath('/images/brand/nurtured-mind-logo.jpg')} 
-          alt={lang === 'ar' ? 'محور الرعاية' : 'Nurtured Hub'}
+          src={`${base}images/brand/nurtured-mind-logo.jpg`.replace(/\/+/g, '/')} 
+          alt={lang === 'ar' ? 'العقل المربى' : 'Nurtured Mind'}
           width="40"
           height="40"
           class="navigation__logo-img"
         />
         <span class="navigation__logo-text">
-          {lang === 'ar' ? 'محور الرعاية' : 'Nurtured Hub'}
+          {lang === 'ar' ? 'العقل المربى' : 'Nurtured Mind'}
         </span>
       </a>
       <ul class="navigation__list">

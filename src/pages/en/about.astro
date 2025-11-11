@@ -10,7 +10,7 @@ const base = getBasePath();
 
 <BaseLayout
   title="My Story"
-  description="Learn about the journey behind Nurtured Hub - exploring the intersection of data science, education, engineering, and human development"
+  description="Learn about the journey behind Nurtured Mind - exploring the intersection of data science, education, engineering, and human development"
   lang="en"
 >
   <section class="hero-section">
@@ -19,8 +19,8 @@ const base = getBasePath();
         <div class="hero-content">
           <div class="hero-image">
             <ImageStage
-              src={getImagePath('/images/brand/nurtured-mind-logo.jpg')}
-              alt="Nurtured Hub"
+              src={getImagePath('/images/profile/maya-profile.jpg')}
+              alt="Mayada Alhashem"
               width={400}
               height={400}
               parallax={true}
@@ -64,7 +64,7 @@ const base = getBasePath();
         </div>
         <div class="purpose-content">
           <p>
-            <strong>Nurtured Hub</strong> was created as a platform to:
+            <strong>Nurtured Mind</strong> was created as a platform to:
           </p>
           <ul class="purpose-list">
             <li>
@@ -133,20 +133,20 @@ const base = getBasePath();
     <div class="container">
       <SectionReveal client:load delay={0.4}>
         <div class="cta-content">
-          <h2>Thank you for visiting Nurtured Hub!</h2>
+          <h2>Thank you for visiting Nurtured Mind!</h2>
           <p>
             I'm excited to share this journey with you. Let's nurture our minds and grow together.
           </p>
           <div class="cta-buttons">
-            <a href={`${base}en/profile`} class="cta-button cta-button--profile">
+            <a href={`${base}en/profile`.replace(/\/+/g, '/')} class="cta-button cta-button--profile">
               <Icon name="user" size={20} />
               <span>Explore Profiles</span>
             </a>
-            <a href={`${base}en/projects`} class="cta-button cta-button--projects">
+            <a href={`${base}en/projects`.replace(/\/+/g, '/')} class="cta-button cta-button--projects">
               <Icon name="folder" size={20} />
               <span>View Projects</span>
             </a>
-            <a href={`${base}en/writing`} class="cta-button cta-button--articles">
+            <a href={`${base}en/writing`.replace(/\/+/g, '/')} class="cta-button cta-button--articles">
               <Icon name="document" size={20} />
               <span>Read Articles</span>
             </a>
