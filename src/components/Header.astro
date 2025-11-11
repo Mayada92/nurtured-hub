@@ -15,56 +15,6 @@ const { title } = Astro.props;
   </div>
 </header>
 
-<script>
-  // Header shadow effect on scroll (background stays solid white always)
-  (function() {
-    'use strict';
-    
-    function initHeaderScroll() {
-      const header = document.getElementById('site-header');
-      
-      if (!header) {
-        setTimeout(initHeaderScroll, 100);
-        return;
-      }
-      
-      let ticking = false;
-      
-      function updateHeaderStyles() {
-        const scrollY = window.scrollY;
-        
-        // Add shadow when scrolled, but keep background solid white always
-        if (scrollY > 20) {
-          header.classList.add('scrolled');
-        } else {
-          header.classList.remove('scrolled');
-        }
-        
-        ticking = false;
-      }
-      
-      function onScroll() {
-        if (!ticking) {
-          window.requestAnimationFrame(updateHeaderStyles);
-          ticking = true;
-        }
-      }
-      
-      // Initial state
-      updateHeaderStyles();
-      
-      // Listen for scroll events
-      window.addEventListener('scroll', onScroll, { passive: true });
-    }
-    
-    // Initialize when DOM is ready
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initHeaderScroll);
-    } else {
-      initHeaderScroll();
-    }
-  })();
-</script>
 
 <style>
   .site-header {
@@ -94,11 +44,6 @@ const { title } = Astro.props;
   .header-content {
     position: relative;
     z-index: 1;
-  }
-  
-  /* Subtle shadow when scrolled */
-  .site-header.scrolled {
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   }
   
   /* Ensure navigation links are visible */
