@@ -5,9 +5,22 @@ year: 2023
 tags: ["data-science", "machine-learning", "social-impact"]
 summary: "4th place winner in LabLabMe GAIA Hackathon out of 80 participants. Developed a web application using Python Flask and advanced AI technologies to create personalized mindfulness and meditation experiences in Arabic and English."
 featured: true
-cover: "/images/projects/mindflow.webp"
+cover: "/images/projects/mindflow-logo.png"
 images:
-  - "/images/projects/mindflow.webp"
+  - "/images/projects/mindflow-logo.png"
+  - "/images/projects/mindflow1.jpg"
+  - "/images/projects/mindflow2.jpg"
+gallery:
+  - type: image
+    src: "/images/projects/mindflow-logo.png"
+    alt: "MindFlow Logo"
+    caption: "MindFlow - AI-Powered Mindfulness Platform Logo"
+  - type: image
+    src: "/images/projects/mindflow1.jpg"
+    alt: "MindFlow Application Screenshot 1"
+  - type: image
+    src: "/images/projects/mindflow2.jpg"
+    alt: "MindFlow Application Screenshot 2"
 ---
 
 **GAIA Hackathon Winner - 4th Place**
