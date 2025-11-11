@@ -107,17 +107,20 @@ const date = new Date(post.data.date).toLocaleDateString('en-US', {
 
   .post__cover {
     width: 100%;
-    max-height: 500px;
     overflow: hidden;
     border-radius: var(--radius-xl);
     margin-block-end: var(--space-6);
     box-shadow: var(--shadow-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-section);
   }
 
   .post__cover img {
     width: 100%;
     height: auto;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
   }
 
@@ -151,11 +154,14 @@ const date = new Date(post.data.date).toLocaleDateString('en-US', {
   }
 
   .post__content :global(img) {
+    width: 100%;
     max-width: 100%;
     height: auto;
+    object-fit: contain;
     border-radius: var(--radius-lg);
     margin-block: var(--space-6);
     box-shadow: var(--shadow-md);
+    display: block;
   }
 
   .post__content :global(ul),
