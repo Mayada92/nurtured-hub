@@ -79,12 +79,16 @@ const arrow = isRTL ? '←' : '→';
   .project-card__cover {
     height: 160px;
     overflow: hidden;
+    background: var(--gradient-section);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .project-card__cover img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
   }
 

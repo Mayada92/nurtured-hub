@@ -3,7 +3,7 @@ title: "ProductEASE"
 lang: en
 year: 2024
 tags: ["data-science", "engineering", "productivity"]
-summary: "A product for automating tutorials, training, and customer support and IT support tickets answering directly from app documentation."
+summary: "A product for automating tutorials, training, and customer support and IT support tickets answering directly from app documentation. Co-founded with Dalal Alharbi, Lead Innovator."
 featured: true
 cover: "/images/work/productease.png"
 ---
