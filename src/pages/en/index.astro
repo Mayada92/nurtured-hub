@@ -231,15 +231,15 @@ const stats = [
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.3;
+    opacity: 1;
   }
 
   .hero__overlay {
     position: absolute;
     inset: 0;
-    background: var(--gradient-hero);
+    background: linear-gradient(135deg, rgba(250, 248, 245, 0.1) 0%, rgba(255, 255, 255, 0.15) 100%);
     z-index: 1;
-    opacity: 0.6;
+    pointer-events: none;
   }
 
   .hero__gradient {
