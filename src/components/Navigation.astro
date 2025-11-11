@@ -1,7 +1,7 @@
 ---
 import LanguageSwitcher from './LanguageSwitcher.astro';
 import Icon from './Icon.astro';
-import { getLanguageFromPath, getBasePath } from '../utils/path';
+import { getLanguageFromPath, getBasePath, getImagePath } from '../utils/path';
 
 const base = getBasePath();
 const currentPath = Astro.url.pathname;
@@ -35,7 +35,7 @@ const items = navItems[lang];
     <div class="navigation__inner">
       <a href={`${base}${langPrefix}/`.replace(/\/+/g, '/')} class="navigation__logo">
         <img 
-          src={`${base}images/brand/nurtured-mind-logo.jpg`.replace(/\/+/g, '/')} 
+          src={getImagePath('/images/brand/nurtured-mind-logo.jpg')} 
           alt={lang === 'ar' ? 'محور الرعاية' : 'Nurtured Hub'}
           width="40"
           height="40"

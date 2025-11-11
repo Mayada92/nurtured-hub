@@ -6,7 +6,7 @@ import ProjectCard from '../../components/ProjectCard.astro';
 import PostCard from '../../components/PostCard.astro';
 import StatsSection from '../../components/StatsSection';
 import { getCollection } from 'astro:content';
-import { getBasePath } from '../../utils/path';
+import { getBasePath, getImagePath } from '../../utils/path';
 
 const base = getBasePath();
 
@@ -60,7 +60,7 @@ const stats = [
       <div class="container">
         <SectionReveal client:load>
           <div class="hero__logo">
-            <img src={`${base}images/brand/nurtured-mind-logo.jpg`.replace(/\/+/g, '/')} alt="محور الرعاية" width="180" height="180" />
+            <img src={getImagePath('/images/brand/nurtured-mind-logo.jpg')} alt="محور الرعاية" width="180" height="180" />
           </div>
           <h1>مرحباً بك في محور الرعاية</h1>
           <p class="hero__subtitle">

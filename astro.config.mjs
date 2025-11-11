@@ -9,5 +9,5 @@ export default defineConfig({
   output: 'static',
   // For GitHub Pages deployment
   site: 'https://mayada92.github.io',
-  base: '/nurtured-hub',
+  base: '/nurtured-hub/',
 });

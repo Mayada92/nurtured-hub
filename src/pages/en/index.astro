@@ -8,7 +8,7 @@ import PostCard from '../../components/PostCard.astro';
 import StatsSection from '../../components/StatsSection';
 import Icon from '../../components/Icon.astro';
 import { getCollection } from 'astro:content';
-import { getBasePath } from '../../utils/path';
+import { getBasePath, getImagePath } from '../../utils/path';
 
 const base = getBasePath();
 
@@ -58,7 +58,7 @@ const stats = [
     <FloatingLayer client:load />
     <section class="hero">
       <div class="hero__background">
-        <img src={`${base}images/hero/kaaba-serenity.jpg`.replace(/\/+/g, '/')} alt="" aria-hidden="true" />
+        <img src={getImagePath('/images/hero/kaaba-serenity.jpg')} alt="" aria-hidden="true" />
         <div class="hero__overlay"></div>
         <div class="hero__gradient"></div>
       </div>
@@ -66,7 +66,7 @@ const stats = [
         <SectionReveal client:load>
           <div class="hero__content">
             <div class="hero__logo">
-              <img src={`${base}images/brand/nurtured-mind-logo.jpg`.replace(/\/+/g, '/')} alt="Nurtured Hub" width="180" height="180" />
+              <img src={getImagePath('/images/brand/nurtured-mind-logo.jpg')} alt="Nurtured Hub" width="180" height="180" />
             </div>
             <div class="hero__badge">Maya Alhashem | Engineer • Data Scientist • EdTech Innovator</div>
             <h1>Welcome to Nurtured Hub</h1>
@@ -145,7 +145,7 @@ const stats = [
           <SectionReveal client:load delay={0.2}>
             <div class="story-image">
               <ImageStage 
-                src={`${base}images/brand/nurtured-mind-logo.jpg`.replace(/\/+/g, '/')} 
+                src={getImagePath('/images/brand/nurtured-mind-logo.jpg')} 
                 alt="Nurtured Hub visual"
                 width={600}
                 height={600}

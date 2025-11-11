@@ -33,16 +33,15 @@ export function getBasePath(): string {
 
 /**
  * Get image path with base path prefix for GitHub Pages
- * Works in both dev and production
+ * For images in public/ folder, always include base path
  */
 export function getImagePath(path: string): string {
   // Remove leading slash if present
   const cleanPath = path.startsWith('/') ? path.slice(1) : path;
   
-  // In dev, Astro serves from root, in production we need base path
-  return import.meta.env.DEV 
-    ? `/${cleanPath}`.replace(/\/+/g, '/')
-    : `${BASE_PATH}${cleanPath}`.replace(/\/+/g, '/');
+  // Always include base path for public images (works in both dev and production)
+  // BASE_URL already includes trailing slash, so we don't need to add one
+  return `${BASE_PATH}${cleanPath}`.replace(/\/+/g, '/');
 }
 
 
