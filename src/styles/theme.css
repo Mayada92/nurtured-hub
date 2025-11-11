@@ -41,6 +41,9 @@
   --letter-spacing-heading: -0.02em;
   --letter-spacing-body: -0.01em;
 
+  /* Header height for fixed header spacing */
+  --header-height: 80px;
+
   /* Spacing - Enhanced with more breathing room */
   --space-1: 0.5rem;
   --space-2: 0.75rem;

@@ -1,5 +1,5 @@
 ---
-import Navigation from '../components/Navigation.astro';
+import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { getLanguageFromPath } from '../utils/path';
 import '../styles/global.css';
@@ -43,7 +43,8 @@ const fullTitle = pageTitle === defaultTitle ? pageTitle : `${pageTitle} | ${sit
   </head>
   <body>
     <a href="#main-content" class="skip-link">Skip to content</a>
-    <Navigation />
+    <Header />
+    <div class="header-spacer"></div>
     <main id="main-content">
       <slot />
     </main>
@@ -51,5 +52,10 @@ const fullTitle = pageTitle === defaultTitle ? pageTitle : `${pageTitle} | ${sit
   </body>
 </html>
 
-
+<style>
+  /* Header spacer to account for fixed header */
+  .header-spacer {
+    height: var(--header-height, 80px);
+  }
+</style>
 
