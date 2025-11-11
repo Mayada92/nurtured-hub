@@ -5,7 +5,7 @@ date: 2024-12-20
 excerpt: "Exploring the challenges that prevent prototypes from scaling into production and the real requirements for successful innovation at scale. This article examines the gap between proof-of-concept and production-ready solutions."
 canonical_url: "https://medium.com/@mayada.alhashem/why-prototypes-get-stuck-what-it-really-takes-to-scale-innovation-02424cc41ef5"
 is_external: true
-cover: "/images/blog/prototypes-graveyard.png"
+cover: "/images/blog/why-prototypes-get-stuck-cover.png"
 tags: ["innovation", "product-development", "scaling", "prototyping", "tech-strategy", "startups", "engineering"]
 ---
 
