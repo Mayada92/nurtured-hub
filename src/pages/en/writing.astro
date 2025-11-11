@@ -4,9 +4,17 @@ import PostCard from '../../components/PostCard.astro';
 import SectionReveal from '../../components/SectionReveal';
 import { getCollection } from 'astro:content';
 
-const posts = (await getCollection('posts'))
-  .filter((p) => p.data.lang === 'en')
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const allPosts = (await getCollection('posts'))
+  .filter((p) => p.data.lang === 'en');
+
+// Sort posts: nurtured-mind-intro first, then by date
+const posts = allPosts.sort((a, b) => {
+  // Put nurtured-mind-intro first
+  if (a.slug === 'nurtured-mind-intro-en') return -1;
+  if (b.slug === 'nurtured-mind-intro-en') return 1;
+  // Then sort by date (newest first)
+  return b.data.date.getTime() - a.data.date.getTime();
+});
 ---
 
 <BaseLayout title="Writing" description="Articles, blog posts, and written works" lang="en">
