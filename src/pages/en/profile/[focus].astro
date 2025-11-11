@@ -103,6 +103,16 @@ if (nonHackathonVolunteering.length > 0 || hackathons.length > 0) {
     headings.push({ id: 'hackathons', text: 'Hackathons', level: 3 });
   }
 }
+// Add Sports section to TOC for volunteering profile
+if (focus === 'volunteering') {
+  const sportsWork = work.filter((w) => {
+    const workDomains = Array.isArray(w.data.domain) ? w.data.domain : [w.data.domain];
+    return workDomains.includes('sports');
+  });
+  if (sportsWork.length > 0) {
+    headings.push({ id: 'sports', text: 'Sports', level: 2 });
+  }
+}
 if (training.length > 0) headings.push({ id: 'training', text: 'Training & Lectures', level: 2 });
 if (speaking.length > 0) headings.push({ id: 'speaking', text: 'Public Speaking & Knowledge Sharing', level: 2 });
 if (courses.length > 0) headings.push({ id: 'courses', text: 'Courses', level: 2 });
@@ -166,6 +176,30 @@ if (allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.s
             )}
           </section>
         )}
+
+        {/* Sports Section - Show all sports-related work */}
+        {focus === 'volunteering' && (() => {
+          const sportsWork = work.filter((w) => {
+            const workDomains = Array.isArray(w.data.domain) ? w.data.domain : [w.data.domain];
+            return workDomains.includes('sports');
+          });
+          return sportsWork.length > 0 ? (
+            <section id="sports">
+              <h2>Sports</h2>
+              <div class="section-content">
+                {sportsWork
+                  .sort((a, b) => {
+                    // Sort by ongoing first, then by start date descending
+                    if (a.data.ongoing !== b.data.ongoing) return a.data.ongoing ? -1 : 1;
+                    return new Date(b.data.start_date).getTime() - new Date(a.data.start_date).getTime();
+                  })
+                  .map((w) => (
+                    <WorkCard work={w} />
+                  ))}
+              </div>
+            </section>
+          ) : null;
+        })()}
 
         {/* Training & Lectures Section */}
         {training.length > 0 && (
