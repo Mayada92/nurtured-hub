@@ -59,6 +59,7 @@ const stats = [
     <FloatingLayer client:load />
     <section class="hero">
       <div class="hero__background">
+        <div class="hero__light-overlay"></div>
         <div class="hero__overlay"></div>
         <div class="hero__gradient"></div>
       </div>
@@ -256,11 +257,23 @@ const stats = [
     opacity: 1;
   }
 
+  .hero__light-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, 
+      rgba(255, 255, 255, 0.6) 0%,
+      rgba(255, 255, 255, 0.4) 30%,
+      rgba(255, 255, 255, 0.2) 60%,
+      rgba(255, 255, 255, 0) 100%);
+    z-index: 1;
+    pointer-events: none;
+  }
+
   .hero__overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(250, 248, 245, 0.1) 0%, rgba(255, 255, 255, 0.15) 100%);
-    z-index: 1;
+    background: transparent;
+    z-index: 2;
     pointer-events: none;
   }
 
