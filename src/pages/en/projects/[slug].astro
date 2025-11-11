@@ -81,14 +81,37 @@ const base = getBasePath();
         </SectionReveal>
       )}
 
-      <SectionReveal client:load delay={0.4}>
+      {data.demo && (
+        <SectionReveal client:load delay={0.4}>
+          <div class="project-demo">
+            <h2>Demo</h2>
+            <div class="demo-container">
+              {data.demo.includes('youtube.com') || data.demo.includes('youtu.be') ? (
+                <iframe
+                  src={data.demo.replace('watch?v=', 'embed/').replace('&t=', '?start=')}
+                  title={`${data.title} - Demo Video`}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                  class="demo-video"
+                ></iframe>
+              ) : (
+                <a href={data.demo} target="_blank" rel="noopener noreferrer" class="project-link">
+                  View Demo →
+                </a>
+              )}
+            </div>
+          </div>
+        </SectionReveal>
+      )}
+
+      <SectionReveal client:load delay={0.5}>
         <div class="project-links">
           {data.repo && (
             <a href={data.repo} target="_blank" rel="noopener noreferrer" class="project-link">
               View Repository →
             </a>
           )}
-          {data.demo && (
+          {data.demo && !data.demo.includes('youtube.com') && !data.demo.includes('youtu.be') && (
             <a href={data.demo} target="_blank" rel="noopener noreferrer" class="project-link">
               View Demo →
             </a>
@@ -274,6 +297,35 @@ const base = getBasePath();
     height: auto;
     display: block;
     object-fit: cover;
+  }
+
+  .project-demo {
+    margin-block: var(--space-8);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    padding: var(--space-6);
+    border-radius: var(--radius-xl);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .project-demo h2 {
+    font-size: var(--font-size-h2);
+    margin-block-end: var(--space-6);
+    text-align: center;
+  }
+
+  .demo-container {
+    width: 100%;
+    max-width: 800px;
+    margin-inline: auto;
+  }
+
+  .demo-video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--radius-lg);
+    border: none;
+    box-shadow: var(--shadow-lg);
   }
 
   .project-links {

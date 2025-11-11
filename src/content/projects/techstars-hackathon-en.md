@@ -6,7 +6,9 @@ tags: ["educational-psychology", "data-science", "early-childhood"]
 summary: "Created early childhood education app with adaptive learning for toddlers during Techstars Startup Weekend hackathon."
 featured: true
 cover: "/images/projects/techstars-hackathon.webp"
+demo: "https://www.youtube.com/watch?v=0vFcdv6y4RY&t=17s"
 images:
+  - "/images/projects/techstars-hackathon-certificate.webp"
   - "/images/projects/techstars-hackathon.webp"
 ---
 
