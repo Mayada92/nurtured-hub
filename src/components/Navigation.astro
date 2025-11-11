@@ -35,7 +35,7 @@ const items = navItems[lang];
     <div class="navigation__inner">
       <a href={`${base}${langPrefix}/`.replace(/\/+/g, '/')} class="navigation__logo">
         <img 
-          src="/images/brand/nurtured-mind-logo.jpg" 
+          src={`${base}images/brand/nurtured-mind-logo.jpg`.replace(/\/+/g, '/')} 
           alt={lang === 'ar' ? 'محور الرعاية' : 'Nurtured Hub'}
           width="40"
           height="40"
@@ -90,7 +90,7 @@ const items = navItems[lang];
     align-items: center;
     gap: var(--space-2);
     font-weight: 700;
-    font-size: 1.25rem;
+    font-size: 0.875rem;
     text-decoration: none;
     flex-shrink: 0;
   }

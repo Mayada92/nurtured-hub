@@ -8,14 +8,14 @@ featured: true
 cover: "/images/work/productease.png"
 ---
 
-ProductEASE is a comprehensive productivity solution that combines intuitive design with powerful organizational features. Built with modern web technologies, it helps users manage tasks, track progress, and optimize their workflow.
+ProductEASE is a product that creates tutorials and customer support for applications directly from documentation. It helps developers focus on developing by automating the creation of user guides and support materials.
 
 ## Features
 
-- Task management and organization
-- Progress tracking and analytics
-- User-friendly interface design
-- Responsive web application
+- Automatic tutorial generation from documentation
+- Customer support content creation
+- Developer-focused workflow optimization
+- Documentation-to-tutorial conversion
 
-This project demonstrates skills in full-stack development, UI/UX design, and product thinking.
+This project demonstrates skills in documentation processing, automated content generation, and developer tooling.
 

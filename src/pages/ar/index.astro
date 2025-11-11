@@ -60,7 +60,7 @@ const stats = [
       <div class="container">
         <SectionReveal client:load>
           <div class="hero__logo">
-            <img src="/images/brand/nurtured-mind-logo.jpg" alt="محور الرعاية" width="180" height="180" />
+            <img src={`${base}images/brand/nurtured-mind-logo.jpg`.replace(/\/+/g, '/')} alt="محور الرعاية" width="180" height="180" />
           </div>
           <h1>مرحباً بك في محور الرعاية</h1>
           <p class="hero__subtitle">
@@ -116,7 +116,7 @@ const stats = [
         <SectionReveal client:load delay={0.3}>
           <div class="banner">
             <div class="banner__logo">
-              <img src="/images/brand/nurtured-mind-logo.jpg" alt="محور الرعاية" width="120" height="120" />
+              <img src={`${base}images/brand/nurtured-mind-logo.jpg`.replace(/\/+/g, '/')} alt="محور الرعاية" width="120" height="120" />
             </div>
             <h2>محور الرعاية</h2>
             <p>
@@ -177,7 +177,7 @@ const stats = [
   }
 
   .hero__subtitle {
-    font-size: 1.375rem;
+    font-size: 0.9625rem;
     color: var(--color-muted-ink);
     margin-block-end: var(--space-8);
     max-width: var(--hero-content-width);
@@ -202,7 +202,7 @@ const stats = [
     border-radius: var(--radius-xl);
     text-decoration: none;
     font-weight: 600;
-    font-size: 1.0625rem;
+    font-size: 0.74375rem;
     letter-spacing: -0.01em;
     transition: all var(--motion-duration-normal) var(--motion-easing-smooth);
     box-shadow: var(--shadow-soft);
@@ -326,11 +326,11 @@ const stats = [
     }
 
     .hero h1 {
-      font-size: clamp(2rem, 8vw, 3rem);
+      font-size: clamp(1.4rem, 5.6vw, 2.1rem);
     }
 
     .hero__subtitle {
-      font-size: 1.125rem;
+      font-size: 0.7875rem;
     }
 
     .section {

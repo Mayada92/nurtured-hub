@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { getBasePath, getImagePath } from '../utils/path';
 
 interface Props {
   post: CollectionEntry<'posts'>;
@@ -9,6 +10,7 @@ const { post } = Astro.props;
 const { data } = post;
 const isRTL = data.lang === 'ar';
 const arrow = isRTL ? '←' : '→';
+const base = getBasePath();
 const date = new Date(data.date).toLocaleDateString(data.lang === 'ar' ? 'ar-SA' : 'en-US', {
   year: 'numeric',
   month: 'long',
@@ -26,7 +28,7 @@ const date = new Date(data.date).toLocaleDateString(data.lang === 'ar' ? 'ar-SA'
   {data.cover && (
     <div class="post-card__cover">
       <img
-        src={data.cover}
+        src={getImagePath(data.cover)}
         alt={`${data.title} - Cover image`}
         loading="lazy"
         width="600"
@@ -42,7 +44,7 @@ const date = new Date(data.date).toLocaleDateString(data.lang === 'ar' ? 'ar-SA'
         {isRTL ? 'اقرأ على LinkedIn ←' : 'Read on LinkedIn →'}
       </a>
     ) : (
-      <a href={Astro.url.pathname + '/' + post.slug}>
+      <a href={`${base}${data.lang}/writing/${post.slug}`.replace(/\/+/g, '/')}>
         {isRTL ? 'اقرأ المزيد ←' : 'Read more →'}
       </a>
     )}
@@ -97,7 +99,7 @@ const date = new Date(data.date).toLocaleDateString(data.lang === 'ar' ? 'ar-SA'
 
   .post-card__date {
     display: block;
-    font-size: 0.875rem;
+    font-size: 0.6125rem;
     color: var(--color-muted-ink);
     margin-block-end: var(--space-2);
   }

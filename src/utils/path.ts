@@ -33,19 +33,16 @@ export function getBasePath(): string {
 
 /**
  * Get image path with base path prefix for GitHub Pages
- * Astro handles this automatically, but this ensures consistency
+ * Works in both dev and production
  */
-export function getImagePath(imagePath: string): string {
-  // If image path already starts with base path, return as is
-  if (imagePath.startsWith(BASE_PATH)) {
-    return imagePath;
-  }
-  // If image path starts with /, add base path
-  if (imagePath.startsWith('/')) {
-    return `${BASE_PATH}${imagePath.slice(1)}`.replace(/\/+/g, '/');
-  }
-  // Otherwise, add base path and leading slash
-  return `${BASE_PATH}${imagePath}`.replace(/\/+/g, '/');
+export function getImagePath(path: string): string {
+  // Remove leading slash if present
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  
+  // In dev, Astro serves from root, in production we need base path
+  return import.meta.env.DEV 
+    ? `/${cleanPath}`.replace(/\/+/g, '/')
+    : `${BASE_PATH}${cleanPath}`.replace(/\/+/g, '/');
 }
 
 

@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getImagePath } from '../../utils/path';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="Image Test" description="Testing image display methods" lang="en">
+  <section class="section">
+    <div class="container">
+      <h1>Image Display Test Page</h1>
+      <p>This page tests different methods of displaying images to verify they work correctly with GitHub Pages base path.</p>
+      
+      <div class="test-section">
+        <h2>Method 1: Using getImagePath() Utility</h2>
+        <p>This is the recommended approach for public images.</p>
+        <img src={getImagePath('/images/brand/nurtured-mind-logo.jpg')} alt="Logo via getImagePath" width="200" />
+        <code>{getImagePath('/images/brand/nurtured-mind-logo.jpg')}</code>
+      </div>
+
+      <div class="test-section">
+        <h2>Method 2: Using BASE_URL Directly</h2>
+        <p>Direct use of import.meta.env.BASE_URL</p>
+        <img src={`${base}images/brand/nurtured-mind-logo.jpg`.replace(/\/+/g, '/')} alt="Logo via BASE_URL" width="200" />
+        <code>{`${base}images/brand/nurtured-mind-logo.jpg`}</code>
+      </div>
+
+      <div class="test-section">
+        <h2>Method 3: Hardcoded Path (Should Fail in Production)</h2>
+        <p>This should work in dev but may fail in production.</p>
+        <img src="/images/brand/nurtured-mind-logo.jpg" alt="Logo hardcoded" width="200" />
+        <code>/images/brand/nurtured-mind-logo.jpg</code>
+      </div>
+
+      <div class="test-section">
+        <h2>Test Other Images</h2>
+        <h3>Hero Image</h3>
+        <img src={getImagePath('/images/hero/kaaba-serenity.jpg')} alt="Hero image" width="400" />
+        
+        <h3>Speaking Image</h3>
+        <img src={getImagePath('/images/speaking/moral-compass-ai-ethics-1.png')} alt="Moral Compass" width="400" />
+      </div>
+
+      <div class="test-section">
+        <h2>Environment Info</h2>
+        <ul>
+          <li><strong>BASE_URL:</strong> <code>{base}</code></li>
+          <li><strong>Mode:</strong> <code>{import.meta.env.MODE}</code></li>
+          <li><strong>Dev:</strong> <code>{String(import.meta.env.DEV)}</code></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .section {
+    padding-block: var(--space-8);
+  }
+
+  .test-section {
+    margin-block: var(--space-8);
+    padding: var(--space-6);
+    background: var(--gradient-card);
+    border-radius: var(--radius-xl);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .test-section h2 {
+    margin-block-end: var(--space-3);
+    color: var(--color-accent-1);
+  }
+
+  .test-section h3 {
+    margin-block: var(--space-4) var(--space-2);
+    font-size: var(--font-size-h3);
+  }
+
+  .test-section img {
+    display: block;
+    margin-block: var(--space-4);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+  }
+
+  .test-section code {
+    display: block;
+    padding: var(--space-2) var(--space-3);
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: var(--radius-sm);
+    font-family: 'Courier New', monospace;
+    font-size: var(--font-size-small);
+    margin-block-start: var(--space-2);
+    word-break: break-all;
+  }
+
+  .test-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .test-section li {
+    margin-block: var(--space-2);
+    padding: var(--space-2);
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: var(--radius-sm);
+  }
+</style>
+

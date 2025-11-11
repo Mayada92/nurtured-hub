@@ -8,6 +8,6 @@ export default defineConfig({
   integrations: [react(), mdx()],
   output: 'static',
   // For GitHub Pages deployment
-  site: 'https://Mayada92.github.io',
+  site: 'https://mayada92.github.io',
   base: '/nurtured-hub',
 });

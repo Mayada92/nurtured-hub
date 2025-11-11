@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { getImagePath } from '../utils/path';
 
 interface Props {
   paper: CollectionEntry<'papers'>;
@@ -15,7 +16,7 @@ const arrow = isRTL ? '←' : '→';
   {data.cover && (
     <div class="paper-card__cover">
       <img
-        src={data.cover}
+        src={getImagePath(data.cover)}
         alt={`${data.title} - Cover image`}
         loading="lazy"
         width="600"
@@ -92,7 +93,7 @@ const arrow = isRTL ? '←' : '→';
   }
 
   .paper-card h3 {
-    font-size: 1rem;
+    font-size: 0.7rem;
     font-weight: 600;
     line-height: 1.3;
     margin-block-end: var(--space-2);
@@ -109,18 +110,18 @@ const arrow = isRTL ? '←' : '→';
   .venue {
     font-weight: 500;
     color: var(--color-muted-ink);
-    font-size: 0.8125rem;
+    font-size: 0.56875rem;
   }
 
   .year {
-    font-size: 0.75rem;
+    font-size: 0.525rem;
     color: var(--color-muted-ink);
     font-weight: 500;
   }
 
   .paper-card__authors {
     color: var(--color-muted-ink);
-    font-size: 0.8125rem;
+    font-size: 0.56875rem;
     margin-block: var(--space-2);
     padding: 0 var(--space-3);
     line-height: 1.4;

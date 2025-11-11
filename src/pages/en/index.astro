@@ -58,7 +58,7 @@ const stats = [
     <FloatingLayer client:load />
     <section class="hero">
       <div class="hero__background">
-        <img src="/images/hero/kaaba-serenity.jpg" alt="" aria-hidden="true" />
+        <img src={`${base}images/hero/kaaba-serenity.jpg`.replace(/\/+/g, '/')} alt="" aria-hidden="true" />
         <div class="hero__overlay"></div>
         <div class="hero__gradient"></div>
       </div>
@@ -66,7 +66,7 @@ const stats = [
         <SectionReveal client:load>
           <div class="hero__content">
             <div class="hero__logo">
-              <img src="/images/brand/nurtured-mind-logo.jpg" alt="Nurtured Hub" width="180" height="180" />
+              <img src={`${base}images/brand/nurtured-mind-logo.jpg`.replace(/\/+/g, '/')} alt="Nurtured Hub" width="180" height="180" />
             </div>
             <div class="hero__badge">Maya Alhashem | Engineer • Data Scientist • EdTech Innovator</div>
             <h1>Welcome to Nurtured Hub</h1>
@@ -77,39 +77,39 @@ const stats = [
             <div class="hero__pathways">
               <h2 class="hero__pathways-title">Explore by Pathway</h2>
               <div class="hero__pathways-grid">
-                <a href={`${base}en/profile/engineering`} class="pathway-button pathway-button--engineering">
+                <a href={`${base}en/profile/engineering`.replace(/\/+/g, '/')} class="pathway-button pathway-button--engineering">
                   <Icon name="code" size={24} />
                   <div class="pathway-button__content">
                     <span class="pathway-button__title">Engineering Pathway</span>
-                    <span class="pathway-button__desc">ESP optimization, flow assurance, patents & hardware innovation</span>
+                    <span class="pathway-button__desc">Mechanical & chemical engineering, ESP optimization, flow assurance, patents & hardware innovation</span>
                   </div>
                 </a>
-                <a href={`${base}en/profile/data-science`} class="pathway-button pathway-button--data-science">
+                <a href={`${base}en/profile/data-science`.replace(/\/+/g, '/')} class="pathway-button pathway-button--data-science">
                   <Icon name="chart" size={24} />
                   <div class="pathway-button__content">
                     <span class="pathway-button__title">Data Science Pathway</span>
-                    <span class="pathway-button__desc">ML models, predictive analytics & educational data science</span>
+                    <span class="pathway-button__desc">Advanced ML techniques, educational data analytics, predictive modeling & data-driven solutions</span>
                   </div>
                 </a>
-                <a href={`${base}en/profile/children-education`} class="pathway-button pathway-button--education">
+                <a href={`${base}en/profile/children-education`.replace(/\/+/g, '/')} class="pathway-button pathway-button--education">
                   <Icon name="book" size={24} />
                   <div class="pathway-button__content">
                     <span class="pathway-button__title">Education Pathway</span>
-                    <span class="pathway-button__desc">EdTech platforms, learning analytics & child development</span>
+                    <span class="pathway-button__desc">Children's education research, data analysis, innovative teaching methods & developmental milestones</span>
                   </div>
                 </a>
               </div>
             </div>
             <div class="hero__quick-links">
-              <a href={`${base}en/projects`} class="quick-link">
+              <a href={`${base}en/projects`.replace(/\/+/g, '/')} class="quick-link">
                 <Icon name="folder" size={18} />
                 <span>All Projects</span>
               </a>
-              <a href={`${base}en/writing`} class="quick-link">
+              <a href={`${base}en/writing`.replace(/\/+/g, '/')} class="quick-link">
                 <Icon name="document" size={18} />
                 <span>Blog</span>
               </a>
-              <a href={`${base}en/papers`} class="quick-link">
+              <a href={`${base}en/papers`.replace(/\/+/g, '/')} class="quick-link">
                 <Icon name="academic" size={18} />
                 <span>Publications</span>
               </a>
@@ -145,7 +145,7 @@ const stats = [
           <SectionReveal client:load delay={0.2}>
             <div class="story-image">
               <ImageStage 
-                src="/images/brand/nurtured-mind-logo.jpg" 
+                src={`${base}images/brand/nurtured-mind-logo.jpg`.replace(/\/+/g, '/')} 
                 alt="Nurtured Hub visual"
                 width={600}
                 height={600}
@@ -198,7 +198,7 @@ const stats = [
         <SectionReveal client:load delay={0.3}>
           <div class="banner">
             <div class="banner__logo">
-              <img src="/images/brand/nurtured-mind-logo.jpg" alt="Nurtured Hub" width="120" height="120" />
+              <img src={`${base}images/brand/nurtured-mind-logo.jpg`.replace(/\/+/g, '/')} alt="Nurtured Hub" width="120" height="120" />
             </div>
             <h2>Nurtured Hub</h2>
             <p>
@@ -295,7 +295,7 @@ const stats = [
     background: rgba(255, 255, 255, 0.9);
     border: 1px solid rgba(26, 26, 26, 0.1);
     border-radius: var(--radius-xl);
-    font-size: 0.875rem;
+    font-size: 0.6125rem;
     font-weight: 600;
     letter-spacing: 0.05em;
     text-transform: uppercase;
@@ -328,7 +328,7 @@ const stats = [
   }
 
   .hero__subtitle {
-    font-size: clamp(1.125rem, 2vw, 1.375rem);
+    font-size: clamp(0.7875rem, 1.4vw, 0.9625rem);
     color: var(--color-ink);
     margin-block-end: var(--space-8);
     max-width: var(--hero-content-width);
@@ -343,7 +343,7 @@ const stats = [
   }
 
   .hero__pathways-title {
-    font-size: 1.25rem;
+    font-size: 0.875rem;
     font-weight: 600;
     text-align: center;
     margin-block-end: var(--space-4);
@@ -406,14 +406,14 @@ const stats = [
   }
 
   .pathway-button__title {
-    font-size: 1.125rem;
+    font-size: 0.7875rem;
     font-weight: 600;
     color: var(--color-ink);
     transition: color var(--motion-duration-fast) var(--motion-easing);
   }
 
   .pathway-button__desc {
-    font-size: 0.875rem;
+    font-size: 0.6125rem;
     color: var(--color-muted-ink);
     transition: color var(--motion-duration-fast) var(--motion-easing);
   }
@@ -451,7 +451,7 @@ const stats = [
     padding: var(--space-2) var(--space-4);
     color: var(--color-muted-ink);
     text-decoration: none;
-    font-size: 0.9375rem;
+    font-size: 0.65625rem;
     border-radius: var(--radius-md);
     transition: all var(--motion-duration-fast) var(--motion-easing);
   }
@@ -478,7 +478,7 @@ const stats = [
     border-radius: var(--radius-xl);
     text-decoration: none;
     font-weight: 600;
-    font-size: 1.0625rem;
+    font-size: 0.74375rem;
     letter-spacing: -0.01em;
     transition: all var(--motion-duration-normal) var(--motion-easing-smooth);
     box-shadow: var(--shadow-soft);
@@ -689,7 +689,7 @@ const stats = [
   }
 
   .section-subtitle {
-    font-size: 1.25rem;
+    font-size: 0.875rem;
     line-height: 1.6;
     color: var(--color-muted-ink);
     max-width: 600px;
@@ -730,11 +730,11 @@ const stats = [
     }
 
     .hero h1 {
-      font-size: clamp(2rem, 8vw, 3rem);
+      font-size: clamp(1.4rem, 5.6vw, 2.1rem);
     }
 
     .hero__subtitle {
-      font-size: 1.125rem;
+      font-size: 0.7875rem;
     }
 
     .section {

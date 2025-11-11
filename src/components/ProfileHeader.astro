@@ -1,12 +1,12 @@
 ---
 interface Props {
-  name: string;
   title: string;
+  headline: string;
+  focus?: string;
   image?: string;
-  lang: 'en' | 'ar';
 }
 
-const { name, title, image, lang } = Astro.props;
+const { title, headline, focus, image } = Astro.props;
 ---
 
 <header class="profile-header">
@@ -14,7 +14,7 @@ const { name, title, image, lang } = Astro.props;
     <div class="profile-header__image">
       <img
         src={image}
-        alt={name}
+        alt={title}
         width="200"
         height="200"
         loading="eager"
@@ -22,8 +22,8 @@ const { name, title, image, lang } = Astro.props;
     </div>
   )}
   <div class="profile-header__content">
-    <h1>{name}</h1>
-    <p class="profile-header__title">{title}</p>
+    <h1>{title}</h1>
+    <p class="profile-header__headline">{headline}</p>
   </div>
 </header>
 
@@ -56,13 +56,14 @@ const { name, title, image, lang } = Astro.props;
 
   .profile-header h1 {
     margin-block-end: var(--space-2);
-    font-size: 2.5rem;
+    font-size: 1.75rem;
   }
 
-  .profile-header__title {
-    font-size: 1.25rem;
+  .profile-header__headline {
+    font-size: 0.875rem;
     color: var(--color-muted-ink);
     font-weight: 500;
+    line-height: 1.6;
   }
 
   @media (max-width: 768px) {
@@ -77,7 +78,7 @@ const { name, title, image, lang } = Astro.props;
     }
 
     .profile-header h1 {
-      font-size: 2rem;
+      font-size: 1.4rem;
     }
   }
 </style>
