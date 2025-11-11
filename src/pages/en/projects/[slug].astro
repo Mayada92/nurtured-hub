@@ -251,12 +251,15 @@ if (data.relatedPapers && data.relatedPapers.length > 0) {
     overflow: hidden;
     box-shadow: var(--shadow-lg);
     background: var(--gradient-section);
+    max-width: 33%;
+    margin-inline: auto;
   }
 
   .project-cover img {
     width: 100%;
     height: auto;
     display: block;
+    object-fit: contain;
   }
 
   .project-content {
@@ -347,9 +350,19 @@ if (data.relatedPapers && data.relatedPapers.length > 0) {
 
   .gallery-item img {
     width: 100%;
+    max-width: 100%;
     height: auto;
     display: block;
-    object-fit: cover;
+    object-fit: contain;
+  }
+  
+  .gallery-item {
+    max-width: 33%;
+    margin-inline: auto;
+  }
+  
+  .gallery-grid--horizontal .gallery-item {
+    max-width: 30%;
   }
 
   .project-demo {
