@@ -5,9 +5,14 @@ year: 2024
 tags: ["data-science", "educational-psychology", "machine-learning"]
 summary: "Educational data science application for predicting chronic absenteeism in students. Applied machine learning techniques to identify at-risk students and support early intervention strategies."
 featured: true
-cover: "/images/projects/chronic-absenteeism.webp"
+cover: "/images/projects/chronic-absenteeism.png"
 images:
-  - "/images/projects/chronic-absenteeism.webp"
+  - "/images/projects/chronic-absenteeism.png"
+gallery:
+  - type: image
+    src: "/images/projects/chronic-absenteeism.png"
+    alt: "Chronic Absenteeism Prediction - Educational Data Science"
+    caption: "Chronic Absenteeism Prediction - Educational Data Science Project"
 ---
 
 **Educational Data Science Application**
