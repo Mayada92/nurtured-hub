@@ -16,43 +16,30 @@ const { title } = Astro.props;
 </header>
 
 <script>
-  // Enhanced scroll effect for header background with Astro compatibility
+  // Header shadow effect on scroll (background stays solid white always)
   (function() {
     'use strict';
     
     function initHeaderScroll() {
       const header = document.getElementById('site-header');
-      const headerOverlay = document.querySelector('.header-light-overlay');
       
-      if (!header || !headerOverlay) {
-        // Retry if elements aren't ready yet
+      if (!header) {
         setTimeout(initHeaderScroll, 100);
         return;
       }
       
-      let lastScrollY = window.scrollY;
       let ticking = false;
       
       function updateHeaderStyles() {
         const scrollY = window.scrollY;
         
-        // Fade out the light overlay as user scrolls
-        // Start fading at 0px, completely gone by 300px for smoother transition
-        const opacity = Math.max(1 - scrollY / 300, 0);
-        headerOverlay.style.opacity = opacity.toString();
-        
-        // Add shadow and transform effect after scrolling
-        if (scrollY > 30) {
+        // Add shadow when scrolled, but keep background solid white always
+        if (scrollY > 20) {
           header.classList.add('scrolled');
-          // Slight translate up for scroll-away effect
-          const translateY = Math.min(scrollY * 0.3, 80);
-          headerOverlay.style.transform = `translateY(-${translateY}px)`;
         } else {
           header.classList.remove('scrolled');
-          headerOverlay.style.transform = 'translateY(0)';
         }
         
-        lastScrollY = scrollY;
         ticking = false;
       }
       
@@ -68,9 +55,6 @@ const { title } = Astro.props;
       
       // Listen for scroll events
       window.addEventListener('scroll', onScroll, { passive: true });
-      
-      // Handle resize to recalculate
-      window.addEventListener('resize', updateHeaderStyles, { passive: true });
     }
     
     // Initialize when DOM is ready
@@ -98,15 +82,12 @@ const { title } = Astro.props;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.95);
-    background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(250, 250, 250, 0.95) 100%);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background-color: #ffffff;
+    background-image: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     z-index: -1;
     opacity: 1;
-    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
-                transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    will-change: opacity, transform;
     pointer-events: none;
   }
   
