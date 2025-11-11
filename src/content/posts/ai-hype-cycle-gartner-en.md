@@ -5,7 +5,7 @@ date: 2024-11-15
 excerpt: "With all the AI madness, it's time to bring the Gartner Hype Cycle into the conversation. This framework shows how innovations progress through five stages, and recent research reveals we're still racing toward the peak of inflated expectations—often without financial wisdom, business alignment, or data readiness."
 canonical_url: "https://www.linkedin.com/posts/mayada-alhashem_aistrategy-ai-genai-activity-7366924267625639936-ONLJ"
 is_external: true
-cover: "/images/blog/gartner-hype-cycle-ai.png"
+cover: "/images/blog/gartner-hype-cycle-ai.jpg"
 tags: ["ai-strategy", "artificial-intelligence", "genai", "machine-learning", "data", "technology", "roi", "leadership", "strategy", "innovation", "ethics", "hype-cycle", "gartner"]
 ---
 

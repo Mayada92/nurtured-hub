@@ -5,7 +5,7 @@ date: 2024-01-10
 excerpt: "As an engineer diving deeper into the world of Data Science, I'm fascinated by the intersection of technology and business. This post explores how data science perfectly fits into the Lean Startup methodology, supercharging the Build-Measure-Learn loop and enabling data-driven pivots."
 canonical_url: "https://www.linkedin.com/posts/mayada-alhashem_datascience-leanstartup-innovation-activity-7229599629166706688-Qmwe"
 is_external: true
-cover: "/images/blog/lean-startup-data-science.png"
+cover: "/images/blog/lean-startup-data-science.jpg"
 tags: ["data-science", "lean-startup", "innovation", "entrepreneurship", "startups", "mvp", "business-strategy", "machine-learning", "analytics"]
 ---
 

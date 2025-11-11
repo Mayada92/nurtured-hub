@@ -5,7 +5,7 @@ date: 2024-02-15
 excerpt: "To those who say, 'Everything has already been discovered,' think again. This post explores how AI and machine learning are revolutionizing fundamental sciences—chemistry, physics, biology, space, and psychology—opening new frontiers of discovery."
 canonical_url: "https://www.linkedin.com/posts/mayada-alhashem_%F0%9D%97%A7%F0%9D%97%B5%F0%9D%97%B2-%F0%9D%97%95%F0%9D%97%BF%F0%9D%97%B6%F0%9D%97%B1%F0%9D%97%B4%F0%9D%97%B2-%F0%9D%97%95%F0%9D%97%B2%F0%9D%98%81%F0%9D%98%84%F0%9D%97%B2%F0%9D%97%B2%F0%9D%97%BB-%F0%9D%97%A3%F0%9D%97%AE%F0%9D%98%80-activity-7268987223855800320-L7Qn"
 is_external: true
-cover: "/images/blog/bridge-past-future-discoveries.png"
+cover: "/images/blog/bridge-past-future-discoveries.jpg"
 tags: ["artificial-intelligence", "machine-learning", "scientific-discovery", "chemistry", "physics", "biology", "astronomy", "psychology", "innovation", "research"]
 ---
 

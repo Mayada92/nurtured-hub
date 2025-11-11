@@ -5,7 +5,7 @@ date: 2024-01-15
 excerpt: "Exploring the 'AI Time Lag'—the period between cutting-edge technology emergence and widespread public benefits. This post calls for early adoption and self-investment to bridge the gap and shape the future of AI."
 canonical_url: "https://www.linkedin.com/posts/mayada-alhashem_artificialintelligence-aifuture-earlyadoption-activity-7240305054170157056-NMos"
 is_external: true
-cover: "/images/blog/ai-time-lag.png"
+cover: "/images/blog/ai-time-lag.jpg"
 tags: ["artificial-intelligence", "ai-future", "early-adoption", "tech-innovation", "business-growth", "edtech", "healthcare-innovation", "self-investment", "digital-transformation", "future-of-work"]
 ---
 
