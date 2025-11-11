@@ -408,37 +408,44 @@ if (allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.s
   }
 
   section {
-    margin-block-end: var(--space-10);
+    margin-block-end: var(--space-5);
   }
 
   section h2 {
-    margin-block-end: var(--space-6);
-    scroll-margin-block-start: var(--space-6);
+    margin-block-end: var(--space-3);
+    margin-block-start: var(--space-4);
+    scroll-margin-block-start: var(--space-4);
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding-block-end: var(--space-2);
+    border-block-end: 1px solid rgba(0, 0, 0, 0.1);
   }
 
   section h3 {
-    margin-block-end: var(--space-4);
-    margin-block-start: var(--space-6);
+    margin-block-end: var(--space-2);
+    margin-block-start: var(--space-3);
+    font-size: 0.95rem;
+    font-weight: 600;
   }
 
   .section-content {
     display: flex;
     flex-direction: column;
-    gap: var(--space-6);
+    gap: var(--space-3);
   }
 
   .subsection {
-    margin-block-end: var(--space-8);
+    margin-block-end: var(--space-4);
   }
 
   .domain-section {
-    margin-block-end: var(--space-8);
+    margin-block-end: var(--space-4);
   }
 
   .subsection-intro {
     color: var(--color-muted-ink);
     font-size: var(--font-size-small);
-    margin-block-end: var(--space-4);
+    margin-block-end: var(--space-2);
     font-style: italic;
   }
 </style>

@@ -103,11 +103,12 @@ const domainLabels = {
 <style>
   .training-card {
     background: var(--gradient-card);
-    border-radius: var(--radius-xl);
+    border-radius: var(--radius-lg);
     box-shadow: var(--shadow-card);
     transition: all var(--motion-duration-normal) var(--motion-easing-smooth);
     border: 1px solid rgba(0, 0, 0, 0.05);
     overflow: hidden;
+    margin-block-end: var(--space-3);
   }
 
   .training-card:hover {
@@ -147,15 +148,15 @@ const domainLabels = {
   }
 
   .training-card header {
-    padding: var(--space-6);
+    padding: var(--space-4);
   }
 
   .training-card > p {
-    padding: 0 var(--space-6);
+    padding: 0 var(--space-4);
   }
 
   .training-card footer {
-    padding: 0 var(--space-6) var(--space-6);
+    padding: 0 var(--space-4) var(--space-4);
   }
 
   .training-card__meta {
