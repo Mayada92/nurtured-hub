@@ -28,5 +28,5 @@ The natural world has perfected systems that adapt, flow, and respond with remar
 
 As we look to nature's liquid revolution, we see new possibilities for AI that can reshape itself, adapt in real-time, and learn from its environment in ways that mirror natural systems.
 
-[Read the full post on LinkedIn](https://www.linkedin.com/posts/mayada-alhashem_%F0%9D%90%93%F0%9D%90%A1%F0%9D%90%9E-%F0%9D%90%8B%F0%9D%90%A2%F0%9D%90%AA%F0%9D%90%AE%F0%9D%90%A2%F0%9D%90%9D-%F0%9D%90%91%F0%9D%90%9E%F0%9D%90%AF%F0%9D%90%A8%F0%9D%90%A5%F0%9D%90%AE%F0%9D%90%AD%F0%9D%90%A2%F0%9D%90%A8%F0%9D%90%A7-activity-7226461089843015680-dMmB)
+[Read the full post on LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7226448676640985088)
 
