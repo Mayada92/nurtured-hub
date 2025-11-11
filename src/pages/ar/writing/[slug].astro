@@ -64,6 +64,21 @@ const date = new Date(post.data.date).toLocaleDateString('ar-SA', {
     max-width: var(--content-max-width);
     margin-inline: auto;
     padding: var(--space-8) var(--space-4);
+    position: relative;
+  }
+
+  .post::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url('/images/background/background4.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    opacity: 0.2;
+    z-index: -1;
+    pointer-events: none;
   }
 
   .post__header {

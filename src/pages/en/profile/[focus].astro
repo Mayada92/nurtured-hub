@@ -389,6 +389,19 @@ if (allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.s
 </BaseLayout>
 
 <style>
+  :global(body)::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url('/images/background/background6.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    opacity: 0.2;
+    z-index: -1;
+    pointer-events: none;
+  }
   @media (max-width: 1024px) {
     div[style*='grid-template-columns'] {
       display: block !important;
