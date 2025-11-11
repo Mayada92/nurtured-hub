@@ -5,7 +5,7 @@ date: 2024-06-15
 excerpt: "A thoughtful exploration of when machine learning is not the right solution, covering scenarios where simpler approaches or alternative methods are more appropriate. Included is a practical decision flow diagram to help teams make more objective decisions about implementing ML solutions."
 canonical_url: "https://lnkd.in/dwV4jRb2"
 is_external: true
-cover: "/images/blog/unlocking-learning-fundamentals.png"
+cover: "/images/blog/when_not_to_use_ML.png"
 tags: ["machine-learning", "ai", "data-science", "tech-strategy"]
 ---
 
