@@ -88,7 +88,21 @@ const base = getBasePath();
             <div class="demo-container">
               {data.demo.includes('youtube.com') || data.demo.includes('youtu.be') ? (
                 <iframe
-                  src={data.demo.replace('watch?v=', 'embed/').replace('&t=', '?start=')}
+                  src={(() => {
+                    let embedUrl = data.demo;
+                    if (embedUrl.includes('watch?v=')) {
+                      const videoId = embedUrl.split('watch?v=')[1].split('&')[0];
+                      const timeMatch = embedUrl.match(/[?&]t=(\d+)/);
+                      const time = timeMatch ? timeMatch[1] : '';
+                      embedUrl = `https://www.youtube.com/embed/${videoId}${time ? `?start=${time}` : ''}`;
+                    } else if (embedUrl.includes('youtu.be/')) {
+                      const videoId = embedUrl.split('youtu.be/')[1].split('?')[0];
+                      const timeMatch = embedUrl.match(/[?&]t=(\d+)/);
+                      const time = timeMatch ? timeMatch[1] : '';
+                      embedUrl = `https://www.youtube.com/embed/${videoId}${time ? `?start=${time}` : ''}`;
+                    }
+                    return embedUrl;
+                  })()}
                   title={`${data.title} - Demo Video`}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen
