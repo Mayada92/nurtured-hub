@@ -12,8 +12,6 @@ images:
   - "/images/speaking/moral-compass-ai-ethics-1.png"
   - "/images/speaking/moral-compass-ai-ethics-2.jpg"
   - "/images/speaking/moral-compass-ai-ethics-3.jpg"
-recording_url: ""
-video_url: ""
 ---
 
 This company-wide presentation addressed critical ethical considerations in AI development and deployment within the oil and gas industry. The talk explored practical frameworks for ensuring AI systems align with ethical principles, discussed real-world challenges in implementing responsible AI, and emphasized the importance of maintaining ethical standards throughout the AI lifecycle.
