@@ -194,17 +194,18 @@ const base = getBasePath();
     font-weight: 700;
     line-height: 1.1;
     margin-block-end: var(--space-6);
-    background: var(--gradient-text);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 50%, rgba(250, 248, 245, 0.9) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
   }
 
   .hero-intro {
-    font-size: var(--font-size-body);
+    font-size: 1.25rem;
     line-height: 1.8;
-    color: var(--color-ink);
-    opacity: 0.9;
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   }
 
   :global(body)::before {
@@ -239,8 +240,10 @@ const base = getBasePath();
   }
 
   .story-content p {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     line-height: 1.8;
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   }
 
   .section--purpose {
