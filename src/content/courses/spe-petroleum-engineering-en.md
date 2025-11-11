@@ -4,11 +4,12 @@ lang: en
 course_code: "SPE-PE"
 institution: "Society of Petroleum Engineers"
 platform: "other"
-term: "2024"
+term: "July 2024"
 year: 2024
 domain: engineering
-level: professional
-description: "Completed the SPE Petroleum Engineering Certification from the Society of Petroleum Engineers. This recognition validates technical expertise and commitment to the petroleum engineering industry, demonstrating proficiency in core engineering principles and practices."
-certificate_url: "https://www.spe.org/"
+level: certification
+description: "Completed the SPE Petroleum Engineering Certification Program, demonstrating technical knowledge and expertise in petroleum engineering. This certification recognizes professional competency in the field and requires annual renewal. Issued on July 01, 2024, with SPE Member ID: 4909219. Signed by Terry Palisch, 2024 SPE President."
+cover: "/images/courses/spe-petroleum-engineering-certificate.png"
+certificate_url: "https://www.spe.org/en/members/certification/"
 ---
 
