@@ -91,13 +91,13 @@ const base = getBasePath();
                   src={(() => {
                     let embedUrl = data.demo;
                     if (embedUrl.includes('watch?v=')) {
-                      const videoId = embedUrl.split('watch?v=')[1].split('&')[0];
-                      const timeMatch = embedUrl.match(/[?&]t=(\d+)/);
+                      const videoId = embedUrl.split('watch?v=')[1].split('&')[0].split('?')[0];
+                      const timeMatch = embedUrl.match(/[?&]t=(\d+)(?:s)?/);
                       const time = timeMatch ? timeMatch[1] : '';
                       embedUrl = `https://www.youtube.com/embed/${videoId}${time ? `?start=${time}` : ''}`;
                     } else if (embedUrl.includes('youtu.be/')) {
-                      const videoId = embedUrl.split('youtu.be/')[1].split('?')[0];
-                      const timeMatch = embedUrl.match(/[?&]t=(\d+)/);
+                      const videoId = embedUrl.split('youtu.be/')[1].split('?')[0].split('&')[0];
+                      const timeMatch = embedUrl.match(/[?&]t=(\d+)(?:s)?/);
                       const time = timeMatch ? timeMatch[1] : '';
                       embedUrl = `https://www.youtube.com/embed/${videoId}${time ? `?start=${time}` : ''}`;
                     }
