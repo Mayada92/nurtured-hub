@@ -6,7 +6,19 @@ year: 2017
 authors: ["Mayadah Alhashem"]
 pdf_url: "https://academia.kaust.edu.sa/en/studentTheses/optimization-of-paper-discoloration-via-pyrolysis-using-lasers-3"
 doi: "https://www.academia.edu/112259558/Optimization_of_Paper_Discoloration_via_Pyrolysis_Using_Lasers"
-cover: "/images/papers/kaust-thesis-inkless-printing.png"
+cover: "/images/papers/co2-paper-discoloration.png"
+images:
+  - "/images/papers/co2-paper-discoloration.png"
+  - "/images/papers/co2-sasci-laser-discoloration.png"
+gallery:
+  - type: image
+    src: "/images/papers/co2-paper-discoloration.png"
+    alt: "KAUST Thesis - CO2 Laser Paper Discoloration"
+    caption: "Optimization of Paper Discoloration via Carbonization Using a CO2 Laser"
+  - type: image
+    src: "/images/papers/co2-sasci-laser-discoloration.png"
+    alt: "SAS-CI 2017 - CO2 Laser Discoloration Presentation"
+    caption: "Presented at 7th Saudi Arabian Section of the Combustion Institute Annual Meeting"
 ---
 
 **Supervisor:** Dr. Robert Dibble, Clean Combustion Research Center

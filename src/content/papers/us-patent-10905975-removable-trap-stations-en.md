@@ -4,7 +4,14 @@ lang: en
 venue: "United States Patent and Trademark Office"
 year: 2021
 authors: ["Mayadah Alhashem"]
-cover: "/images/papers/us-patent-10905975-removable-trap.png"
+cover: "/images/papers/removable-trap-patent.png"
+images:
+  - "/images/papers/removable-trap-patent.png"
+gallery:
+  - type: image
+    src: "/images/papers/removable-trap-patent.png"
+    alt: "Removable Trap Stations Patent"
+    caption: "US Patent 10,905,975 B2 - Removable Trap Stations for Hydrocarbon Flowlines"
 ---
 
 **Patent Number:** US 10,905,975 B2  

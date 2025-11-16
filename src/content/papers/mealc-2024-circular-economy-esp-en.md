@@ -6,11 +6,16 @@ year: 2024
 authors: ["Mayadah Alhashem", "Serag Alaseef"]
 pdf_url: "https://www.researchgate.net/publication/385348434_Leveraging_Circular_Economy_Principles_for_Electrical_Submersible_Pump_Equipment"
 doi: "https://eurekamag.com/research/096/714/096714905.php"
-cover: "/images/papers/mealc-2024-circular-economy-slide.png"
+cover: "/images/papers/mealc-2024-circular-economy-paper.jpg"
 images:
+  - "/images/papers/mealc-2024-circular-economy-paper.jpg"
   - "/images/papers/mealc-2024-circular-economy-slide.png"
   - "/images/papers/mealc-2024-presentation-profile.png"
 gallery:
+  - type: image
+    src: "/images/papers/mealc-2024-circular-economy-paper.jpg"
+    alt: "MEALC 2024 - Circular Economy Paper"
+    caption: "Leveraging Circular Economy Principles for Electrical Submersible Pump Equipment"
   - type: image
     src: "/images/papers/mealc-2024-circular-economy-slide.png"
     alt: "MEALC 2024 - Circular Economy Principles for ESP Equipment Presentation Slide"

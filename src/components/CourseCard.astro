@@ -1,6 +1,7 @@
 ---
 import Badge from './Badge.astro';
 import type { CollectionEntry } from 'astro:content';
+import { getImagePath } from '../utils/path';
 
 interface Props {
   course: CollectionEntry<'courses'>;
@@ -45,12 +46,13 @@ const levelLabels = {
   {data.cover && (
     <div class="course-card__cover">
       <img
-        src={data.cover}
+        src={getImagePath(data.cover)}
         alt={`${data.title} - Course certificate`}
         loading="lazy"
         width="600"
         height="400"
         decoding="async"
+        onerror="this.parentElement.style.display='none'"
       />
     </div>
   )}

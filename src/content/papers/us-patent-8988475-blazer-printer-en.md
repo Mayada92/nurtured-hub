@@ -5,7 +5,14 @@ venue: "United States Patent and Trademark Office"
 year: 2015
 authors: ["Mayadah Alhashem"]
 pdf_url: "https://patentimages.storage.googleapis.com/92/4a/b9/c8ff71349e3c0a/US20140267533A1.pdf"
-cover: "/images/papers/adipec-2019.webp"
+cover: "/images/papers/blazer-printer-patent.png"
+images:
+  - "/images/papers/blazer-printer-patent.png"
+gallery:
+  - type: image
+    src: "/images/papers/blazer-printer-patent.png"
+    alt: "Blazer Printer Patent"
+    caption: "US Patent 8,988,475 B2 - Inkless Black-and-White Printing via Paper Pyrolysis"
 ---
 
 **Patent Number:** US 8,988,475 B2  
