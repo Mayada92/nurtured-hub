@@ -8,15 +8,18 @@ const papers = (await getCollection('papers'))
   .filter((p) => p.data.lang === 'ar')
   .sort((a, b) => b.data.year - a.data.year);
 
-const paperCount = papers.length;
+const patents = papers.filter((p) => p.data.venue.includes('Patent') || p.data.venue.includes('براءة'));
+const regularPapers = papers.filter((p) => !p.data.venue.includes('Patent') && !p.data.venue.includes('براءة'));
+const paperCount = regularPapers.length;
+const patentCount = patents.length;
 ---
 
-<BaseLayout title="الأوراق" description="أوراق بحثية ومنشورات أكاديمية" lang="ar">
+<BaseLayout title="الأوراق والبراءات" description="أوراق بحثية ومنشورات أكاديمية وبراءات اختراع" lang="ar">
   <section class="section">
     <div class="container">
       <SectionReveal client:load>
-        <h1>الأوراق</h1>
-        <p>منشورات بحثية وأعمال أكاديمية. <span class="paper-count">({paperCount} منشور)</span></p>
+        <h1>الأوراق والبراءات</h1>
+        <p>منشورات بحثية وأعمال أكاديمية. <span class="paper-count">({paperCount} ورقة، {patentCount} براءة)</span></p>
       </SectionReveal>
       <div class="grid grid--papers">
         {papers.map((paper) => (
