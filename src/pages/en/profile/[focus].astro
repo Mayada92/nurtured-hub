@@ -388,12 +388,9 @@ if (allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.s
           <section id="writing">
             <h2>Writing</h2>
             <div class="section-content">
-              {allPosts
-                .filter((p) => p.data.lang === lang && data.pin_posts.includes(p.slug))
-                .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-                .map((post) => (
-                  <PostCard post={post} />
-                ))}
+              <a href={`${base}en/writing`.replace(/\/+/g, '/')} class="profile-section-link">
+                View all articles →
+              </a>
             </div>
           </section>
         )}
@@ -403,12 +400,9 @@ if (allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.s
           <section id="papers">
             <h2>Papers</h2>
             <div class="section-content">
-              {allPapers
-                .filter((p) => p.data.lang === lang && data.pin_papers.includes(p.slug))
-                .sort((a, b) => b.data.year - a.data.year)
-                .map((paper) => (
-                  <PaperCard paper={paper} />
-                ))}
+              <a href={`${base}en/papers`.replace(/\/+/g, '/')} class="profile-section-link">
+                View all papers →
+              </a>
             </div>
           </section>
         )}

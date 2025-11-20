@@ -315,12 +315,9 @@ relevantDomains.forEach((domain) => {
           <section id="writing">
             <h2>الكتابات</h2>
             <div class="section-content">
-              {allPosts
-                .filter((p) => p.data.lang === lang && data.pin_posts.includes(p.slug))
-                .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-                .map((post) => (
-                  <PostCard post={post} />
-                ))}
+              <a href={`${base}ar/writing`.replace(/\/+/g, '/')} class="profile-section-link">
+                عرض جميع المقالات ←
+              </a>
             </div>
           </section>
         )}
@@ -329,12 +326,9 @@ relevantDomains.forEach((domain) => {
           <section id="papers">
             <h2>الأوراق</h2>
             <div class="section-content">
-              {allPapers
-                .filter((p) => p.data.lang === lang && data.pin_papers.includes(p.slug))
-                .sort((a, b) => b.data.year - a.data.year)
-                .map((paper) => (
-                  <PaperCard paper={paper} />
-                ))}
+              <a href={`${base}ar/papers`.replace(/\/+/g, '/')} class="profile-section-link">
+                عرض جميع الأوراق ←
+              </a>
             </div>
           </section>
         )}
@@ -393,5 +387,27 @@ relevantDomains.forEach((domain) => {
     font-size: var(--font-size-small);
     margin-block-end: var(--space-4);
     font-style: italic;
+  }
+
+  .profile-section-link {
+    display: inline-block;
+    padding: var(--space-3) var(--space-5);
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    color: var(--color-ink);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    transition: all var(--motion-duration-normal) var(--motion-easing-smooth);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .profile-section-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--color-accent-1);
   }
 </style>
