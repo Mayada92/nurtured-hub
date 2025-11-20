@@ -22,6 +22,7 @@ const arrow = isRTL ? '←' : '→';
         width="600"
         height="300"
         decoding="async"
+        onerror="this.parentElement.style.display='none'"
       />
     </div>
   )}
@@ -38,7 +39,9 @@ const arrow = isRTL ? '←' : '→';
   <footer class="paper-card__links">
     {data.pdf_url && (
       <a href={data.pdf_url} target="_blank" rel="noopener noreferrer" class="paper-link">
-        {data.lang === 'ar' ? 'الورقة ←' : 'View Paper →'}
+        {data.venue && data.venue.includes('Patent') 
+          ? (data.lang === 'ar' ? 'البراءة ←' : 'View Patent →')
+          : (data.lang === 'ar' ? 'الورقة ←' : 'View Paper →')}
       </a>
     )}
     {data.doi && (

@@ -14,10 +14,6 @@ gallery:
     src: "/images/projects/smrsea-cover.png"
     alt: "SMRSEA Project Cover"
     caption: "SMRSEA - Smart Music Recommendation System for Emerging Artists"
-  - type: video
-    src: "/videos/smrsea-demo.mp4"
-    alt: "SMRSEA Demo Video"
-    caption: "SMRSEA Project Demonstration Video"
 ---
 
 **Smart Music Recommendation System for Emerging Artists (SMRSEA)**

@@ -47,11 +47,33 @@ const date = new Date(post.data.date).toLocaleDateString('en-US', {
     <div class="post__content">
       <Content />
     </div>
+
+    <script>
+      // Fix image paths in markdown content
+      (function() {
+        const basePath = import.meta.env.BASE_URL || '/';
+        const content = document.querySelector('.post__content');
+        if (!content) return;
+        
+        const images = content.querySelectorAll('img');
+        images.forEach((img) => {
+          const src = img.getAttribute('src');
+          if (src && src.startsWith('/') && !src.startsWith(basePath)) {
+            const cleanPath = src.startsWith('/') ? src.slice(1) : src;
+            img.src = `${basePath}${cleanPath}`.replace(/\/+/g, '/');
+          }
+        });
+      })();
+    </script>
     {post.data.canonical_url && (
       <footer class="post__footer">
         <p>
           <a href={post.data.canonical_url} target="_blank" rel="noopener noreferrer">
-            Read original on WordPress →
+            {post.data.canonical_url.includes('medium.com') 
+              ? 'Read on Medium →' 
+              : post.data.canonical_url.includes('linkedin.com') 
+              ? 'Read on LinkedIn →' 
+              : 'Read original article →'}
           </a>
         </p>
       </footer>
