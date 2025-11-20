@@ -1,15 +1,40 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SectionReveal from '../../components/SectionReveal';
+import Icon from '../../components/Icon.astro';
 ---
 
 <BaseLayout title="اتصل" description="تواصل معي" lang="ar">
   <section class="section">
     <div class="container">
-      <div class="content">
+      <div class="contact-content">
         <SectionReveal client:load>
-          <h1>اتصل</h1>
-          <p>هذه صفحة تجريبية لصفحة الاتصال. أضف معلومات الاتصال الخاصة بك هنا.</p>
+          <div class="contact-header">
+            <h1>اتصل</h1>
+            <p>لا تتردد في التواصل! أنا دائماً منفتحة لمناقشة مشاريع جديدة، فرص، أو مجرد إجراء محادثة.</p>
+          </div>
+          
+          <div class="contact-methods">
+            <a href="mailto:mayada.alhashem@gmail.com" class="contact-card">
+              <div class="contact-icon">
+                <Icon name="envelope" size={32} />
+              </div>
+              <div class="contact-info">
+                <h3>البريد الإلكتروني</h3>
+                <p>mayada.alhashem@gmail.com</p>
+              </div>
+            </a>
+            
+            <a href="https://www.linkedin.com/in/mayada-alhashem/" target="_blank" rel="noopener noreferrer" class="contact-card">
+              <div class="contact-icon">
+                <Icon name="user" size={32} />
+              </div>
+              <div class="contact-info">
+                <h3>لينكد إن</h3>
+                <p>تواصل على لينكد إن</p>
+              </div>
+            </a>
+          </div>
         </SectionReveal>
       </div>
     </div>
@@ -19,6 +44,95 @@ import SectionReveal from '../../components/SectionReveal';
 <style>
   .section {
     padding-block: var(--space-8);
+  }
+
+  .contact-content {
+    max-width: 800px;
+    margin-inline: auto;
+  }
+
+  .contact-header {
+    text-align: center;
+    margin-block-end: var(--space-8);
+    padding: var(--space-6);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-xl);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .contact-header h1 {
+    font-size: var(--font-size-h1);
+    margin-block-end: var(--space-4);
+    color: var(--color-ink);
+  }
+
+  .contact-header p {
+    font-size: 1.125rem;
+    color: var(--color-muted-ink);
+    line-height: 1.7;
+  }
+
+  .contact-methods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .contact-card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-6);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-xl);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    color: inherit;
+    transition: all var(--motion-duration-normal) var(--motion-easing-smooth);
+    border: 2px solid transparent;
+  }
+
+  .contact-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    border-color: var(--color-accent-1);
+  }
+
+  .contact-icon {
+    flex-shrink: 0;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-section);
+    border-radius: var(--radius-lg);
+    color: var(--color-accent-1);
+  }
+
+  .contact-info {
+    flex: 1;
+  }
+
+  .contact-info h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-block-end: var(--space-2);
+    color: var(--color-ink);
+  }
+
+  .contact-info p {
+    font-size: 1rem;
+    color: var(--color-muted-ink);
+    word-break: break-word;
+  }
+
+  @media (max-width: 768px) {
+    .contact-methods {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
 
