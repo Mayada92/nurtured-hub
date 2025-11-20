@@ -3,7 +3,7 @@ title: "Research Design for Data Science"
 lang: en
 course_code: "DATASCI 201"
 institution: "UC Berkeley"
-term: "Fall 2024"
+term: "Summer 2024"
 year: 2024
 domain: data-science
 level: graduate

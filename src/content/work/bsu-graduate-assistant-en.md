@@ -1,7 +1,7 @@
 ---
 title: "Graduate Assistant - Educational Psychology"
 lang: en
-organization: "Boise State University"
+organization: "Ball State University"
 role: "Graduate Assistant"
 start_date: 2023-08-01
 ongoing: true
@@ -25,5 +25,5 @@ skills:
   - "Research Ethics"
 ---
 
-As a Graduate Assistant in the Educational Psychology department at Boise State University, I support faculty in developing course materials, creating educational resources, and contributing to research projects that explore effective teaching and learning strategies.
+As a Graduate Assistant in the Educational Psychology department at Ball State University, I support faculty in developing course materials, creating educational resources, and contributing to research projects that explore effective teaching and learning strategies.
 

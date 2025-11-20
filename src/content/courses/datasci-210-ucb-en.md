@@ -1,7 +1,7 @@
 ---
 title: "Capstone Project"
 lang: en
-course_code: "W210"
+course_code: "DATASCI 210"
 institution: "UC Berkeley"
 term: "Fall 2025"
 year: 2025

@@ -2,8 +2,8 @@
 title: "Educational Psychology - Advanced Topics"
 lang: en
 course_code: "EDPS 604"
-institution: "Boise State University"
-term: "Fall 2024"
+institution: "Ball State University"
+term: "Fall 2025"
 year: 2024
 domain: educational-psychology
 level: graduate

@@ -3,8 +3,8 @@ title: "Data Visualization"
 lang: en
 course_code: "DATASCI 207"
 institution: "UC Berkeley"
-term: "Fall 2024"
-year: 2024
+term: "Spring 2025"
+year: 2025
 domain: data-science
 level: graduate
 credits: 3

@@ -2,9 +2,9 @@
 title: "Research Methods in Education"
 lang: en
 course_code: "EDPS 628"
-institution: "Boise State University"
-term: "Spring 2024"
-year: 2024
+institution: "Ball State University"
+term: "Summer 2025"
+year: 2025
 domain: educational-psychology
 level: graduate
 credits: 3
