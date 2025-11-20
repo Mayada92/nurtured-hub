@@ -1,5 +1,5 @@
 ---
-title: "Data Visualization"
+title: "Applied Machine Learning"
 lang: en
 course_code: "DATASCI 207"
 institution: "UC Berkeley"
@@ -8,8 +8,8 @@ year: 2025
 domain: data-science
 level: graduate
 credits: 3
-description: "Principles and practices of data visualization, covering visual encoding, interaction design, and tools for creating effective data visualizations. Includes usability studies and user-centered design approaches."
+description: "Applied machine learning covering supervised and unsupervised learning algorithms, model evaluation, feature engineering, and practical ML applications."
 ---
 
-Course on creating effective data visualizations, teaching principles of visual design, human perception, and user experience. Included hands-on projects conducting usability studies.
+Comprehensive course on applied machine learning, teaching students how to implement, evaluate, and deploy machine learning models for real-world applications.
 
