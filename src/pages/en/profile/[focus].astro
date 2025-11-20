@@ -146,7 +146,9 @@ if (allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.s
         
         <section id="overview">
           <h2>Overview</h2>
-          <p>{data.headline}</p>
+          <div class="overview-content">
+            <p>{data.headline}</p>
+          </div>
         </section>
 
         {/* Volunteering Section */}
@@ -440,7 +442,9 @@ if (allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.s
     gap: var(--space-6);
     align-items: start;
     position: relative;
-    max-width: 100%;
+    max-width: 1400px;
+    margin-inline: auto;
+    padding-inline: var(--space-4);
   }
 
   .profile-toc {
@@ -476,23 +480,34 @@ if (allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.s
     margin-block-end: var(--space-3);
     margin-block-start: var(--space-4);
     scroll-margin-block-start: var(--space-4);
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     font-weight: 600;
-    padding-block-end: var(--space-2);
-    border-block-end: 1px solid rgba(0, 0, 0, 0.1);
+    padding: var(--space-3) var(--space-4);
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    border-block-end: none;
   }
 
   section h3 {
     margin-block-end: var(--space-2);
     margin-block-start: var(--space-3);
-    font-size: 0.95rem;
+    font-size: 1rem;
     font-weight: 600;
+    padding: var(--space-2) var(--space-3);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-md);
+    display: inline-block;
   }
 
   .section-content {
     display: flex;
     flex-direction: column;
-    gap: var(--space-3);
+    gap: var(--space-2);
+    max-width: 100%;
   }
 
   .subsection {
@@ -508,5 +523,22 @@ if (allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.s
     font-size: var(--font-size-small);
     margin-block-end: var(--space-2);
     font-style: italic;
+    padding: var(--space-3) var(--space-4);
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-md);
+  }
+
+  .overview-content {
+    padding: var(--space-4);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .overview-content p {
+    color: var(--color-ink);
+    line-height: 1.7;
   }
 </style>

@@ -20,138 +20,90 @@ const endDate = data.end_date
       month: 'short',
     })
   : null;
-
-const domainLabels = {
-  en: {
-    sports: 'Sports',
-    'educational-psychology': 'Educational Psychology',
-    engineering: 'Engineering',
-    'data-science': 'Data Science',
-    general: 'General',
-  },
-  ar: {
-    sports: 'الرياضة',
-    'educational-psychology': 'علم النفس التربوي',
-    engineering: 'الهندسة',
-    'data-science': 'علم البيانات',
-    general: 'عام',
-  },
-};
 ---
 
 <article class="volunteering-card">
-  {data.cover && (
-    <div class="volunteering-card__cover">
-      <img
-        src={data.cover}
-        alt={`${data.title} - Cover image`}
-        loading="lazy"
-        width="600"
-        height="400"
-        decoding="async"
-      />
-    </div>
-  )}
-  <header>
-    <h3>{data.title}</h3>
-    <div class="volunteering-card__meta">
-      <span class="organization">{data.organization}</span>
-      {data.is_hackathon && (
-        <Badge label={isRTL ? 'هاكاثون' : 'Hackathon'} variant="accent-2" size="sm" />
-      )}
-    </div>
-    <div class="volunteering-card__details">
-      <span class="role">{data.role}</span>
-      <span class="date">
-        {startDate} {data.ongoing ? (isRTL ? '- حتى الآن' : '- Present') : endDate ? ` - ${endDate}` : ''}
-      </span>
-    </div>
-    <div class="volunteering-card__domains">
-      {data.domain.map((d) => (
-        <Badge label={domainLabels[data.lang][d]} variant="accent-1" size="sm" />
-      ))}
-    </div>
-  </header>
-  <p>{data.description}</p>
-  {data.achievements && data.achievements.length > 0 && (
-    <ul class="achievements">
-      {data.achievements.map((achievement) => (
-        <li>{achievement}</li>
-      ))}
-    </ul>
-  )}
-  {data.skills && data.skills.length > 0 && (
-    <div class="volunteering-card__skills">
-      {data.skills.map((skill) => (
-        <Badge label={skill} variant="accent-3" size="sm" />
-      ))}
-    </div>
-  )}
-  {data.url && (
-    <footer>
-      <a href={data.url} target="_blank" rel="noopener noreferrer">
-        {isRTL ? 'الموقع الإلكتروني ←' : 'Website →'}
-      </a>
-    </footer>
+  {data.url ? (
+    <a href={data.url} target="_blank" rel="noopener noreferrer" class="volunteering-card__link">
+      <header>
+        <h3>{data.title}</h3>
+        <div class="volunteering-card__meta">
+          <span class="organization">{data.organization}</span>
+          {data.is_hackathon && (
+            <Badge label={isRTL ? 'هاكاثون' : 'Hackathon'} variant="accent-2" size="sm" />
+          )}
+        </div>
+        <div class="volunteering-card__details">
+          <span class="role">{data.role}</span>
+          <span class="date">
+            {startDate} {data.ongoing ? (isRTL ? '- حتى الآن' : '- Present') : endDate ? ` - ${endDate}` : ''}
+          </span>
+          {data.ongoing && <Badge label={isRTL ? 'مستمر' : 'Ongoing'} variant="accent-1" size="sm" />}
+        </div>
+      </header>
+    </a>
+  ) : (
+    <header>
+      <h3>{data.title}</h3>
+      <div class="volunteering-card__meta">
+        <span class="organization">{data.organization}</span>
+        {data.is_hackathon && (
+          <Badge label={isRTL ? 'هاكاثون' : 'Hackathon'} variant="accent-2" size="sm" />
+        )}
+      </div>
+      <div class="volunteering-card__details">
+        <span class="role">{data.role}</span>
+        <span class="date">
+          {startDate} {data.ongoing ? (isRTL ? '- حتى الآن' : '- Present') : endDate ? ` - ${endDate}` : ''}
+        </span>
+        {data.ongoing && <Badge label={isRTL ? 'مستمر' : 'Ongoing'} variant="accent-1" size="sm" />}
+      </div>
+    </header>
   )}
 </article>
 
 <style>
   .volunteering-card {
-    background: var(--gradient-card);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-card);
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-md);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     transition: all var(--motion-duration-normal) var(--motion-easing-smooth);
     border: 1px solid rgba(0, 0, 0, 0.05);
-    overflow: hidden;
-    margin-block-end: var(--space-3);
+    margin-block-end: var(--space-2);
   }
 
   .volunteering-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   }
 
-  .volunteering-card__cover {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-    background: var(--gradient-section);
-  }
-
-  .volunteering-card__cover img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform var(--motion-duration-slow) var(--motion-easing-smooth);
-  }
-
-  .volunteering-card:hover .volunteering-card__cover img {
-    transform: scale(1.1);
+  .volunteering-card__link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
   }
 
   .volunteering-card header {
-    padding: var(--space-4);
+    padding: 0;
   }
 
-  .volunteering-card > p {
-    padding: 0 var(--space-4);
-  }
-
-  .volunteering-card .achievements,
-  .volunteering-card .volunteering-card__skills {
-    padding: 0 var(--space-4);
-  }
-
-  .volunteering-card footer {
-    padding: 0 var(--space-4) var(--space-4);
+  .volunteering-card h3 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-block-end: var(--space-1);
+    color: var(--color-ink);
+    line-height: 1.3;
   }
 
   .volunteering-card__meta {
     display: flex;
     gap: var(--space-2);
     align-items: center;
-    margin-block-end: var(--space-2);
+    margin-block-end: var(--space-1);
+    flex-wrap: wrap;
+    font-size: 0.75rem;
   }
 
   .organization {
@@ -161,54 +113,14 @@ const domainLabels = {
 
   .volunteering-card__details {
     display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-3);
-    margin-block-end: var(--space-3);
-    font-size: var(--font-size-small);
+    gap: var(--space-2);
+    align-items: center;
+    font-size: 0.6875rem;
     color: var(--color-muted-ink);
-  }
-
-  .volunteering-card__domains {
-    display: flex;
     flex-wrap: wrap;
-    gap: var(--space-2);
-    margin-block-end: var(--space-4);
   }
 
-  .achievements {
-    list-style: none;
-    padding-inline-start: var(--space-4);
-    margin-block: var(--space-4);
-  }
-
-  .achievements li {
-    position: relative;
-    padding-inline-start: var(--space-4);
-    margin-block-end: var(--space-2);
-  }
-
-  .achievements li::before {
-    content: '•';
-    position: absolute;
-    inset-inline-start: 0;
-    color: var(--color-accent-1);
-    font-weight: bold;
-  }
-
-  footer {
-    margin-block-start: var(--space-4);
-  }
-
-  footer a {
-    text-decoration: none;
-    font-weight: 500;
-  }
-
-  .volunteering-card__skills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-2);
-    margin-block-start: var(--space-4);
+  .role {
+    font-weight: 400;
   }
 </style>
-
