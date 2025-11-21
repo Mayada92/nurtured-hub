@@ -41,7 +41,11 @@ const date = new Date(data.date).toLocaleDateString(data.lang === 'ar' ? 'ar-SA'
   <footer>
     {data.is_external && data.canonical_url ? (
       <a href={data.canonical_url} target="_blank" rel="noopener noreferrer">
-        {isRTL ? 'اقرأ على LinkedIn ←' : 'Read on LinkedIn →'}
+        {data.canonical_url.includes('medium.com')
+          ? (isRTL ? 'اقرأ على Medium ←' : 'Read on Medium →')
+          : data.canonical_url.includes('linkedin.com')
+          ? (isRTL ? 'اقرأ على LinkedIn ←' : 'Read on LinkedIn →')
+          : (isRTL ? 'اقرأ المقال الأصلي ←' : 'Read original article →')}
       </a>
     ) : (
       <a href={`${base}${data.lang}/writing/${post.slug}/`.replace(/\/+/g, '/')}>
