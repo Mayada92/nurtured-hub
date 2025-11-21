@@ -18,36 +18,36 @@ images:
 gallery:
   - type: image
     src: "/images/projects/monshaat-bootcamp-cover.webp"
-    alt: "Monshaat Bootcamp - AI in Business Presentation"
-    caption: "Monshaat AI for Business Bootcamp - Overview of AI in Business"
+    alt: "Monshaat Bootcamp - Cover"
+    caption: "Monshaat AI for Business Bootcamp"
   - type: image
     src: "/images/projects/monshaat-bootcamp-1.webp"
-    alt: "Monshaat Bootcamp - Presentation Session"
-    caption: "AI in Business presentation session with engaged audience"
+    alt: "Monshaat Bootcamp - Image 1"
+    caption: ""
   - type: image
     src: "/images/projects/monshaat-bootcamp-2.webp"
-    alt: "Monshaat Bootcamp - Speaker Presenting"
-    caption: "Presenting on AI fundamentals and business applications"
+    alt: "Monshaat Bootcamp - Image 2"
+    caption: ""
   - type: image
     src: "/images/projects/monshaat-bootcamp-3.webp"
-    alt: "Monshaat Bootcamp - Resources and Requirements"
-    caption: "Presentation on AI resources and requirements by type of use"
+    alt: "Monshaat Bootcamp - Image 3"
+    caption: ""
   - type: image
     src: "/images/projects/monshaat-bootcamp-4.webp"
-    alt: "Monshaat Bootcamp - Day 2 Schedule"
-    caption: "Day 2 schedule and activities"
+    alt: "Monshaat Bootcamp - Image 4"
+    caption: ""
   - type: image
     src: "/images/projects/monshaat-bootcamp-5.webp"
-    alt: "Monshaat Bootcamp - Interactive Session"
-    caption: "Interactive learning session with participants working on laptops"
+    alt: "Monshaat Bootcamp - Image 5"
+    caption: ""
   - type: image
     src: "/images/projects/monshaat-bootcamp-6.webp"
-    alt: "Monshaat Bootcamp - AI Approaches Comparison"
-    caption: "Comparing internal use vs product integration approaches"
+    alt: "Monshaat Bootcamp - Image 6"
+    caption: ""
   - type: image
     src: "/images/projects/monshaat-bootcamp-7.webp"
-    alt: "Monshaat Bootcamp - Audience Engagement"
-    caption: "Engaged audience during the bootcamp"
+    alt: "Monshaat Bootcamp - Image 7"
+    caption: ""
 ---
 
 Led a 3-day bootcamp on AI applications in business development for entrepreneurs and SME owners. The bootcamp focused on helping participants understand and implement AI solutions in their businesses through hands-on generative AI projects.
