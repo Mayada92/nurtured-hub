@@ -200,137 +200,55 @@ const relatedPapers: Array<Awaited<ReturnType<typeof getCollection<'papers'>>>[n
 </BaseLayout>
 
 <script is:inline>
-  // Aggressively prevent any overlay/modals from appearing
+  // Completely remove any lightbox elements - they should not exist
   (function() {
-    // Remove any lightbox/overlay elements immediately
-    function removeOverlays() {
-      const selectors = [
-        '#gallery-lightbox',
-        '.lightbox',
-        '[id*="lightbox"]',
-        '[class*="lightbox"]',
-        '[role="dialog"]',
-        '[aria-modal="true"]'
-      ];
-      
-      selectors.forEach(selector => {
-        try {
-          document.querySelectorAll(selector).forEach(el => {
-            if (el && !el.closest('header') && !el.closest('nav')) {
-              el.style.display = 'none';
-              el.style.visibility = 'hidden';
-              el.style.opacity = '0';
-              el.style.pointerEvents = 'none';
-              el.remove();
-            }
-          });
-        } catch(e) {}
-      });
-      
-      // Reset body overflow
-      if (document.body) {
-        document.body.style.overflow = '';
-        document.body.style.position = '';
-        document.body.classList.remove('modal-open', 'lightbox-open', 'overflow-hidden');
+    function removeLightbox() {
+      // Remove by ID
+      const lightbox = document.getElementById('gallery-lightbox');
+      if (lightbox) {
+        lightbox.remove();
       }
       
-      // Remove any fixed overlays with high z-index
-      document.querySelectorAll('*').forEach(el => {
-        try {
-          const style = window.getComputedStyle(el);
-          const zIndex = parseInt(style.zIndex);
-          if (style.position === 'fixed' && !isNaN(zIndex) && zIndex > 1000) {
-            if (!el.closest('header') && !el.closest('nav') && el.id !== 'site-header') {
-              el.style.display = 'none';
-              el.style.visibility = 'hidden';
-              el.remove();
-            }
-          }
-        } catch(e) {}
+      // Remove by class
+      document.querySelectorAll('.lightbox').forEach(el => {
+        if (el.id === 'gallery-lightbox' || el.classList.contains('lightbox')) {
+          el.remove();
+        }
       });
+      
+      // Reset body
+      if (document.body) {
+        document.body.style.overflow = '';
+        document.body.classList.remove('modal-open', 'lightbox-open');
+      }
     }
     
-    // Prevent lightbox creation by intercepting common methods
-    const preventLightboxCreation = () => {
-      // Override createElement to catch lightbox creation
-      const originalCreateElement = document.createElement;
-      document.createElement = function(tagName, options) {
-        const el = originalCreateElement.call(this, tagName, options);
-        if (el.id === 'gallery-lightbox' || el.classList.contains('lightbox')) {
-          setTimeout(() => el.remove(), 0);
-        }
-        return el;
-      };
-      
-      // Prevent appendChild on body for lightbox elements
-      const originalAppendChild = Node.prototype.appendChild;
-      Node.prototype.appendChild = function(child) {
-        if (child && (child.id === 'gallery-lightbox' || child.classList.contains('lightbox'))) {
-          return child; // Don't actually append
-        }
-        return originalAppendChild.call(this, child);
-      };
-    };
-    
     // Run immediately
-    removeOverlays();
-    preventLightboxCreation();
+    removeLightbox();
     
     // Run on DOM ready
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', () => {
-        removeOverlays();
-        preventLightboxCreation();
-      });
+      document.addEventListener('DOMContentLoaded', removeLightbox);
+    } else {
+      removeLightbox();
     }
     
-    // Run after delays to catch dynamically added elements
-    setTimeout(removeOverlays, 0);
-    setTimeout(removeOverlays, 50);
-    setTimeout(removeOverlays, 100);
-    setTimeout(removeOverlays, 250);
-    setTimeout(removeOverlays, 500);
-    setTimeout(removeOverlays, 1000);
+    // Run after short delays
+    setTimeout(removeLightbox, 0);
+    setTimeout(removeLightbox, 100);
+    setTimeout(removeLightbox, 500);
     
-    // Watch for new elements being added - more aggressive
-    const observer = new MutationObserver((mutations) => {
-      let shouldRemove = false;
-      mutations.forEach(mutation => {
-        mutation.addedNodes.forEach(node => {
-          if (node.nodeType === 1) { // Element node
-            if (node.id === 'gallery-lightbox' || 
-                node.classList.contains('lightbox') ||
-                node.querySelector && node.querySelector('#gallery-lightbox, .lightbox')) {
-              shouldRemove = true;
-            }
-          }
-        });
-      });
-      if (shouldRemove) {
-        removeOverlays();
-      }
+    // Watch for new elements
+    const observer = new MutationObserver(() => {
+      removeLightbox();
     });
     
     if (document.body) {
       observer.observe(document.body, {
         childList: true,
-        subtree: true,
-        attributes: true,
-        attributeFilter: ['class', 'id', 'style']
-      });
-    } else {
-      document.addEventListener('DOMContentLoaded', () => {
-        observer.observe(document.body, {
-          childList: true,
-          subtree: true,
-          attributes: true,
-          attributeFilter: ['class', 'id', 'style']
-        });
+        subtree: true
       });
     }
-    
-    // Also run on window load
-    window.addEventListener('load', removeOverlays);
   })();
 </script>
 
@@ -661,6 +579,22 @@ const relatedPapers: Array<Awaited<ReturnType<typeof getCollection<'papers'>>>[n
   .paper-venue {
     font-size: 0.8125rem;
     color: var(--color-muted-ink);
+  }
+
+  /* Force hide any lightbox elements - they should not exist */
+  #gallery-lightbox,
+  .lightbox,
+  [id*="lightbox"],
+  [class*="lightbox"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    position: absolute !important;
+    left: -9999px !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
   }
 </style>
 
