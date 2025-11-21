@@ -6,7 +6,7 @@ interface Props {
   title: string;
   institution: string;
   course?: string;
-  year: number;
+  year?: number;
   description: string;
   images?: string[];
   files?: Array<{ name: string; url: string; type: 'pdf' | 'docx' | 'zip' | 'mp4' }>;
@@ -38,7 +38,7 @@ const domainColors = {
       <div class="work-example__meta">
         <span class="institution">{institution}</span>
         {course && <Badge label={course} variant={domainColors[domain]} size="sm" />}
-        <span class="year">{year}</span>
+        {year && <span class="year">{year}</span>}
       </div>
     </div>
     <span class="work-example__toggle" aria-hidden="true">▼</span>
@@ -61,7 +61,7 @@ const domainColors = {
         <ul>
           {files.map((file) => (
             <li>
-              <a href={file.url} target="_blank" rel="noopener noreferrer" download>
+              <a href={file.url} target="_blank" rel="noopener noreferrer" download={file.name}>
                 <span class="file-icon">{fileTypeIcons[file.type]}</span>
                 {file.name}
               </a>

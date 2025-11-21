@@ -1,0 +1,75 @@
+Summary of Qualifications
+Multidisciplinary engineer and data scientist transitioning into EdTech, combining digital skills and educational psychology. Experienced in designing data-driven tools, building interactive prototypes, and focused on children learning from a cognitive and developmental standpoint. Currently pursuing dual graduate programs at UC Berkeley and Ball State on data science, machine learning, and human development.
+Education
+M.S. UC Berkeley (online degree)									Expected Dec 2025
+	Master of Information and Data Science (ranked 2nd top DS online master’s degree)
+Graduate Certificate Ball State University (online degree)                                                                                                          	Expected Dec 2025
+Human Development and Learning
+Nanodegree Udacity (online)										Jan 2018
+	Machine Learning Engineering
+M.S. King Abdullah University of Science and Technology (Thuwal, Saudi Arabia) 				May 2017
+Mechanical Engineering.
+B.S. UC Santa Barbara (Santa Barbara, California) 							June 2015
+Chemical Engineering.
+Experience
+Saudi Aramco (2017 – Present)
+(Oct 2025 – Present) – Production Optimization and Surveillance​ Hub (POSH), Northern Area Production Engineering Department (NAPED)
+● Tracking performance on digital monitoring platforms utilizing real-time data to analyze and prevent potential ESP trips 
+● Act as technical liaison between artificial lift engineers, developers, and IT support, proposing innovative solutions 
+● Technical consultant and proponent collaborating with ExpecARC digital team to develop an intelligent ESP troubleshooting solution
+(Mar 2025 – Sep 2025) – Ras Tanura Artificial Lift Unit (RT ALU), Northern Area Production Engineering Department (NAPED)
+● Monitor daily Electrical Submersible Pump (ESP) operations, and conducting field-visits to develop practical experience
+● Deliver AI training sessions and contribute to knowledge-sharing initiatives for employee upskilling and digital transformation
+(Feb 2024 – 2025) – PE Application Services Department (PEASD), Upstream Digital Center (UDC)
+● Data scientist role in prototyping an automation solution for ESP troubleshooting using real-time field data
+● Actively engage in knowledge and experience sharing initiatives within the department and across divisions
+(2023 – 2024) – Artificial Lift Focus Area (ALFA) EXPEC Advanced Research Center (ExpecARC)
+● Deployment of the ESP Replacement Forecast (RF) module of for MIDAS, a data-driven forcasting tool for pumps
+● Creating a Microsoft Azure Repository and building the web application on OpenShift to run the Replacement Forecast on the server
+(2021 – 2022) – Artificial Lift Div. (ALD) Production & Facilities Development Department (P&FDD)
+● Technical evaluation of vendors’ digital and data-driven solutions
+● Attending Dismantle and Inspection Failure Analysis jobs at service companies facilities regularly
+(2017 – 2021) – Previous Engineering Roles, Saudi Aramco 
+● Developed Python scripts to automate time-consuming internal processes
+● Collaborated on digital solutions, including Formation Testing Digital Solutions with the PE 4.0 team 
+Wasla Connect — Mentor (remote, 2025–present)
+● Mentor displaced Palestinian tech professionals,  & ran a live Arabic workshop demoing practical AI/DS.
+Oakland Natives Give Back — Data Scientist (Sep- Dec 2024)
+● Data Science internship, working on a project addressing a challenge under education/schooling. Details are confidential.
+Projects
+Oakland Natives Give Back - Data Science Internship Applied machine learning to predict chronic absenteeism in Oakland schools; developed Random Forest and XGBoost models with ~80% accuracy (Sep-Dec 2024)
+Hack for Gaza Hackathon - GazaChat Collaborated on an offline messaging app enabling communication without internet for Gaza residents during blackouts (Jul 2024)
+Allam Challenge, Saudi Data & AI Authority (SDAIA) Team lead for developing an interactive Arabic learning platform for children with decision-based stories utilizing IBM's Allam Arabic LLM (2024)
+LabLabMe GAIA Hackathon - MindFlow 4th place winner (out of 80 teams) developing AI-powered mindfulness and meditation application in Arabic and English using Python Flask, GPT 3.5 Turbo, and Azure text-to-speech (May 2023)
+Lab7 Professional Innovator Bootcamp, Aramco Lab7 Developing interactive live dashboard and computer vision model for caffeine to biofuel reactor prototype (Mar 2023)
+Quraanathon Hackathon Developed innovative social application serving the Holy Quran, focusing on reflecting on teachings (2020)
+Techstars Startup Weekend Hackathon - FlexED/Labeeb Created early childhood education app with adaptive learning for toddlers (Jul 2020)
+Identifying Flow Regimes via ML Udacity Nanodegree Capstone project on developing a classification algorithm for fluid flow regimes (2018)
+Knowledge Sharing & Training
+Wasla Connect Workshop - "Supercharge Your Career with Hands-On AI Tools" Conducted live Arabic workshop for displaced Palestinian professionals on AI tools for career development, job search, and skill enhancement (Jul 2024)
+Monshaat AI for Business Bootcamp Led 3-day bootcamp on AI applications in business development; facilitated hands-on generative AI projects for entrepreneurs and SME owners (2023)
+SkillUp Forum - "Unleashing the Power of Language through chatGPT and Generative AI" Presented to 790+ attendees from 60 countries at aramco's Technical Services event featuring speakers from Udacity, IBM, and Coursera; focused on accelerated learning through AI (2023)
+Women in Engineering Presentations - Delivered keynote at McDermott International for Women in Engineering Day on career development and work-life balance (2023); presented similar strategies at SWE-Dhahran Webinar on integrating engineering career with athletics (2021)
+KGSP Alumni Podcast - Host Hosted podcast episode featuring discussions on AI trends, VR technology, and career transitions; interviewed tech experts on emerging technologies (2022)
+NACE Webinar - "The Machine Learning Era in Oil & Gas" Delivered presentation on machine learning applications in petroleum and corrosion engineering; demonstrated practical implementations and case studies (Sep 2020)
+KAUST Alumni - "Personal Branding in the Age of Digitization" Delivered workshop on personal branding strategies for professionals navigating digital career landscapes; provided practical techniques for building professional identity (2020)
+Leadership & Community Involvement
+● MEALC Session Chair – Session chair for the Digital Transformation & AI technical session in the Middle East Artificial Lift Conference (2024)
+● Monshaat AI for Business Bootcamp – Led a 3-day bootcamp on AI applications in business development and hands-on genAI projects. (2024)
+● Aramco’s AI Center of Excellence  – SME and active participant and presenter (2023)
+● Petroleum Engineering Instructor – Volunteered to teach 2018 Gifted Students (Mawhiba) basic petroleum engineering concepts.
+● Athletic Leadership – Led women sports initiatives as Eastern Flames FC VP (2021), Soccer Clinic for children with special needs (2017), and KAUST United Football Association President (2016-2017).
+Patents & Publications
+Middle East Artificial Lift Conference & Exhibition 2024 Presented "Leveraging Circular Economy Principles for Electrical Submersible Pump Equipment" (Oct 2024)
+International Petroleum Technology Conference 2024 Presented "Evaluation of Machine Learning Techniques for ESP Diagnosis Using a Synthetic Time Series Dataset" (Feb 2024)
+Middle East Artificial Lift Conference & Exhibition 2022 (SPE-206943-MS) Presented "High Rate Slim ESP Viability Assessment in the Field" and published in OnePetro (Oct 2022)
+US Patent (Publication #: US 10,905,975 B2) Published "Removable trap stations for hydrocarbon flowlines" as co-inventor (Feb 2021)
+International Petroleum Technology Conference 2020 Presented "Machine Learning Classification Model for Multiphase Flow Regimes in Horizontal Pipes" (Jan 2020)
+7th Saudi Arabian Section of the Combustion Institute (SAS-CI) Annual Meeting Presented "The Optimization of Paper Discoloration via Carbonization Using a CO₂ Laser for Inkless Black-and-White Printing" based on master's research (May 2017)
+US Patent (Publication #: US8988475 B2) Published "Blazer Printer" as lead inventor, a patent for a laser printer without ink using lasers (Mar 2015)
+Awards
+P&FDD Annual Awards (2 Awards, 2022)
+(1) Digital Transformation Award for the Remote Function Test project
+(2) Employee Engagement Award for contributions to the Petroleum Engineering and Development Community of Practice
+Aramco VP Recognized Youth-Initiated Study (2022)
+Youth Initiated Study certificate obtained for Coaching Program to Foster Passion & Purpose in Employees. Recognition by Strategy & Market Analysis VP

@@ -14,6 +14,7 @@ import TableOfContents from '../../../components/TableOfContents.astro';
 import { getCollection } from 'astro:content';
 import { organizeByDomain, getDomainOrder, domainLabels } from '../../../utils/organize-by-domain';
 import type { Domain } from '../../../utils/organize-by-domain';
+import { getImagePath } from '../../../utils/path';
 
 export async function getStaticPaths() {
   const profiles = await getCollection('profiles');
@@ -73,9 +74,15 @@ const workForProfile = work.filter((w) => {
   return workDomains.some((d) => relevantDomains.includes(d));
 });
 
+// Filter courses by relevant domains for this profile
+const coursesForProfile = courses.filter((c) => {
+  const courseDomains = Array.isArray(c.data.domain) ? c.data.domain : [c.data.domain];
+  return courseDomains.some((d) => relevantDomains.includes(d));
+});
+
 // Organize by domain - only show relevant domains
 const workByDomain = organizeByDomain(workForProfile, lang);
-const coursesByDomain = organizeByDomain(courses, lang);
+const coursesByDomain = organizeByDomain(coursesForProfile, lang);
 const trainingByDomain = organizeByDomain(training, lang);
 const speakingByDomain = organizeByDomain(speaking, lang);
 const projectsByDomain = organizeByDomain(
@@ -92,9 +99,50 @@ const focusLabels: Record<string, string> = {
 
 const title = focusLabels[focus] || focus;
 
+// Education data from resume
+const education = [
+  {
+    degree: 'M.S.',
+    institution: 'UC Berkeley',
+    location: 'Online degree',
+    field: 'Master of Information and Data Science',
+    date: 'Expected Dec 2025',
+    note: 'Ranked 2nd top DS online master\'s degree'
+  },
+  {
+    degree: 'Graduate Certificate',
+    institution: 'Ball State University',
+    location: 'Online degree',
+    field: 'Human Development and Learning',
+    date: 'Expected Dec 2025'
+  },
+  {
+    degree: 'Nanodegree',
+    institution: 'Udacity',
+    location: 'Online',
+    field: 'Machine Learning Engineering',
+    date: 'Jan 2018'
+  },
+  {
+    degree: 'M.S.',
+    institution: 'King Abdullah University of Science and Technology',
+    location: 'Thuwal, Saudi Arabia',
+    field: 'Mechanical Engineering',
+    date: 'May 2017'
+  },
+  {
+    degree: 'B.S.',
+    institution: 'UC Santa Barbara',
+    location: 'Santa Barbara, California',
+    field: 'Chemical Engineering',
+    date: 'June 2015'
+  }
+];
+
 // Build headings for TOC
 const headings = [
   { id: 'overview', text: 'Overview', level: 2 },
+  { id: 'education', text: 'Education', level: 2 },
 ];
 
 if (nonHackathonVolunteering.length > 0 || hackathons.length > 0) {
@@ -115,12 +163,12 @@ if (focus === 'volunteering') {
 }
 if (training.length > 0) headings.push({ id: 'training', text: 'Training & Lectures', level: 2 });
 if (speaking.length > 0) headings.push({ id: 'speaking', text: 'Public Speaking & Knowledge Sharing', level: 2 });
-if (courses.length > 0) headings.push({ id: 'courses', text: 'Courses', level: 2 });
+if (coursesForProfile.length > 0) headings.push({ id: 'courses', text: 'Courses', level: 2 });
 
-// Add domain sections for work - only relevant domains
+// Add domain sections for work - only relevant domains (Work Experience comes after Education)
 relevantDomains.forEach((domain) => {
   if (workByDomain[domain] && workByDomain[domain].length > 0) {
-    headings.push({ id: `work-${domain}`, text: `${domainLabels.en[domain]} - Work`, level: 2 });
+    headings.push({ id: `work-${domain}`, text: `${domainLabels.en[domain]} - Work Experience`, level: 2 });
   }
   if (projectsByDomain[domain] && projectsByDomain[domain].length > 0) {
     headings.push({ id: `projects-${domain}`, text: `${domainLabels.en[domain]} - Projects`, level: 2 });
@@ -150,6 +198,197 @@ if (allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.s
             <p>{data.headline}</p>
           </div>
         </section>
+
+        {/* Education Section */}
+        <section id="education">
+          <h2>Education</h2>
+          <div class="section-content">
+            {education.map((edu) => (
+              <div class="education-item">
+                <div class="education-header">
+                  <span class="education-degree">{edu.degree}</span>
+                  <span class="education-institution">{edu.institution}</span>
+                  {edu.location && <span class="education-location">{edu.location}</span>}
+                  <span class="education-date">{edu.date}</span>
+                </div>
+                <div class="education-field">{edu.field}</div>
+                {edu.note && <div class="education-note">{edu.note}</div>}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Work & Projects - Organized by Domain (filtered by profile focus) - Work Experience comes first */}
+        {relevantDomains.map((domain) => {
+          const domainWork = workByDomain[domain];
+          const domainProjects = projectsByDomain[domain];
+          
+          // Work examples (BSU/UC Berkeley) - shown as expandable cards
+          const workExamples = domain === 'educational-psychology' 
+            ? [
+                {
+                  title: 'EDPS 604 - Praise Brochure',
+                  institution: 'Ball State University',
+                  course: 'EDPS 604',
+                  description: 'Created an educational brochure on the topic of praise in educational settings, focusing on effective praise strategies and their impact on student motivation.',
+                  images: [],
+                  files: [
+                    { name: 'Praise Brochure.pdf', url: getImagePath('/files/Praise Brochure EDPS 604.pdf'), type: 'pdf' },
+                  ],
+                  domain: domain as 'educational-psychology',
+                },
+              ]
+            : domain === 'data-science'
+            ? [
+                {
+                  title: 'Chronic Absenteeism Prediction - ONGB Internship',
+                  institution: 'Oakland Natives Give Back / UC Berkeley',
+                  course: 'MIDS Program',
+                  year: 2024,
+                  description: 'Applied machine learning to predict chronic absenteeism in Oakland schools; developed Random Forest and XGBoost models with ~80% accuracy. Data science internship project addressing challenges in education/schooling.',
+                  images: [],
+                  files: [],
+                  domain: domain as 'data-science',
+                },
+                {
+                  title: 'Research Design Final Project - DATASCI 201',
+                  institution: 'UC Berkeley',
+                  course: 'DATASCI 201',
+                  description: 'Comprehensive research design project demonstrating statistical analysis and experimental design principles for data science applications.',
+                  images: [],
+                  files: [],
+                  domain: domain as 'data-science',
+                },
+                {
+                  title: 'Usability Study - Data Visualization',
+                  institution: 'UC Berkeley',
+                  course: 'DATASCI 209',
+                  description: 'Conducted a comprehensive usability study for data visualization tools, analyzing user interactions and effectiveness metrics.',
+                  images: [],
+                  files: [],
+                  domain: domain as 'data-science',
+                },
+              ]
+            : domain === 'engineering'
+            ? [
+                {
+                  title: 'ESP Replacement Forecast Module - MIDAS',
+                  institution: 'Saudi Aramco / ExpecARC',
+                  course: 'ALFA Project',
+                  description: 'Deployed the ESP Replacement Forecast (RF) module for MIDAS, a data-driven monitoring and predictive tool for Aramco\'s Electrical Submersible Pumps. Created Microsoft Azure Repository and built web application on OpenShift to run the RF module on the server.',
+                  images: [],
+                  files: [],
+                  domain: domain as 'engineering',
+                },
+                {
+                  title: 'ESP Troubleshooting Automation Solution',
+                  institution: 'Saudi Aramco / UDC',
+                  course: 'PEASD Project',
+                  description: 'Prototyped an automation solution for ESP troubleshooting using real-time field data. Collaborated with production engineering clients to understand current processes and develop automated intelligent digital solutions.',
+                  images: [],
+                  files: [],
+                  domain: domain as 'engineering',
+                },
+                {
+                  title: 'Flow Assurance Studies - OLGA Simulations',
+                  institution: 'Saudi Aramco',
+                  course: 'Flow Assurance Unit',
+                  description: 'Completed flow assurance reports and studies using OLGA simulations, analyzing results, and reporting recommendations for production facilities.',
+                  images: [],
+                  files: [],
+                  domain: domain as 'engineering',
+                },
+                {
+                  title: 'Machine Learning in Combustion Kinetics',
+                  institution: 'KAUST',
+                  course: 'Research Project',
+                  year: 2017,
+                  description: 'Built regression models to study the kinetics of combustion reactions. Developed a machine learning model to predict ignition delay times for n-heptane fuel based on selected features. Built training and testing database using ChemKin.',
+                  images: [],
+                  files: [],
+                  domain: domain as 'engineering',
+                },
+                {
+                  title: 'Identifying Flow Regimes via Machine Learning',
+                  institution: 'Udacity',
+                  course: 'ML Engineering Nanodegree',
+                  year: 2018,
+                  description: 'Capstone project developing a classification algorithm for fluid flow regimes in horizontal pipes using machine learning techniques.',
+                  images: [],
+                  files: [],
+                  domain: domain as 'engineering',
+                },
+              ]
+            : [];
+          
+          if ((!domainWork || domainWork.length === 0) && 
+              (!domainProjects || domainProjects.length === 0) && 
+              workExamples.length === 0) {
+            return null;
+          }
+          return (
+            <section id={`work-${domain}`}>
+              <h2>{domainLabels.en[domain]} - Work Experience</h2>
+              
+              {/* Work Examples (Expandable) */}
+              {workExamples.length > 0 && (
+                <div class="subsection">
+                  <h3>Work Examples</h3>
+                  <p class="subsection-intro">
+                    Selected work from academic projects and internships. Click to expand and view details, files, and materials.
+                  </p>
+                  <div class="section-content">
+                    {workExamples.map((example) => (
+                      <ExpandableWorkExample
+                        title={example.title}
+                        institution={example.institution}
+                        course={example.course}
+                        year={example.year}
+                        description={example.description}
+                        images={example.images}
+                        files={example.files}
+                        domain={example.domain}
+                        lang={lang}
+                      />
+                    ))}
+                  </div>
+                </div>
+              )}
+              
+              {/* Work Experience */}
+              {domainWork && domainWork.length > 0 && (
+                <div class="subsection">
+                  <h3>Work Experience</h3>
+                  <div class="section-content">
+                    {domainWork
+                      .sort((a, b) => {
+                        // Sort by ongoing first, then by start date descending
+                        if (a.data.ongoing !== b.data.ongoing) return a.data.ongoing ? -1 : 1;
+                        return new Date(b.data.start_date).getTime() - new Date(a.data.start_date).getTime();
+                      })
+                      .map((w) => (
+                        <WorkCard work={w} />
+                      ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Projects */}
+              {domainProjects && domainProjects.length > 0 && (
+                <div class="subsection">
+                  <h3>Projects</h3>
+                  <div class="section-content">
+                    {domainProjects
+                      .sort((a, b) => b.data.year - a.data.year)
+                      .map((p) => (
+                        <ProjectCard project={p} />
+                      ))}
+                  </div>
+                </div>
+              )}
+            </section>
+          );
+        })}
 
         {/* Volunteering Section */}
         {(nonHackathonVolunteering.length > 0 || hackathons.length > 0) && (
@@ -231,11 +470,11 @@ if (allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.s
           </section>
         )}
 
-        {/* Courses Section - Organized by Domain */}
-        {courses.length > 0 && (
+        {/* Courses Section - Organized by Domain (only relevant domains) */}
+        {coursesForProfile.length > 0 && (
           <section id="courses">
             <h2>Courses</h2>
-            {getDomainOrder().map((domain) => {
+            {relevantDomains.map((domain) => {
               const domainCourses = coursesByDomain[domain];
               if (!domainCourses || domainCourses.length === 0) return null;
               return (
@@ -258,130 +497,6 @@ if (allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.s
           </section>
         )}
 
-        {/* Work & Projects - Organized by Domain (filtered by profile focus) */}
-        {relevantDomains.map((domain) => {
-          const domainWork = workByDomain[domain];
-          const domainProjects = projectsByDomain[domain];
-          
-          // Work examples (BSU/UC Berkeley) - shown as expandable cards
-          const workExamples = domain === 'educational-psychology' 
-            ? [
-                {
-                  title: 'EDPS 604 - Praise Brochure',
-                  institution: 'Ball State University',
-                  course: 'EDPS 604',
-                  year: 2024,
-                  description: 'Created an educational brochure on the topic of praise in educational settings, focusing on effective praise strategies and their impact on student motivation.',
-                  images: [],
-                  files: [
-                    { name: 'Praise Brochure.pdf', url: '/__private_content/BSU Work/Praise Brochure EDPS 604 (1).pdf', type: 'pdf' },
-                  ],
-                  domain: domain as 'educational-psychology',
-                },
-              ]
-            : domain === 'data-science'
-            ? [
-                {
-                  title: 'Research Design Final Project - DATASCI 201',
-                  institution: 'UC Berkeley',
-                  course: 'DATASCI 201',
-                  year: 2024,
-                  description: 'Comprehensive research design project demonstrating statistical analysis and experimental design principles for data science applications.',
-                  images: [],
-                  files: [],
-                  domain: domain as 'data-science',
-                },
-                {
-                  title: 'Usability Study - Data Visualization',
-                  institution: 'UC Berkeley',
-                  course: 'Data Viz 207',
-                  year: 2024,
-                  description: 'Conducted a comprehensive usability study for data visualization tools, analyzing user interactions and effectiveness metrics.',
-                  images: [],
-                  files: [],
-                  domain: domain as 'data-science',
-                },
-                {
-                  title: 'ONGB Wizearly Internship Project',
-                  institution: 'UC Berkeley / ONGB',
-                  course: 'MIDS Program',
-                  year: 2024,
-                  description: 'Collaborative internship project working with ONGB organization, developing solutions using data science methodologies.',
-                  images: [],
-                  files: [],
-                  domain: domain as 'data-science',
-                },
-              ]
-            : [];
-          
-          if ((!domainWork || domainWork.length === 0) && 
-              (!domainProjects || domainProjects.length === 0) && 
-              workExamples.length === 0) {
-            return null;
-          }
-          return (
-            <section id={`work-${domain}`}>
-              <h2>{domainLabels.en[domain]}</h2>
-              
-              {/* Work Examples (Expandable) */}
-              {workExamples.length > 0 && (
-                <div class="subsection">
-                  <h3>Work Examples</h3>
-                  <p class="subsection-intro">
-                    Selected work from academic projects and internships. Click to expand and view details, files, and materials.
-                  </p>
-                  <div class="section-content">
-                    {workExamples.map((example) => (
-                      <ExpandableWorkExample
-                        title={example.title}
-                        institution={example.institution}
-                        course={example.course}
-                        year={example.year}
-                        description={example.description}
-                        images={example.images}
-                        files={example.files}
-                        domain={example.domain}
-                        lang={lang}
-                      />
-                    ))}
-                  </div>
-                </div>
-              )}
-              
-              {/* Work Experience */}
-              {domainWork && domainWork.length > 0 && (
-                <div class="subsection">
-                  <h3>Work Experience</h3>
-                  <div class="section-content">
-                    {domainWork
-                      .sort((a, b) => {
-                        // Sort by ongoing first, then by start date descending
-                        if (a.data.ongoing !== b.data.ongoing) return a.data.ongoing ? -1 : 1;
-                        return new Date(b.data.start_date).getTime() - new Date(a.data.start_date).getTime();
-                      })
-                      .map((w) => (
-                        <WorkCard work={w} />
-                      ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Projects */}
-              {domainProjects && domainProjects.length > 0 && (
-                <div class="subsection">
-                  <h3>Projects</h3>
-                  <div class="section-content">
-                    {domainProjects
-                      .sort((a, b) => b.data.year - a.data.year)
-                      .map((p) => (
-                        <ProjectCard project={p} />
-                      ))}
-                  </div>
-                </div>
-              )}
-            </section>
-          );
-        })}
 
         {/* Writing */}
         {allPosts.filter((p) => p.data.lang === lang && data.pin_posts.includes(p.slug)).length > 0 && (
@@ -534,5 +649,59 @@ if (allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.s
   .overview-content p {
     color: var(--color-ink);
     line-height: 1.7;
+  }
+
+  .education-item {
+    padding: var(--space-3) var(--space-4);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-md);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-block-end: var(--space-2);
+  }
+
+  .education-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    align-items: baseline;
+    margin-block-end: var(--space-1);
+  }
+
+  .education-degree {
+    font-weight: 600;
+    color: var(--color-ink);
+    font-size: 0.875rem;
+  }
+
+  .education-institution {
+    font-weight: 600;
+    color: var(--color-ink);
+    font-size: 0.875rem;
+  }
+
+  .education-location {
+    color: var(--color-muted-ink);
+    font-size: 0.8125rem;
+  }
+
+  .education-date {
+    margin-inline-start: auto;
+    color: var(--color-muted-ink);
+    font-size: 0.8125rem;
+    font-weight: 500;
+  }
+
+  .education-field {
+    color: var(--color-ink);
+    font-size: 0.875rem;
+    margin-block-start: var(--space-1);
+  }
+
+  .education-note {
+    color: var(--color-muted-ink);
+    font-size: 0.75rem;
+    font-style: italic;
+    margin-block-start: var(--space-1);
   }
 </style>

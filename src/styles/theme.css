@@ -19,7 +19,7 @@
   --gradient-card: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(250, 248, 245, 0.9) 100%);
   --gradient-section: linear-gradient(135deg, rgba(139, 92, 246, 0.08) 0%, rgba(6, 182, 212, 0.1) 50%, rgba(236, 72, 153, 0.08) 100%);
   --gradient-overlay: linear-gradient(to bottom, rgba(250, 248, 245, 0.7) 0%, rgba(250, 248, 245, 0.95) 100%);
-  --gradient-text: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 50%, #ec4899 100%);
+  --gradient-text: linear-gradient(135deg, #6d28d9 0%, #0891b2 50%, #be185d 100%);
   --gradient-button: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%);
   --gradient-button-hover: linear-gradient(135deg, #7c3aed 0%, #0891b2 100%);
 

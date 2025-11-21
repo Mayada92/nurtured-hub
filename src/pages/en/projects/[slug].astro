@@ -30,13 +30,12 @@ const { data } = project;
 const base = getBasePath();
 
 // Get related papers if they exist
-let relatedPapers = [];
-if (data.relatedPapers && data.relatedPapers.length > 0) {
-  const allPapers = await getCollection('papers');
-  relatedPapers = data.relatedPapers
-    .map((slug) => allPapers.find((p) => p.slug === slug))
-    .filter(Boolean);
-}
+const allPapers = await getCollection('papers');
+const relatedPapers: Array<Awaited<ReturnType<typeof getCollection<'papers'>>>[number]> = (data.relatedPapers && data.relatedPapers.length > 0)
+  ? data.relatedPapers
+      .map((slug) => allPapers.find((p) => p.slug === slug))
+      .filter((p): p is Awaited<ReturnType<typeof getCollection<'papers'>>>[number] => Boolean(p))
+  : [];
 ---
 
 <BaseLayout title={data.title} description={data.summary} lang="en">
@@ -79,10 +78,10 @@ if (data.relatedPapers && data.relatedPapers.length > 0) {
         <SectionReveal client:load delay={0.3}>
           <div class="project-gallery">
             <h2>Project Gallery</h2>
-            <div class="gallery-grid gallery-grid--horizontal">
+            <div class="gallery-grid">
               {data.gallery && data.gallery.length > 0 ? (
                 data.gallery.map((item, i) => (
-                  <div class="gallery-item" data-gallery-index={i}>
+                  <div class="gallery-item">
                     {item.type === 'video' ? (
                       <video controls preload="metadata" class="gallery-video" poster={data.cover}>
                         <source src={getImagePath(item.src)} type="video/mp4" />
@@ -96,10 +95,6 @@ if (data.relatedPapers && data.relatedPapers.length > 0) {
                         width="800"
                         height="600"
                         decoding="async"
-                        class="gallery-image"
-                        data-gallery-src={getImagePath(item.src)}
-                        data-gallery-alt={item.alt || `${data.title} - Image ${i + 1}`}
-                        data-gallery-caption={item.caption || ''}
                         onerror="this.style.display='none'; this.parentElement.style.display='none';"
                       />
                     )}
@@ -110,7 +105,7 @@ if (data.relatedPapers && data.relatedPapers.length > 0) {
                 ))
               ) : (
                 data.images?.map((imagePath, i) => (
-                  <div class="gallery-item" data-gallery-index={i}>
+                  <div class="gallery-item">
                     <img
                       src={getImagePath(imagePath)}
                       alt={`${data.title} - Image ${i + 1}`}
@@ -118,10 +113,6 @@ if (data.relatedPapers && data.relatedPapers.length > 0) {
                       width="800"
                       height="600"
                       decoding="async"
-                      class="gallery-image"
-                      data-gallery-src={getImagePath(imagePath)}
-                      data-gallery-alt={`${data.title} - Image ${i + 1}`}
-                      data-gallery-caption=""
                       onerror="this.style.display='none'; this.parentElement.style.display='none';"
                     />
                   </div>
@@ -206,102 +197,140 @@ if (data.relatedPapers && data.relatedPapers.length > 0) {
     </div>
   </article>
 
-  <!-- Lightbox Modal -->
-  <div id="gallery-lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image gallery" hidden>
-    <button class="lightbox-close" aria-label="Close lightbox">×</button>
-    <button class="lightbox-prev" aria-label="Previous image">‹</button>
-    <button class="lightbox-next" aria-label="Next image">›</button>
-    <div class="lightbox-content">
-      <img id="lightbox-image" src="" alt="" />
-      <p id="lightbox-caption" class="lightbox-caption"></p>
-    </div>
-  </div>
 </BaseLayout>
 
-<script>
-  // Lightbox functionality
+<script is:inline>
+  // Aggressively prevent any overlay/modals from appearing
   (function() {
-    const lightbox = document.getElementById('gallery-lightbox');
-    const lightboxImage = document.getElementById('lightbox-image');
-    const lightboxCaption = document.getElementById('lightbox-caption');
-    const closeBtn = document.querySelector('.lightbox-close');
-    const prevBtn = document.querySelector('.lightbox-prev');
-    const nextBtn = document.querySelector('.lightbox-next');
-    
-    let currentIndex = 0;
-    let images: Array<{ src: string; alt: string; caption: string }> = [];
-    
-    // Collect all gallery images
-    function initGallery() {
-      const galleryImages = document.querySelectorAll('.gallery-image');
-      images = Array.from(galleryImages).map((img: HTMLImageElement) => ({
-        src: img.dataset.gallerySrc || img.src,
-        alt: img.dataset.galleryAlt || img.alt,
-        caption: img.dataset.galleryCaption || ''
-      }));
+    // Remove any lightbox/overlay elements immediately
+    function removeOverlays() {
+      const selectors = [
+        '#gallery-lightbox',
+        '.lightbox',
+        '[id*="lightbox"]',
+        '[class*="lightbox"]',
+        '[role="dialog"]',
+        '[aria-modal="true"]'
+      ];
       
-      // Add click handlers
-      galleryImages.forEach((img: HTMLImageElement, index: number) => {
-        img.style.cursor = 'pointer';
-        img.addEventListener('click', () => openLightbox(index));
+      selectors.forEach(selector => {
+        try {
+          document.querySelectorAll(selector).forEach(el => {
+            if (el && !el.closest('header') && !el.closest('nav')) {
+              el.style.display = 'none';
+              el.style.visibility = 'hidden';
+              el.style.opacity = '0';
+              el.style.pointerEvents = 'none';
+              el.remove();
+            }
+          });
+        } catch(e) {}
+      });
+      
+      // Reset body overflow
+      if (document.body) {
+        document.body.style.overflow = '';
+        document.body.style.position = '';
+        document.body.classList.remove('modal-open', 'lightbox-open', 'overflow-hidden');
+      }
+      
+      // Remove any fixed overlays with high z-index
+      document.querySelectorAll('*').forEach(el => {
+        try {
+          const style = window.getComputedStyle(el);
+          const zIndex = parseInt(style.zIndex);
+          if (style.position === 'fixed' && !isNaN(zIndex) && zIndex > 1000) {
+            if (!el.closest('header') && !el.closest('nav') && el.id !== 'site-header') {
+              el.style.display = 'none';
+              el.style.visibility = 'hidden';
+              el.remove();
+            }
+          }
+        } catch(e) {}
       });
     }
     
-    function openLightbox(index: number) {
-      if (images.length === 0) return;
-      currentIndex = index;
-      updateLightbox();
-      lightbox.hidden = false;
-      document.body.style.overflow = 'hidden';
-    }
+    // Prevent lightbox creation by intercepting common methods
+    const preventLightboxCreation = () => {
+      // Override createElement to catch lightbox creation
+      const originalCreateElement = document.createElement;
+      document.createElement = function(tagName, options) {
+        const el = originalCreateElement.call(this, tagName, options);
+        if (el.id === 'gallery-lightbox' || el.classList.contains('lightbox')) {
+          setTimeout(() => el.remove(), 0);
+        }
+        return el;
+      };
+      
+      // Prevent appendChild on body for lightbox elements
+      const originalAppendChild = Node.prototype.appendChild;
+      Node.prototype.appendChild = function(child) {
+        if (child && (child.id === 'gallery-lightbox' || child.classList.contains('lightbox'))) {
+          return child; // Don't actually append
+        }
+        return originalAppendChild.call(this, child);
+      };
+    };
     
-    function closeLightbox() {
-      lightbox.hidden = true;
-      document.body.style.overflow = '';
-    }
+    // Run immediately
+    removeOverlays();
+    preventLightboxCreation();
     
-    function updateLightbox() {
-      if (images[currentIndex]) {
-        lightboxImage.src = images[currentIndex].src;
-        lightboxImage.alt = images[currentIndex].alt;
-        lightboxCaption.textContent = images[currentIndex].caption;
-      }
-    }
-    
-    function showNext() {
-      currentIndex = (currentIndex + 1) % images.length;
-      updateLightbox();
-    }
-    
-    function showPrev() {
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-      updateLightbox();
-    }
-    
-    // Event listeners
-    closeBtn?.addEventListener('click', closeLightbox);
-    prevBtn?.addEventListener('click', showPrev);
-    nextBtn?.addEventListener('click', showNext);
-    
-    // Close on background click
-    lightbox?.addEventListener('click', (e) => {
-      if (e.target === lightbox) closeLightbox();
-    });
-    
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-      if (lightbox.hidden) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowLeft') showPrev();
-      if (e.key === 'ArrowRight') showNext();
-    });
-    
-    // Initialize when DOM is ready
+    // Run on DOM ready
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initGallery);
-    } else {
-      initGallery();
+      document.addEventListener('DOMContentLoaded', () => {
+        removeOverlays();
+        preventLightboxCreation();
+      });
     }
+    
+    // Run after delays to catch dynamically added elements
+    setTimeout(removeOverlays, 0);
+    setTimeout(removeOverlays, 50);
+    setTimeout(removeOverlays, 100);
+    setTimeout(removeOverlays, 250);
+    setTimeout(removeOverlays, 500);
+    setTimeout(removeOverlays, 1000);
+    
+    // Watch for new elements being added - more aggressive
+    const observer = new MutationObserver((mutations) => {
+      let shouldRemove = false;
+      mutations.forEach(mutation => {
+        mutation.addedNodes.forEach(node => {
+          if (node.nodeType === 1) { // Element node
+            if (node.id === 'gallery-lightbox' || 
+                node.classList.contains('lightbox') ||
+                node.querySelector && node.querySelector('#gallery-lightbox, .lightbox')) {
+              shouldRemove = true;
+            }
+          }
+        });
+      });
+      if (shouldRemove) {
+        removeOverlays();
+      }
+    });
+    
+    if (document.body) {
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+        attributeFilter: ['class', 'id', 'style']
+      });
+    } else {
+      document.addEventListener('DOMContentLoaded', () => {
+        observer.observe(document.body, {
+          childList: true,
+          subtree: true,
+          attributes: true,
+          attributeFilter: ['class', 'id', 'style']
+        });
+      });
+    }
+    
+    // Also run on window load
+    window.addEventListener('load', removeOverlays);
   })();
 </script>
 
@@ -498,51 +527,20 @@ if (data.relatedPapers && data.relatedPapers.length > 0) {
     margin-inline: auto;
   }
 
-  .gallery-grid--horizontal {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--space-4);
-    max-width: 1200px;
-    margin-inline: auto;
-  }
-
-  @media (min-width: 768px) {
-    .gallery-grid--horizontal {
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
-  }
-  
-  @media (min-width: 1024px) {
-    .gallery-grid--horizontal {
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    }
-  }
-
   .gallery-item {
     border-radius: var(--radius-lg);
     overflow: hidden;
     box-shadow: var(--shadow-card);
     background: var(--gradient-section);
-    transition: transform var(--motion-duration-normal) var(--motion-easing-smooth);
     display: flex;
     flex-direction: column;
-    max-width: 100%;
-    max-height: 300px;
-  }
-
-  .gallery-item:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-card-hover);
-  }
-  
-  .gallery-grid--horizontal .gallery-item {
-    max-width: 100%;
   }
 
   .gallery-item img,
   .gallery-item video {
     width: 100%;
     max-width: 100%;
-    max-height: 250px;
+    max-height: 400px;
     height: auto;
     display: block;
     object-fit: contain;
@@ -558,142 +556,7 @@ if (data.relatedPapers && data.relatedPapers.length > 0) {
     font-size: 0.75rem;
     color: var(--color-muted-ink);
     text-align: center;
-  }
-
-  .gallery-image {
-    cursor: pointer;
-    transition: opacity var(--motion-duration-fast) var(--motion-easing);
-  }
-
-  .gallery-image:hover {
-    opacity: 0.9;
-  }
-
-  /* Lightbox Modal */
-  .lightbox {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.9);
-    backdrop-filter: blur(10px);
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: var(--space-4);
-    animation: fadeIn var(--motion-duration-normal) var(--motion-easing-smooth);
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  .lightbox-content {
-    position: relative;
-    max-width: 90vw;
-    max-height: 90vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-4);
-  }
-
-  .lightbox-content img {
-    max-width: 100%;
-    max-height: 80vh;
-    object-fit: contain;
-    border-radius: var(--radius-lg);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-  }
-
-  .lightbox-caption {
-    color: white;
-    text-align: center;
-    font-size: 1rem;
-    padding: var(--space-2) var(--space-4);
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: var(--radius-md);
-    max-width: 80%;
-  }
-
-  .lightbox-close,
-  .lightbox-prev,
-  .lightbox-next {
-    position: absolute;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    color: white;
-    border-radius: 50%;
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: all var(--motion-duration-fast) var(--motion-easing);
-    z-index: 10000;
-  }
-
-  .lightbox-close:hover,
-  .lightbox-prev:hover,
-  .lightbox-next:hover {
-    background: rgba(255, 255, 255, 0.3);
-    border-color: rgba(255, 255, 255, 0.5);
-    transform: scale(1.1);
-  }
-
-  .lightbox-close {
-    top: var(--space-4);
-    right: var(--space-4);
-    font-size: 2rem;
-    line-height: 1;
-  }
-
-  .lightbox-prev {
-    left: var(--space-4);
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .lightbox-next {
-    right: var(--space-4);
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .lightbox-prev:hover,
-  .lightbox-next:hover {
-    transform: translateY(-50%) scale(1.1);
-  }
-
-  @media (max-width: 768px) {
-    .lightbox-close,
-    .lightbox-prev,
-    .lightbox-next {
-      width: 40px;
-      height: 40px;
-      font-size: 1.25rem;
-    }
-
-    .lightbox-prev {
-      left: var(--space-2);
-    }
-
-    .lightbox-next {
-      right: var(--space-2);
-    }
-
-    .lightbox-caption {
-      font-size: 0.875rem;
-      max-width: 90%;
-    }
+    padding: var(--space-2);
   }
 
   .project-demo {
