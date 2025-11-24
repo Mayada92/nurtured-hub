@@ -180,6 +180,22 @@ const workCollection = defineCollection({
   }),
 });
 
+const newsCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    lang: z.enum(['en', 'ar']),
+    type: z.enum(['interview', 'article', 'feature', 'video', 'podcast']),
+    outlet: z.string(), // e.g., "MBC1", "Al Yaum", "YouTube"
+    date: z.date(),
+    description: z.string(),
+    url: z.string().url(),
+    video_url: z.string().url().optional(), // For video interviews
+    cover: z.string().optional(), // Image path for news cover
+    domain: z.array(z.enum(['sports', 'educational-psychology', 'engineering', 'data-science', 'general'])).default(['general']),
+  }),
+});
+
 export const collections = {
   projects: projectsCollection,
   posts: postsCollection,
@@ -190,6 +206,7 @@ export const collections = {
   speaking: speakingCollection,
   courses: coursesCollection,
   work: workCollection,
+  news: newsCollection,
 };
 
 

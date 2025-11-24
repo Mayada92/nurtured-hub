@@ -104,15 +104,15 @@ const stats = [
             </div>
             <div class="hero__quick-links">
               <a href={`${base}en/projects`.replace(/\/+/g, '/')} class="quick-link">
-                <Icon name="folder" size={18} />
+                <Icon name="folder" size={22} />
                 <span>All Projects</span>
               </a>
               <a href={`${base}en/writing`.replace(/\/+/g, '/')} class="quick-link">
-                <Icon name="document" size={18} />
+                <Icon name="document" size={22} />
                 <span>Blog</span>
               </a>
               <a href={`${base}en/papers`.replace(/\/+/g, '/')} class="quick-link">
-                <Icon name="academic" size={18} />
+                <Icon name="academic" size={22} />
                 <span>Publications</span>
               </a>
             </div>
@@ -498,28 +498,40 @@ const stats = [
 
   .hero__quick-links {
     display: flex;
-    gap: var(--space-3);
+    gap: var(--space-4);
     justify-content: center;
     flex-wrap: wrap;
-    padding-block-start: var(--space-3);
-    border-block-start: 1px solid rgba(0, 0, 0, 0.08);
+    padding-block-start: var(--space-4);
+    border-block-start: 2px solid rgba(139, 92, 246, 0.2);
   }
 
   .quick-link {
     display: inline-flex;
     align-items: center;
-    gap: var(--space-2);
-    padding: var(--space-2) var(--space-4);
-    color: var(--color-muted-ink);
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-6);
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid var(--color-accent-1);
+    color: var(--color-accent-1);
     text-decoration: none;
-    font-size: 0.65625rem;
-    border-radius: var(--radius-md);
-    transition: all var(--motion-duration-fast) var(--motion-easing);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    border-radius: var(--radius-lg);
+    transition: all var(--motion-duration-normal) var(--motion-easing-smooth);
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.15);
+    backdrop-filter: blur(10px);
   }
 
   .quick-link:hover {
-    color: var(--color-ink);
-    background: rgba(0, 0, 0, 0.04);
+    color: white;
+    background: var(--color-accent-1);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.3);
+  }
+
+  .quick-link svg {
+    width: 22px;
+    height: 22px;
   }
 
   .hero__cta {
@@ -819,6 +831,22 @@ const stats = [
 
     .hero__subtitle {
       font-size: 0.7875rem;
+    }
+
+    .hero__quick-links {
+      gap: var(--space-3);
+      padding-block-start: var(--space-3);
+    }
+
+    .quick-link {
+      padding: var(--space-2) var(--space-4);
+      font-size: 0.875rem;
+      gap: var(--space-2);
+    }
+
+    .quick-link svg {
+      width: 20px;
+      height: 20px;
     }
 
     .section {

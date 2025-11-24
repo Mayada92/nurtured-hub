@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import AnimatedBackground from '../../../components/AnimatedBackground';
 import { getCollection } from 'astro:content';
 import { getImagePath } from '../../../utils/path';
 import { Content } from 'astro:content';
@@ -26,6 +27,7 @@ const date = new Date(post.data.date).toLocaleDateString('en-US', {
 ---
 
 <BaseLayout title={post.data.title} description={post.data.excerpt} lang="en">
+  <AnimatedBackground client:load type="bubbles" density={25} speed={0.2} opacity={0.1} />
   <article class="post">
     <header class="post__header">
       <time datetime={post.data.date.toISOString()} class="post__date">
@@ -98,8 +100,8 @@ const date = new Date(post.data.date).toLocaleDateString('en-US', {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    opacity: 0.2;
-    z-index: -1;
+    opacity: 0.25;
+    z-index: -2;
     pointer-events: none;
   }
 

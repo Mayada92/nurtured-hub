@@ -1,9 +1,9 @@
 {
   "focus": "children-education",
-  "headline": "Dedicated to advancing children's education through research, data analysis, and innovative teaching methods. Exploring how children develop in today's digital-driven world and researching critical developmental milestones in early childhood.",
+  "headline": "Multidisciplinary engineer and data scientist passionate about transforming children's education through the intersection of AI, data science, and developmental psychology. Currently pursuing dual specializations in data science (UC Berkeley) and human development & learning (Ball State) to design evidence-based, adaptive learning tools that respect how children actually learn and develop.",
   "include_tags": ["education", "children", "pedagogy", "research", "educational-psychology", "edtech", "early-childhood", "human-development", "learning-analytics", "adaptive-learning"],
-  "pin_projects": [],
-  "pin_posts": ["when-not-to-use-ml-en"],
+  "pin_projects": ["chronic-absenteeism-prediction-en", "allam-challenge-en", "techstars-hackathon-en"],
+  "pin_posts": ["when-not-to-use-ml-en", "unlocking-fundamentals-learning-en", "are-we-preparing-kids-en"],
   "pin_papers": []
 }
 

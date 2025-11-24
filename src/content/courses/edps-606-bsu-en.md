@@ -1,5 +1,5 @@
 ---
-title: "Educational Psychology - Advanced Research"
+title: "Learning Achievement Motivation"
 lang: en
 course_code: "EDPS 606"
 institution: "Ball State University"
@@ -8,8 +8,8 @@ year: 2025
 domain: educational-psychology
 level: graduate
 credits: 3
-description: "Advanced research methods and applications in educational psychology, focusing on quantitative and qualitative research approaches."
+description: "Course focusing on learning, achievement, and motivation theories in educational psychology, exploring factors that influence student motivation and academic achievement."
 ---
 
-Advanced course in educational psychology research methods, covering experimental design, data analysis, and research applications in educational settings.
+Course focusing on learning, achievement, and motivation theories in educational psychology, exploring factors that influence student motivation and academic achievement.
 

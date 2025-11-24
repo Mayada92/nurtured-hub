@@ -73,13 +73,13 @@ const domainLabels = {
 
 <style>
   .work-card {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(10px);
     padding: var(--space-2) var(--space-3);
     border-radius: var(--radius-md);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
     transition: all var(--motion-duration-normal) var(--motion-easing-smooth);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     margin-block-end: var(--space-2);
   }
 
@@ -129,8 +129,13 @@ const domainLabels = {
     display: flex;
     gap: var(--space-2);
     align-items: center;
-    font-size: 0.6875rem;
+    font-size: 0.75rem;
     color: var(--color-muted-ink);
     flex-wrap: wrap;
+  }
+
+  .work-card__details .date {
+    font-weight: 600;
+    color: var(--color-ink);
   }
 </style>

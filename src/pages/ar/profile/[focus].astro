@@ -10,6 +10,7 @@ import SpeakingCard from '../../../components/SpeakingCard.astro';
 import CourseCard from '../../../components/CourseCard.astro';
 import WorkCard from '../../../components/WorkCard.astro';
 import ExpandableWorkExample from '../../../components/ExpandableWorkExample.astro';
+import NewsCard from '../../../components/NewsCard.astro';
 import TableOfContents from '../../../components/TableOfContents.astro';
 import { getCollection } from 'astro:content';
 import { organizeByDomain, getDomainOrder, domainLabels } from '../../../utils/organize-by-domain';
@@ -45,6 +46,7 @@ const allTraining = await getCollection('training').catch(() => []);
 const allSpeaking = await getCollection('speaking').catch(() => []);
 const allCourses = await getCollection('courses').catch(() => []);
 const allWork = await getCollection('work').catch(() => []);
+const allNews = await getCollection('news').catch(() => []);
 
 // Filter by language
 const volunteering = allVolunteering.filter((v) => v.data.lang === lang);
@@ -52,6 +54,7 @@ const training = allTraining.filter((t) => t.data.lang === lang);
 const speaking = allSpeaking.filter((s) => s.data.lang === lang);
 const courses = allCourses.filter((c) => c.data.lang === lang);
 const work = allWork.filter((w) => w.data.lang === lang);
+const news = allNews.filter((n) => n.data.lang === lang);
 
 // Separate hackathons
 const hackathons = volunteering.filter((v) => v.data.is_hackathon);
@@ -107,14 +110,16 @@ const education = [
     location: 'درجة عبر الإنترنت',
     field: 'ماجستير في المعلومات وعلوم البيانات',
     date: 'متوقع ديسمبر 2025',
-    note: 'المرتبة الثانية في أفضل برامج الماجستير عبر الإنترنت في علوم البيانات'
+    url: 'https://www.ischool.berkeley.edu/people/mayadah-alhashem',
+    note: 'المرتبة الأولى في أفضل برامج الماجستير عبر الإنترنت في علوم البيانات • التركيز: تطبيقات التعلم الآلي في هندسة البترول والتعليم • مميزة على موقع I School'
   },
   {
     degree: 'شهادة دراسات عليا',
     institution: 'Ball State University',
     location: 'درجة عبر الإنترنت',
     field: 'التنمية البشرية والتعلم',
-    date: 'متوقع ديسمبر 2025'
+    date: 'متوقع ديسمبر 2025',
+    note: 'التركيز: التطور المعرفي في الطفولة والمراهقة، علم النفس التربوي، نظرية التعلم، والمعالم التنموية'
   },
   {
     degree: 'Nanodegree',
@@ -128,7 +133,9 @@ const education = [
     institution: 'King Abdullah University of Science and Technology',
     location: 'ثول، المملكة العربية السعودية',
     field: 'الهندسة الميكانيكية',
-    date: 'مايو 2017'
+    date: 'مايو 2017',
+    url: 'https://www.kaust.edu.sa/en/news/alumni-focus--mayadah-alhashem',
+    note: 'التركيز: تطبيقات التعلم الآلي في حركية الاحتراق • الأطروحة: تحسين تغير لون الورق عبر الكربنة باستخدام ليزر CO₂ (براءة اختراع الطابعة بدون حبر) • البحث: بناء نماذج الانحدار لحركية تفاعلات الاحتراق باستخدام MATLAB • مميزة في KAUST Alumni Focus'
   },
   {
     degree: 'B.S.',
@@ -164,6 +171,7 @@ if (focus === 'volunteering') {
 if (training.length > 0) headings.push({ id: 'training', text: 'التدريب والمحاضرات', level: 2 });
 if (speaking.length > 0) headings.push({ id: 'speaking', text: 'التحدث العام وتبادل المعرفة', level: 2 });
 if (coursesForProfile.length > 0) headings.push({ id: 'courses', text: 'الدورات', level: 2 });
+if (news.length > 0) headings.push({ id: 'news', text: 'الأخبار والإعلام', level: 2 });
 
 // Add domain sections for work - only relevant domains (Work Experience comes after Education)
 relevantDomains.forEach((domain) => {
@@ -195,7 +203,13 @@ relevantDomains.forEach((domain) => {
               <div class="education-item">
                 <div class="education-header">
                   <span class="education-degree">{edu.degree}</span>
-                  <span class="education-institution">{edu.institution}</span>
+                  {edu.url ? (
+                    <a href={edu.url} target="_blank" rel="noopener noreferrer" class="education-institution education-institution--link">
+                      {edu.institution}
+                    </a>
+                  ) : (
+                    <span class="education-institution">{edu.institution}</span>
+                  )}
                   {edu.location && <span class="education-location">{edu.location}</span>}
                   <span class="education-date">{edu.date}</span>
                 </div>
@@ -490,6 +504,20 @@ relevantDomains.forEach((domain) => {
           </section>
         )}
 
+        {/* News & Media Section */}
+        {news.length > 0 && (
+          <section id="news">
+            <h2>الأخبار والإعلام</h2>
+            <div class="section-content">
+              {news
+                .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+                .map((n) => (
+                  <NewsCard news={n} />
+                ))}
+            </div>
+          </section>
+        )}
+
         {allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.slug)).length > 0 && (
           <section id="papers">
             <h2>الأوراق والبراءات</h2>
@@ -606,6 +634,17 @@ relevantDomains.forEach((domain) => {
     font-weight: 600;
     color: var(--color-ink);
     font-size: 0.875rem;
+  }
+
+  .education-institution--link {
+    text-decoration: none;
+    color: var(--color-accent-1);
+    transition: color var(--motion-duration-fast) var(--motion-easing);
+  }
+
+  .education-institution--link:hover {
+    color: var(--color-accent-2);
+    text-decoration: underline;
   }
 
   .education-location {

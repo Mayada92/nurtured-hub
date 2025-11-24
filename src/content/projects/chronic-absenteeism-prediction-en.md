@@ -2,7 +2,7 @@
 title: "Chronic Absenteeism Prediction - Educational Data Science"
 lang: en
 year: 2024
-tags: ["data-science", "educational-psychology", "machine-learning"]
+tags: ["data-science", "educational-psychology", "machine-learning", "edtech"]
 summary: "Educational data science application for predicting chronic absenteeism in students. Applied machine learning techniques to identify at-risk students and support early intervention strategies."
 featured: true
 cover: "/images/projects/chronic-absenteeism.png"
@@ -20,40 +20,47 @@ gallery:
     caption: "Conference poster presentation: ONGB Student Absenteeism in Oakland Unified School District"
 ---
 
-**Educational Data Science Application**
+**Oakland Natives Give Back — Data Science Internship (Sep-Dec 2024)**
 
-Developed a machine learning model to predict chronic absenteeism in students, enabling early identification of at-risk students and supporting intervention strategies to improve educational outcomes.
+**Educational Data Science • Machine Learning • Student Outcomes**
 
-This project was presented as a conference poster at UC Berkeley, showcasing the application of machine learning techniques to educational data science challenges.
+Developed predictive machine learning models to identify students at risk of chronic absenteeism in Oakland Unified School District, enabling early intervention to support student success and educational equity.
 
 ## Project Overview
 
-This educational data science project applies machine learning techniques to predict which students are at risk of chronic absenteeism. By identifying these students early, schools and educators can implement targeted interventions to improve attendance and educational outcomes.
+This educational data science project applies machine learning techniques to predict which students are at risk of chronic absenteeism (missing 10% or more of school days). By identifying these students early, schools and educators can implement targeted, supportive interventions before attendance becomes a barrier to academic success.
 
-## Key Features
+## Key Accomplishments
 
-- **Predictive Modeling**: ML models to identify students at risk of chronic absenteeism
-- **Early Intervention Support**: Enables proactive measures before attendance becomes a critical issue
-- **Data-Driven Insights**: Leverages educational data to inform decision-making
-- **Student Support**: Focuses on supporting student success through predictive analytics
+- **Data Analysis**: Analyzed 7 years of attendance data across 7 schools, including GPA, attendance rates, and demographic information
+- **Predictive Modeling**: Built Random Forest and XGBoost models achieving ~80% accuracy in predicting at-risk students
+- **Early Intervention Focus**: Designed models to identify patterns before attendance becomes a critical issue, enabling proactive support
+- **Educational Impact**: Focused on preventive, supportive interventions (not punitive) to help students succeed
+
+## Educational Significance
+
+Chronic absenteeism significantly impacts academic performance, social connections, and overall well-being. This project demonstrates how machine learning can be applied to real educational challenges, showing:
+
+- **Understanding Child Development Implications**: Absenteeism affects not just academics but social-emotional development
+- **Working with Educational Stakeholders**: Collaborated with Oakland Natives Give Back and school districts
+- **Focus on Support, Not Punishment**: Models designed to enable timely, data-driven support for students before they fall behind
+- **Educational Equity**: Addressing systemic factors that contribute to absenteeism
 
 ## Technologies Used
 
-- **Machine Learning**: Predictive modeling algorithms
-- **Educational Data Analytics**: Analysis of student attendance and performance data
 - **Python**: Data processing and model development
-- **Statistical Analysis**: Advanced statistical methods for educational research
+- **scikit-learn**: Machine learning algorithms
+- **pandas**: Data manipulation and analysis
+- **XGBoost**: Gradient boosting for improved accuracy
+- **Data Visualization**: Communicating insights to educators and stakeholders
 
-## Impact
-
-This project demonstrates the application of data science to educational challenges, showing how predictive analytics can support student success and help educators make data-informed decisions about student support.
-
-## Applications
+## Impact & Applications
 
 - Early identification of at-risk students
 - Resource allocation for intervention programs
 - Understanding factors contributing to absenteeism
 - Supporting educational equity and student success
+- Enabling data-informed decision-making for educators
 
 ## Presentation
 

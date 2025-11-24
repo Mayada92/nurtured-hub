@@ -33,14 +33,14 @@ const domainColors = {
 
 <div class="work-example" data-expandable>
   <button class="work-example__header" aria-expanded="false" aria-controls={`example-${title.toLowerCase().replace(/\s+/g, '-')}`}>
-    <div class="work-example__title-group">
-      <h3>{title}</h3>
-      <div class="work-example__meta">
-        <span class="institution">{institution}</span>
-        {course && <Badge label={course} variant={domainColors[domain]} size="sm" />}
-        {year && <span class="year">{year}</span>}
+      <div class="work-example__title-group">
+        <h3>{title}</h3>
+        <div class="work-example__meta">
+          <span class="institution">{institution}</span>
+          {course && <Badge label={course} variant={domainColors[domain]} size="sm" />}
+          {year && <span class="year"><strong>{year}</strong></span>}
+        </div>
       </div>
-    </div>
     <span class="work-example__toggle" aria-hidden="true">▼</span>
   </button>
   

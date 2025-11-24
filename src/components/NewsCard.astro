@@ -1,0 +1,140 @@
+---
+import Badge from './Badge.astro';
+import Icon from './Icon.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  news: CollectionEntry<'news'>;
+}
+
+const { news } = Astro.props;
+const { data } = news;
+const isRTL = data.lang === 'ar';
+
+const typeLabels = {
+  en: {
+    interview: 'Interview',
+    article: 'Article',
+    feature: 'Feature',
+    video: 'Video',
+    podcast: 'Podcast',
+  },
+  ar: {
+    interview: 'مقابلة',
+    article: 'مقال',
+    feature: 'ميزة',
+    video: 'فيديو',
+    podcast: 'بودكاست',
+  },
+};
+
+const dateFormat = isRTL ? 'ar-SA' : 'en-US';
+const formattedDate = new Date(data.date).toLocaleDateString(dateFormat, {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<article class="news-card">
+  <a href={data.url} target="_blank" rel="noopener noreferrer" class="news-card__link">
+    <header>
+      <h3>{data.title}</h3>
+      <div class="news-card__meta">
+        <span class="outlet">{data.outlet}</span>
+        <Badge label={typeLabels[data.lang][data.type]} variant="accent-2" size="sm" />
+      </div>
+      <div class="news-card__details">
+        <span class="date">{formattedDate}</span>
+        {data.video_url && (
+          <span class="has-video">
+            <Icon name="play" size={14} />
+            {isRTL ? 'فيديو' : 'Video'}
+          </span>
+        )}
+      </div>
+    </header>
+    <p class="news-card__description">{data.description}</p>
+  </a>
+</article>
+
+<style>
+  .news-card {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-md);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all var(--motion-duration-fast) var(--motion-easing);
+    overflow: hidden;
+  }
+
+  .news-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    border-color: var(--color-accent-1);
+  }
+
+  .news-card__link {
+    display: block;
+    padding: var(--space-3) var(--space-4);
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .news-card header {
+    margin-block-end: var(--space-2);
+  }
+
+  .news-card h3 {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    margin-block-end: var(--space-1);
+    line-height: 1.4;
+  }
+
+  .news-card__meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-block-end: var(--space-1);
+    flex-wrap: wrap;
+  }
+
+  .outlet {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--color-muted-ink);
+  }
+
+  .news-card__details {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: 0.75rem;
+    color: var(--color-muted-ink);
+    flex-wrap: wrap;
+  }
+
+  .news-card__details .date {
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+
+  .has-video {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: var(--color-accent-1);
+  }
+
+  .news-card__description {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--color-muted-ink);
+    margin: 0;
+  }
+</style>
+
+

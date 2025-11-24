@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import SectionReveal from '../../../components/SectionReveal';
+import AnimatedBackground from '../../../components/AnimatedBackground';
 import { getCollection } from 'astro:content';
 import { getImagePath, getBasePath } from '../../../utils/path';
 
@@ -39,6 +40,7 @@ const relatedPapers: Array<Awaited<ReturnType<typeof getCollection<'papers'>>>[n
 ---
 
 <BaseLayout title={data.title} description={data.summary} lang="en">
+  <AnimatedBackground client:load type="particles" density={35} speed={0.25} opacity={0.12} />
   <article class="project-page">
     <div class="container">
       <SectionReveal client:load>

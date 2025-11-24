@@ -1,15 +1,15 @@
 ---
-title: "Educational Psychology - Advanced Topics"
+title: "Social Emotional Development"
 lang: en
 course_code: "EDPS 604"
 institution: "Ball State University"
 term: "Fall 2025"
-year: 2024
+year: 2025
 domain: educational-psychology
 level: graduate
 credits: 3
-description: "Advanced topics in educational psychology, focusing on motivation, learning strategies, assessment, and educational interventions. Practical application through developing educational materials and resources."
+description: "Course covering social and emotional development in children and adolescents, exploring how social and emotional skills develop and their impact on learning and educational outcomes."
 ---
 
-Advanced course in educational psychology covering theories of learning, motivation, and effective teaching practices. Included project work creating educational materials on topics like effective praise strategies.
+Course covering social and emotional development in children and adolescents, exploring how social and emotional skills develop and their impact on learning and educational outcomes.
 

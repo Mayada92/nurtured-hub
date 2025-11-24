@@ -10,7 +10,9 @@ import SpeakingCard from '../../../components/SpeakingCard.astro';
 import CourseCard from '../../../components/CourseCard.astro';
 import WorkCard from '../../../components/WorkCard.astro';
 import ExpandableWorkExample from '../../../components/ExpandableWorkExample.astro';
+import NewsCard from '../../../components/NewsCard.astro';
 import TableOfContents from '../../../components/TableOfContents.astro';
+import AnimatedBackground from '../../../components/AnimatedBackground';
 import { getCollection } from 'astro:content';
 import { organizeByDomain, getDomainOrder, domainLabels } from '../../../utils/organize-by-domain';
 import type { Domain } from '../../../utils/organize-by-domain';
@@ -45,13 +47,20 @@ const allTraining = await getCollection('training').catch(() => []);
 const allSpeaking = await getCollection('speaking').catch(() => []);
 const allCourses = await getCollection('courses').catch(() => []);
 const allWork = await getCollection('work').catch(() => []);
+const allNews = await getCollection('news').catch(() => []);
 
 // Filter by language
 const volunteering = allVolunteering.filter((v) => v.data.lang === lang);
 const training = allTraining.filter((t) => t.data.lang === lang);
-const speaking = allSpeaking.filter((s) => s.data.lang === lang);
+const allSpeakingFiltered = allSpeaking.filter((s) => s.data.lang === lang);
 const courses = allCourses.filter((c) => c.data.lang === lang);
 const work = allWork.filter((w) => w.data.lang === lang);
+const news = allNews.filter((n) => n.data.lang === lang);
+
+// Filter Toastmasters speeches - only show in education and volunteering profiles, not engineering
+const speaking = focus === 'engineering' 
+  ? allSpeakingFiltered.filter((s) => !s.data.event.toLowerCase().includes('toastmasters'))
+  : allSpeakingFiltered;
 
 // Separate hackathons
 const hackathons = volunteering.filter((v) => v.data.is_hackathon);
@@ -107,14 +116,16 @@ const education = [
     location: 'Online degree',
     field: 'Master of Information and Data Science',
     date: 'Expected Dec 2025',
-    note: 'Ranked 2nd top DS online master\'s degree'
+    url: 'https://www.ischool.berkeley.edu/people/mayadah-alhashem',
+    note: 'Ranked #1 top DS online master\'s degree • Focus: Machine learning applications in petroleum engineering and EdTech • Featured on I School website'
   },
   {
     degree: 'Graduate Certificate',
     institution: 'Ball State University',
     location: 'Online degree',
     field: 'Human Development and Learning',
-    date: 'Expected Dec 2025'
+    date: 'Expected Dec 2025',
+    note: 'Focus: Cognitive development in childhood/adolescence, educational psychology, learning theory, and developmental milestones'
   },
   {
     degree: 'Nanodegree',
@@ -128,7 +139,9 @@ const education = [
     institution: 'King Abdullah University of Science and Technology',
     location: 'Thuwal, Saudi Arabia',
     field: 'Mechanical Engineering',
-    date: 'May 2017'
+    date: 'May 2017',
+    url: 'https://www.kaust.edu.sa/en/news/alumni-focus--mayadah-alhashem',
+    note: 'Focus: Machine learning applications in combustion kinetics • Thesis: Optimization of paper discoloration via carbonization using CO₂ laser (inkless printing patent) • Research: Built regression models for combustion reaction kinetics using MATLAB • Featured in KAUST Alumni Focus'
   },
   {
     degree: 'B.S.',
@@ -139,51 +152,151 @@ const education = [
   }
 ];
 
-// Build headings for TOC
+// Build headings for TOC - Order varies by focus type
 const headings = [
   { id: 'overview', text: 'Overview', level: 2 },
   { id: 'education', text: 'Education', level: 2 },
 ];
 
-if (nonHackathonVolunteering.length > 0 || hackathons.length > 0) {
-  headings.push({ id: 'volunteering', text: 'Volunteering', level: 2 });
-  if (hackathons.length > 0) {
-    headings.push({ id: 'hackathons', text: 'Hackathons', level: 3 });
-  }
-}
-// Add Sports section to TOC for volunteering profile
-if (focus === 'volunteering') {
-  const sportsWork = work.filter((w) => {
-    const workDomains = Array.isArray(w.data.domain) ? w.data.domain : [w.data.domain];
-    return workDomains.includes('sports');
+// Children's Education Domain Order: Overview → Education → Projects → Experience & Volunteering → Speaking → Courses
+if (focus === 'children-education') {
+  // Projects (after Education)
+  relevantDomains.forEach((domain) => {
+    if (projectsByDomain[domain] && projectsByDomain[domain].length > 0) {
+      headings.push({ id: `projects-${domain}`, text: `${domainLabels.en[domain]} - Projects`, level: 2 });
+    }
   });
-  if (sportsWork.length > 0) {
-    headings.push({ id: 'sports', text: 'Sports', level: 2 });
+  // Experience & Volunteering (hands-on work with children)
+  relevantDomains.forEach((domain) => {
+    if (workByDomain[domain] && workByDomain[domain].length > 0) {
+      headings.push({ id: `work-${domain}`, text: `${domainLabels.en[domain]} - Experience`, level: 2 });
+    }
+  });
+  if (nonHackathonVolunteering.length > 0 || hackathons.length > 0) {
+    headings.push({ id: 'volunteering', text: 'Volunteering', level: 2 });
+    if (hackathons.length > 0) {
+      headings.push({ id: 'hackathons', text: 'Hackathons', level: 3 });
+    }
+  }
+  // Speaking & Thought Leadership
+  if (speaking.length > 0) headings.push({ id: 'speaking', text: 'Speaking & Thought Leadership', level: 2 });
+  if (training.length > 0) headings.push({ id: 'training', text: 'Training & Lectures', level: 2 });
+  // Writing
+  if (allPosts.filter((p) => p.data.lang === lang && data.pin_posts.includes(p.slug)).length > 0) {
+    headings.push({ id: 'writing', text: 'Writing & Thought Leadership', level: 2 });
+  }
+  // News & Media
+  if (news.length > 0) headings.push({ id: 'news', text: 'News & Media', level: 2 });
+  // Relevant Coursework (Ball State developmental psychology courses)
+  if (coursesForProfile.length > 0) headings.push({ id: 'courses', text: 'Relevant Coursework', level: 2 });
+}
+// Engineering Domain Order: Overview → Education → Experience → Projects → Patents → Speaking → Certifications
+else if (focus === 'engineering') {
+  // Experience (8 years at Aramco)
+  relevantDomains.forEach((domain) => {
+    if (workByDomain[domain] && workByDomain[domain].length > 0) {
+      headings.push({ id: `work-${domain}`, text: `${domainLabels.en[domain]} - Experience`, level: 2 });
+    }
+  });
+  // Projects (ESP AI/ML projects)
+  relevantDomains.forEach((domain) => {
+    if (projectsByDomain[domain] && projectsByDomain[domain].length > 0) {
+      headings.push({ id: `projects-${domain}`, text: `${domainLabels.en[domain]} - Projects`, level: 2 });
+    }
+  });
+  // Patents & Publications
+  if (allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.slug)).length > 0) {
+    headings.push({ id: 'papers', text: 'Patents & Publications', level: 2 });
+  }
+  // Speaking & Knowledge Sharing
+  if (speaking.length > 0) headings.push({ id: 'speaking', text: 'Speaking & Knowledge Sharing', level: 2 });
+  if (training.length > 0) headings.push({ id: 'training', text: 'Training & Lectures', level: 2 });
+  // Leadership & Community Involvement
+  headings.push({ id: 'leadership', text: 'Leadership & Community Involvement', level: 2 });
+  // Awards
+  headings.push({ id: 'awards', text: 'Awards', level: 2 });
+  // Certifications
+  if (coursesForProfile.length > 0) headings.push({ id: 'courses', text: 'Certifications', level: 2 });
+}
+// Data Science Domain Order: Overview → Education → Projects → Technical Skills → Experience → Hackathons → Certifications
+else if (focus === 'data-science') {
+  // Projects (GazaChat, MindFlow, BizDeal dashboard, Nadec platform)
+  relevantDomains.forEach((domain) => {
+    if (projectsByDomain[domain] && projectsByDomain[domain].length > 0) {
+      headings.push({ id: `projects-${domain}`, text: `${domainLabels.en[domain]} - Projects`, level: 2 });
+    }
+  });
+  // Experience (Oakland Natives, freelance, Aramco digital projects)
+  relevantDomains.forEach((domain) => {
+    if (workByDomain[domain] && workByDomain[domain].length > 0) {
+      headings.push({ id: `work-${domain}`, text: `${domainLabels.en[domain]} - Experience`, level: 2 });
+    }
+  });
+  // Hackathons & Competitions
+  if (hackathons.length > 0) {
+    headings.push({ id: 'hackathons', text: 'Hackathons & Competitions', level: 2 });
+  }
+  if (nonHackathonVolunteering.length > 0) {
+    headings.push({ id: 'volunteering', text: 'Volunteering', level: 2 });
+  }
+  // Speaking & Knowledge Sharing
+  if (speaking.length > 0) headings.push({ id: 'speaking', text: 'Speaking & Knowledge Sharing', level: 2 });
+  if (training.length > 0) headings.push({ id: 'training', text: 'Training & Lectures', level: 2 });
+  // Certifications
+  if (coursesForProfile.length > 0) headings.push({ id: 'courses', text: 'Certifications', level: 2 });
+  // Writing
+  if (allPosts.filter((p) => p.data.lang === lang && data.pin_posts.includes(p.slug)).length > 0) {
+    headings.push({ id: 'writing', text: 'Writing', level: 2 });
   }
 }
-if (training.length > 0) headings.push({ id: 'training', text: 'Training & Lectures', level: 2 });
-if (speaking.length > 0) headings.push({ id: 'speaking', text: 'Public Speaking & Knowledge Sharing', level: 2 });
-if (coursesForProfile.length > 0) headings.push({ id: 'courses', text: 'Courses', level: 2 });
-
-// Add domain sections for work - only relevant domains (Work Experience comes after Education)
-relevantDomains.forEach((domain) => {
-  if (workByDomain[domain] && workByDomain[domain].length > 0) {
-    headings.push({ id: `work-${domain}`, text: `${domainLabels.en[domain]} - Work Experience`, level: 2 });
+// Volunteering Domain - Keep existing order
+else {
+  // Add domain sections for work
+  relevantDomains.forEach((domain) => {
+    if (workByDomain[domain] && workByDomain[domain].length > 0) {
+      headings.push({ id: `work-${domain}`, text: `${domainLabels.en[domain]} - Work Experience`, level: 2 });
+    }
+    if (projectsByDomain[domain] && projectsByDomain[domain].length > 0) {
+      headings.push({ id: `projects-${domain}`, text: `${domainLabels.en[domain]} - Projects`, level: 2 });
+    }
+  });
+  // Papers & Patents
+  if (allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.slug)).length > 0) {
+    headings.push({ id: 'papers', text: 'Papers & Patents', level: 2 });
   }
-  if (projectsByDomain[domain] && projectsByDomain[domain].length > 0) {
-    headings.push({ id: `projects-${domain}`, text: `${domainLabels.en[domain]} - Projects`, level: 2 });
+  // Public Speaking & Knowledge Sharing
+  if (speaking.length > 0) headings.push({ id: 'speaking', text: 'Public Speaking & Knowledge Sharing', level: 2 });
+  if (training.length > 0) headings.push({ id: 'training', text: 'Training & Lectures', level: 2 });
+  // Volunteering
+  if (nonHackathonVolunteering.length > 0 || hackathons.length > 0) {
+    headings.push({ id: 'volunteering', text: 'Volunteering', level: 2 });
+    if (hackathons.length > 0) {
+      headings.push({ id: 'hackathons', text: 'Hackathons', level: 3 });
+    }
   }
-});
-
-if (allPosts.filter((p) => p.data.lang === lang && data.pin_posts.includes(p.slug)).length > 0) {
-  headings.push({ id: 'writing', text: 'Writing', level: 2 });
-}
-if (allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.slug)).length > 0) {
-  headings.push({ id: 'papers', text: 'Papers & Patents', level: 2 });
+  // Sports section for volunteering profile
+  if (focus === 'volunteering') {
+    const sportsWork = work.filter((w) => {
+      const workDomains = Array.isArray(w.data.domain) ? w.data.domain : [w.data.domain];
+      return workDomains.includes('sports');
+    });
+    if (sportsWork.length > 0) {
+      headings.push({ id: 'sports', text: 'Sports', level: 2 });
+    }
+  }
+  // Courses
+  if (coursesForProfile.length > 0) headings.push({ id: 'courses', text: 'Courses', level: 2 });
+  // Writing
+  if (allPosts.filter((p) => p.data.lang === lang && data.pin_posts.includes(p.slug)).length > 0) {
+    headings.push({ id: 'writing', text: 'Writing', level: 2 });
+  }
+  // News & Media
+  if (news.length > 0) headings.push({ id: 'news', text: 'News & Media', level: 2 });
 }
 ---
 
 <BaseLayout title={title} description={data.headline} lang="en">
+  <AnimatedBackground client:load type="molecules" density={35} speed={0.25} opacity={0.12} />
   <div class="content profile-content">
     <div class="profile-layout">
       <aside class="profile-toc">
@@ -207,7 +320,13 @@ if (allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.s
               <div class="education-item">
                 <div class="education-header">
                   <span class="education-degree">{edu.degree}</span>
-                  <span class="education-institution">{edu.institution}</span>
+                  {edu.url ? (
+                    <a href={edu.url} target="_blank" rel="noopener noreferrer" class="education-institution education-institution--link">
+                      {edu.institution}
+                    </a>
+                  ) : (
+                    <span class="education-institution">{edu.institution}</span>
+                  )}
                   {edu.location && <span class="education-location">{edu.location}</span>}
                   <span class="education-date">{edu.date}</span>
                 </div>
@@ -218,7 +337,26 @@ if (allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.s
           </div>
         </section>
 
-        {/* Work & Projects - Organized by Domain (filtered by profile focus) - Work Experience comes first */}
+        {/* Projects Section - Order varies by focus type */}
+        {/* Children's Education & Data Science: Projects come before Experience */}
+        {(focus === 'children-education' || focus === 'data-science') && relevantDomains.map((domain) => {
+          const domainProjects = projectsByDomain[domain];
+          if (!domainProjects || domainProjects.length === 0) return null;
+          return (
+            <section id={`projects-${domain}`}>
+              <h2>{domainLabels.en[domain]} - Projects</h2>
+              <div class="section-content">
+                {domainProjects
+                  .sort((a, b) => b.data.year - a.data.year)
+                  .map((p) => (
+                    <ProjectCard project={p} />
+                  ))}
+              </div>
+            </section>
+          );
+        })}
+
+        {/* Work & Experience - Organized by Domain (filtered by profile focus) */}
         {relevantDomains.map((domain) => {
           const domainWork = workByDomain[domain];
           const domainProjects = projectsByDomain[domain];
@@ -226,6 +364,16 @@ if (allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.s
           // Work examples (BSU/UC Berkeley) - shown as expandable cards
           const workExamples = domain === 'educational-psychology' 
             ? [
+                {
+                  title: 'Chronic Absenteeism Prediction - Oakland Natives Give Back',
+                  institution: 'Oakland Natives Give Back / UC Berkeley',
+                  course: 'Data Science Internship',
+                  year: 2024,
+                  description: 'Applied machine learning to predict chronic absenteeism in Oakland schools; developed Random Forest and XGBoost models with ~80% accuracy. This EdTech project addresses critical challenges in education by enabling early identification of at-risk students and supporting intervention strategies to improve educational outcomes. Presented as a conference poster at UC Berkeley.',
+                  images: [],
+                  files: [],
+                  domain: domain as 'educational-psychology',
+                },
                 {
                   title: 'EDPS 604 - Praise Brochure',
                   institution: 'Ball State University',
@@ -327,8 +475,8 @@ if (allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.s
             return null;
           }
           return (
-            <section id={`work-${domain}`}>
-              <h2>{domainLabels.en[domain]} - Work Experience</h2>
+            <section id={focus === 'children-education' ? `work-${domain}` : focus === 'data-science' ? `work-${domain}` : focus === 'engineering' ? `work-${domain}` : `work-${domain}`}>
+              <h2>{focus === 'children-education' ? `${domainLabels.en[domain]} - Experience` : focus === 'engineering' ? `${domainLabels.en[domain]} - Experience` : focus === 'data-science' ? `${domainLabels.en[domain]} - Experience` : `${domainLabels.en[domain]} - Work Experience`}</h2>
               
               {/* Work Examples (Expandable) */}
               {workExamples.length > 0 && (
@@ -355,43 +503,76 @@ if (allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.s
                 </div>
               )}
               
-              {/* Work Experience */}
-              {domainWork && domainWork.length > 0 && (
-                <div class="subsection">
-                  <h3>Work Experience</h3>
-                  <div class="section-content">
-                    {domainWork
-                      .sort((a, b) => {
-                        // Sort by ongoing first, then by start date descending
-                        if (a.data.ongoing !== b.data.ongoing) return a.data.ongoing ? -1 : 1;
-                        return new Date(b.data.start_date).getTime() - new Date(a.data.start_date).getTime();
-                      })
-                      .map((w) => (
+              {/* Work Experience - Chronological Order (Newest First) */}
+              {domainWork && domainWork.length > 0 && (() => {
+                // Sort all work chronologically: ongoing first, then by start date descending (newest first)
+                const sortedWork = [...domainWork].sort((a, b) => {
+                  // Ongoing positions come first
+                  if (a.data.ongoing !== b.data.ongoing) return a.data.ongoing ? -1 : 1;
+                  // Then sort by start date descending (newest first)
+                  return new Date(b.data.start_date).getTime() - new Date(a.data.start_date).getTime();
+                });
+
+                return (
+                  <div class="subsection">
+                    <h3>Work Experience</h3>
+                    <div class="work-experience-list">
+                      {sortedWork.map((w) => (
                         <WorkCard work={w} />
                       ))}
+                    </div>
                   </div>
-                </div>
-              )}
+                );
+              })()}
 
-              {/* Projects */}
-              {domainProjects && domainProjects.length > 0 && (
-                <div class="subsection">
-                  <h3>Projects</h3>
-                  <div class="section-content">
-                    {domainProjects
-                      .sort((a, b) => b.data.year - a.data.year)
-                      .map((p) => (
-                        <ProjectCard project={p} />
-                      ))}
-                  </div>
-                </div>
-              )}
             </section>
           );
         })}
 
-        {/* Volunteering Section */}
-        {(nonHackathonVolunteering.length > 0 || hackathons.length > 0) && (
+        {/* Projects Section - Engineering: Projects come after Experience */}
+        {focus === 'engineering' && relevantDomains.map((domain) => {
+          const domainProjects = projectsByDomain[domain];
+          if (!domainProjects || domainProjects.length === 0) return null;
+          return (
+            <section id={`projects-${domain}`}>
+              <h2>{domainLabels.en[domain]} - Projects</h2>
+              <div class="section-content">
+                {domainProjects
+                  .sort((a, b) => b.data.year - a.data.year)
+                  .map((p) => (
+                    <ProjectCard project={p} />
+                  ))}
+              </div>
+            </section>
+          );
+        })}
+
+        {/* Papers & Patents Section - Engineering only, after Projects */}
+        {focus === 'engineering' && (() => {
+          const pinnedPapers = allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.slug));
+          return pinnedPapers.length > 0 ? (
+            <section id="papers">
+              <h2>Patents & Publications</h2>
+              <div class="section-content">
+                {pinnedPapers
+                  .sort((a, b) => {
+                    // Sort by year descending, then by title
+                    if (b.data.year !== a.data.year) return b.data.year - a.data.year;
+                    return a.data.title.localeCompare(b.data.title);
+                  })
+                  .map((paper) => (
+                    <PaperCard paper={paper} />
+                  ))}
+                <a href={`${base}en/papers`.replace(/\/+/g, '/')} class="profile-section-link">
+                  View all papers →
+                </a>
+              </div>
+            </section>
+          ) : null;
+        })()}
+
+        {/* Volunteering Section - Children's Education: After Projects, before Speaking */}
+        {focus === 'children-education' && (nonHackathonVolunteering.length > 0 || hackathons.length > 0) && (
           <section id="volunteering">
             <h2>Volunteering</h2>
             {nonHackathonVolunteering.length > 0 && (
@@ -406,6 +587,145 @@ if (allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.s
             {hackathons.length > 0 && (
               <div id="hackathons">
                 <h3>Hackathons</h3>
+                <div class="section-content">
+                  {hackathons
+                    .sort((a, b) => new Date(b.data.start_date).getTime() - new Date(a.data.start_date).getTime())
+                    .map((hack) => (
+                      <VolunteeringCard volunteering={hack} />
+                    ))}
+                </div>
+              </div>
+            )}
+          </section>
+        )}
+
+        {/* Speaking & Thought Leadership Section */}
+        {speaking.length > 0 && (
+          <section id="speaking">
+            <h2>{focus === 'children-education' ? 'Speaking & Thought Leadership' : 'Public Speaking & Knowledge Sharing'}</h2>
+            <div class="section-content">
+              {speaking
+                .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+                .map((s) => (
+                  <SpeakingCard speaking={s} />
+                ))}
+            </div>
+          </section>
+        )}
+
+        {/* Training & Lectures Section */}
+        {training.length > 0 && (
+          <section id="training">
+            <h2>Training & Lectures</h2>
+            <div class="section-content">
+              {training
+                .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+                .map((t) => (
+                  <TrainingCard training={t} />
+                ))}
+            </div>
+          </section>
+        )}
+
+        {/* Leadership & Community Involvement Section - Engineering only */}
+        {focus === 'engineering' && (
+          <section id="leadership">
+            <h2>Leadership & Community Involvement</h2>
+            <div class="section-content">
+              <div class="leadership-section">
+                <h3>Professional Leadership</h3>
+                <ul class="leadership-list">
+                  <li>
+                    <strong>Session Co-Chair</strong> | Middle East Artificial Lift Conference (MEALC) 2024<br />
+                    <span class="leadership-detail">Digital Transformation & AI Technical Session | Manama, Bahrain | October 2024</span><br />
+                    <span class="leadership-description">Co-chaired technical session featuring 3 presentations on AI applications in artificial lift. Moderated Q&A and facilitated discussion on future of ML in production optimization.</span>
+                  </li>
+                  <li>
+                    <strong>Subject Matter Expert (SME)</strong> | aramco AI Center of Excellence | 2023-Present<br />
+                    <span class="leadership-description">Active participant and presenter on AI/ML applications in petroleum engineering. Contribute to internal AI community of practice and knowledge transfer initiatives.</span>
+                  </li>
+                  <li>
+                    <strong>Core Member</strong> | Petroleum Engineering & Development Community of Practice (CoP) | 2022<br />
+                    <span class="leadership-description">Active member recognized with Employee Engagement Award. Share technical expertise and facilitate knowledge exchange across PE divisions.</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="leadership-section">
+                <h3>Athletic Leadership</h3>
+                <ul class="leadership-list">
+                  <li>
+                    <strong>Vice President</strong> | Eastern Flames FC | 2021<br />
+                    <span class="leadership-description">Led women's football team operations and player development.</span>
+                  </li>
+                  <li>
+                    <strong>Volunteer Organizer & Trainer</strong> | Soccer Clinics for Children | 2017, 2018<br />
+                    <span class="leadership-description">Organized and led 2nd Soccer Clinic for children with special needs (2017) and 1st Soccer Clinic for females (2018).</span>
+                  </li>
+                  <li>
+                    <strong>President</strong> | KAUST United Football Association | 2016-2017<br />
+                    <span class="leadership-description">Elected to organize football matches and practices for male and female students. Managed logistics, facilities, and inter-university tournaments.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Awards Section - Engineering only */}
+        {focus === 'engineering' && (
+          <section id="awards">
+            <h2>Awards</h2>
+            <div class="section-content">
+              <div class="award-item">
+                <h3>P&FDD Annual Awards | 2022</h3>
+                <ul class="award-list">
+                  <li>
+                    <strong>Digital Transformation Award</strong><br />
+                    <span class="award-project">Remote Function Test Project</span><br />
+                    <span class="award-description">Recognized for innovative automation solution that eliminated need for field visits and reduced testing time by 85% (from 4+ hours to 30 minutes).</span>
+                  </li>
+                  <li>
+                    <strong>Employee Engagement Award</strong><br />
+                    <span class="award-project">Petroleum Engineering & Development Community of Practice Contributions</span><br />
+                    <span class="award-description">Recognized for knowledge sharing and collaboration across divisions.</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="award-item">
+                <h3>Aramco VP Recognized Youth-Initiated Study | 2022</h3>
+                <p class="award-description">
+                  <strong>Coaching Program to Foster Passion & Purpose in Employees</strong><br />
+                  Recognition by Strategy & Market Analysis VP for leadership development initiative.
+                </p>
+              </div>
+              <div class="award-item">
+                <h3>Generative AI Accelerator | May 2023</h3>
+                <p class="award-description">
+                  <strong>4th Place Winner</strong> (out of 80 teams)<br />
+                  Saudi Data & AI Authority (SDAIA) Hackathon<br />
+                  <span class="award-project">MindFlow - AI-powered mindfulness application</span>
+                </p>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Volunteering Section - Data Science & Other: After speaking */}
+        {(focus === 'data-science' || focus === 'volunteering' || focus === 'engineering') && (nonHackathonVolunteering.length > 0 || hackathons.length > 0) && (
+          <section id="volunteering">
+            <h2>Volunteering</h2>
+            {nonHackathonVolunteering.length > 0 && (
+              <div class="section-content">
+                {nonHackathonVolunteering
+                  .sort((a, b) => new Date(b.data.start_date).getTime() - new Date(a.data.start_date).getTime())
+                  .map((vol) => (
+                    <VolunteeringCard volunteering={vol} />
+                  ))}
+              </div>
+            )}
+            {hackathons.length > 0 && (
+              <div id="hackathons">
+                <h3>{focus === 'data-science' ? 'Hackathons & Competitions' : 'Hackathons'}</h3>
                 <div class="section-content">
                   {hackathons
                     .sort((a, b) => new Date(b.data.start_date).getTime() - new Date(a.data.start_date).getTime())
@@ -442,38 +762,30 @@ if (allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.s
           ) : null;
         })()}
 
-        {/* Training & Lectures Section */}
-        {training.length > 0 && (
-          <section id="training">
-            <h2>Training & Lectures</h2>
-            <div class="section-content">
-              {training
-                .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
-                .map((t) => (
-                  <TrainingCard training={t} />
-                ))}
-            </div>
-          </section>
-        )}
+        {/* Writing Section - Children's Education: After Speaking */}
+        {focus === 'children-education' && (() => {
+          const pinnedPosts = allPosts.filter((p) => p.data.lang === lang && data.pin_posts.includes(p.slug));
+          return pinnedPosts.length > 0 ? (
+            <section id="writing">
+              <h2>Writing & Thought Leadership</h2>
+              <div class="section-content">
+                {pinnedPosts
+                  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+                  .map((post) => (
+                    <PostCard post={post} />
+                  ))}
+                <a href={`${base}en/writing`.replace(/\/+/g, '/')} class="profile-section-link">
+                  View all articles →
+                </a>
+              </div>
+            </section>
+          ) : null;
+        })()}
 
-        {/* Public Speaking & Knowledge Sharing Section */}
-        {speaking.length > 0 && (
-          <section id="speaking">
-            <h2>Public Speaking & Knowledge Sharing</h2>
-            <div class="section-content">
-              {speaking
-                .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
-                .map((s) => (
-                  <SpeakingCard speaking={s} />
-                ))}
-            </div>
-          </section>
-        )}
-
-        {/* Courses Section - Organized by Domain (only relevant domains) */}
+        {/* Courses Section - Order varies by focus type */}
         {coursesForProfile.length > 0 && (
           <section id="courses">
-            <h2>Courses</h2>
+            <h2>{focus === 'children-education' ? 'Relevant Coursework' : focus === 'engineering' || focus === 'data-science' ? 'Certifications' : 'Courses'}</h2>
             {relevantDomains.map((domain) => {
               const domainCourses = coursesByDomain[domain];
               if (!domainCourses || domainCourses.length === 0) return null;
@@ -497,9 +809,8 @@ if (allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.s
           </section>
         )}
 
-
-        {/* Writing */}
-        {allPosts.filter((p) => p.data.lang === lang && data.pin_posts.includes(p.slug)).length > 0 && (
+        {/* Writing Section - Data Science & Other: After Courses */}
+        {(focus === 'data-science' || focus === 'volunteering' || focus === 'engineering') && allPosts.filter((p) => p.data.lang === lang && data.pin_posts.includes(p.slug)).length > 0 && (
           <section id="writing">
             <h2>Writing</h2>
             <div class="section-content">
@@ -510,14 +821,16 @@ if (allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.s
           </section>
         )}
 
-        {/* Papers */}
-        {allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.slug)).length > 0 && (
-          <section id="papers">
-            <h2>Papers</h2>
+        {/* News & Media Section - All profiles */}
+        {news.length > 0 && (
+          <section id="news">
+            <h2>News & Media</h2>
             <div class="section-content">
-              <a href={`${base}en/papers`.replace(/\/+/g, '/')} class="profile-section-link">
-                View all papers →
-              </a>
+              {news
+                .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+                .map((n) => (
+                  <NewsCard news={n} />
+                ))}
             </div>
           </section>
         )}
@@ -536,8 +849,8 @@ if (allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.s
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    opacity: 0.2;
-    z-index: -1;
+    opacity: 0.25;
+    z-index: -2;
     pointer-events: none;
   }
   .profile-content {
@@ -592,12 +905,13 @@ if (allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.s
     font-size: 1.25rem;
     font-weight: 600;
     padding: var(--space-3) var(--space-4);
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(10px);
     border-radius: var(--radius-lg);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
     display: inline-block;
     border-block-end: none;
+    border: 1px solid rgba(255, 255, 255, 0.3);
   }
 
   section h3 {
@@ -606,10 +920,11 @@ if (allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.s
     font-size: 1rem;
     font-weight: 600;
     padding: var(--space-2) var(--space-3);
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(10px);
     border-radius: var(--radius-md);
     display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.3);
   }
 
   .section-content {
@@ -617,6 +932,101 @@ if (allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.s
     flex-direction: column;
     gap: var(--space-2);
     max-width: 100%;
+  }
+
+  /* Awards Section Styling */
+  .award-item {
+    padding: var(--space-4);
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin-block-end: var(--space-4);
+  }
+
+  .award-item h3 {
+    margin-block-end: var(--space-3);
+    color: var(--color-accent-1);
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  .award-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .award-list li {
+    margin-block-end: var(--space-4);
+    padding-block-end: var(--space-4);
+    border-block-end: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .award-list li:last-child {
+    border-block-end: none;
+    margin-block-end: 0;
+    padding-block-end: 0;
+  }
+
+  .award-project {
+    display: block;
+    font-weight: 600;
+    color: var(--color-ink);
+    margin-block: var(--space-1);
+  }
+
+  .award-description {
+    display: block;
+    color: var(--color-muted-ink);
+    line-height: 1.6;
+    margin-block-start: var(--space-2);
+  }
+
+  /* Leadership Section Styling */
+  .leadership-section {
+    margin-block-end: var(--space-5);
+  }
+
+  .leadership-section h3 {
+    margin-block-end: var(--space-3);
+    color: var(--color-accent-1);
+  }
+
+  .leadership-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .leadership-list li {
+    padding: var(--space-3) var(--space-4);
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-md);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin-block-end: var(--space-3);
+  }
+
+  .leadership-list li:last-child {
+    margin-block-end: 0;
+  }
+
+  .leadership-detail {
+    display: block;
+    color: var(--color-muted-ink);
+    font-size: 0.9rem;
+    margin-block: var(--space-1);
+    font-style: italic;
+  }
+
+  .leadership-description {
+    display: block;
+    color: var(--color-muted-ink);
+    line-height: 1.6;
+    margin-block-start: var(--space-2);
   }
 
   .subsection {
@@ -633,17 +1043,19 @@ if (allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.s
     margin-block-end: var(--space-2);
     font-style: italic;
     padding: var(--space-3) var(--space-4);
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(10px);
     border-radius: var(--radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.3);
   }
 
   .overview-content {
     padding: var(--space-4);
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(10px);
     border-radius: var(--radius-lg);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.3);
   }
 
   .overview-content p {
@@ -653,11 +1065,12 @@ if (allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.s
 
   .education-item {
     padding: var(--space-3) var(--space-4);
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(10px);
     border-radius: var(--radius-md);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     margin-block-end: var(--space-2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
   }
 
   .education-header {
@@ -678,6 +1091,17 @@ if (allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.s
     font-weight: 600;
     color: var(--color-ink);
     font-size: 0.875rem;
+  }
+
+  .education-institution--link {
+    text-decoration: none;
+    color: var(--color-accent-1);
+    transition: color var(--motion-duration-fast) var(--motion-easing);
+  }
+
+  .education-institution--link:hover {
+    color: var(--color-accent-2);
+    text-decoration: underline;
   }
 
   .education-location {
@@ -703,5 +1127,11 @@ if (allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.s
     font-size: 0.75rem;
     font-style: italic;
     margin-block-start: var(--space-1);
+  }
+
+  .work-experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
   }
 </style>
