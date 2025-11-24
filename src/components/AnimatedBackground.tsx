@@ -22,13 +22,13 @@ export default function AnimatedBackground({
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // Pastel colors from theme
+    // Pastel colors from theme - more vibrant for visibility
     const pastelColors = [
-      'rgba(139, 92, 246, 0.4)',   // purple - accent-1
-      'rgba(6, 182, 212, 0.4)',     // cyan - accent-2
-      'rgba(236, 72, 153, 0.4)',    // pink - accent-4
-      'rgba(16, 185, 129, 0.4)',    // green - accent-5
-      'rgba(245, 158, 11, 0.3)',    // amber - accent-3
+      'rgba(139, 92, 246, 0.6)',   // purple - accent-1
+      'rgba(6, 182, 212, 0.6)',     // cyan - accent-2
+      'rgba(236, 72, 153, 0.6)',    // pink - accent-4
+      'rgba(16, 185, 129, 0.5)',    // green - accent-5
+      'rgba(245, 158, 11, 0.5)',    // amber - accent-3
     ];
 
     let animationFrameId: number;
@@ -81,10 +81,18 @@ export default function AnimatedBackground({
         if (particle.y < 0) particle.y = canvas.height;
         if (particle.y > canvas.height) particle.y = 0;
 
-        // Draw particle
+        // Draw particle with gradient for more visibility
+        const gradient = ctx.createRadialGradient(
+          particle.x, particle.y, 0,
+          particle.x, particle.y, particle.size
+        );
+        const baseColor = particle.color;
+        gradient.addColorStop(0, baseColor.replace(/[\d.]+\)$/, `${particle.opacity})`));
+        gradient.addColorStop(1, baseColor.replace(/[\d.]+\)$/, `${particle.opacity * 0.3})`));
+        
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-        ctx.fillStyle = particle.color.replace('0.4', particle.opacity.toString());
+        ctx.fillStyle = gradient;
         ctx.fill();
 
         // Draw connections for molecules type
@@ -137,9 +145,9 @@ export default function AnimatedBackground({
         left: 0,
         width: '100%',
         height: '100%',
-        zIndex: -1,
+        zIndex: -2,
         pointerEvents: 'none',
-        opacity: 0.6,
+        opacity: 1,
       }}
     />
   );

@@ -27,7 +27,7 @@ const date = new Date(post.data.date).toLocaleDateString('en-US', {
 ---
 
 <BaseLayout title={post.data.title} description={post.data.excerpt} lang="en">
-  <AnimatedBackground client:load type="bubbles" density={25} speed={0.2} opacity={0.1} />
+  <AnimatedBackground client:load type="bubbles" density={35} speed={0.25} opacity={0.15} />
   <article class="post">
     <header class="post__header">
       <time datetime={post.data.date.toISOString()} class="post__date">

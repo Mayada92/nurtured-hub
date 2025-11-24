@@ -296,7 +296,7 @@ else {
 ---
 
 <BaseLayout title={title} description={data.headline} lang="en">
-  <AnimatedBackground client:load type="molecules" density={35} speed={0.25} opacity={0.12} />
+  <AnimatedBackground client:load type="molecules" density={40} speed={0.3} opacity={0.2} />
   <div class="content profile-content">
     <div class="profile-layout">
       <aside class="profile-toc">
@@ -899,32 +899,123 @@ else {
   }
 
   section h2 {
-    margin-block-end: var(--space-3);
-    margin-block-start: var(--space-4);
+    margin-block-end: var(--space-4);
+    margin-block-start: var(--space-5);
     scroll-margin-block-start: var(--space-4);
-    font-size: 1.25rem;
-    font-weight: 600;
-    padding: var(--space-3) var(--space-4);
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(10px);
-    border-radius: var(--radius-lg);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-    display: inline-block;
-    border-block-end: none;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-size: 1.75rem;
+    font-weight: 700;
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: -0.02em;
+    padding: var(--space-4) var(--space-5);
+    background: linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.35) 0%, 
+      rgba(255, 255, 255, 0.25) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 24px;
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.1),
+      0 2px 8px rgba(0, 0, 0, 0.05),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Gradient accent line before title */
+  section h2::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, 
+      #f266c3 0%, 
+      #cf51ff 50%,
+      #8b5cf6 100%);
+    border-radius: 2px 0 0 2px;
+    opacity: 0.8;
+  }
+
+  /* Subtle gradient overlay on hover */
+  section h2::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, 
+      rgba(242, 102, 195, 0.1) 0%, 
+      rgba(207, 81, 255, 0.1) 50%,
+      rgba(139, 92, 246, 0.1) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 24px;
+    pointer-events: none;
+  }
+
+  section h2:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+      0 12px 40px rgba(0, 0, 0, 0.12),
+      0 4px 12px rgba(0, 0, 0, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+
+  section h2:hover::after {
+    opacity: 1;
   }
 
   section h3 {
-    margin-block-end: var(--space-2);
-    margin-block-start: var(--space-3);
-    font-size: 1rem;
+    margin-block-end: var(--space-3);
+    margin-block-start: var(--space-4);
+    font-size: 1.125rem;
     font-weight: 600;
-    padding: var(--space-2) var(--space-3);
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(10px);
-    border-radius: var(--radius-md);
-    display: inline-block;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-family: 'Cairo', sans-serif;
+    padding: var(--space-3) var(--space-4);
+    background: linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.3) 0%, 
+      rgba(255, 255, 255, 0.2) 100%);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 
+      0 4px 16px rgba(0, 0, 0, 0.06),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    position: relative;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Subtle left accent for h3 */
+  section h3::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 60%;
+    background: linear-gradient(180deg, 
+      rgba(242, 102, 195, 0.6) 0%, 
+      rgba(207, 81, 255, 0.6) 100%);
+    border-radius: 0 2px 2px 0;
+    opacity: 0.7;
+  }
+
+  section h3:hover {
+    transform: translateY(-1px);
+    box-shadow: 
+      0 6px 20px rgba(0, 0, 0, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    border-color: rgba(255, 255, 255, 0.45);
   }
 
   .section-content {
