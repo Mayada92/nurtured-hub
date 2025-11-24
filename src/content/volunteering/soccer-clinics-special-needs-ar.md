@@ -6,7 +6,7 @@ role: "مدربة كرة قدم متطوعة ومنظمة"
 start_date: 2017-01-01
 end_date: 2018-12-31
 ongoing: false
-domain: ["educational-psychology", "children", "sports"]
+domain: ["educational-psychology", "sports", "general"]
 description: "نظمت وقدمت عيادات كرة القدم للأطفال ذوي الاحتياجات الخاصة، مع تكييف أساليب التدريب وفقاً للمستويات التنموية الفردية. أنشأت تجارب رياضية شاملة وبناءة للثقة تحترم قدرات واحتياجات كل طفل الفريدة."
 cover: "/images/volunteering/soccer-clinic-special-needs.jpg"
 ---

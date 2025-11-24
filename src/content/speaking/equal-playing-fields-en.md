@@ -5,7 +5,7 @@ type: presentation
 event: "Eastern Flames FC Co-Presentation"
 venue: "Eastern Flames FC"
 date: 2021-01-01
-domain: ["educational-psychology", "sports", "children"]
+domain: ["educational-psychology", "sports", "general"]
 description: "Co-presented on athlete development and psychological resilience for young players, focusing on growth mindset and character development through sports. Addressed how athletic experiences shape personal development both on and off the field."
 cover: "/images/speaking/equal-playing-fields.jpg"
 ---

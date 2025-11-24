@@ -6,7 +6,7 @@ role: "Volunteer Petroleum Engineering Instructor"
 start_date: 2018-01-01
 end_date: 2018-12-31
 ongoing: false
-domain: ["educational-psychology", "children", "education"]
+domain: ["educational-psychology", "engineering", "general"]
 description: "Designed and taught petroleum engineering concepts to gifted high school students, adapting complex technical material for age-appropriate learning. Created engaging educational experiences that challenge advanced learners while respecting their developmental stage."
 cover: "/images/volunteering/mawhiba-instruction.jpg"
 ---

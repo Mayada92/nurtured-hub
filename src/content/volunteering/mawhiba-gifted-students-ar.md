@@ -6,7 +6,7 @@ role: "مدرسة هندسة بترول متطوعة"
 start_date: 2018-01-01
 end_date: 2018-12-31
 ongoing: false
-domain: ["educational-psychology", "children", "education"]
+domain: ["educational-psychology", "engineering", "general"]
 description: "صممت ودرست مفاهيم هندسة البترول للطلاب الموهوبين في المرحلة الثانوية، مع تكييف المواد التقنية المعقدة للتعلم المناسب للعمر. أنشأت تجارب تعليمية جذابة تتحدى المتعلمين المتقدمين مع احترام مرحلتهم التنموية."
 cover: "/images/volunteering/mawhiba-instruction.jpg"
 ---
