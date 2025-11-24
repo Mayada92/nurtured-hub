@@ -22,20 +22,30 @@ export default function AnimatedBackground({
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // Pastel colors from theme - more vibrant for visibility
+    // Diverse transparent colors - varied opacity for visual interest
     const pastelColors = [
-      'rgba(139, 92, 246, 0.6)',   // purple
-      'rgba(6, 182, 212, 0.6)',    // cyan
-      'rgba(236, 72, 153, 0.6)',   // pink
-      'rgba(16, 185, 129, 0.6)',   // green
-      'rgba(245, 158, 11, 0.6)',   // amber
-      'rgba(249, 115, 22, 0.6)',   // orange
-      'rgba(168, 85, 247, 0.6)',   // violet
-      'rgba(34, 197, 94, 0.6)',    // emerald
-      'rgba(14, 165, 233, 0.6)',   // sky blue
-      'rgba(251, 146, 60, 0.6)',   // light orange
-      'rgba(147, 51, 234, 0.6)',   // deep purple
-      'rgba(59, 130, 246, 0.6)',   // blue
+      'rgba(139, 92, 246, 0.7)',   // purple
+      'rgba(6, 182, 212, 0.65)',   // cyan
+      'rgba(236, 72, 153, 0.7)',   // pink
+      'rgba(16, 185, 129, 0.65)',  // green
+      'rgba(245, 158, 11, 0.7)',   // amber
+      'rgba(249, 115, 22, 0.65)',  // orange
+      'rgba(168, 85, 247, 0.7)',   // violet
+      'rgba(34, 197, 94, 0.65)',   // emerald
+      'rgba(14, 165, 233, 0.7)',   // sky blue
+      'rgba(251, 146, 60, 0.65)',  // light orange
+      'rgba(147, 51, 234, 0.7)',   // deep purple
+      'rgba(59, 130, 246, 0.65)',  // blue
+      'rgba(255, 165, 0, 0.7)',    // orange
+      'rgba(147, 112, 219, 0.65)', // medium purple
+      'rgba(0, 128, 128, 0.7)',     // teal
+      'rgba(70, 130, 180, 0.65)',  // steel blue
+      'rgba(255, 99, 71, 0.7)',    // tomato
+      'rgba(100, 149, 237, 0.65)', // cornflower blue
+      'rgba(255, 215, 0, 0.7)',    // gold
+      'rgba(60, 179, 113, 0.65)',  // medium sea green
+      'rgba(218, 112, 214, 0.7)',  // orchid
+      'rgba(255, 20, 147, 0.65)',   // deep pink
     ];
 
     let animationFrameId: number = 0;
@@ -63,10 +73,10 @@ export default function AnimatedBackground({
           vx: (Math.random() - 0.5) * speed,
           vy: (Math.random() - 0.5) * speed,
           size: type === 'bubbles' 
-            ? Math.random() * 16 + 8 
+            ? Math.random() * 30 + 10  // Wider size range: 10-40px for more variety
             : type === 'molecules'
-            ? Math.random() * 6 + 3
-            : Math.random() * 4 + 2,
+            ? Math.random() * 8 + 4    // 4-12px for molecules
+            : Math.random() * 6 + 3,   // 3-9px for particles
           color: pastelColors[Math.floor(Math.random() * pastelColors.length)],
           opacity: Math.random() * opacity * 0.5 + opacity * 0.5,
         });
