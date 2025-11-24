@@ -3,7 +3,7 @@ title: "افتتاح الدوري السعودي النسائي - مقابلة"
 lang: ar
 type: interview
 outlet: "نيوكاسل مع وليد / YouTube"
-date: 2021-01-01
+date: 2019-08-27
 description: "مقابلة عن افتتاح الدوري السعودي النسائي مع ريان الجدعاني. مميزة كالكابتن ميادة الهاشم نجمة الدوري السعودي لكرة القدم ولاعبة فريق شعلة الشرقية."
 url: "https://www.youtube.com/watch?v=qg_gMd69uBA"
 video_url: "https://www.youtube.com/watch?v=qg_gMd69uBA"
