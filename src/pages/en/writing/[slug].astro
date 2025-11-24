@@ -27,7 +27,7 @@ const date = new Date(post.data.date).toLocaleDateString('en-US', {
 ---
 
 <BaseLayout title={post.data.title} description={post.data.excerpt} lang="en">
-  <AnimatedBackground client:load type="bubbles" density={35} speed={0.25} opacity={0.15} />
+  <AnimatedBackground client:load type="bubbles" density={45} speed={0.25} opacity={0.22} />
   <article class="post">
     <header class="post__header">
       <time datetime={post.data.date.toISOString()} class="post__date">
@@ -101,7 +101,7 @@ const date = new Date(post.data.date).toLocaleDateString('en-US', {
     background-repeat: no-repeat;
     background-attachment: fixed;
     opacity: 0.25;
-    z-index: -2;
+    z-index: -3;
     pointer-events: none;
   }
 
@@ -123,10 +123,11 @@ const date = new Date(post.data.date).toLocaleDateString('en-US', {
 
   .post h1 {
     font-size: var(--font-size-h1);
+    color: white;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0, 0, 0, 0.2);
     font-weight: 700;
     line-height: 1.2;
     margin-block-end: var(--space-6);
-    color: var(--color-ink);
   }
 
   .post__cover {

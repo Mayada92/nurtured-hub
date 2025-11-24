@@ -211,12 +211,18 @@ else if (focus === 'engineering') {
   // Speaking & Knowledge Sharing
   if (speaking.length > 0) headings.push({ id: 'speaking', text: 'Speaking & Knowledge Sharing', level: 2 });
   if (training.length > 0) headings.push({ id: 'training', text: 'Training & Lectures', level: 2 });
+  // Volunteering
+  if (nonHackathonVolunteering.length > 0 || hackathons.length > 0) {
+    headings.push({ id: 'volunteering', text: 'Volunteering', level: 2 });
+  }
   // Leadership & Community Involvement
   headings.push({ id: 'leadership', text: 'Leadership & Community Involvement', level: 2 });
   // Awards
   headings.push({ id: 'awards', text: 'Awards', level: 2 });
   // Certifications
   if (coursesForProfile.length > 0) headings.push({ id: 'courses', text: 'Certifications', level: 2 });
+  // News & Media
+  if (news.length > 0) headings.push({ id: 'news', text: 'News & Media', level: 2 });
 }
 // Data Science Domain Order: Overview → Education → Projects → Technical Skills → Experience → Hackathons → Certifications
 else if (focus === 'data-science') {
@@ -248,6 +254,8 @@ else if (focus === 'data-science') {
   if (allPosts.filter((p) => p.data.lang === lang && data.pin_posts.includes(p.slug)).length > 0) {
     headings.push({ id: 'writing', text: 'Writing', level: 2 });
   }
+  // News & Media
+  if (news.length > 0) headings.push({ id: 'news', text: 'News & Media', level: 2 });
 }
 // Volunteering Domain - Keep existing order
 else {
@@ -303,7 +311,7 @@ else {
         <TableOfContents headings={headings} />
       </aside>
       <article class="profile-main">
-        <ProfileHeader title={title} headline={data.headline} focus={focus} />
+        <ProfileHeader title={title} focus={focus} />
         
         <section id="overview">
           <h2>Overview</h2>
@@ -531,6 +539,24 @@ else {
 
         {/* Projects Section - Engineering: Projects come after Experience */}
         {focus === 'engineering' && relevantDomains.map((domain) => {
+          const domainProjects = projectsByDomain[domain];
+          if (!domainProjects || domainProjects.length === 0) return null;
+          return (
+            <section id={`projects-${domain}`}>
+              <h2>{domainLabels.en[domain]} - Projects</h2>
+              <div class="section-content">
+                {domainProjects
+                  .sort((a, b) => b.data.year - a.data.year)
+                  .map((p) => (
+                    <ProjectCard project={p} />
+                  ))}
+              </div>
+            </section>
+          );
+        })}
+
+        {/* Projects Section - Volunteering: Projects come after Work Experience */}
+        {focus === 'volunteering' && relevantDomains.map((domain) => {
           const domainProjects = projectsByDomain[domain];
           if (!domainProjects || domainProjects.length === 0) return null;
           return (
@@ -850,7 +876,7 @@ else {
     background-repeat: no-repeat;
     background-attachment: fixed;
     opacity: 0.25;
-    z-index: -2;
+    z-index: -3;
     pointer-events: none;
   }
   .profile-content {

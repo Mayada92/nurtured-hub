@@ -11,7 +11,7 @@ const projects = (await getCollection('projects'))
 ---
 
 <BaseLayout title="Projects" description="Explore my projects and work" lang="en">
-  <AnimatedBackground client:load type="particles" density={45} speed={0.3} opacity={0.18} />
+  <AnimatedBackground client:load type="bubbles" density={40} speed={0.25} opacity={0.2} />
   <section class="section">
     <div class="container">
       <SectionReveal client:load>
@@ -53,12 +53,18 @@ const projects = (await getCollection('projects'))
     background-repeat: no-repeat;
     background-attachment: fixed;
     opacity: 0.25;
-    z-index: -2;
+    z-index: -3;
     pointer-events: none;
   }
 
   .section {
     padding-block: var(--space-8);
+  }
+
+  .section h1 {
+    color: white;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0, 0, 0, 0.2);
+    font-weight: 700;
   }
 
   .grid {

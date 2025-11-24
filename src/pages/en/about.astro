@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import SectionReveal from '../../components/SectionReveal';
 import ImageStage from '../../components/ImageStage';
 import Icon from '../../components/Icon.astro';
+import AnimatedBackground from '../../components/AnimatedBackground';
 import { getBasePath, getImagePath } from '../../utils/path';
 
 const base = getBasePath();
@@ -13,6 +14,7 @@ const base = getBasePath();
   description="Learn about the journey behind Nurtured Mind - exploring the intersection of data science, education, engineering, and human development"
   lang="en"
 >
+  <AnimatedBackground client:load type="bubbles" density={40} speed={0.25} opacity={0.2} />
   <section class="hero-section">
     <div class="container">
       <SectionReveal client:load>

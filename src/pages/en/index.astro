@@ -7,6 +7,7 @@ import ProjectCard from '../../components/ProjectCard.astro';
 import PostCard from '../../components/PostCard.astro';
 import StatsSection from '../../components/StatsSection';
 import Icon from '../../components/Icon.astro';
+import AnimatedBackground from '../../components/AnimatedBackground';
 import { getCollection } from 'astro:content';
 import { getBasePath, getImagePath } from '../../utils/path';
 
@@ -54,6 +55,7 @@ const stats = [
   description="Welcome to Nurtured Mind - A bilingual portfolio showcasing projects, writing, and professional profiles"
   lang="en"
 >
+  <AnimatedBackground client:load type="bubbles" density={50} speed={0.3} opacity={0.25} />
   <div class="landing-page">
     <div class="landing-page__overlay"></div>
     <FloatingLayer client:load />

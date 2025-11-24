@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PaperCard from '../../components/PaperCard.astro';
 import SectionReveal from '../../components/SectionReveal';
+import AnimatedBackground from '../../components/AnimatedBackground';
 import { getCollection } from 'astro:content';
 
 const papers = (await getCollection('papers'))
@@ -15,6 +16,7 @@ const patentCount = patents.length;
 ---
 
 <BaseLayout title="Papers & Patents" description="Research papers, publications, and patents" lang="en">
+  <AnimatedBackground client:load type="bubbles" density={40} speed={0.25} opacity={0.2} />
   <section class="section">
     <div class="container">
       <SectionReveal client:load>
@@ -47,6 +49,12 @@ const patentCount = patents.length;
 
   .section {
     padding-block: var(--space-8);
+  }
+
+  .section h1 {
+    color: white;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0, 0, 0, 0.2);
+    font-weight: 700;
   }
 
   .grid {

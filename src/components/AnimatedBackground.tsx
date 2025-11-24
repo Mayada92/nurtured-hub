@@ -31,7 +31,7 @@ export default function AnimatedBackground({
       'rgba(245, 158, 11, 0.5)',    // amber - accent-3
     ];
 
-    let animationFrameId: number;
+    let animationFrameId: number = 0;
     const particles: Array<{
       x: number;
       y: number;
@@ -56,12 +56,12 @@ export default function AnimatedBackground({
           vx: (Math.random() - 0.5) * speed,
           vy: (Math.random() - 0.5) * speed,
           size: type === 'bubbles' 
-            ? Math.random() * 8 + 4 
+            ? Math.random() * 10 + 5 
             : type === 'molecules'
             ? Math.random() * 6 + 3
             : Math.random() * 4 + 2,
           color: pastelColors[Math.floor(Math.random() * pastelColors.length)],
-          opacity: Math.random() * opacity + opacity * 0.5,
+          opacity: Math.random() * opacity * 0.5 + opacity * 0.5,
         });
       }
     };
@@ -87,8 +87,41 @@ export default function AnimatedBackground({
           particle.x, particle.y, particle.size
         );
         const baseColor = particle.color;
-        gradient.addColorStop(0, baseColor.replace(/[\d.]+\)$/, `${particle.opacity})`));
-        gradient.addColorStop(1, baseColor.replace(/[\d.]+\)$/, `${particle.opacity * 0.3})`));
+        // Replace only the opacity value (the number after the last comma before the closing paren)
+        // Handle various rgba formats: "rgba(r, g, b, a)" with flexible spacing
+        // Pattern matches: comma, optional whitespace, digits/dots, closing paren at end
+        const opacityPattern = /,\s*[\d.]+\)$/;
+        let centerColor: string;
+        let edgeColor: string;
+        
+        if (opacityPattern.test(baseColor)) {
+          // Standard rgba format - replace opacity
+          centerColor = baseColor.replace(opacityPattern, `, ${particle.opacity})`);
+          edgeColor = baseColor.replace(opacityPattern, `, ${particle.opacity * 0.3})`);
+        } else if (baseColor.startsWith('rgba(') && baseColor.endsWith(')')) {
+          // rgba without opacity or malformed - check if it already has 4 parameters
+          // Extract content between parentheses
+          const content = baseColor.slice(5, -1); // Remove 'rgba(' and ')'
+          const params = content.split(',').map(p => p.trim());
+          
+          if (params.length >= 4) {
+            // Already has opacity (4th parameter) - remove it and append new one
+            const rgbPart = params.slice(0, 3).join(', ');
+            centerColor = `rgba(${rgbPart}, ${particle.opacity})`;
+            edgeColor = `rgba(${rgbPart}, ${particle.opacity * 0.3})`;
+          } else {
+            // No opacity - append it
+            centerColor = baseColor.replace(/\)$/, `, ${particle.opacity})`);
+            edgeColor = baseColor.replace(/\)$/, `, ${particle.opacity * 0.3})`);
+          }
+        } else {
+          // Fallback: use original color (shouldn't happen with our color definitions)
+          centerColor = baseColor;
+          edgeColor = baseColor;
+        }
+        
+        gradient.addColorStop(0, centerColor);
+        gradient.addColorStop(1, edgeColor);
         
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
@@ -131,7 +164,9 @@ export default function AnimatedBackground({
     window.addEventListener('resize', handleResize);
 
     return () => {
-      cancelAnimationFrame(animationFrameId);
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
       window.removeEventListener('resize', handleResize);
     };
   }, [type, density, speed, opacity]);

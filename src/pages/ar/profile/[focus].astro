@@ -12,6 +12,7 @@ import WorkCard from '../../../components/WorkCard.astro';
 import ExpandableWorkExample from '../../../components/ExpandableWorkExample.astro';
 import NewsCard from '../../../components/NewsCard.astro';
 import TableOfContents from '../../../components/TableOfContents.astro';
+import AnimatedBackground from '../../../components/AnimatedBackground';
 import { getCollection } from 'astro:content';
 import { organizeByDomain, getDomainOrder, domainLabels } from '../../../utils/organize-by-domain';
 import type { Domain } from '../../../utils/organize-by-domain';
@@ -185,10 +186,11 @@ relevantDomains.forEach((domain) => {
 ---
 
 <BaseLayout title={title} description={data.headline} lang="ar">
+  <AnimatedBackground client:load type="molecules" density={40} speed={0.3} opacity={0.2} />
   <div class="content">
     <div style="display: grid; grid-template-columns: 1fr 300px; gap: var(--space-6); align-items: start;">
       <article>
-        <ProfileHeader title={title} headline={data.headline} focus={focus} />
+        <ProfileHeader title={title} focus={focus} />
         
         <section id="overview">
           <h2>نظرة عامة</h2>
@@ -374,19 +376,24 @@ relevantDomains.forEach((domain) => {
                 </div>
               )}
 
-              {/* Projects */}
-              {domainProjects && domainProjects.length > 0 && (
-                <div class="subsection">
-                  <h3>المشاريع</h3>
-                  <div class="section-content">
-                    {domainProjects
-                      .sort((a, b) => b.data.year - a.data.year)
-                      .map((p) => (
-                        <ProjectCard project={p} />
-                      ))}
-                  </div>
-                </div>
-              )}
+            </section>
+          );
+        })}
+
+        {/* Projects Section - Volunteering: Projects come after Work Experience */}
+        {focus === 'volunteering' && relevantDomains.map((domain) => {
+          const domainProjects = projectsByDomain[domain];
+          if (!domainProjects || domainProjects.length === 0) return null;
+          return (
+            <section id={`projects-${domain}`}>
+              <h2>{domainLabels.ar[domain]} - المشاريع</h2>
+              <div class="section-content">
+                {domainProjects
+                  .sort((a, b) => b.data.year - a.data.year)
+                  .map((p) => (
+                    <ProjectCard project={p} />
+                  ))}
+              </div>
             </section>
           );
         })}

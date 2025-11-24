@@ -1,8 +1,8 @@
 {
   "focus": "engineering",
-  "headline": "Petroleum engineer specializing in artificial lift optimization with 8+ years at Saudi Aramco, combining traditional engineering expertise with advanced AI/machine learning capabilities. Pioneer in applying data science to electrical submersible pump (ESP) operations, with proven track record in digital transformation, automation, and predictive analytics. Bridge between field engineering and data science—translating operational challenges into ML solutions. Led deployment of AI-driven tools impacting thousands of wells. Patent holder and published researcher in petroleum engineering innovation. Session chair and speaker at major industry conferences (MEALC, IPTC). Currently pursuing Masters in Data Science (UC Berkeley) while driving digital transformation initiatives in Aramco's Northern Area production operations.",
+  "headline": "Petroleum engineer with 8+ years at Aramco specializing in artificial lift optimization and ESP data analytics. Known for bridging engineering with ML to solve operational challenges, automate workflows, and deploy AI tools across thousands of wells. Patent holder, conference speaker, and active contributor to digital transformation initiatives in Northern Area operations.",
   "include_tags": ["engineering", "software", "development", "web", "esp", "patents", "mechanical-engineering", "chemical-engineering", "artificial-lift", "flow-assurance", "production-optimization"],
-  "pin_projects": ["esp-replacement-forecast-midas-en", "remote-function-test-en", "ftds-formation-testing-en", "python-automation-en", "esp-ml-diagnostics-en"],
+  "pin_projects": ["esp-ml-diagnostics-en"],
   "pin_posts": [],
   "pin_papers": ["us-patent-10905975-removable-trap-stations-en", "us-patent-8988475-blazer-printer-en"]
 }

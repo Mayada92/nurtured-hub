@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SectionReveal from '../../components/SectionReveal';
+import AnimatedBackground from '../../components/AnimatedBackground';
 import { getCollection } from 'astro:content';
 import { getBasePath } from '../../utils/path';
 
@@ -17,6 +18,7 @@ const profileLinks = {
 ---
 
 <BaseLayout title="Profiles" description="Professional profiles by focus area" lang="en">
+  <AnimatedBackground client:load type="bubbles" density={40} speed={0.25} opacity={0.2} />
   <section class="section">
     <div class="container">
       <SectionReveal client:load>
@@ -57,6 +59,12 @@ const profileLinks = {
 
   .section {
     padding-block: var(--space-8);
+  }
+
+  .section h1 {
+    color: white;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0, 0, 0, 0.2);
+    font-weight: 700;
   }
 
   .profile-grid {

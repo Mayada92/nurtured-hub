@@ -11,8 +11,8 @@ images:
 gallery:
   - type: image
     src: "/images/projects/allam-challenge.png"
-    alt: "Allam Challenge - Arabic Learning Platform for Children"
-    caption: "Allam Challenge: Interactive Arabic Learning Platform for Children"
+    alt: "Allam Challenge - Labeeb Educational Platform: Reviving the Arabic Language for Future Generations"
+    caption: "Allam Challenge: Labeeb Educational Platform - Reviving the Arabic Language for Future Generations"
 ---
 
 **Saudi Data & AI Authority (SDAIA) — Allam Challenge Team Lead (2024)**

@@ -40,7 +40,7 @@ const relatedPapers: Array<Awaited<ReturnType<typeof getCollection<'papers'>>>[n
 ---
 
 <BaseLayout title={data.title} description={data.summary} lang="en">
-  <AnimatedBackground client:load type="particles" density={45} speed={0.3} opacity={0.18} />
+  <AnimatedBackground client:load type="bubbles" density={40} speed={0.25} opacity={0.2} />
   <article class="project-page">
     <div class="container">
       <SectionReveal client:load>
@@ -314,6 +314,9 @@ const relatedPapers: Array<Awaited<ReturnType<typeof getCollection<'papers'>>>[n
 
   .project-header h1 {
     font-size: var(--font-size-h1);
+    color: white;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0, 0, 0, 0.2);
+    font-weight: 700;
     margin-block-end: var(--space-4);
     padding: var(--space-4) var(--space-6);
     display: inline-block;
