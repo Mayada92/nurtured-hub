@@ -24,11 +24,18 @@ export default function AnimatedBackground({
 
     // Pastel colors from theme - more vibrant for visibility
     const pastelColors = [
-      'rgba(139, 92, 246, 0.6)',   // purple - accent-1
-      'rgba(6, 182, 212, 0.6)',     // cyan - accent-2
-      'rgba(236, 72, 153, 0.6)',    // pink - accent-4
-      'rgba(16, 185, 129, 0.5)',    // green - accent-5
-      'rgba(245, 158, 11, 0.5)',    // amber - accent-3
+      'rgba(139, 92, 246, 0.6)',   // purple
+      'rgba(6, 182, 212, 0.6)',    // cyan
+      'rgba(236, 72, 153, 0.6)',   // pink
+      'rgba(16, 185, 129, 0.6)',   // green
+      'rgba(245, 158, 11, 0.6)',   // amber
+      'rgba(249, 115, 22, 0.6)',   // orange
+      'rgba(168, 85, 247, 0.6)',   // violet
+      'rgba(34, 197, 94, 0.6)',    // emerald
+      'rgba(14, 165, 233, 0.6)',   // sky blue
+      'rgba(251, 146, 60, 0.6)',   // light orange
+      'rgba(147, 51, 234, 0.6)',   // deep purple
+      'rgba(59, 130, 246, 0.6)',   // blue
     ];
 
     let animationFrameId: number = 0;
@@ -56,7 +63,7 @@ export default function AnimatedBackground({
           vx: (Math.random() - 0.5) * speed,
           vy: (Math.random() - 0.5) * speed,
           size: type === 'bubbles' 
-            ? Math.random() * 10 + 5 
+            ? Math.random() * 16 + 8 
             : type === 'molecules'
             ? Math.random() * 6 + 3
             : Math.random() * 4 + 2,
