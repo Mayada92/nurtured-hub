@@ -10,7 +10,7 @@ import SpeakingCard from '../../../components/SpeakingCard.astro';
 import CourseCard from '../../../components/CourseCard.astro';
 import WorkCard from '../../../components/WorkCard.astro';
 import ExpandableWorkExample from '../../../components/ExpandableWorkExample.astro';
-import NewsCard from '../../../components/NewsCard.astro';
+// News & Media removed - now has dedicated page
 import TableOfContents from '../../../components/TableOfContents.astro';
 import AnimatedBackground from '../../../components/AnimatedBackground';
 import { getCollection } from 'astro:content';
@@ -47,7 +47,7 @@ const allTraining = await getCollection('training').catch(() => []);
 const allSpeaking = await getCollection('speaking').catch(() => []);
 const allCourses = await getCollection('courses').catch(() => []);
 const allWork = await getCollection('work').catch(() => []);
-const allNews = await getCollection('news').catch(() => []);
+// News & Media removed - now has dedicated /en/news page
 
 // Filter by language
 const volunteering = allVolunteering.filter((v) => v.data.lang === lang);
@@ -55,7 +55,6 @@ const training = allTraining.filter((t) => t.data.lang === lang);
 const allSpeakingFiltered = allSpeaking.filter((s) => s.data.lang === lang);
 const courses = allCourses.filter((c) => c.data.lang === lang);
 const work = allWork.filter((w) => w.data.lang === lang);
-const news = allNews.filter((n) => n.data.lang === lang);
 
 // Filter Toastmasters speeches - only show in education and volunteering profiles, not engineering
 const speaking = focus === 'engineering' 
@@ -185,8 +184,7 @@ if (focus === 'children-education') {
   if (allPosts.filter((p) => p.data.lang === lang && data.pin_posts.includes(p.slug)).length > 0) {
     headings.push({ id: 'writing', text: 'Writing & Thought Leadership', level: 2 });
   }
-  // News & Media
-  if (news.length > 0) headings.push({ id: 'news', text: 'News & Media', level: 2 });
+  // News & Media - Removed from profiles, now has dedicated page
   // Relevant Coursework (Ball State developmental psychology courses)
   if (coursesForProfile.length > 0) headings.push({ id: 'courses', text: 'Relevant Coursework', level: 2 });
 }
@@ -221,8 +219,7 @@ else if (focus === 'engineering') {
   headings.push({ id: 'awards', text: 'Awards', level: 2 });
   // Certifications
   if (coursesForProfile.length > 0) headings.push({ id: 'courses', text: 'Certifications', level: 2 });
-  // News & Media
-  if (news.length > 0) headings.push({ id: 'news', text: 'News & Media', level: 2 });
+  // News & Media - Removed from profiles, now has dedicated page
 }
 // Data Science Domain Order: Overview → Education → Projects → Technical Skills → Experience → Hackathons → Certifications
 else if (focus === 'data-science') {
@@ -254,8 +251,7 @@ else if (focus === 'data-science') {
   if (allPosts.filter((p) => p.data.lang === lang && data.pin_posts.includes(p.slug)).length > 0) {
     headings.push({ id: 'writing', text: 'Writing', level: 2 });
   }
-  // News & Media
-  if (news.length > 0) headings.push({ id: 'news', text: 'News & Media', level: 2 });
+  // News & Media - Removed from profiles, now has dedicated page
 }
 // Volunteering Domain - Keep existing order
 else {
@@ -298,8 +294,7 @@ else {
   if (allPosts.filter((p) => p.data.lang === lang && data.pin_posts.includes(p.slug)).length > 0) {
     headings.push({ id: 'writing', text: 'Writing', level: 2 });
   }
-  // News & Media
-  if (news.length > 0) headings.push({ id: 'news', text: 'News & Media', level: 2 });
+  // News & Media - Removed from profiles, now has dedicated page
 }
 ---
 
@@ -847,19 +842,7 @@ else {
           </section>
         )}
 
-        {/* News & Media Section - All profiles */}
-        {news.length > 0 && (
-          <section id="news">
-            <h2>News & Media</h2>
-            <div class="section-content">
-              {news
-                .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
-                .map((n) => (
-                  <NewsCard news={n} />
-                ))}
-            </div>
-          </section>
-        )}
+        {/* News & Media - Removed from profiles, see dedicated /en/news page */}
       </article>
     </div>
   </div>

@@ -1,7 +1,7 @@
 ---
 title: "Monshaat Bootcamp"
 lang: en
-year: 2023
+year: 2024
 tags: ["general", "business"]
 summary: "Led a 3-day bootcamp on AI applications in business development. Facilitated hands-on generative AI projects for entrepreneurs and SME owners, helping them understand and implement AI solutions in their businesses."
 featured: false
@@ -50,7 +50,9 @@ gallery:
     caption: ""
 ---
 
-Led a 3-day bootcamp on AI applications in business development for entrepreneurs and SME owners. The bootcamp focused on helping participants understand and implement AI solutions in their businesses through hands-on generative AI projects.
+**AI for Business Development Bootcamp | October 13-15, 2024**
+
+Led 3-day intensive bootcamp on AI applications in business development for entrepreneurs and SME owners in Saudi Arabia's Eastern Province. The bootcamp focused on helping participants understand and implement AI solutions in their businesses through hands-on generative AI projects.
 
 ## Bootcamp Overview
 

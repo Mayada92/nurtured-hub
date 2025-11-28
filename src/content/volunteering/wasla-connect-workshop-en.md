@@ -33,10 +33,12 @@ Wasla Connect is a registered 501(c)(3) non-profit organization based in the US.
 
 ## Impact
 
-- **60+ professionals reached** through live workshop
+- **60+ displaced Palestinian professionals reached** through live 2-hour Arabic workshop
 - **Empowered participants** with practical AI skills for career advancement
 - **Career resilience**: Enabled displaced professionals to leverage AI for job opportunities
 - **Educational facilitation**: Demonstrated ability to adapt technical content for diverse audiences
+- **Hands-on training**: Provided interactive exercises and live demonstrations with AI tools
+- **Personalized guidance**: Interactive Q&A with personalized career development advice
 
 ## Why This Matters
 

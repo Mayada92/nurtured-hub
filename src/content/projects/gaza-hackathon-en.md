@@ -18,9 +18,9 @@ gallery:
     caption: "Hack for Gaza Hackathon - Project Development"
 ---
 
-**Hackathon with a Cause - Hack for Gaza**
+**Hackathon with a Cause - Hack for Gaza | July 2024**
 
-Participated in Hack for Gaza hackathon, developing an innovative offline messaging application that enables communication in crisis situations without requiring internet, WiFi, or SIM cards.
+Participated in Hack for Gaza hackathon (July 12, 19 & 20, 2024), developing an innovative offline messaging application that enables communication in crisis situations without requiring internet, WiFi, or SIM cards.
 
 ## Project Overview
 
@@ -51,4 +51,17 @@ This project demonstrates innovative problem-solving for humanitarian technology
 - **Dates:** July 12, 19 & 20, 2024
 - **Format:** Remote & In-Person
 - **Participation:** All skill levels welcome
+- **Organized by:** Deen Developers (Tech for Palestine)
+- **Team:** 6 members across 3 continents
+- **Role:** Technical contributor & Arabic cultural consultant
+
+## Live Demo
+
+🔗 **Live Demo:** [https://gazachat.framer.website/](https://gazachat.framer.website/)
+
+## Impact
+
+- Featured on LinkedIn with 1000+ impressions
+- Addresses critical communication challenges during blackouts
+- Enables peer-to-peer messaging via QR codes (no internet/WiFi/SIM needed)
 

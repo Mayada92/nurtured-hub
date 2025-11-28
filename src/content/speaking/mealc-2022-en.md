@@ -1,7 +1,7 @@
 ---
 title: "High Rate Slim ESP Viability Assessment in the Field"
 lang: en
-type: presentation
+type: conference
 event: "Middle East Artificial Lift Conference & Exhibition (MEALC) 2022"
 venue: "Middle East"
 date: 2022-10-01

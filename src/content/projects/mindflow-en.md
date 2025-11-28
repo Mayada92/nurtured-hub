@@ -23,9 +23,9 @@ gallery:
     alt: "MindFlow Application Screenshot 2"
 ---
 
-**GAIA Hackathon Winner - 4th Place**
+**GAIA Hackathon Winner - 4th Place | May 2023**
 
-Developed MindFlow, an AI-powered mindfulness and meditation platform that provides personalized experiences in both Arabic and English. Achieved 4th place out of 80 participants in the LabLabMe GAIA Hackathon in Riyadh.
+Developed MindFlow, an AI-powered mindfulness and meditation platform that provides personalized experiences in both Arabic and English. Achieved 4th place out of 80 participants in the LabLabMe GAIA Hackathon in Riyadh (May 2023).
 
 ## Project Overview
 

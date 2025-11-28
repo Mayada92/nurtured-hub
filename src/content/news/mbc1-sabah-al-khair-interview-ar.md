@@ -3,7 +3,7 @@ title: "مقابلة صباح الخير يا عرب - MBC1"
 lang: ar
 type: interview
 outlet: "MBC1 - صباح الخير يا عرب"
-date: 2019-08-28
+date: 2020-11-03
 description: "مقابلة في برنامج صباح الخير يا عرب على MBC1 عن دخولي كرة القدم مع فريق شعلة الشرقية وحدث الموسم السيدات أولا مع Golf Saudi."
 url: "https://www.youtube.com/watch?v=SjokX_HTXdg"
 video_url: "https://www.youtube.com/watch?v=SjokX_HTXdg"

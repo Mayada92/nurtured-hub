@@ -32,10 +32,11 @@ This educational data science project applies machine learning techniques to pre
 
 ## Key Accomplishments
 
-- **Data Analysis**: Analyzed 7 years of attendance data across 7 schools, including GPA, attendance rates, and demographic information
+- **Data Analysis**: Analyzed 7 years of attendance data across 7 schools in Oakland Unified School District, including GPA, attendance rates, and demographic information
 - **Predictive Modeling**: Built Random Forest and XGBoost models achieving ~80% accuracy in predicting at-risk students
 - **Early Intervention Focus**: Designed models to identify patterns before attendance becomes a critical issue, enabling proactive support
 - **Educational Impact**: Focused on preventive, supportive interventions (not punitive) to help students succeed
+- **Goal**: Enable early intervention before attendance becomes barrier to success
 
 ## Educational Significance
 
@@ -49,10 +50,17 @@ Chronic absenteeism significantly impacts academic performance, social connectio
 ## Technologies Used
 
 - **Python**: Data processing and model development
-- **scikit-learn**: Machine learning algorithms
-- **pandas**: Data manipulation and analysis
+- **scikit-learn**: Machine learning algorithms (Random Forest, classification models)
 - **XGBoost**: Gradient boosting for improved accuracy
+- **pandas**: Data manipulation and analysis
+- **Jupyter**: Interactive development and analysis
 - **Data Visualization**: Communicating insights to educators and stakeholders
+
+## Team
+
+- **Team**: 3 UC Berkeley MIDS students
+- **Mentor**: ONGB leadership (Mani Grewal, Raviraj Sonwalkar)
+- **Support**: Carren Gopez for continuous intern support
 
 ## Impact & Applications
 

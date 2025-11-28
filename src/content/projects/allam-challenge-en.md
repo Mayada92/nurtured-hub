@@ -15,7 +15,7 @@ gallery:
     caption: "Allam Challenge: Labeeb Educational Platform - Reviving the Arabic Language for Future Generations"
 ---
 
-**Saudi Data & AI Authority (SDAIA) — Allam Challenge Team Lead (2024)**
+**Saudi Data & AI Authority (SDAIA) — Allam Challenge Team Lead | September-October 2024**
 
 **EdTech • Adaptive Learning • Arabic Language**
 
@@ -72,4 +72,17 @@ This project demonstrates the application of cutting-edge AI technology to child
 ## Challenge Context
 
 The Allam Challenge, organized by the Saudi Data & AI Authority (SDAIA), brought together teams to develop innovative applications using IBM's Allam Arabic LLM. This project showcases the potential of AI-powered educational tools for children's language learning, combining generative AI with developmental psychology principles.
+
+## Competition Details
+
+- **Launched:** September 11, 2024
+- **Winners Announced:** October 2024
+- **Prize Pool:** SAR 1,000,000
+- **Official Announcement:** [Saudi Press Agency](https://www.spa.gov.sa/en/N2169540)
+
+## Role & Impact
+
+- **Role:** Team Lead, EdTech Design, Prompt Engineering
+- **Impact:** Promoting Arabic language in AI & education technology
+- **Technologies:** IBM Allam (Arabic Large Language Model), IBM watsonx platform, React, Natural language processing
 

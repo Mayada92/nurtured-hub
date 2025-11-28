@@ -17,8 +17,18 @@ Organized and led soccer clinics for children with special needs, adapting train
 
 ## Key Activities
 
-- **2nd Soccer Clinic for Children with Special Needs (2017)**: Organized and led inclusive soccer training sessions, adapting drills and activities to accommodate different developmental levels and abilities
-- **1st Soccer Clinic for Females (2018)**: Expanded clinic offerings to include female participants, promoting gender inclusion in sports
+- **2nd Soccer Clinic for Children with Special Needs (2017)**: 
+  - Organized and led inclusive soccer training for 20+ children with developmental disabilities
+  - Adapted drills to individual abilities and developmental levels
+  - Created safe, supportive environment for skill-building and confidence
+  - Worked with parents/caregivers to understand individual needs
+
+- **1st Soccer Clinic for Females (2018)**: 
+  - Pioneered first all-female youth soccer clinic in Aramco community
+  - 20+ girls ages 8-14
+  - Broke cultural barriers for girls' sports participation
+  - Promoted gender inclusion in sports
+
 - **Individualized Training**: Adapted coaching methods to meet each child's unique developmental needs and learning style
 - **Inclusive Environment**: Created supportive, confidence-building experiences that focused on participation, effort, and personal growth rather than competition
 

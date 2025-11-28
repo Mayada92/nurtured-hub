@@ -1,7 +1,7 @@
 ---
 title: "Leveraging Circular Economy Principles for Electrical Submersible Pump Equipment"
 lang: en
-type: presentation
+type: conference
 event: "Middle East Artificial Lift Conference & Exhibition (MEALC) 2024"
 venue: "Bahrain"
 date: 2024-10-01

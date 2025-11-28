@@ -3,7 +3,7 @@ title: "Are We Preparing Kids for Life...or Just for School?"
 lang: en
 date: 2024-06-15
 excerpt: "Exploring how modern education systems may inadvertently delay adolescent development. Examining the balance between academic achievement and real-world responsibility, early childhood developmental milestones, and the impact of screen time on child development."
-canonical_url: "https://www.linkedin.com/posts/mayada-alhashem_education-childdevelopment-adolescence-activity-7192345678901234567-abc123"
+canonical_url: "https://www.linkedin.com/posts/mayada-alhashem_childdevelopment-educationalpsychology-humandevelopment-activity-7358421547260198912-VSTH?utm_source=share&utm_medium=member_desktop&rcm=ACoAABaicl4BwLD43MOtkIM0qvm9XWFkyIeyP2k"
 cover: "/images/blog/preparing-kids-for-life.jpg"
 tags: ["education", "educational-psychology", "child-development", "adolescence"]
 images:

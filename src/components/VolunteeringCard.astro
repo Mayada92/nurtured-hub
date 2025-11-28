@@ -10,16 +10,63 @@ const { volunteering } = Astro.props;
 const { data } = volunteering;
 const isRTL = data.lang === 'ar';
 const dateFormat = isRTL ? 'ar-SA' : 'en-US';
-const startDate = new Date(data.start_date).toLocaleDateString(dateFormat, {
-  year: 'numeric',
-  month: 'short',
-});
-const endDate = data.end_date
-  ? new Date(data.end_date).toLocaleDateString(dateFormat, {
+
+// Date formatting logic
+const startDateObj = new Date(data.start_date);
+const endDateObj = data.end_date ? new Date(data.end_date) : null;
+
+// Check if dates represent a full year (Jan 1 to Dec 31 of same year)
+const isYearOnly = endDateObj && 
+  startDateObj.getFullYear() === endDateObj.getFullYear() &&
+  startDateObj.getMonth() === 0 && startDateObj.getDate() === 1 &&
+  endDateObj.getMonth() === 11 && endDateObj.getDate() === 31;
+
+// Format date display
+let dateDisplay = '';
+if (isYearOnly) {
+  // Year only: "2018"
+  dateDisplay = startDateObj.getFullYear().toString();
+} else if (!endDateObj) {
+  // No end date: "Jan 2024"
+  dateDisplay = new Date(data.start_date).toLocaleDateString(dateFormat, {
+    year: 'numeric',
+    month: 'short',
+  });
+} else {
+  const startYear = startDateObj.getFullYear();
+  const startMonth = startDateObj.getMonth();
+  const endYear = endDateObj.getFullYear();
+  const endMonth = endDateObj.getMonth();
+  
+  if (startYear === endYear && startMonth === endMonth) {
+    // Same month and year: "Jul 2024" (not "Jul 2024 - Jul 2024")
+    dateDisplay = new Date(data.start_date).toLocaleDateString(dateFormat, {
       year: 'numeric',
       month: 'short',
-    })
-  : null;
+    });
+  } else if (startYear === endYear) {
+    // Same year, different months: "Jul - Aug 2024"
+    const startMonthStr = new Date(data.start_date).toLocaleDateString(dateFormat, {
+      month: 'short',
+    });
+    const endMonthStr = new Date(data.end_date).toLocaleDateString(dateFormat, {
+      month: 'short',
+    });
+    const yearStr = startDateObj.getFullYear().toString();
+    dateDisplay = `${startMonthStr} - ${endMonthStr} ${yearStr}`;
+  } else {
+    // Different years: "Jul 2024 - Aug 2025"
+    const startDateStr = new Date(data.start_date).toLocaleDateString(dateFormat, {
+      year: 'numeric',
+      month: 'short',
+    });
+    const endDateStr = new Date(data.end_date).toLocaleDateString(dateFormat, {
+      year: 'numeric',
+      month: 'short',
+    });
+    dateDisplay = `${startDateStr} - ${endDateStr}`;
+  }
+}
 ---
 
 <article class="volunteering-card">
@@ -36,7 +83,7 @@ const endDate = data.end_date
         <div class="volunteering-card__details">
           <span class="role">{data.role}</span>
           <span class="date">
-            {startDate} {data.ongoing ? (isRTL ? '- حتى الآن' : '- Present') : endDate ? ` - ${endDate}` : ''}
+            {dateDisplay} {data.ongoing ? (isRTL ? '- حتى الآن' : '- Present') : ''}
           </span>
           {data.ongoing && <Badge label={isRTL ? 'مستمر' : 'Ongoing'} variant="accent-1" size="sm" />}
         </div>
@@ -54,7 +101,7 @@ const endDate = data.end_date
       <div class="volunteering-card__details">
         <span class="role">{data.role}</span>
         <span class="date">
-          {startDate} {data.ongoing ? (isRTL ? '- حتى الآن' : '- Present') : endDate ? ` - ${endDate}` : ''}
+          {dateDisplay} {data.ongoing ? (isRTL ? '- حتى الآن' : '- Present') : ''}
         </span>
         {data.ongoing && <Badge label={isRTL ? 'مستمر' : 'Ongoing'} variant="accent-1" size="sm" />}
       </div>

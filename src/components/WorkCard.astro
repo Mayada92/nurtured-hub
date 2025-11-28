@@ -10,11 +10,22 @@ const { work } = Astro.props;
 const { data } = work;
 const isRTL = data.lang === 'ar';
 const dateFormat = isRTL ? 'ar-SA' : 'en-US';
-const startDate = new Date(data.start_date).toLocaleDateString(dateFormat, {
-  year: 'numeric',
-  month: 'short',
-});
-const endDate = data.end_date
+
+// Check if dates represent a full year (Jan 1 to Dec 31 of same year)
+const startDateObj = new Date(data.start_date);
+const endDateObj = data.end_date ? new Date(data.end_date) : null;
+const isYearOnly = endDateObj && 
+  startDateObj.getFullYear() === endDateObj.getFullYear() &&
+  startDateObj.getMonth() === 0 && startDateObj.getDate() === 1 &&
+  endDateObj.getMonth() === 11 && endDateObj.getDate() === 31;
+
+const startDate = isYearOnly 
+  ? startDateObj.getFullYear().toString()
+  : new Date(data.start_date).toLocaleDateString(dateFormat, {
+      year: 'numeric',
+      month: 'short',
+    });
+const endDate = data.end_date && !isYearOnly
   ? new Date(data.end_date).toLocaleDateString(dateFormat, {
       year: 'numeric',
       month: 'short',
@@ -48,7 +59,7 @@ const domainLabels = {
         </div>
         <div class="work-card__details">
           <span class="date">
-            {startDate} {data.ongoing ? (isRTL ? '- حتى الآن' : '- Present') : endDate ? ` - ${endDate}` : ''}
+            {startDate} {data.ongoing ? (isRTL ? '- حتى الآن' : '- Present') : (isYearOnly ? '' : endDate ? ` - ${endDate}` : '')}
           </span>
           {data.ongoing && <Badge label={isRTL ? 'مستمر' : 'Ongoing'} variant="accent-1" size="sm" />}
         </div>
@@ -63,7 +74,7 @@ const domainLabels = {
       </div>
       <div class="work-card__details">
         <span class="date">
-          {startDate} {data.ongoing ? (isRTL ? '- حتى الآن' : '- Present') : endDate ? ` - ${endDate}` : ''}
+          {startDate} {data.ongoing ? (isRTL ? '- حتى الآن' : '- Present') : (isYearOnly ? '' : endDate ? ` - ${endDate}` : '')}
         </span>
         {data.ongoing && <Badge label={isRTL ? 'مستمر' : 'Ongoing'} variant="accent-1" size="sm" />}
       </div>

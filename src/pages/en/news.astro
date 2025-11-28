@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import NewsCard from '../../components/NewsCard.astro';
+import SectionReveal from '../../components/SectionReveal';
+import AnimatedBackground from '../../components/AnimatedBackground';
+import { getCollection } from 'astro:content';
+
+const allNews = await getCollection('news').catch(() => []);
+const news = allNews
+  .filter((n) => n.data.lang === 'en')
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+
+const newsCount = news.length;
+---
+
+<BaseLayout title="News & Media" description="Media coverage, interviews, and news articles" lang="en">
+  <AnimatedBackground client:load type="bubbles" density={55} speed={0.3} opacity={0.35} />
+  <section class="section">
+    <div class="container">
+      <SectionReveal client:load>
+        <h1>News & Media</h1>
+        <p>Media coverage, interviews, and news articles. <span class="news-count">({newsCount} items)</span></p>
+      </SectionReveal>
+      <div class="grid grid--news">
+        {news.map((item) => (
+          <NewsCard news={item} />
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  :global(body)::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url('/images/background/background5.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    opacity: 0.25;
+    z-index: -3;
+    pointer-events: none;
+  }
+
+  .section {
+    padding-block: var(--space-8);
+  }
+
+  .section h1 {
+    color: white;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0, 0, 0, 0.2);
+    font-weight: 700;
+  }
+
+  .grid {
+    display: grid;
+    gap: var(--space-4);
+    margin-block-start: var(--space-6);
+  }
+
+  .grid--news {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+
+  @media (min-width: 768px) {
+    .grid--news {
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    }
+  }
+
+  .news-count {
+    color: var(--color-muted-ink);
+    font-size: 0.65625rem;
+    font-weight: 500;
+  }
+</style>
+

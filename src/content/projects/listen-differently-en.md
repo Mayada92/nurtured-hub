@@ -16,9 +16,9 @@ gallery:
     caption: "SMRSEA - Smart Music Recommendation System for Emerging Artists"
 ---
 
-**Smart Music Recommendation System for Emerging Artists (SMRSEA)**
+**Smart Music Recommendation System for Emerging Artists (SMRSEA) | May 2024**
 
-Collaborated with UC Berkeley MIDS teammates to develop a graph-based music recommendation system that helps emerging artists gain visibility by prioritizing musical quality over popularity metrics.
+UC Berkeley MIDS Data Engineering Project (W205). Collaborated with UC Berkeley MIDS teammates to develop a graph-based music recommendation system that helps emerging artists gain visibility by prioritizing musical quality over popularity metrics.
 
 ## Project Overview
 

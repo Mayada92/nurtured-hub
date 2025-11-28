@@ -18,8 +18,6 @@ skills:
   - "Community Support"
   - "Health Advocacy"
   - "Personal Storytelling"
-url: "https://us02web.zoom.us/j/84853005565"
-video_url: "https://us02web.zoom.us/j/84853005565"
 cover: "/images/volunteering/arfa-ms-talk.jpg"
 images:
   - "/images/volunteering/arfa-ms-talk-poster.jpg"

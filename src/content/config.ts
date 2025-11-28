@@ -124,7 +124,7 @@ const speakingCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     lang: z.enum(['en', 'ar']),
-    type: z.enum(['talk', 'presentation', 'panel', 'keynote', 'webinar']),
+    type: z.enum(['talk', 'presentation', 'panel', 'keynote', 'webinar', 'conference']),
     event: z.string(),
     venue: z.string().optional(),
     date: z.date(),

@@ -7,8 +7,6 @@ venue: "Online (Zoom)"
 date: 2023-12-26
 domain: ["general", "sports"]
 description: "Spoke about positive coexistence with Multiple Sclerosis as part of the Nasya Shifa series organized by Arfa Association for Multiple Sclerosis. Co-presented with Hamad Al-Shaifani, Media Officer at Arfa Association. The talk focused on ways to live positively with MS, sharing insights from personal experience as an engineer and football player."
-recording_url: "https://us02web.zoom.us/j/84853005565"
-event_url: "https://us02web.zoom.us/j/84853005565"
 cover: "/images/speaking/arfa-ms-positive-coexistence.jpg"
 ---
 
