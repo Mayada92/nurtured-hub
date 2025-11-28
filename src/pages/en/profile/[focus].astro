@@ -88,9 +88,14 @@ const coursesForProfile = courses.filter((c) => {
   return courseDomains.some((d) => relevantDomains.includes(d));
 });
 
+// Separate certifications from coursework
+const certifications = coursesForProfile.filter((c) => c.data.level === 'certification');
+const coursework = coursesForProfile.filter((c) => c.data.level !== 'certification');
+
 // Organize by domain - only show relevant domains
 const workByDomain = organizeByDomain(workForProfile, lang);
-const coursesByDomain = organizeByDomain(coursesForProfile, lang);
+const certificationsByDomain = organizeByDomain(certifications, lang);
+const coursesByDomain = organizeByDomain(coursework, lang);
 const trainingByDomain = organizeByDomain(training, lang);
 const speakingByDomain = organizeByDomain(speaking, lang);
 const projectsByDomain = organizeByDomain(
@@ -185,8 +190,10 @@ if (focus === 'children-education') {
     headings.push({ id: 'writing', text: 'Writing & Thought Leadership', level: 2 });
   }
   // News & Media - Removed from profiles, now has dedicated page
-  // Relevant Coursework (Ball State developmental psychology courses)
-  if (coursesForProfile.length > 0) headings.push({ id: 'courses', text: 'Relevant Coursework', level: 2 });
+  // Certifications (if any)
+  if (certifications.length > 0) headings.push({ id: 'certifications', text: 'Certifications', level: 2 });
+  // Relevant Coursework (Ball State developmental psychology courses) - at the end
+  if (coursework.length > 0) headings.push({ id: 'courses', text: 'Relevant Coursework', level: 2 });
 }
 // Engineering Domain Order: Overview → Education → Experience → Projects → Patents → Speaking → Certifications
 else if (focus === 'engineering') {
@@ -217,11 +224,13 @@ else if (focus === 'engineering') {
   headings.push({ id: 'leadership', text: 'Leadership & Community Involvement', level: 2 });
   // Awards
   headings.push({ id: 'awards', text: 'Awards', level: 2 });
-  // Certifications
-  if (coursesForProfile.length > 0) headings.push({ id: 'courses', text: 'Certifications', level: 2 });
+  // Certifications (separate from coursework)
+  if (certifications.length > 0) headings.push({ id: 'certifications', text: 'Certifications', level: 2 });
+  // Courses (at the end)
+  if (coursework.length > 0) headings.push({ id: 'courses', text: 'Courses', level: 2 });
   // News & Media - Removed from profiles, now has dedicated page
 }
-// Data Science Domain Order: Overview → Education → Projects → Technical Skills → Experience → Hackathons → Certifications
+// Data Science Domain Order: Overview → Education → Projects → Technical Skills → Experience → Hackathons → Certifications → Courses
 else if (focus === 'data-science') {
   // Projects (GazaChat, MindFlow, BizDeal dashboard, Nadec platform)
   relevantDomains.forEach((domain) => {
@@ -245,8 +254,10 @@ else if (focus === 'data-science') {
   // Speaking & Knowledge Sharing
   if (speaking.length > 0) headings.push({ id: 'speaking', text: 'Speaking & Knowledge Sharing', level: 2 });
   if (training.length > 0) headings.push({ id: 'training', text: 'Training & Lectures', level: 2 });
-  // Certifications
-  if (coursesForProfile.length > 0) headings.push({ id: 'courses', text: 'Certifications', level: 2 });
+  // Certifications (separate from coursework)
+  if (certifications.length > 0) headings.push({ id: 'certifications', text: 'Certifications', level: 2 });
+  // Courses (at the end)
+  if (coursework.length > 0) headings.push({ id: 'courses', text: 'Courses', level: 2 });
   // Writing
   if (allPosts.filter((p) => p.data.lang === lang && data.pin_posts.includes(p.slug)).length > 0) {
     headings.push({ id: 'writing', text: 'Writing', level: 2 });
@@ -288,8 +299,10 @@ else {
       headings.push({ id: 'sports', text: 'Sports', level: 2 });
     }
   }
-  // Courses
-  if (coursesForProfile.length > 0) headings.push({ id: 'courses', text: 'Courses', level: 2 });
+  // Certifications (separate from coursework)
+  if (certifications.length > 0) headings.push({ id: 'certifications', text: 'Certifications', level: 2 });
+  // Courses (at the end)
+  if (coursework.length > 0) headings.push({ id: 'courses', text: 'Courses', level: 2 });
   // Writing
   if (allPosts.filter((p) => p.data.lang === lang && data.pin_posts.includes(p.slug)).length > 0) {
     headings.push({ id: 'writing', text: 'Writing', level: 2 });
@@ -803,10 +816,37 @@ else {
           ) : null;
         })()}
 
-        {/* Courses Section - Order varies by focus type */}
-        {coursesForProfile.length > 0 && (
+        {/* Certifications Section - Before Courses */}
+        {certifications.length > 0 && (
+          <section id="certifications">
+            <h2>Certifications</h2>
+            {relevantDomains.map((domain) => {
+              const domainCertifications = certificationsByDomain[domain];
+              if (!domainCertifications || domainCertifications.length === 0) return null;
+              return (
+                <div id={`certifications-${domain}`} class="domain-section">
+                  <h3>{domainLabels.en[domain]}</h3>
+                  <div class="section-content">
+                    {domainCertifications
+                      .sort((a, b) => {
+                        // Sort by year descending, then by term if available
+                        if (b.data.year !== a.data.year) return b.data.year - a.data.year;
+                        return (b.data.term || '').localeCompare(a.data.term || '');
+                      })
+                      .map((course) => (
+                        <CourseCard course={course} />
+                      ))}
+                  </div>
+                </div>
+              );
+            })}
+          </section>
+        )}
+
+        {/* Courses Section - At the end */}
+        {coursework.length > 0 && (
           <section id="courses">
-            <h2>{focus === 'children-education' ? 'Relevant Coursework' : focus === 'engineering' || focus === 'data-science' ? 'Certifications' : 'Courses'}</h2>
+            <h2>{focus === 'children-education' ? 'Relevant Coursework' : 'Courses'}</h2>
             {relevantDomains.map((domain) => {
               const domainCourses = coursesByDomain[domain];
               if (!domainCourses || domainCourses.length === 0) return null;
