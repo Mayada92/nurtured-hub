@@ -71,9 +71,7 @@ Policymakers and education leaders should help create a system that represents t
 
 Community leaders should emphasize community hubs, volunteering opportunities, school involvement in the community, and the relationship between parents and schools. They should support mentorship programs and volunteering programs, because when kids and adolescents become part of the bigger community and start acting responsibly, they are able to develop socially and emotionally better. They will face certain life challenges that they can learn to overcome, which is good for them in their critical ages rather than becoming isolated adults. Research shows that when adolescents have a strong sense of purpose through community involvement, they show more prosocial behavior, greater well-being, and lower rates of depression (Barcaccia et al., 2023).
 
-**[FIGURE 6 - PLACEMENT: Here, after the policy recommendations]**  
-*Description: An illustration showing interconnected elements: "School" (building icon), "Home" (house icon), "Community Hub" (people gathering icon), with arrows connecting them all around a child in the center. Include small icons for "Volunteering," "Mentorship," "After-School Programs." Style: modern, clean vector art with a hopeful color palette (blues and greens).*  
-*Caption: "The policy vision: Reconnecting children to their communities."*
+![The policy vision: Reconnecting children to their communities.](/images/blog/figure-6-policy-vision.png)
 
 Leaders should also work on protecting family values, maternity rights, and the home environment instead of isolating families. Modern nuclear-family isolation reduces the social capital available to children, limiting the guidance they receive and weakening protective factors like belonging and moral mentorship (Putnam, 2015). Creating systems that reinforce consistent values across home, school, and community helps children develop stronger emotional regulation, identity clarity, and moral reasoning (Turiel, 2002).
 
@@ -89,9 +87,7 @@ The village metaphor has been at the center of my learning. It represents the id
 
 As I move forward, I will carry these insights with me. I will think about how to surround myself and my future children with healthy circles that create an environment similar to a village. I will recognize the value of community involvement, the importance of consistent messages across contexts, and the power of shared meaning in shaping children's development. I will also remain aware that every adult has a responsible role and power of influence on the youth around them.
 
-**[FIGURE 7 - PLACEMENT: End of article, before references]**  
-*Description: Your full interactive concept map (the one you'll create for the assignment). This should be embedded as a high-resolution image or, if you build the interactive version, as an iframe embed.*  
-*Caption: "The Village Model: A visual synthesis of how collectivist support, emotional regulation, identity development, and community resilience interconnect to support child development."*
+![The Village Model: A visual synthesis of how collectivist support, emotional regulation, identity development, and community resilience interconnect to support child development.](/images/blog/figure-7-concept-map.png)
 
 > **[Explore the Interactive Village Model Mind Map →](/en/writing/village-model-mindmap)**
 
