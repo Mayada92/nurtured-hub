@@ -214,8 +214,8 @@ const EnchantedValleyMap = () => {
             <line
               x1="75%"
               y1="420px"
-              x2="92%"
-              y2="320px"
+              x2="94%"
+              y2="300px"
               stroke="rgba(120, 255, 150, 0.7)"
               strokeWidth="2"
               strokeDasharray="4,4"
@@ -224,8 +224,8 @@ const EnchantedValleyMap = () => {
             <line
               x1="75%"
               y1="420px"
-              x2="92%"
-              y2="520px"
+              x2="94%"
+              y2="540px"
               stroke="rgba(120, 255, 150, 0.7)"
               strokeWidth="2"
               strokeDasharray="4,4"
@@ -235,8 +235,8 @@ const EnchantedValleyMap = () => {
             <line
               x1="25%"
               y1="420px"
-              x2="10%"
-              y2="320px"
+              x2="8%"
+              y2="300px"
               stroke="rgba(120, 255, 150, 0.7)"
               strokeWidth="2"
               strokeDasharray="4,4"
@@ -245,8 +245,8 @@ const EnchantedValleyMap = () => {
             <line
               x1="25%"
               y1="420px"
-              x2="10%"
-              y2="520px"
+              x2="8%"
+              y2="540px"
               stroke="rgba(120, 255, 150, 0.7)"
               strokeWidth="2"
               strokeDasharray="4,4"
@@ -461,11 +461,11 @@ const EnchantedValleyMap = () => {
             isHovered={hoveredNode === 'Consistency'}
           />
           
-          {/* RIGHT CLUSTER - Mirror Meadow */}
+          {/* RIGHT CLUSTER - Mirror Meadow - spread vertically to avoid overlaps */}
           <ProtectiveLabel
             title="Shared Identity & Belonging"
             short="Shared Identity"
-            x="92%" y="320px"
+            x="94%" y="300px"
             onClick={() => setSelectedNode('Shared Identity')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Shared Identity'}
@@ -473,17 +473,17 @@ const EnchantedValleyMap = () => {
           <ProtectiveLabel
             title="Emotional Buffering & Co-Regulation"
             short="Co-Regulation"
-            x="92%" y="520px"
+            x="94%" y="540px"
             onClick={() => setSelectedNode('Co-Regulation')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Co-Regulation'}
           />
           
-          {/* LEFT CLUSTER - Council Grove */}
+          {/* LEFT CLUSTER - Council Grove - push further left */}
           <ProtectiveLabel
             title="Collective Advice & Wisdom"
             short="Collective Wisdom"
-            x="10%" y="320px"
+            x="8%" y="300px"
             onClick={() => setSelectedNode('Collective Wisdom')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Collective Wisdom'}
@@ -491,7 +491,7 @@ const EnchantedValleyMap = () => {
           <ProtectiveLabel
             title="Recognition of Individual Strengths"
             short="Individual Strengths"
-            x="10%" y="520px"
+            x="8%" y="540px"
             onClick={() => setSelectedNode('Individual Strengths')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Individual Strengths'}
@@ -508,8 +508,8 @@ const EnchantedValleyMap = () => {
           />
 
           {/* RISK FACTORS - Exact positions as specified */}
-          {/* TOP CLUSTER - Heartstream River */}
-          <RiskLabel title="Emotional Fragility" x="35%" y="135px" />
+          {/* TOP CLUSTER - Heartstream River - more left for symmetry */}
+          <RiskLabel title="Emotional Fragility" x="32%" y="135px" />
           
           {/* RIGHT CLUSTER - Mirror Meadow */}
           <RiskLabel title="Identity Confusion" x="88%" y="260px" />
@@ -710,8 +710,8 @@ const MapLocation: React.FC<MapLocationProps> = ({ title, subtitle, x, y, size, 
   };
 
   const sizes = {
-    large: { width: '220px', fontSize: '1.4rem', subtitleSize: '1rem' },
-    medium: { width: '180px', fontSize: '1.1rem', subtitleSize: '0.85rem' }
+    large: { width: '240px', height: '240px', fontSize: '1.5rem', subtitleSize: '1.1rem' }, // Perfect circle, slightly larger
+    medium: { width: '200px', height: '200px', fontSize: '1.2rem', subtitleSize: '0.9rem' } // Perfect circle
   };
 
   return (
@@ -725,18 +725,23 @@ const MapLocation: React.FC<MapLocationProps> = ({ title, subtitle, x, y, size, 
         top: y,
         transform: 'translate(-50%, -50%)',
         width: sizes[size].width,
+        height: sizes[size].height, // Equal height for perfect circle
         padding: '20px',
         cursor: 'pointer',
         transition: 'all 0.4s ease',
         textAlign: 'center',
         filter: isHovered ? 'brightness(1.3)' : 'brightness(1)',
         animation: isHovered ? 'pulse 1.5s infinite' : 'none',
-        background: 'rgba(20, 30, 40, 0.85)',
-        borderRadius: '15px',
+        background: 'rgba(20, 30, 40, 0.9)', // More opaque to cover lines
+        borderRadius: '50%', // Perfect circle
         backdropFilter: 'blur(10px)',
-        border: `1px solid ${glowColors[glow]}40`,
-        boxShadow: `0 4px 20px rgba(0,0,0,0.5), 0 0 30px ${glowColors[glow]}30`,
-        zIndex: 5 // Above lines and cluster circles, below risk factors
+        border: `2px solid ${glowColors[glow]}60`, // Stronger border
+        boxShadow: `0 4px 20px rgba(0,0,0,0.6), 0 0 40px ${glowColors[glow]}40`, // Stronger shadow
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        zIndex: 6 // Above lines and cluster circles
       }}
     >
       {/* Glow effect */}
@@ -752,7 +757,7 @@ const MapLocation: React.FC<MapLocationProps> = ({ title, subtitle, x, y, size, 
         transition: 'opacity 0.4s ease',
         pointerEvents: 'none',
         filter: 'blur(15px)',
-        borderRadius: isCircular ? '50%' : '15px',
+        borderRadius: '50%', // Always circular for glow
         zIndex: -1
       }} />
       
