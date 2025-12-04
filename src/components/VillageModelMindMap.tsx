@@ -76,7 +76,8 @@ const EnchantedValleyMap = () => {
       minHeight: '100vh',
       position: 'relative',
       fontFamily: '"Cormorant Garamond", "Crimson Pro", Georgia, serif',
-      overflow: 'auto'
+      overflow: 'auto',
+      backgroundColor: '#1a1a1a' // Solid background to prevent transparency
     }}>
       
       {/* Background Image - full width, fully opaque */}
@@ -91,8 +92,10 @@ const EnchantedValleyMap = () => {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
+        backgroundColor: '#1a1a1a', // Solid fallback color
         zIndex: 0,
-        opacity: 1
+        opacity: 1,
+        filter: 'none' // Ensure no transparency filters
       }} />
 
       {/* Content Container */}
