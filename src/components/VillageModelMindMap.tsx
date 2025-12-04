@@ -80,17 +80,17 @@ const EnchantedValleyMap = () => {
       backgroundColor: '#1a1a1a' // Solid background to prevent transparency
     }}>
       
-      {/* Background Image - full width, fully opaque */}
+      {/* Background Image - full image, no cropping, starts at top */}
       <div style={{
         position: 'absolute',
-        top: '140px', // Start after title
+        top: 0, // Start at the very top of the page
         left: 0,
         right: 0,
         width: '100%',
-        height: '700px', // Height to end before Cultural Variation
+        height: '100vh', // Full viewport height
         backgroundImage: `url(${imagePath})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundSize: 'contain', // Show full image without cropping
+        backgroundPosition: 'center top', // Center horizontally, align to top
         backgroundRepeat: 'no-repeat',
         backgroundColor: '#1a1a1a', // Solid fallback color
         zIndex: 0,
