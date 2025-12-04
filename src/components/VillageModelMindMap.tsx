@@ -126,18 +126,18 @@ const EnchantedValleyMap = () => {
           <h1 style={{
             fontSize: '3.5rem',
             fontWeight: '400',
-            color: '#1a1a1a',
+            color: '#fff8dc', /* Baby yellow/cream */
             marginBottom: '10px',
             letterSpacing: '2px',
-            textShadow: '0 0 20px rgba(255,255,255,0.8), 0 0 40px rgba(255,255,255,0.5), 2px 2px 4px rgba(0,0,0,0.3)'
+            textShadow: '0 0 20px rgba(255,255,255,0.8), 0 0 40px rgba(255,255,255,0.5), 2px 2px 8px rgba(0,0,0,0.6)'
           }}>
             The Village Model
           </h1>
           <p style={{
             fontSize: '1.3rem',
-            color: '#2a2a2a',
+            color: '#fffef5', /* Soft white */
             fontStyle: 'italic',
-            textShadow: '0 0 15px rgba(255,255,255,0.9), 1px 1px 3px rgba(0,0,0,0.4)'
+            textShadow: '0 0 15px rgba(255,255,255,0.9), 1px 1px 5px rgba(0,0,0,0.5)'
           }}>
             A Metaphor for Social and Emotional Development
           </p>
