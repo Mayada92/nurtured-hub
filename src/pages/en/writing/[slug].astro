@@ -66,14 +66,18 @@ const date = new Date(post.data.date).toLocaleDateString('en-US', {
           }
         });
         
-        // Fix internal links (links starting with /en/ or /ar/)
-        const links = content.querySelectorAll('a[href^="/en/"], a[href^="/ar/"]');
+        // Fix internal links (links starting with /en/, /ar/, or containing the base path)
+        const links = content.querySelectorAll('a');
         links.forEach((link) => {
           const href = link.getAttribute('href');
-          if (href && !href.startsWith(basePath)) {
+          if (href && (href.startsWith('/en/') || href.startsWith('/ar/') || href.includes('/en/') || href.includes('/ar/'))) {
+            // If it already starts with basePath, skip
+            if (href.startsWith(basePath)) return;
             // Remove leading slash and add base path
             const cleanPath = href.startsWith('/') ? href.slice(1) : href;
-            link.href = `${basePath}${cleanPath}`.replace(/\/+/g, '/');
+            // Remove any existing base path to avoid duplication
+            const pathWithoutBase = cleanPath.replace(new RegExp(`^${basePath.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`), '');
+            link.href = `${basePath}${pathWithoutBase}`.replace(/\/+/g, '/');
           }
         });
       })();
@@ -203,8 +207,8 @@ const date = new Date(post.data.date).toLocaleDateString('en-US', {
   }
 
   /* Keep ONLY the first image (FIGURE 1a - before Introduction) large */
-  /* The first image is in the first paragraph before the first h2 */
-  .post__content > :global(p:first-of-type) :global(img) {
+  /* Target the first img element directly, not the first p */
+  .post__content :global(img:first-of-type) {
     width: 100% !important;
     max-width: 100% !important;
   }

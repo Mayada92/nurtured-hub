@@ -11,7 +11,10 @@ import VillageModelMindMap from '../../../components/VillageModelMindMap';
   :global(body) {
     overflow-x: hidden;
   }
+</style>
 
+<style is:global>
+  /* Define pulse animation globally so it's available to the React component */
   @keyframes pulse {
     0%, 100% {
       transform: translate(-50%, -50%) scale(1);
