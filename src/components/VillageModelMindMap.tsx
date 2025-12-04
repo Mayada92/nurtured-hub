@@ -156,13 +156,13 @@ const EnchantedValleyMap = () => {
               zIndex: 1 // Behind all elements
             }}
           >
-            {/* Lines from The Child's Village to main domains - better spacing */}
+            {/* Lines from The Child's Village to main domains - updated positions */}
             {/* To Heartstream River (top) */}
             <line
               x1="50%"
-              y1="650px"
+              y1="500px"
               x2="50%"
-              y2="250px"
+              y2="240px"
               stroke="rgba(255, 215, 120, 0.6)"
               strokeWidth="2.5"
               filter="url(#glow)"
@@ -170,9 +170,9 @@ const EnchantedValleyMap = () => {
             {/* To Mirror Meadow (right) */}
             <line
               x1="50%"
-              y1="650px"
+              y1="500px"
               x2="75%"
-              y2="550px"
+              y2="420px"
               stroke="rgba(255, 215, 120, 0.6)"
               strokeWidth="2.5"
               filter="url(#glow)"
@@ -180,9 +180,9 @@ const EnchantedValleyMap = () => {
             {/* To Gathering Square (bottom) */}
             <line
               x1="50%"
-              y1="650px"
+              y1="500px"
               x2="50%"
-              y2="1050px"
+              y2="760px"
               stroke="rgba(255, 215, 120, 0.6)"
               strokeWidth="2.5"
               filter="url(#glow)"
@@ -190,42 +190,42 @@ const EnchantedValleyMap = () => {
             {/* To Council Grove (left) */}
             <line
               x1="50%"
-              y1="650px"
+              y1="500px"
               x2="25%"
-              y2="550px"
+              y2="420px"
               stroke="rgba(255, 215, 120, 0.6)"
               strokeWidth="2.5"
               filter="url(#glow)"
             />
             
-            {/* Lines from domains to protective factors - middle zone */}
-            {/* Heartstream River to Consistency - moved to right */}
+            {/* Lines from domains to protective factors - updated positions */}
+            {/* Heartstream River to Consistency */}
             <line
               x1="50%"
-              y1="250px"
-              x2="70%"
-              y2="150px"
-              stroke="rgba(120, 255, 150, 0.7)"
-              strokeWidth="2"
-              strokeDasharray="4,4"
-            />
-            {/* Heartstream River to Co-Regulation */}
-            <line
-              x1="50%"
-              y1="250px"
-              x2="88%"
-              y2="580px"
+              y1="240px"
+              x2="65%"
+              y2="135px"
               stroke="rgba(120, 255, 150, 0.7)"
               strokeWidth="2"
               strokeDasharray="4,4"
             />
             
-            {/* Mirror Meadow to Shared Identity - moved down */}
+            {/* Mirror Meadow to Shared Identity */}
             <line
               x1="75%"
-              y1="550px"
-              x2="88%"
-              y2="350px"
+              y1="420px"
+              x2="90%"
+              y2="320px"
+              stroke="rgba(120, 255, 150, 0.7)"
+              strokeWidth="2"
+              strokeDasharray="4,4"
+            />
+            {/* Mirror Meadow to Co-Regulation */}
+            <line
+              x1="75%"
+              y1="420px"
+              x2="90%"
+              y2="520px"
               stroke="rgba(120, 255, 150, 0.7)"
               strokeWidth="2"
               strokeDasharray="4,4"
@@ -234,9 +234,9 @@ const EnchantedValleyMap = () => {
             {/* Council Grove to Collective Wisdom */}
             <line
               x1="25%"
-              y1="550px"
-              x2="18%"
-              y2="450px"
+              y1="420px"
+              x2="10%"
+              y2="320px"
               stroke="rgba(120, 255, 150, 0.7)"
               strokeWidth="2"
               strokeDasharray="4,4"
@@ -244,9 +244,9 @@ const EnchantedValleyMap = () => {
             {/* Council Grove to Individual Strengths */}
             <line
               x1="25%"
-              y1="550px"
-              x2="18%"
-              y2="650px"
+              y1="420px"
+              x2="10%"
+              y2="520px"
               stroke="rgba(120, 255, 150, 0.7)"
               strokeWidth="2"
               strokeDasharray="4,4"
@@ -255,19 +255,19 @@ const EnchantedValleyMap = () => {
             {/* Gathering Square to Peer Learning */}
             <line
               x1="50%"
-              y1="1050px"
+              y1="760px"
               x2="50%"
-              y2="1150px"
+              y2="890px"
               stroke="rgba(120, 255, 150, 0.7)"
               strokeWidth="2"
               strokeDasharray="4,4"
             />
             
-            {/* Visual cluster indicators for each domain cluster - larger radius for better spacing */}
+            {/* Visual cluster indicators for each domain cluster - updated positions */}
             {/* Heartstream River cluster (top) - cool blue */}
             <circle
               cx="50%"
-              cy="250px"
+              cy="240px"
               r="120"
               fill="none"
               stroke="rgba(150, 200, 255, 0.25)"
@@ -278,7 +278,7 @@ const EnchantedValleyMap = () => {
             {/* Mirror Meadow cluster (right) - golden */}
             <circle
               cx="75%"
-              cy="550px"
+              cy="420px"
               r="120"
               fill="none"
               stroke="rgba(255, 215, 120, 0.25)"
@@ -289,7 +289,7 @@ const EnchantedValleyMap = () => {
             {/* Council Grove cluster (left) - forest green */}
             <circle
               cx="25%"
-              cy="550px"
+              cy="420px"
               r="120"
               fill="none"
               stroke="rgba(120, 180, 100, 0.25)"
@@ -300,7 +300,7 @@ const EnchantedValleyMap = () => {
             {/* Gathering Square cluster (bottom) - warm */}
             <circle
               cx="50%"
-              cy="1050px"
+              cy="760px"
               r="120"
               fill="none"
               stroke="rgba(255, 200, 100, 0.25)"
@@ -308,13 +308,13 @@ const EnchantedValleyMap = () => {
               strokeDasharray="8,8"
             />
             
-            {/* Lines from domains to risk factors - outer edges, far from center */}
+            {/* Lines from domains to risk factors - updated positions */}
             {/* Heartstream River to Emotional Fragility */}
             <line
               x1="50%"
-              y1="250px"
-              x2="20%"
-              y2="120px"
+              y1="240px"
+              x2="35%"
+              y2="135px"
               stroke="rgba(255, 150, 150, 0.5)"
               strokeWidth="1.5"
               strokeDasharray="4,4"
@@ -323,9 +323,9 @@ const EnchantedValleyMap = () => {
             {/* Mirror Meadow to Identity Confusion */}
             <line
               x1="75%"
-              y1="550px"
-              x2="88%"
-              y2="380px"
+              y1="420px"
+              x2="85%"
+              y2="270px"
               stroke="rgba(255, 150, 150, 0.5)"
               strokeWidth="1.5"
               strokeDasharray="4,4"
@@ -333,9 +333,9 @@ const EnchantedValleyMap = () => {
             {/* Mirror Meadow to Technology Overexposure */}
             <line
               x1="75%"
-              y1="550px"
+              y1="420px"
               x2="88%"
-              y2="720px"
+              y2="580px"
               stroke="rgba(255, 150, 150, 0.5)"
               strokeWidth="1.5"
               strokeDasharray="4,4"
@@ -344,29 +344,29 @@ const EnchantedValleyMap = () => {
             {/* Council Grove to Loss of Community */}
             <line
               x1="25%"
-              y1="550px"
-              x2="8%"
-              y2="550px"
+              y1="420px"
+              x2="12%"
+              y2="270px"
               stroke="rgba(255, 150, 150, 0.5)"
               strokeWidth="1.5"
               strokeDasharray="4,4"
             />
             
-            {/* Gathering Square to Comparison Culture and Loss of Meaning */}
+            {/* Gathering Square to Loss of Meaning and Comparison Culture */}
             <line
               x1="50%"
-              y1="1050px"
-              x2="72%"
-              y2="1200px"
+              y1="760px"
+              x2="30%"
+              y2="870px"
               stroke="rgba(255, 150, 150, 0.5)"
               strokeWidth="1.5"
               strokeDasharray="4,4"
             />
             <line
               x1="50%"
-              y1="1050px"
-              x2="28%"
-              y2="1200px"
+              y1="760px"
+              x2="70%"
+              y2="870px"
               stroke="rgba(255, 150, 150, 0.5)"
               strokeWidth="1.5"
               strokeDasharray="4,4"
@@ -389,7 +389,7 @@ const EnchantedValleyMap = () => {
             title="The Child's Village"
             subtitle="Village Model"
             x="50%"
-            y="550px"
+            y="500px"
             size="large"
             glow="warm"
             onClick={() => setSelectedNode('Village Model')}
@@ -397,13 +397,13 @@ const EnchantedValleyMap = () => {
             isHovered={hoveredNode === 'Village Model'}
           />
 
-          {/* MAIN DOMAINS - Spread out with better spacing */}
+          {/* MAIN DOMAINS - Exact positions as specified */}
           {/* Top - Emotional Regulation */}
           <MapLocation
             title="The Heartstream River"
             subtitle="Emotional Regulation"
             x="50%"
-            y="200px"
+            y="240px"
             size="medium"
             glow="cool"
             onClick={() => setSelectedNode('Emotional Regulation')}
@@ -415,8 +415,8 @@ const EnchantedValleyMap = () => {
           <MapLocation
             title="The Mirror Meadow"
             subtitle="Identity Development"
-            x="80%"
-            y="500px"
+            x="75%"
+            y="420px"
             size="medium"
             glow="golden"
             onClick={() => setSelectedNode('Identity Development')}
@@ -429,7 +429,7 @@ const EnchantedValleyMap = () => {
             title="The Gathering Square"
             subtitle="Peer Relationships"
             x="50%"
-            y="900px"
+            y="760px"
             size="medium"
             glow="warm"
             onClick={() => setSelectedNode('Peer Relationships')}
@@ -441,8 +441,8 @@ const EnchantedValleyMap = () => {
           <MapLocation
             title="The Council Grove"
             subtitle="Moral Development"
-            x="20%"
-            y="500px"
+            x="25%"
+            y="420px"
             size="medium"
             glow="forest"
             onClick={() => setSelectedNode('Moral Development')}
@@ -450,40 +450,40 @@ const EnchantedValleyMap = () => {
             isHovered={hoveredNode === 'Moral Development'}
           />
 
-          {/* PROTECTIVE FACTORS - Middle zone, between domains and risk factors */}
-          {/* Heartstream River cluster - top, well-spaced */}
+          {/* PROTECTIVE FACTORS - Exact positions as specified */}
+          {/* TOP CLUSTER - Heartstream River */}
           <ProtectiveLabel
             title="Consistency Across Contexts"
             short="Consistency"
-            x="70%" y="150px"
+            x="65%" y="135px"
             onClick={() => setSelectedNode('Consistency')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Consistency'}
           />
+          
+          {/* RIGHT CLUSTER - Mirror Meadow */}
+          <ProtectiveLabel
+            title="Shared Identity & Belonging"
+            short="Shared Identity"
+            x="90%" y="320px"
+            onClick={() => setSelectedNode('Shared Identity')}
+            onHover={setHoveredNode}
+            isHovered={hoveredNode === 'Shared Identity'}
+          />
           <ProtectiveLabel
             title="Emotional Buffering & Co-Regulation"
             short="Co-Regulation"
-            x="88%" y="580px"
+            x="90%" y="520px"
             onClick={() => setSelectedNode('Co-Regulation')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Co-Regulation'}
           />
           
-          {/* Mirror Meadow cluster - right, well-spaced, moved down */}
-          <ProtectiveLabel
-            title="Shared Identity & Belonging"
-            short="Shared Identity"
-            x="88%" y="350px"
-            onClick={() => setSelectedNode('Shared Identity')}
-            onHover={setHoveredNode}
-            isHovered={hoveredNode === 'Shared Identity'}
-          />
-          
-          {/* Council Grove cluster - left, well-spaced */}
+          {/* LEFT CLUSTER - Council Grove */}
           <ProtectiveLabel
             title="Collective Advice & Wisdom"
             short="Collective Wisdom"
-            x="18%" y="450px"
+            x="10%" y="320px"
             onClick={() => setSelectedNode('Collective Wisdom')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Collective Wisdom'}
@@ -491,36 +491,36 @@ const EnchantedValleyMap = () => {
           <ProtectiveLabel
             title="Recognition of Individual Strengths"
             short="Individual Strengths"
-            x="18%" y="650px"
+            x="10%" y="520px"
             onClick={() => setSelectedNode('Individual Strengths')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Individual Strengths'}
           />
           
-          {/* Gathering Square cluster - bottom, well-spaced */}
+          {/* BOTTOM CLUSTER - Gathering Square */}
           <ProtectiveLabel
             title="Peer-Based Learning"
             short="Peer Learning"
-            x="50%" y="1150px"
+            x="50%" y="890px"
             onClick={() => setSelectedNode('Peer Learning')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Peer Learning'}
           />
 
-          {/* RISK FACTORS - Outer edges, far from center, well-spaced */}
-          {/* Top-left area - Heartstream River risks, moved left and up */}
-          <RiskLabel title="Emotional Fragility" x="25%" y="155px" />
+          {/* RISK FACTORS - Exact positions as specified */}
+          {/* TOP CLUSTER - Heartstream River */}
+          <RiskLabel title="Emotional Fragility" x="35%" y="135px" />
           
-          {/* Far right area - Mirror Meadow risks, vertically spaced */}
-          <RiskLabel title="Identity Confusion" x="88%" y="380px" />
-          <RiskLabel title="Technology Overexposure" x="88%" y="720px" />
+          {/* RIGHT CLUSTER - Mirror Meadow */}
+          <RiskLabel title="Identity Confusion" x="85%" y="270px" />
+          <RiskLabel title="Technology Overexposure" x="88%" y="580px" />
           
-          {/* Bottom area - Gathering Square risks, horizontally spaced */}
-          <RiskLabel title="Comparison Culture" x="72%" y="1200px" />
-          <RiskLabel title="Loss of Meaning" x="28%" y="1200px" />
+          {/* BOTTOM CLUSTER - Gathering Square */}
+          <RiskLabel title="Loss of Meaning" x="30%" y="870px" />
+          <RiskLabel title="Comparison Culture" x="70%" y="870px" />
           
-          {/* Far left area - Council Grove risks */}
-          <RiskLabel title="Loss of Community" x="8%" y="550px" />
+          {/* LEFT CLUSTER - Council Grove */}
+          <RiskLabel title="Loss of Community" x="12%" y="270px" />
 
         </div>
 
@@ -759,21 +759,23 @@ const MapLocation: React.FC<MapLocationProps> = ({ title, subtitle, x, y, size, 
       <h3 style={{
         position: 'relative',
         fontSize: sizes[size].fontSize,
-        fontWeight: '400',
+        fontWeight: '500',
         color: '#ffffff',
-        marginBottom: '8px',
-        textShadow: `0 0 20px ${glowColors[glow]}, 0 0 40px ${glowColors[glow]}, 2px 2px 6px rgba(0,0,0,0.8)`,
+        marginBottom: isCircular ? '6px' : '8px',
+        textShadow: `0 0 25px ${glowColors[glow]}, 0 0 50px ${glowColors[glow]}, 2px 2px 8px rgba(0,0,0,0.8)`,
         letterSpacing: '0.5px',
-        lineHeight: '1.3'
+        lineHeight: '1.2',
+        zIndex: 1
       }}>
         {title}
       </h3>
       <p style={{
         position: 'relative',
         fontSize: sizes[size].subtitleSize,
-        color: '#e8e8e8',
+        color: '#f0f0f0',
         fontStyle: 'italic',
-        textShadow: '0 0 10px rgba(255,255,255,0.5), 1px 1px 4px rgba(0,0,0,0.9)'
+        textShadow: '0 0 10px rgba(255,255,255,0.5), 1px 1px 4px rgba(0,0,0,0.9)',
+        zIndex: 1
       }}>
         {subtitle}
       </p>
