@@ -134,13 +134,13 @@ const EnchantedValleyMap = () => {
           </p>
         </div>
 
-        {/* Main Map Container */}
+        {/* Main Map Container - Increased height for better spacing */}
         <div style={{
           position: 'relative',
           width: '100%',
-          maxWidth: '1600px',
+          maxWidth: '1800px',
           margin: '0 auto',
-          minHeight: '1200px',
+          minHeight: '1400px',
           zIndex: 2
         }}>
 
@@ -156,220 +156,220 @@ const EnchantedValleyMap = () => {
               zIndex: 1
             }}
           >
-            {/* Lines from The Child's Village to main domains */}
+            {/* Lines from The Child's Village to main domains - better spacing */}
             {/* To Heartstream River (top) */}
             <line
               x1="50%"
-              y1="550px"
+              y1="650px"
               x2="50%"
-              y2="200px"
+              y2="250px"
               stroke="rgba(255, 215, 120, 0.6)"
-              strokeWidth="2"
+              strokeWidth="2.5"
               filter="url(#glow)"
             />
             {/* To Mirror Meadow (right) */}
             <line
               x1="50%"
-              y1="550px"
-              x2="80%"
-              y2="500px"
+              y1="650px"
+              x2="75%"
+              y2="550px"
               stroke="rgba(255, 215, 120, 0.6)"
-              strokeWidth="2"
+              strokeWidth="2.5"
               filter="url(#glow)"
             />
             {/* To Gathering Square (bottom) */}
             <line
               x1="50%"
-              y1="550px"
+              y1="650px"
               x2="50%"
-              y2="900px"
+              y2="1050px"
               stroke="rgba(255, 215, 120, 0.6)"
-              strokeWidth="2"
+              strokeWidth="2.5"
               filter="url(#glow)"
             />
             {/* To Council Grove (left) */}
             <line
               x1="50%"
-              y1="550px"
-              x2="20%"
-              y2="500px"
+              y1="650px"
+              x2="25%"
+              y2="550px"
               stroke="rgba(255, 215, 120, 0.6)"
-              strokeWidth="2"
+              strokeWidth="2.5"
               filter="url(#glow)"
             />
             
-            {/* Lines from domains to protective factors */}
+            {/* Lines from domains to protective factors - middle zone */}
             {/* Heartstream River to Consistency */}
             <line
               x1="50%"
-              y1="200px"
+              y1="250px"
               x2="50%"
-              y2="120px"
+              y2="150px"
               stroke="rgba(120, 255, 150, 0.7)"
               strokeWidth="2"
-              strokeDasharray="3,3"
+              strokeDasharray="4,4"
             />
             {/* Heartstream River to Co-Regulation */}
             <line
               x1="50%"
-              y1="200px"
-              x2="65%"
-              y2="280px"
+              y1="250px"
+              x2="62%"
+              y2="320px"
               stroke="rgba(120, 255, 150, 0.7)"
               strokeWidth="2"
-              strokeDasharray="3,3"
+              strokeDasharray="4,4"
             />
             
             {/* Mirror Meadow to Shared Identity */}
             <line
-              x1="80%"
-              y1="500px"
-              x2="88%"
-              y2="420px"
+              x1="75%"
+              y1="550px"
+              x2="82%"
+              y2="480px"
               stroke="rgba(120, 255, 150, 0.7)"
               strokeWidth="2"
-              strokeDasharray="3,3"
+              strokeDasharray="4,4"
             />
             
             {/* Council Grove to Collective Wisdom */}
             <line
-              x1="20%"
-              y1="500px"
-              x2="12%"
-              y2="380px"
+              x1="25%"
+              y1="550px"
+              x2="18%"
+              y2="450px"
               stroke="rgba(120, 255, 150, 0.7)"
               strokeWidth="2"
-              strokeDasharray="3,3"
+              strokeDasharray="4,4"
             />
             {/* Council Grove to Individual Strengths */}
             <line
-              x1="20%"
-              y1="500px"
-              x2="12%"
-              y2="620px"
+              x1="25%"
+              y1="550px"
+              x2="18%"
+              y2="650px"
               stroke="rgba(120, 255, 150, 0.7)"
               strokeWidth="2"
-              strokeDasharray="3,3"
+              strokeDasharray="4,4"
             />
             
             {/* Gathering Square to Peer Learning */}
             <line
               x1="50%"
-              y1="900px"
+              y1="1050px"
               x2="50%"
-              y2="1020px"
+              y2="1150px"
               stroke="rgba(120, 255, 150, 0.7)"
               strokeWidth="2"
-              strokeDasharray="3,3"
+              strokeDasharray="4,4"
             />
             
-            {/* Visual cluster indicators for each domain cluster */}
+            {/* Visual cluster indicators for each domain cluster - larger radius for better spacing */}
             {/* Heartstream River cluster (top) - cool blue */}
             <circle
               cx="50%"
-              cy="200px"
-              r="100"
+              cy="250px"
+              r="120"
               fill="none"
               stroke="rgba(150, 200, 255, 0.25)"
               strokeWidth="1.5"
-              strokeDasharray="6,6"
+              strokeDasharray="8,8"
             />
             
             {/* Mirror Meadow cluster (right) - golden */}
             <circle
-              cx="80%"
-              cy="500px"
-              r="100"
+              cx="75%"
+              cy="550px"
+              r="120"
               fill="none"
               stroke="rgba(255, 215, 120, 0.25)"
               strokeWidth="1.5"
-              strokeDasharray="6,6"
+              strokeDasharray="8,8"
             />
             
             {/* Council Grove cluster (left) - forest green */}
             <circle
-              cx="20%"
-              cy="500px"
-              r="100"
+              cx="25%"
+              cy="550px"
+              r="120"
               fill="none"
               stroke="rgba(120, 180, 100, 0.25)"
               strokeWidth="1.5"
-              strokeDasharray="6,6"
+              strokeDasharray="8,8"
             />
             
             {/* Gathering Square cluster (bottom) - warm */}
             <circle
               cx="50%"
-              cy="900px"
-              r="100"
+              cy="1050px"
+              r="120"
               fill="none"
               stroke="rgba(255, 200, 100, 0.25)"
               strokeWidth="1.5"
-              strokeDasharray="6,6"
+              strokeDasharray="8,8"
             />
             
-            {/* Lines from domains to risk factors - outer edges */}
+            {/* Lines from domains to risk factors - outer edges, far from center */}
             {/* Heartstream River to Emotional Fragility */}
             <line
               x1="50%"
-              y1="200px"
-              x2="25%"
-              y2="100px"
+              y1="250px"
+              x2="20%"
+              y2="120px"
               stroke="rgba(255, 150, 150, 0.5)"
               strokeWidth="1.5"
-              strokeDasharray="3,3"
+              strokeDasharray="4,4"
             />
             
             {/* Mirror Meadow to Identity Confusion */}
             <line
-              x1="80%"
-              y1="500px"
-              x2="92%"
-              y2="300px"
+              x1="75%"
+              y1="550px"
+              x2="88%"
+              y2="380px"
               stroke="rgba(255, 150, 150, 0.5)"
               strokeWidth="1.5"
-              strokeDasharray="3,3"
+              strokeDasharray="4,4"
             />
             {/* Mirror Meadow to Technology Overexposure */}
             <line
-              x1="80%"
-              y1="500px"
-              x2="92%"
-              y2="600px"
+              x1="75%"
+              y1="550px"
+              x2="88%"
+              y2="720px"
               stroke="rgba(255, 150, 150, 0.5)"
               strokeWidth="1.5"
-              strokeDasharray="3,3"
+              strokeDasharray="4,4"
             />
             
             {/* Council Grove to Loss of Community */}
             <line
-              x1="20%"
-              y1="500px"
+              x1="25%"
+              y1="550px"
               x2="8%"
-              y2="500px"
+              y2="550px"
               stroke="rgba(255, 150, 150, 0.5)"
               strokeWidth="1.5"
-              strokeDasharray="3,3"
+              strokeDasharray="4,4"
             />
             
             {/* Gathering Square to Comparison Culture and Loss of Meaning */}
             <line
               x1="50%"
-              y1="900px"
-              x2="75%"
-              y2="1000px"
+              y1="1050px"
+              x2="72%"
+              y2="1200px"
               stroke="rgba(255, 150, 150, 0.5)"
               strokeWidth="1.5"
-              strokeDasharray="3,3"
+              strokeDasharray="4,4"
             />
             <line
               x1="50%"
-              y1="900px"
-              x2="25%"
-              y2="1000px"
+              y1="1050px"
+              x2="28%"
+              y2="1200px"
               stroke="rgba(255, 150, 150, 0.5)"
               strokeWidth="1.5"
-              strokeDasharray="3,3"
+              strokeDasharray="4,4"
             />
             
             {/* Glow filter definition */}
@@ -450,12 +450,12 @@ const EnchantedValleyMap = () => {
             isHovered={hoveredNode === 'Moral Development'}
           />
 
-          {/* PROTECTIVE FACTORS - Middle zone, closer to their domains */}
-          {/* Heartstream River cluster - top */}
+          {/* PROTECTIVE FACTORS - Middle zone, between domains and risk factors */}
+          {/* Heartstream River cluster - top, well-spaced */}
           <ProtectiveLabel
             title="Consistency Across Contexts"
             short="Consistency"
-            x="50%" y="120px"
+            x="50%" y="150px"
             onClick={() => setSelectedNode('Consistency')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Consistency'}
@@ -463,27 +463,27 @@ const EnchantedValleyMap = () => {
           <ProtectiveLabel
             title="Emotional Buffering & Co-Regulation"
             short="Co-Regulation"
-            x="65%" y="280px"
+            x="62%" y="320px"
             onClick={() => setSelectedNode('Co-Regulation')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Co-Regulation'}
           />
           
-          {/* Mirror Meadow cluster - right */}
+          {/* Mirror Meadow cluster - right, well-spaced */}
           <ProtectiveLabel
             title="Shared Identity & Belonging"
             short="Shared Identity"
-            x="88%" y="420px"
+            x="82%" y="480px"
             onClick={() => setSelectedNode('Shared Identity')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Shared Identity'}
           />
           
-          {/* Council Grove cluster - left */}
+          {/* Council Grove cluster - left, well-spaced */}
           <ProtectiveLabel
             title="Collective Advice & Wisdom"
             short="Collective Wisdom"
-            x="12%" y="380px"
+            x="18%" y="450px"
             onClick={() => setSelectedNode('Collective Wisdom')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Collective Wisdom'}
@@ -491,36 +491,36 @@ const EnchantedValleyMap = () => {
           <ProtectiveLabel
             title="Recognition of Individual Strengths"
             short="Individual Strengths"
-            x="12%" y="620px"
+            x="18%" y="650px"
             onClick={() => setSelectedNode('Individual Strengths')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Individual Strengths'}
           />
           
-          {/* Gathering Square cluster - bottom */}
+          {/* Gathering Square cluster - bottom, well-spaced */}
           <ProtectiveLabel
             title="Peer-Based Learning"
             short="Peer Learning"
-            x="50%" y="1020px"
+            x="50%" y="1150px"
             onClick={() => setSelectedNode('Peer Learning')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Peer Learning'}
           />
 
-          {/* RISK FACTORS - Outer edges, far from center */}
-          {/* Top area - Heartstream River risks */}
-          <RiskLabel title="Emotional Fragility" x="25%" y="100px" />
+          {/* RISK FACTORS - Outer edges, far from center, well-spaced */}
+          {/* Top-left area - Heartstream River risks */}
+          <RiskLabel title="Emotional Fragility" x="20%" y="120px" />
           
-          {/* Right area - Mirror Meadow risks */}
-          <RiskLabel title="Identity Confusion" x="92%" y="300px" />
-          <RiskLabel title="Technology Overexposure" x="92%" y="600px" />
+          {/* Far right area - Mirror Meadow risks, vertically spaced */}
+          <RiskLabel title="Identity Confusion" x="88%" y="380px" />
+          <RiskLabel title="Technology Overexposure" x="88%" y="720px" />
           
-          {/* Bottom area - Gathering Square risks */}
-          <RiskLabel title="Comparison Culture" x="75%" y="1000px" />
-          <RiskLabel title="Loss of Meaning" x="25%" y="1000px" />
+          {/* Bottom area - Gathering Square risks, horizontally spaced */}
+          <RiskLabel title="Comparison Culture" x="72%" y="1200px" />
+          <RiskLabel title="Loss of Meaning" x="28%" y="1200px" />
           
-          {/* Left area - Council Grove risks */}
-          <RiskLabel title="Loss of Community" x="8%" y="500px" />
+          {/* Far left area - Council Grove risks */}
+          <RiskLabel title="Loss of Community" x="8%" y="550px" />
 
         </div>
 
