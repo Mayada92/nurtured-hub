@@ -149,7 +149,8 @@ const EnchantedValleyMap = () => {
           width: '100%',
           maxWidth: '1400px',
           margin: '0 auto',
-          minHeight: '900px'
+          minHeight: '900px',
+          zIndex: 2
         }}>
 
           {/* Center - Village Model */}
