@@ -80,22 +80,23 @@ const EnchantedValleyMap = () => {
       backgroundColor: '#1a1a1a' // Solid background to prevent transparency
     }}>
       
-      {/* Background Image - full width, no cropping, starts at top */}
+      {/* Background Image - full page dimensions */}
       <div style={{
         position: 'fixed',
-        top: 0, // Start at the very top of the page
+        top: 0,
         left: 0,
         right: 0,
-        width: '100%',
-        height: '100vh', // Full viewport height
+        bottom: 0,
+        width: '100vw',
+        height: '100vh',
         backgroundImage: `url(${imagePath})`,
-        backgroundSize: '100% auto', // Full width, maintain aspect ratio
-        backgroundPosition: 'top center', // Align to top, center horizontally
+        backgroundSize: 'cover', // Fill entire viewport
+        backgroundPosition: 'center top',
         backgroundRepeat: 'no-repeat',
-        backgroundColor: '#1a1a1a', // Solid fallback color
+        backgroundColor: '#1a1a1a',
         zIndex: 0,
         opacity: 1,
-        filter: 'none' // Ensure no transparency filters
+        filter: 'none'
       }} />
 
       {/* Content Container */}
@@ -142,6 +143,201 @@ const EnchantedValleyMap = () => {
           minHeight: '900px',
           zIndex: 2
         }}>
+
+          {/* Connecting Lines - SVG overlay */}
+          <svg
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              pointerEvents: 'none',
+              zIndex: 1
+            }}
+          >
+            {/* Lines from The Child's Village to main domains */}
+            {/* To Heartstream River (top) */}
+            <line
+              x1="42%"
+              y1="500px"
+              x2="55%"
+              y2="180px"
+              stroke="rgba(255, 215, 120, 0.6)"
+              strokeWidth="2"
+              filter="url(#glow)"
+            />
+            {/* To Mirror Meadow (right) */}
+            <line
+              x1="42%"
+              y1="500px"
+              x2="75%"
+              y2="420px"
+              stroke="rgba(255, 215, 120, 0.6)"
+              strokeWidth="2"
+              filter="url(#glow)"
+            />
+            {/* To Gathering Square (bottom) */}
+            <line
+              x1="42%"
+              y1="500px"
+              x2="45%"
+              y2="750px"
+              stroke="rgba(255, 215, 120, 0.6)"
+              strokeWidth="2"
+              filter="url(#glow)"
+            />
+            {/* To Council Grove (left) */}
+            <line
+              x1="42%"
+              y1="500px"
+              x2="20%"
+              y2="450px"
+              stroke="rgba(255, 215, 120, 0.6)"
+              strokeWidth="2"
+              filter="url(#glow)"
+            />
+            
+            {/* Lines from domains to protective factors */}
+            {/* Heartstream River to Consistency */}
+            <line
+              x1="55%"
+              y1="180px"
+              x2="60%"
+              y2="120px"
+              stroke="rgba(120, 255, 150, 0.5)"
+              strokeWidth="1.5"
+              strokeDasharray="4,4"
+            />
+            {/* Heartstream River to Co-Regulation */}
+            <line
+              x1="55%"
+              y1="180px"
+              x2="65%"
+              y2="350px"
+              stroke="rgba(120, 255, 150, 0.5)"
+              strokeWidth="1.5"
+              strokeDasharray="4,4"
+            />
+            
+            {/* Mirror Meadow to Shared Identity */}
+            <line
+              x1="75%"
+              y1="420px"
+              x2="45%"
+              y2="480px"
+              stroke="rgba(120, 255, 150, 0.5)"
+              strokeWidth="1.5"
+              strokeDasharray="4,4"
+            />
+            
+            {/* Council Grove to Collective Wisdom */}
+            <line
+              x1="20%"
+              y1="450px"
+              x2="15%"
+              y2="350px"
+              stroke="rgba(120, 255, 150, 0.5)"
+              strokeWidth="1.5"
+              strokeDasharray="4,4"
+            />
+            {/* Council Grove to Individual Strengths */}
+            <line
+              x1="20%"
+              y1="450px"
+              x2="40%"
+              y2="520px"
+              stroke="rgba(120, 255, 150, 0.5)"
+              strokeWidth="1.5"
+              strokeDasharray="4,4"
+            />
+            
+            {/* Gathering Square to Peer Learning */}
+            <line
+              x1="45%"
+              y1="750px"
+              x2="48%"
+              y2="800px"
+              stroke="rgba(120, 255, 150, 0.5)"
+              strokeWidth="1.5"
+              strokeDasharray="4,4"
+            />
+            
+            {/* Lines from domains to risk factors */}
+            {/* Heartstream River to Emotional Fragility */}
+            <line
+              x1="55%"
+              y1="180px"
+              x2="30%"
+              y2="140px"
+              stroke="rgba(255, 150, 150, 0.4)"
+              strokeWidth="1.5"
+              strokeDasharray="3,3"
+            />
+            
+            {/* Mirror Meadow to Identity Confusion */}
+            <line
+              x1="75%"
+              y1="420px"
+              x2="80%"
+              y2="280px"
+              stroke="rgba(255, 150, 150, 0.4)"
+              strokeWidth="1.5"
+              strokeDasharray="3,3"
+            />
+            {/* Mirror Meadow to Technology Overexposure */}
+            <line
+              x1="75%"
+              y1="420px"
+              x2="88%"
+              y2="480px"
+              stroke="rgba(255, 150, 150, 0.4)"
+              strokeWidth="1.5"
+              strokeDasharray="3,3"
+            />
+            
+            {/* Council Grove to Loss of Community */}
+            <line
+              x1="20%"
+              y1="450px"
+              x2="10%"
+              y2="420px"
+              stroke="rgba(255, 150, 150, 0.4)"
+              strokeWidth="1.5"
+              strokeDasharray="3,3"
+            />
+            
+            {/* Gathering Square to Comparison Culture and Loss of Meaning */}
+            <line
+              x1="45%"
+              y1="750px"
+              x2="70%"
+              y2="780px"
+              stroke="rgba(255, 150, 150, 0.4)"
+              strokeWidth="1.5"
+              strokeDasharray="3,3"
+            />
+            <line
+              x1="45%"
+              y1="750px"
+              x2="30%"
+              y2="780px"
+              stroke="rgba(255, 150, 150, 0.4)"
+              strokeWidth="1.5"
+              strokeDasharray="3,3"
+            />
+            
+            {/* Glow filter definition */}
+            <defs>
+              <filter id="glow">
+                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                <feMerge>
+                  <feMergeNode in="coloredBlur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+            </defs>
+          </svg>
 
           {/* Center - Village Model - aligned with glowing houses (center-left) */}
           <MapLocation
