@@ -748,11 +748,11 @@ const MapLocation: React.FC<MapLocationProps> = ({ title, subtitle, x, y, size, 
         width: '100%',
         height: '100%',
         background: `radial-gradient(circle, ${glowColors[glow]} 0%, transparent 70%)`,
-        opacity: isHovered ? 0.9 : 0.6,
+        opacity: isHovered ? 0.9 : 0.7, // Slightly brighter default
         transition: 'opacity 0.4s ease',
         pointerEvents: 'none',
         filter: 'blur(15px)',
-        borderRadius: '15px',
+        borderRadius: isCircular ? '50%' : '15px',
         zIndex: -1
       }} />
       
