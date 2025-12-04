@@ -79,27 +79,32 @@ const EnchantedValleyMap = () => {
       overflow: 'auto'
     }}>
       
-      {/* Background Image */}
+      {/* Background Image - only for the main map area */}
       <div style={{
         position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
+        top: '140px', // Start after title
+        left: '50%',
+        transform: 'translateX(-50%)',
+        width: '100%',
+        maxWidth: '1400px',
+        height: '900px', // Match the map container height
         backgroundImage: `url(${imagePath})`,
-        backgroundSize: 'cover',
+        backgroundSize: 'contain',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
-        zIndex: 0
+        zIndex: 0,
+        opacity: 0.6
       }} />
 
       {/* Dark overlay for better text readability if needed */}
       <div style={{
         position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
+        top: '140px',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        width: '100%',
+        maxWidth: '1400px',
+        height: '900px',
         background: 'linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.05) 100%)',
         zIndex: 1
       }} />
@@ -277,11 +282,12 @@ const EnchantedValleyMap = () => {
           maxWidth: '1400px',
           margin: '80px auto 60px',
           padding: '30px',
-          background: 'rgba(20, 30, 40, 0.75)',
-          backdropFilter: 'blur(10px)',
+          background: 'rgba(20, 30, 40, 0.95)',
           borderRadius: '15px',
           border: '2px solid rgba(255, 215, 120, 0.3)',
-          boxShadow: '0 0 30px rgba(0,0,0,0.5), inset 0 0 20px rgba(255,215,120,0.1)'
+          boxShadow: '0 0 30px rgba(0,0,0,0.5), inset 0 0 20px rgba(255,215,120,0.1)',
+          position: 'relative',
+          zIndex: 3
         }}>
           <h3 style={{
             fontSize: '1.8rem',
@@ -328,7 +334,9 @@ const EnchantedValleyMap = () => {
           margin: '0 auto 60px',
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-          gap: '25px'
+          gap: '25px',
+          position: 'relative',
+          zIndex: 3
         }}>
           <ApplicationBox
             title="For Me"

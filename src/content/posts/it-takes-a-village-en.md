@@ -11,7 +11,7 @@ tags: ["education", "educational-psychology", "social-development", "emotional-d
 
 *A reflection on my journey through EDPS 604 at Ball State University*
 
-> **[Explore the Interactive Village Model Mind Map →](/en/writing/village-model-mindmap)**
+> **[Explore the Interactive Village Model Mind Map →](/nurtured-hub/en/writing/village-model-mindmap)**
 
 ![The village model: where children develop through relationships, not isolation.](/images/blog/figure-1a-village-plaza.png)
 
@@ -89,7 +89,7 @@ As I move forward, I will carry these insights with me. I will think about how t
 
 ![The Village Model: A visual synthesis of how collectivist support, emotional regulation, identity development, and community resilience interconnect to support child development.](/images/blog/figure-7-concept-map.png)
 
-> **[Explore the Interactive Village Model Mind Map →](/en/writing/village-model-mindmap)**
+> **[Explore the Interactive Village Model Mind Map →](/nurtured-hub/en/writing/village-model-mindmap)**
 
 ---
 
