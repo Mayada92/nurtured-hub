@@ -458,7 +458,7 @@ const MapLocation: React.FC<MapLocationProps> = ({ title, subtitle, x, y, size, 
   return (
     <div
       onClick={onClick}
-      onMouseEnter={() => onHover(subtitle.split(' ')[0])}
+      onMouseEnter={() => onHover(subtitle)}
       onMouseLeave={() => onHover(null)}
       style={{
         position: 'absolute',
