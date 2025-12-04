@@ -1,9 +1,8 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import AnimatedBackground from '../../../components/AnimatedBackground';
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import { getImagePath } from '../../../utils/path';
-import { Content } from 'astro:content';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts', ({ data }) => data.lang === 'en');
@@ -14,7 +13,7 @@ export async function getStaticPaths() {
 }
 
 interface Props {
-  post: Content<'posts'>;
+  post: CollectionEntry<'posts'>;
 }
 
 const { post } = Astro.props;
@@ -123,8 +122,8 @@ const date = new Date(post.data.date).toLocaleDateString('en-US', {
 
   .post h1 {
     font-size: var(--font-size-h1);
-    color: white;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0, 0, 0, 0.2);
+    color: #2d7a4f; /* Green matching the theme */
+    text-shadow: 0 2px 8px rgba(255, 255, 255, 0.5), 0 4px 12px rgba(45, 122, 79, 0.2);
     font-weight: 700;
     line-height: 1.2;
     margin-block-end: var(--space-6);
@@ -178,15 +177,24 @@ const date = new Date(post.data.date).toLocaleDateString('en-US', {
     margin-block-end: var(--space-4);
   }
 
+  /* Default: make all images smaller (50% width) */
   .post__content :global(img) {
-    width: 100%;
-    max-width: 100%;
+    width: 50%;
+    max-width: 600px;
     height: auto;
     object-fit: contain;
     border-radius: var(--radius-lg);
     margin-block: var(--space-6);
+    margin-inline: auto;
     box-shadow: var(--shadow-md);
     display: block;
+  }
+
+  /* Keep ONLY the first image (FIGURE 1a - before Introduction) large */
+  /* The first image is in the first paragraph before the first h2 */
+  .post__content > :global(p:first-of-type) img {
+    width: 100% !important;
+    max-width: 100% !important;
   }
 
   .post__content :global(ul),
