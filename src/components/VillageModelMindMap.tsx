@@ -80,17 +80,17 @@ const EnchantedValleyMap = () => {
       backgroundColor: '#1a1a1a' // Solid background to prevent transparency
     }}>
       
-      {/* Background Image - full image, no cropping, starts at top */}
+      {/* Background Image - full width, no cropping, starts at top */}
       <div style={{
-        position: 'absolute',
+        position: 'fixed',
         top: 0, // Start at the very top of the page
         left: 0,
         right: 0,
         width: '100%',
         height: '100vh', // Full viewport height
         backgroundImage: `url(${imagePath})`,
-        backgroundSize: 'contain', // Show full image without cropping
-        backgroundPosition: 'center top', // Center horizontally, align to top
+        backgroundSize: '100% auto', // Full width, maintain aspect ratio
+        backgroundPosition: 'top center', // Align to top, center horizontally
         backgroundRepeat: 'no-repeat',
         backgroundColor: '#1a1a1a', // Solid fallback color
         zIndex: 0,
@@ -142,12 +142,12 @@ const EnchantedValleyMap = () => {
           zIndex: 2
         }}>
 
-          {/* Center - Village Model */}
+          {/* Center - Village Model - aligned with glowing houses (center-left) */}
           <MapLocation
             title="The Child's Village"
             subtitle="Village Model"
-            x="50%"
-            y="450px"
+            x="42%"
+            y="500px"
             size="large"
             glow="warm"
             onClick={() => setSelectedNode('Village Model')}
@@ -155,12 +155,12 @@ const EnchantedValleyMap = () => {
             isHovered={hoveredNode === 'Village Model'}
           />
 
-          {/* Top - Emotional Regulation */}
+          {/* Top - Emotional Regulation - aligned with river (upper center to lower right) */}
           <MapLocation
             title="The Heartstream River"
             subtitle="Emotional Regulation"
-            x="50%"
-            y="200px"
+            x="55%"
+            y="180px"
             size="medium"
             glow="cool"
             onClick={() => setSelectedNode('Emotional Regulation')}
@@ -168,12 +168,12 @@ const EnchantedValleyMap = () => {
             isHovered={hoveredNode === 'Emotional Regulation'}
           />
 
-          {/* Right - Identity Development */}
+          {/* Right - Identity Development - aligned with lighter meadow areas */}
           <MapLocation
             title="The Mirror Meadow"
             subtitle="Identity Development"
             x="75%"
-            y="400px"
+            y="420px"
             size="medium"
             glow="golden"
             onClick={() => setSelectedNode('Identity Development')}
@@ -181,12 +181,12 @@ const EnchantedValleyMap = () => {
             isHovered={hoveredNode === 'Identity Development'}
           />
 
-          {/* Bottom - Peer Relationships */}
+          {/* Bottom - Peer Relationships - aligned with circular paths around village */}
           <MapLocation
             title="The Gathering Square"
             subtitle="Peer Relationships"
-            x="50%"
-            y="700px"
+            x="45%"
+            y="750px"
             size="medium"
             glow="warm"
             onClick={() => setSelectedNode('Peer Relationships')}
@@ -194,12 +194,12 @@ const EnchantedValleyMap = () => {
             isHovered={hoveredNode === 'Peer Relationships'}
           />
 
-          {/* Left - Moral Development */}
+          {/* Left - Moral Development - aligned with darker forested area */}
           <MapLocation
             title="The Council Grove"
             subtitle="Moral Development"
-            x="25%"
-            y="400px"
+            x="20%"
+            y="450px"
             size="medium"
             glow="forest"
             onClick={() => setSelectedNode('Moral Development')}
@@ -207,19 +207,19 @@ const EnchantedValleyMap = () => {
             isHovered={hoveredNode === 'Moral Development'}
           />
 
-          {/* Risk Factors - Dark Woods/Shadows */}
-          <RiskLabel title="Emotional Fragility" x="35%" y="150px" />
-          <RiskLabel title="Identity Confusion" x="70%" y="280px" />
-          <RiskLabel title="Technology Overexposure" x="85%" y="450px" />
-          <RiskLabel title="Comparison Culture" x="65%" y="750px" />
-          <RiskLabel title="Loss of Meaning" x="35%" y="750px" />
-          <RiskLabel title="Loss of Community" x="15%" y="450px" />
+          {/* Risk Factors - Dark Woods/Shadows - positioned in darker areas */}
+          <RiskLabel title="Emotional Fragility" x="30%" y="140px" />
+          <RiskLabel title="Identity Confusion" x="80%" y="280px" />
+          <RiskLabel title="Technology Overexposure" x="88%" y="480px" />
+          <RiskLabel title="Comparison Culture" x="70%" y="780px" />
+          <RiskLabel title="Loss of Meaning" x="30%" y="780px" />
+          <RiskLabel title="Loss of Community" x="10%" y="420px" />
 
-          {/* Protective Factors - Light/Safe Havens */}
+          {/* Protective Factors - Light/Safe Havens - positioned near glowing/light areas */}
           <ProtectiveLabel
             title="Consistency Across Contexts"
             short="Consistency"
-            x="65%" y="120px"
+            x="60%" y="120px"
             onClick={() => setSelectedNode('Consistency')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Consistency'}
@@ -227,7 +227,7 @@ const EnchantedValleyMap = () => {
           <ProtectiveLabel
             title="Shared Identity & Belonging"
             short="Shared Identity"
-            x="88%" y="250px"
+            x="45%" y="480px"
             onClick={() => setSelectedNode('Shared Identity')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Shared Identity'}
@@ -235,7 +235,7 @@ const EnchantedValleyMap = () => {
           <ProtectiveLabel
             title="Emotional Buffering & Co-Regulation"
             short="Co-Regulation"
-            x="88%" y="550px"
+            x="65%" y="350px"
             onClick={() => setSelectedNode('Co-Regulation')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Co-Regulation'}
@@ -243,7 +243,7 @@ const EnchantedValleyMap = () => {
           <ProtectiveLabel
             title="Peer-Based Learning"
             short="Peer Learning"
-            x="50%" y="820px"
+            x="48%" y="800px"
             onClick={() => setSelectedNode('Peer Learning')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Peer Learning'}
@@ -251,7 +251,7 @@ const EnchantedValleyMap = () => {
           <ProtectiveLabel
             title="Collective Advice & Wisdom"
             short="Collective Wisdom"
-            x="12%" y="280px"
+            x="15%" y="350px"
             onClick={() => setSelectedNode('Collective Wisdom')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Collective Wisdom'}
@@ -259,7 +259,7 @@ const EnchantedValleyMap = () => {
           <ProtectiveLabel
             title="Recognition of Individual Strengths"
             short="Individual Strengths"
-            x="12%" y="550px"
+            x="40%" y="520px"
             onClick={() => setSelectedNode('Individual Strengths')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Individual Strengths'}
