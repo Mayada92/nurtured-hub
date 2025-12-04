@@ -79,7 +79,7 @@ const EnchantedValleyMap = () => {
       overflow: 'auto'
     }}>
       
-      {/* Background Image - full width, not transparent */}
+      {/* Background Image - full width, fully opaque */}
       <div style={{
         position: 'absolute',
         top: '140px', // Start after title
@@ -93,18 +93,6 @@ const EnchantedValleyMap = () => {
         backgroundRepeat: 'no-repeat',
         zIndex: 0,
         opacity: 1
-      }} />
-
-      {/* Light overlay for better text readability */}
-      <div style={{
-        position: 'absolute',
-        top: '140px',
-        left: 0,
-        right: 0,
-        width: '100%',
-        height: '700px',
-        background: 'linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.1) 100%)',
-        zIndex: 1
       }} />
 
       {/* Content Container */}
@@ -217,18 +205,18 @@ const EnchantedValleyMap = () => {
           />
 
           {/* Risk Factors - Dark Woods/Shadows */}
-          <RiskLabel title="Emotional Fragility" x="40%" y="150px" />
-          <RiskLabel title="Identity Confusion" x="65%" y="250px" />
-          <RiskLabel title="Technology Overexposure" x="85%" y="500px" />
-          <RiskLabel title="Comparison Culture" x="60%" y="750px" />
-          <RiskLabel title="Loss of Meaning" x="40%" y="750px" />
-          <RiskLabel title="Loss of Community" x="15%" y="500px" />
+          <RiskLabel title="Emotional Fragility" x="35%" y="150px" />
+          <RiskLabel title="Identity Confusion" x="70%" y="280px" />
+          <RiskLabel title="Technology Overexposure" x="85%" y="450px" />
+          <RiskLabel title="Comparison Culture" x="65%" y="750px" />
+          <RiskLabel title="Loss of Meaning" x="35%" y="750px" />
+          <RiskLabel title="Loss of Community" x="15%" y="450px" />
 
           {/* Protective Factors - Light/Safe Havens */}
           <ProtectiveLabel
             title="Consistency Across Contexts"
             short="Consistency"
-            x="60%" y="120px"
+            x="65%" y="120px"
             onClick={() => setSelectedNode('Consistency')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Consistency'}
@@ -236,7 +224,7 @@ const EnchantedValleyMap = () => {
           <ProtectiveLabel
             title="Shared Identity & Belonging"
             short="Shared Identity"
-            x="88%" y="300px"
+            x="88%" y="250px"
             onClick={() => setSelectedNode('Shared Identity')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Shared Identity'}
@@ -244,7 +232,7 @@ const EnchantedValleyMap = () => {
           <ProtectiveLabel
             title="Emotional Buffering & Co-Regulation"
             short="Co-Regulation"
-            x="88%" y="500px"
+            x="88%" y="550px"
             onClick={() => setSelectedNode('Co-Regulation')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Co-Regulation'}
@@ -252,7 +240,7 @@ const EnchantedValleyMap = () => {
           <ProtectiveLabel
             title="Peer-Based Learning"
             short="Peer Learning"
-            x="50%" y="800px"
+            x="50%" y="820px"
             onClick={() => setSelectedNode('Peer Learning')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Peer Learning'}
@@ -260,7 +248,7 @@ const EnchantedValleyMap = () => {
           <ProtectiveLabel
             title="Collective Advice & Wisdom"
             short="Collective Wisdom"
-            x="12%" y="300px"
+            x="12%" y="280px"
             onClick={() => setSelectedNode('Collective Wisdom')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Collective Wisdom'}
@@ -268,7 +256,7 @@ const EnchantedValleyMap = () => {
           <ProtectiveLabel
             title="Recognition of Individual Strengths"
             short="Individual Strengths"
-            x="12%" y="500px"
+            x="12%" y="550px"
             onClick={() => setSelectedNode('Individual Strengths')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Individual Strengths'}
