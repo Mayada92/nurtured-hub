@@ -199,15 +199,25 @@ const EnchantedValleyMap = () => {
             />
             
             {/* Lines from domains to protective factors */}
-            {/* Heartstream River to Consistency */}
+            {/* Heartstream River to Consistency - thicker, more visible */}
             <line
               x1="55%"
               y1="180px"
-              x2="60%"
-              y2="120px"
-              stroke="rgba(120, 255, 150, 0.5)"
-              strokeWidth="1.5"
-              strokeDasharray="4,4"
+              x2="58%"
+              y2="140px"
+              stroke="rgba(120, 255, 150, 0.7)"
+              strokeWidth="2"
+              strokeDasharray="3,3"
+            />
+            {/* Visual cluster indicator for Heartstream River cluster */}
+            <circle
+              cx="56%"
+              cy="160px"
+              r="80"
+              fill="none"
+              stroke="rgba(150, 200, 255, 0.2)"
+              strokeWidth="1"
+              strokeDasharray="5,5"
             />
             {/* Heartstream River to Co-Regulation */}
             <line
@@ -416,7 +426,7 @@ const EnchantedValleyMap = () => {
           <ProtectiveLabel
             title="Consistency Across Contexts"
             short="Consistency"
-            x="60%" y="120px"
+            x="58%" y="140px"
             onClick={() => setSelectedNode('Consistency')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Consistency'}
