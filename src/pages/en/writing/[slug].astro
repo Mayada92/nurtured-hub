@@ -50,18 +50,30 @@ const date = new Date(post.data.date).toLocaleDateString('en-US', {
     </div>
 
     <script>
-      // Fix image paths in markdown content
+      // Fix image paths and internal links in markdown content
       (function() {
         const basePath = import.meta.env.BASE_URL || '/';
         const content = document.querySelector('.post__content');
         if (!content) return;
         
+        // Fix image paths
         const images = content.querySelectorAll('img');
         images.forEach((img) => {
           const src = img.getAttribute('src');
           if (src && src.startsWith('/') && !src.startsWith(basePath)) {
             const cleanPath = src.startsWith('/') ? src.slice(1) : src;
             img.src = `${basePath}${cleanPath}`.replace(/\/+/g, '/');
+          }
+        });
+        
+        // Fix internal links (links starting with /en/ or /ar/)
+        const links = content.querySelectorAll('a[href^="/en/"], a[href^="/ar/"]');
+        links.forEach((link) => {
+          const href = link.getAttribute('href');
+          if (href && !href.startsWith(basePath)) {
+            // Remove leading slash and add base path
+            const cleanPath = href.startsWith('/') ? href.slice(1) : href;
+            link.href = `${basePath}${cleanPath}`.replace(/\/+/g, '/');
           }
         });
       })();
