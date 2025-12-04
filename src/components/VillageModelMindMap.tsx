@@ -730,7 +730,12 @@ const MapLocation: React.FC<MapLocationProps> = ({ title, subtitle, x, y, size, 
         transition: 'all 0.4s ease',
         textAlign: 'center',
         filter: isHovered ? 'brightness(1.3)' : 'brightness(1)',
-        animation: isHovered ? 'pulse 1.5s infinite' : 'none'
+        animation: isHovered ? 'pulse 1.5s infinite' : 'none',
+        background: 'rgba(20, 30, 40, 0.85)',
+        borderRadius: '15px',
+        backdropFilter: 'blur(10px)',
+        border: `1px solid ${glowColors[glow]}40`,
+        boxShadow: `0 4px 20px rgba(0,0,0,0.5), 0 0 30px ${glowColors[glow]}30`
       }}
     >
       {/* Glow effect */}
@@ -745,7 +750,9 @@ const MapLocation: React.FC<MapLocationProps> = ({ title, subtitle, x, y, size, 
         opacity: isHovered ? 0.9 : 0.6,
         transition: 'opacity 0.4s ease',
         pointerEvents: 'none',
-        filter: 'blur(15px)'
+        filter: 'blur(15px)',
+        borderRadius: '15px',
+        zIndex: -1
       }} />
       
       <h3 style={{
