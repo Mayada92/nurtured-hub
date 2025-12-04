@@ -203,7 +203,7 @@ const EnchantedValleyMap = () => {
             <line
               x1="50%"
               y1="240px"
-              x2="65%"
+              x2="68%"
               y2="135px"
               stroke="rgba(120, 255, 150, 0.7)"
               strokeWidth="2"
@@ -451,11 +451,11 @@ const EnchantedValleyMap = () => {
           />
 
           {/* PROTECTIVE FACTORS - Exact positions as specified */}
-          {/* TOP CLUSTER - Heartstream River */}
+          {/* TOP CLUSTER - Heartstream River - more right for spacing */}
           <ProtectiveLabel
             title="Consistency Across Contexts"
             short="Consistency"
-            x="65%" y="135px"
+            x="68%" y="135px"
             onClick={() => setSelectedNode('Consistency')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Consistency'}
@@ -511,16 +511,16 @@ const EnchantedValleyMap = () => {
           {/* TOP CLUSTER - Heartstream River - more left for symmetry */}
           <RiskLabel title="Emotional Fragility" x="32%" y="135px" />
           
-          {/* RIGHT CLUSTER - Mirror Meadow */}
-          <RiskLabel title="Identity Confusion" x="88%" y="260px" />
-          <RiskLabel title="Technology Overexposure" x="90%" y="580px" />
+          {/* RIGHT CLUSTER - Mirror Meadow - spread vertically */}
+          <RiskLabel title="Identity Confusion" x="90%" y="240px" />
+          <RiskLabel title="Technology Overexposure" x="92%" y="600px" />
           
           {/* BOTTOM CLUSTER - Gathering Square */}
           <RiskLabel title="Loss of Meaning" x="30%" y="870px" />
           <RiskLabel title="Comparison Culture" x="70%" y="870px" />
           
-          {/* LEFT CLUSTER - Council Grove */}
-          <RiskLabel title="Loss of Community" x="10%" y="270px" />
+          {/* LEFT CLUSTER - Council Grove - push further left */}
+          <RiskLabel title="Loss of Community" x="8%" y="270px" />
 
         </div>
 
