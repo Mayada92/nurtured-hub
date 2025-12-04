@@ -179,8 +179,8 @@ const date = new Date(post.data.date).toLocaleDateString('en-US', {
 
   /* Default: make all images smaller (50% width) */
   .post__content :global(img) {
-    width: 50%;
-    max-width: 600px;
+    width: 50% !important;
+    max-width: 600px !important;
     height: auto;
     object-fit: contain;
     border-radius: var(--radius-lg);
@@ -192,7 +192,7 @@ const date = new Date(post.data.date).toLocaleDateString('en-US', {
 
   /* Keep ONLY the first image (FIGURE 1a - before Introduction) large */
   /* The first image is in the first paragraph before the first h2 */
-  .post__content > :global(p:first-of-type) img {
+  .post__content > :global(p:first-of-type) :global(img) {
     width: 100% !important;
     max-width: 100% !important;
   }

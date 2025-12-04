@@ -1,7 +1,7 @@
 ---
 title: "It Takes a Village: Reflections on Social and Emotional Development"
 lang: en
-date: 2025-01-25
+date: 2025-12-05
 excerpt: "A reflection on my journey through EDPS 604 at Ball State University, exploring the village model of social and emotional development and how interconnected support systems shape healthy child development."
 cover: "/images/blog/village-model-cover.png"
 tags: ["education", "educational-psychology", "social-development", "emotional-development"]
