@@ -199,11 +199,11 @@ const EnchantedValleyMap = () => {
             />
             
             {/* Lines from domains to protective factors - middle zone */}
-            {/* Heartstream River to Consistency */}
+            {/* Heartstream River to Consistency - moved to right */}
             <line
               x1="50%"
               y1="250px"
-              x2="50%"
+              x2="70%"
               y2="150px"
               stroke="rgba(120, 255, 150, 0.7)"
               strokeWidth="2"
@@ -213,19 +213,19 @@ const EnchantedValleyMap = () => {
             <line
               x1="50%"
               y1="250px"
-              x2="62%"
-              y2="320px"
+              x2="88%"
+              y2="580px"
               stroke="rgba(120, 255, 150, 0.7)"
               strokeWidth="2"
               strokeDasharray="4,4"
             />
             
-            {/* Mirror Meadow to Shared Identity */}
+            {/* Mirror Meadow to Shared Identity - moved down */}
             <line
               x1="75%"
               y1="550px"
-              x2="82%"
-              y2="480px"
+              x2="88%"
+              y2="350px"
               stroke="rgba(120, 255, 150, 0.7)"
               strokeWidth="2"
               strokeDasharray="4,4"
@@ -455,7 +455,7 @@ const EnchantedValleyMap = () => {
           <ProtectiveLabel
             title="Consistency Across Contexts"
             short="Consistency"
-            x="50%" y="150px"
+            x="70%" y="150px"
             onClick={() => setSelectedNode('Consistency')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Consistency'}
@@ -463,17 +463,17 @@ const EnchantedValleyMap = () => {
           <ProtectiveLabel
             title="Emotional Buffering & Co-Regulation"
             short="Co-Regulation"
-            x="62%" y="320px"
+            x="88%" y="580px"
             onClick={() => setSelectedNode('Co-Regulation')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Co-Regulation'}
           />
           
-          {/* Mirror Meadow cluster - right, well-spaced */}
+          {/* Mirror Meadow cluster - right, well-spaced, moved down */}
           <ProtectiveLabel
             title="Shared Identity & Belonging"
             short="Shared Identity"
-            x="82%" y="480px"
+            x="88%" y="350px"
             onClick={() => setSelectedNode('Shared Identity')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Shared Identity'}
@@ -508,8 +508,8 @@ const EnchantedValleyMap = () => {
           />
 
           {/* RISK FACTORS - Outer edges, far from center, well-spaced */}
-          {/* Top-left area - Heartstream River risks */}
-          <RiskLabel title="Emotional Fragility" x="20%" y="120px" />
+          {/* Top-left area - Heartstream River risks, moved left and up */}
+          <RiskLabel title="Emotional Fragility" x="25%" y="155px" />
           
           {/* Far right area - Mirror Meadow risks, vertically spaced */}
           <RiskLabel title="Identity Confusion" x="88%" y="380px" />
@@ -842,22 +842,22 @@ const ProtectiveLabel: React.FC<ProtectiveLabelProps> = ({ title, short, x, y, o
       left: x,
       top: y,
       transform: 'translate(-50%, -50%)',
-      padding: '10px 16px',
-      background: 'rgba(60, 80, 70, 0.75)',
+      padding: '12px 18px', // Slightly larger padding
+      background: 'rgba(50, 90, 70, 0.8)', // Lighter, brighter
       backdropFilter: 'blur(5px)',
-      border: '1px solid rgba(120, 180, 140, 0.6)',
+      border: '1px solid rgba(140, 200, 160, 0.7)', // Brighter border
       borderRadius: '8px',
-      fontSize: '0.75rem',
+      fontSize: '0.8rem', // Slightly larger than risk factors
       fontWeight: '600',
-      color: '#c8ffdc',
+      color: '#d8ffe8', // Lighter, brighter green
       textAlign: 'center',
       cursor: 'pointer',
-      maxWidth: '130px',
+      maxWidth: '140px', // Slightly wider than risk factors
       lineHeight: '1.2',
       transition: 'all 0.3s ease',
-      textShadow: '0 0 8px rgba(120,255,150,0.5), 1px 1px 3px rgba(0,0,0,0.8)',
-      boxShadow: isHovered ? '0 4px 15px rgba(120,180,140,0.4)' : '0 2px 10px rgba(0,0,0,0.4)',
-      filter: isHovered ? 'brightness(1.3)' : 'brightness(1)'
+      textShadow: '0 0 10px rgba(140,255,180,0.6), 1px 1px 3px rgba(0,0,0,0.8)',
+      boxShadow: isHovered ? '0 4px 15px rgba(120,180,140,0.5)' : '0 2px 10px rgba(0,0,0,0.4)',
+      filter: isHovered ? 'brightness(1.3)' : 'brightness(1.1)' // Slightly brighter by default
     }}
   >
     <div style={{ marginBottom: '4px' }}>✓ {title}</div>
