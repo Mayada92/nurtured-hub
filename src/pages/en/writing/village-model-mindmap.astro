@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import VillageModelMindMap from '../../../components/VillageModelMindMap';
+---
+
+<BaseLayout title="Village Model Mind Map" description="An interactive visualization of the Village Model of Social and Emotional Development" lang="en">
+  <VillageModelMindMap client:load />
+</BaseLayout>
+
+<style>
+  :global(body) {
+    overflow-x: hidden;
+  }
+</style>
+
