@@ -144,7 +144,7 @@ const EnchantedValleyMap = () => {
           zIndex: 2
         }}>
 
-          {/* Connecting Lines - SVG overlay */}
+          {/* Connecting Lines - SVG overlay - behind everything */}
           <svg
             style={{
               position: 'absolute',
@@ -153,7 +153,7 @@ const EnchantedValleyMap = () => {
               width: '100%',
               height: '100%',
               pointerEvents: 'none',
-              zIndex: 1
+              zIndex: 1 // Behind all elements
             }}
           >
             {/* Lines from The Child's Village to main domains - better spacing */}
@@ -735,7 +735,8 @@ const MapLocation: React.FC<MapLocationProps> = ({ title, subtitle, x, y, size, 
         borderRadius: '15px',
         backdropFilter: 'blur(10px)',
         border: `1px solid ${glowColors[glow]}40`,
-        boxShadow: `0 4px 20px rgba(0,0,0,0.5), 0 0 30px ${glowColors[glow]}30`
+        boxShadow: `0 4px 20px rgba(0,0,0,0.5), 0 0 30px ${glowColors[glow]}30`,
+        zIndex: 5 // Above lines and cluster circles, below risk factors
       }}
     >
       {/* Glow effect */}
