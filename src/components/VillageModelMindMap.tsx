@@ -209,16 +209,51 @@ const EnchantedValleyMap = () => {
               strokeWidth="2"
               strokeDasharray="3,3"
             />
-            {/* Visual cluster indicator for Heartstream River cluster */}
+            {/* Visual cluster indicators for each domain cluster */}
+            {/* Heartstream River cluster (top) - cool blue */}
             <circle
               cx="56%"
               cy="160px"
+              r="70"
+              fill="none"
+              stroke="rgba(150, 200, 255, 0.25)"
+              strokeWidth="1.5"
+              strokeDasharray="6,6"
+            />
+            
+            {/* Mirror Meadow cluster (right) - golden */}
+            <circle
+              cx="70%"
+              cy="400px"
+              r="100"
+              fill="none"
+              stroke="rgba(255, 215, 120, 0.25)"
+              strokeWidth="1.5"
+              strokeDasharray="6,6"
+            />
+            
+            {/* Council Grove cluster (left) - forest green */}
+            <circle
+              cx="20%"
+              cy="400px"
+              r="100"
+              fill="none"
+              stroke="rgba(120, 180, 100, 0.25)"
+              strokeWidth="1.5"
+              strokeDasharray="6,6"
+            />
+            
+            {/* Gathering Square cluster (bottom) - warm */}
+            <circle
+              cx="45%"
+              cy="750px"
               r="80"
               fill="none"
-              stroke="rgba(150, 200, 255, 0.2)"
-              strokeWidth="1"
-              strokeDasharray="5,5"
+              stroke="rgba(255, 200, 100, 0.25)"
+              strokeWidth="1.5"
+              strokeDasharray="6,6"
             />
+            
             {/* Heartstream River to Co-Regulation */}
             <line
               x1="55%"
