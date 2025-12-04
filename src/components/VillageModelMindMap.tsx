@@ -214,7 +214,7 @@ const EnchantedValleyMap = () => {
             <line
               x1="75%"
               y1="420px"
-              x2="90%"
+              x2="92%"
               y2="320px"
               stroke="rgba(120, 255, 150, 0.7)"
               strokeWidth="2"
@@ -224,7 +224,7 @@ const EnchantedValleyMap = () => {
             <line
               x1="75%"
               y1="420px"
-              x2="90%"
+              x2="92%"
               y2="520px"
               stroke="rgba(120, 255, 150, 0.7)"
               strokeWidth="2"
@@ -324,8 +324,8 @@ const EnchantedValleyMap = () => {
             <line
               x1="75%"
               y1="420px"
-              x2="85%"
-              y2="270px"
+              x2="88%"
+              y2="260px"
               stroke="rgba(255, 150, 150, 0.5)"
               strokeWidth="1.5"
               strokeDasharray="4,4"
@@ -334,7 +334,7 @@ const EnchantedValleyMap = () => {
             <line
               x1="75%"
               y1="420px"
-              x2="88%"
+              x2="90%"
               y2="580px"
               stroke="rgba(255, 150, 150, 0.5)"
               strokeWidth="1.5"
@@ -345,7 +345,7 @@ const EnchantedValleyMap = () => {
             <line
               x1="25%"
               y1="420px"
-              x2="12%"
+              x2="10%"
               y2="270px"
               stroke="rgba(255, 150, 150, 0.5)"
               strokeWidth="1.5"
@@ -465,7 +465,7 @@ const EnchantedValleyMap = () => {
           <ProtectiveLabel
             title="Shared Identity & Belonging"
             short="Shared Identity"
-            x="90%" y="320px"
+            x="92%" y="320px"
             onClick={() => setSelectedNode('Shared Identity')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Shared Identity'}
@@ -473,7 +473,7 @@ const EnchantedValleyMap = () => {
           <ProtectiveLabel
             title="Emotional Buffering & Co-Regulation"
             short="Co-Regulation"
-            x="90%" y="520px"
+            x="92%" y="520px"
             onClick={() => setSelectedNode('Co-Regulation')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Co-Regulation'}
@@ -512,15 +512,15 @@ const EnchantedValleyMap = () => {
           <RiskLabel title="Emotional Fragility" x="35%" y="135px" />
           
           {/* RIGHT CLUSTER - Mirror Meadow */}
-          <RiskLabel title="Identity Confusion" x="85%" y="270px" />
-          <RiskLabel title="Technology Overexposure" x="88%" y="580px" />
+          <RiskLabel title="Identity Confusion" x="88%" y="260px" />
+          <RiskLabel title="Technology Overexposure" x="90%" y="580px" />
           
           {/* BOTTOM CLUSTER - Gathering Square */}
           <RiskLabel title="Loss of Meaning" x="30%" y="870px" />
           <RiskLabel title="Comparison Culture" x="70%" y="870px" />
           
           {/* LEFT CLUSTER - Council Grove */}
-          <RiskLabel title="Loss of Community" x="12%" y="270px" />
+          <RiskLabel title="Loss of Community" x="10%" y="270px" />
 
         </div>
 
