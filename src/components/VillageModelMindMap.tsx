@@ -104,7 +104,8 @@ const EnchantedValleyMap = () => {
         zIndex: 2,
         width: '100%',
         minHeight: '100vh',
-        padding: '40px 20px'
+        padding: '40px 20px',
+        backgroundColor: 'transparent' // Ensure content doesn't block background
       }}>
         
         {/* Title */}
