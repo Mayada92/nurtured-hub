@@ -79,21 +79,21 @@ const EnchantedValleyMap = () => {
       overflow: 'auto'
     }}>
       
-      {/* Background Image - only for the main map area */}
+      {/* Background Image - only for the main map area, smaller */}
       <div style={{
         position: 'absolute',
         top: '140px', // Start after title
         left: '50%',
         transform: 'translateX(-50%)',
-        width: '100%',
-        maxWidth: '1400px',
-        height: '900px', // Match the map container height
+        width: '80%',
+        maxWidth: '1000px',
+        height: '700px', // Smaller height to end before Cultural Variation
         backgroundImage: `url(${imagePath})`,
         backgroundSize: 'contain',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         zIndex: 0,
-        opacity: 0.6
+        opacity: 0.5
       }} />
 
       {/* Dark overlay for better text readability if needed */}
@@ -102,9 +102,9 @@ const EnchantedValleyMap = () => {
         top: '140px',
         left: '50%',
         transform: 'translateX(-50%)',
-        width: '100%',
-        maxWidth: '1400px',
-        height: '900px',
+        width: '80%',
+        maxWidth: '1000px',
+        height: '700px',
         background: 'linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.05) 100%)',
         zIndex: 1
       }} />
