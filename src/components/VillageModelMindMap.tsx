@@ -308,21 +308,25 @@ const EnchantedValleyMap = () => {
           }}>
             <CultureCard
               country="Palestine"
+              abbreviation="PS"
               flag="🇵🇸"
               insight="Collective identity and spirituality support resilience during hardship."
             />
             <CultureCard
               country="Japan"
+              abbreviation="JP"
               flag="🇯🇵"
               insight="Social capital and family-centered norms strengthen emotional outcomes."
             />
             <CultureCard
               country="South Korea"
+              abbreviation="KR"
               flag="🇰🇷"
               insight="Father's warmth predicts better self-control in children."
             />
             <CultureCard
               country="Mexico"
+              abbreviation="MX"
               flag="🇲🇽"
               insight="Acculturative stress disrupts alignment between home and school, creating dual identity."
             />
@@ -617,11 +621,12 @@ const ProtectiveLabel: React.FC<ProtectiveLabelProps> = ({ title, short, x, y, o
 // Culture Card
 interface CultureCardProps {
   country: string;
+  abbreviation: string;
   flag: string;
   insight: string;
 }
 
-const CultureCard: React.FC<CultureCardProps> = ({ country, flag, insight }) => (
+const CultureCard: React.FC<CultureCardProps> = ({ country, abbreviation, flag, insight }) => (
   <div style={{
     padding: '20px',
     background: 'rgba(30, 40, 50, 0.7)',
@@ -631,6 +636,17 @@ const CultureCard: React.FC<CultureCardProps> = ({ country, flag, insight }) => 
     transition: 'all 0.3s ease',
     boxShadow: '0 4px 15px rgba(0,0,0,0.3)'
   }}>
+    <div style={{ 
+      fontSize: '0.9rem', 
+      textAlign: 'center', 
+      marginBottom: '8px',
+      color: '#ffd778', /* Golden yellow to match theme */
+      fontWeight: '600',
+      letterSpacing: '2px',
+      opacity: 0.8
+    }}>
+      {abbreviation}
+    </div>
     <div style={{ fontSize: '2.5rem', textAlign: 'center', marginBottom: '10px' }}>{flag}</div>
     <h4 style={{
       fontSize: '1.2rem',
