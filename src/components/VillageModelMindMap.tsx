@@ -688,25 +688,25 @@ const EnchantedValleyMap = () => {
         }}>
           <CultureCard
             country="Palestine"
-            abbreviation="PS"
+            abbreviation="🇵🇸"
             flag="🇵🇸"
             insight="Collective identity and spirituality support resilience during hardship."
           />
           <CultureCard
             country="Japan"
-            abbreviation="JP"
+            abbreviation="🇯🇵"
             flag="🇯🇵"
             insight="Social capital and family-centered norms strengthen emotional outcomes."
           />
           <CultureCard
             country="South Korea"
-            abbreviation="KR"
+            abbreviation="🇰🇷"
             flag="🇰🇷"
             insight="Father's warmth predicts better self-control in children."
           />
           <CultureCard
             country="Mexico"
-            abbreviation="MX"
+            abbreviation="🇲🇽"
             flag="🇲🇽"
             insight="Acculturative stress disrupts alignment between home and school, creating dual identity."
           />
