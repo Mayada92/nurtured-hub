@@ -75,7 +75,7 @@ const EnchantedValleyMap = () => {
       width: '100%',
       minHeight: '100vh',
       fontFamily: '"Cormorant Garamond", "Crimson Pro", Georgia, serif',
-      background: '#0a0a0a'
+      background: 'transparent'
     }}>
       
       {/* ═══════════════════════════════════════════════════════════
@@ -137,7 +137,7 @@ const EnchantedValleyMap = () => {
             width: '100%',
             height: '100%',
             pointerEvents: 'none',
-            zIndex: 1
+            zIndex: 10 // Behind all boxes, in front of background
           }}
         >
             {/* Lines from The Child's Village to main domains - exact center coordinates */}
@@ -198,8 +198,8 @@ const EnchantedValleyMap = () => {
             <line
               x1="75%"
               y1="420"
-              x2="92%"
-              y2="340"
+              x2="93%"
+              y2="330"
               stroke="rgba(120, 255, 150, 0.5)"
               strokeWidth="1.5"
               strokeDasharray="4,4"
@@ -208,8 +208,8 @@ const EnchantedValleyMap = () => {
             <line
               x1="75%"
               y1="420"
-              x2="92%"
-              y2="550"
+              x2="93%"
+              y2="560"
               stroke="rgba(120, 255, 150, 0.5)"
               strokeWidth="1.5"
               strokeDasharray="4,4"
@@ -219,8 +219,8 @@ const EnchantedValleyMap = () => {
             <line
               x1="25%"
               y1="420"
-              x2="7%"
-              y2="340"
+              x2="9%"
+              y2="360"
               stroke="rgba(120, 255, 150, 0.5)"
               strokeWidth="1.5"
               strokeDasharray="4,4"
@@ -229,8 +229,8 @@ const EnchantedValleyMap = () => {
             <line
               x1="25%"
               y1="420"
-              x2="7%"
-              y2="550"
+              x2="9%"
+              y2="570"
               stroke="rgba(120, 255, 150, 0.5)"
               strokeWidth="1.5"
               strokeDasharray="4,4"
@@ -297,8 +297,8 @@ const EnchantedValleyMap = () => {
             <line
               x1="50%"
               y1="240"
-              x2="28%"
-              y2="120"
+              x2="32%"
+              y2="140"
               stroke="rgba(255, 150, 150, 0.5)"
               strokeWidth="1.5"
               strokeDasharray="4,4"
@@ -308,8 +308,8 @@ const EnchantedValleyMap = () => {
             <line
               x1="75%"
               y1="420"
-              x2="88%"
-              y2="220"
+              x2="86%"
+              y2="210"
               stroke="rgba(255, 150, 150, 0.5)"
               strokeWidth="1.5"
               strokeDasharray="4,4"
@@ -319,29 +319,29 @@ const EnchantedValleyMap = () => {
               x1="75%"
               y1="420"
               x2="88%"
-              y2="620"
+              y2="820"
               stroke="rgba(255, 150, 150, 0.5)"
               strokeWidth="1.5"
               strokeDasharray="4,4"
             />
             
-            {/* Council Grove to Loss of Community */}
+            {/* Center Village to Loss of Community */}
             <line
-              x1="25%"
-              y1="420"
-              x2="2%"
-              y2="180"
-              stroke="rgba(255, 150, 150, 0.5)"
-              strokeWidth="1.5"
-              strokeDasharray="4,4"
+              x1="50%"
+              y1="500"
+              x2="3%"
+              y2="200"
+              stroke="rgba(255, 215, 120, 0.3)"
+              strokeWidth="2"
+              strokeDasharray="5,5"
             />
             
             {/* Gathering Square to Loss of Meaning and Comparison Culture */}
             <line
               x1="50%"
               y1="760"
-              x2="25%"
-              y2="900"
+              x2="28%"
+              y2="890"
               stroke="rgba(255, 150, 150, 0.5)"
               strokeWidth="1.5"
               strokeDasharray="4,4"
@@ -349,8 +349,8 @@ const EnchantedValleyMap = () => {
             <line
               x1="50%"
               y1="760"
-              x2="75%"
-              y2="900"
+              x2="72%"
+              y2="890"
               stroke="rgba(255, 150, 150, 0.5)"
               strokeWidth="1.5"
               strokeDasharray="4,4"
@@ -445,11 +445,11 @@ const EnchantedValleyMap = () => {
             isHovered={hoveredNode === 'Consistency'}
           />
           
-          {/* RIGHT CLUSTER - Mirror Meadow */}
+          {/* RIGHT CLUSTER - Mirror Meadow - increased spacing */}
           <ProtectiveLabel
             title="Shared Identity & Belonging"
             short="Shared Identity"
-            x="92%" y="340px"
+            x="93%" y="330px"
             onClick={() => setSelectedNode('Shared Identity')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Shared Identity'}
@@ -457,17 +457,17 @@ const EnchantedValleyMap = () => {
           <ProtectiveLabel
             title="Emotional Buffering & Co-Regulation"
             short="Co-Regulation"
-            x="92%" y="550px"
+            x="93%" y="560px"
             onClick={() => setSelectedNode('Co-Regulation')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Co-Regulation'}
           />
           
-          {/* LEFT CLUSTER - Council Grove */}
+          {/* LEFT CLUSTER - Council Grove - maximum spacing to prevent overlap */}
           <ProtectiveLabel
             title="Collective Advice & Wisdom"
             short="Collective Wisdom"
-            x="7%" y="340px"
+            x="9%" y="360px"
             onClick={() => setSelectedNode('Collective Wisdom')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Collective Wisdom'}
@@ -475,7 +475,7 @@ const EnchantedValleyMap = () => {
           <ProtectiveLabel
             title="Recognition of Individual Strengths"
             short="Individual Strengths"
-            x="7%" y="550px"
+            x="9%" y="570px"
             onClick={() => setSelectedNode('Individual Strengths')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Individual Strengths'}
@@ -491,25 +491,170 @@ const EnchantedValleyMap = () => {
             isHovered={hoveredNode === 'Peer Learning'}
           />
 
-          {/* RISK FACTORS - Exact positions as specified */}
+          {/* RISK FACTORS - maximum spacing to prevent overlap */}
           {/* TOP CLUSTER - Heartstream River */}
           <RiskLabel title="Emotional Fragility" x="32%" y="140px" />
           
-          {/* RIGHT CLUSTER - Mirror Meadow */}
-          <RiskLabel title="Identity Confusion" x="89%" y="245px" />
-          <RiskLabel title="Technology Overexposure" x="90%" y="630px" />
+          {/* RIGHT CLUSTER - Mirror Meadow - maximum spacing */}
+          <RiskLabel title="Identity Confusion" x="86%" y="210px" />
+          <RiskLabel title="Technology Overexposure" x="88%" y="820px" />
           
           {/* BOTTOM CLUSTER - Gathering Square */}
           <RiskLabel title="Loss of Meaning" x="28%" y="890px" />
           <RiskLabel title="Comparison Culture" x="72%" y="890px" />
           
-          {/* LEFT CLUSTER - Council Grove */}
-          <RiskLabel title="Loss of Community" x="11%" y="245px" />
+          {/* LEFT CLUSTER - Council Grove - maximum spacing from other elements */}
+          <RiskLabel title="Loss of Community" x="3%" y="200px" />
 
       </div>
       {/* ═══════════════════════════════════════════════════════════
           END OF DIAGRAM CONTAINER
           ═══════════════════════════════════════════════════════════ */}
+
+      {/* ═══════════════════════════════════════════════════════════
+          LEGEND - UNDER DIAGRAM, ABOVE CULTURAL SECTION
+          ═══════════════════════════════════════════════════════════ */}
+      <div style={{
+        maxWidth: '1400px',
+        margin: '40px auto',
+        padding: '24px',
+        background: 'transparent',
+        borderRadius: '12px',
+        border: '2px solid rgba(255,215,120,0.5)',
+        boxShadow: '0 4px 20px rgba(0,0,0,0.5)',
+        position: 'relative',
+        zIndex: 3
+      }}>
+        <h4 style={{
+          color: '#ffd778',
+          fontSize: '1.1rem',
+          marginBottom: '20px',
+          fontWeight: '600',
+          textAlign: 'center',
+          textShadow: '0 0 8px rgba(255,215,120,0.4)'
+        }}>
+          Legend
+        </h4>
+        
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+          gap: '20px'
+        }}>
+          {/* Main Domains */}
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            padding: '12px',
+            background: 'rgba(20,30,40,0.3)',
+            borderRadius: '8px'
+          }}>
+            <div style={{
+              width: '40px',
+              height: '40px',
+              borderRadius: '50%',
+              background: 'transparent',
+              border: '2px solid rgba(255,200,100,0.8)',
+              marginRight: '12px',
+              flexShrink: 0
+            }} />
+            <div>
+              <div style={{ color: '#fff', fontSize: '0.9rem', fontWeight: '600', marginBottom: '4px' }}>
+                Developmental Domains
+              </div>
+              <div style={{ color: '#bbb', fontSize: '0.75rem' }}>
+                Core areas of growth
+              </div>
+            </div>
+          </div>
+
+          {/* Protective Factors */}
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            padding: '12px',
+            background: 'rgba(20,30,40,0.3)',
+            borderRadius: '8px'
+          }}>
+            <div style={{
+              padding: '8px 12px',
+              background: 'transparent',
+              border: '2px solid rgba(120,200,140,0.7)',
+              borderRadius: '6px',
+              color: '#c8ffdc',
+              fontSize: '0.85rem',
+              fontWeight: '600',
+              marginRight: '12px',
+              flexShrink: 0
+            }}>
+              ✓
+            </div>
+            <div>
+              <div style={{ color: '#fff', fontSize: '0.9rem', fontWeight: '600', marginBottom: '4px' }}>
+                Protective Factors
+              </div>
+              <div style={{ color: '#bbb', fontSize: '0.75rem' }}>
+                Village supports
+              </div>
+            </div>
+          </div>
+
+          {/* Risk Factors */}
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            padding: '12px',
+            background: 'rgba(20,30,40,0.3)',
+            borderRadius: '8px'
+          }}>
+            <div style={{
+              padding: '8px 12px',
+              background: 'transparent',
+              border: '2px solid rgba(180,80,80,0.7)',
+              borderRadius: '6px',
+              color: '#ffb8b8',
+              fontSize: '0.85rem',
+              fontWeight: '600',
+              marginRight: '12px',
+              flexShrink: 0
+            }}>
+              ⚠️
+            </div>
+            <div>
+              <div style={{ color: '#fff', fontSize: '0.9rem', fontWeight: '600', marginBottom: '4px' }}>
+                Risk Factors
+              </div>
+              <div style={{ color: '#bbb', fontSize: '0.75rem' }}>
+                Modern challenges
+              </div>
+            </div>
+          </div>
+
+          {/* Connections */}
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            padding: '12px',
+            background: 'rgba(20,30,40,0.3)',
+            borderRadius: '8px'
+          }}>
+            <svg width="50" height="20" style={{ marginRight: '12px', flexShrink: 0 }}>
+              <line x1="0" y1="10" x2="50" y2="10" 
+                    stroke="rgba(255,215,120,0.6)" 
+                    strokeWidth="2" 
+                    strokeDasharray="5,5" />
+            </svg>
+            <div>
+              <div style={{ color: '#fff', fontSize: '0.9rem', fontWeight: '600', marginBottom: '4px' }}>
+                Connections
+              </div>
+              <div style={{ color: '#bbb', fontSize: '0.75rem' }}>
+                Interdependent relationships
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* ═══════════════════════════════════════════════════════════
           CULTURAL SECTION - SCROLLS BELOW DIAGRAM
@@ -518,7 +663,7 @@ const EnchantedValleyMap = () => {
         maxWidth: '1400px',
         margin: '80px auto 60px',
         padding: '30px',
-        background: 'rgba(20, 30, 40, 0.95)',
+        background: 'transparent',
         borderRadius: '15px',
         border: '2px solid rgba(255, 215, 120, 0.3)',
         boxShadow: '0 0 30px rgba(0,0,0,0.5), inset 0 0 20px rgba(255,215,120,0.1)',
@@ -604,7 +749,7 @@ const EnchantedValleyMap = () => {
           left: 0,
           right: 0,
           bottom: 0,
-          background: 'rgba(0, 0, 0, 0.85)',
+          background: 'transparent',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -725,7 +870,7 @@ const MapLocation: React.FC<MapLocationProps> = ({ title, subtitle, x, y, size, 
         textAlign: 'center',
         filter: isHovered ? 'brightness(1.3)' : 'brightness(1)',
         animation: isHovered ? 'pulse 1.5s infinite' : 'none',
-        background: 'rgba(20, 30, 40, 0.9)', // More opaque to cover lines
+        background: 'transparent', // Transparent background
         borderRadius: '50%', // Perfect circle - MUST be 50%
         overflow: 'hidden', // Clip content to circle
         backdropFilter: 'blur(10px)',
@@ -824,7 +969,7 @@ const RiskLabel: React.FC<RiskLabelProps> = ({ title, x, y }) => (
     top: y,
     transform: 'translate(-50%, -50%)',
     padding: '8px 14px',
-    background: 'rgba(80, 40, 40, 0.7)',
+    background: 'transparent',
     backdropFilter: 'blur(5px)',
     border: '1px solid rgba(150, 80, 80, 0.5)',
     borderRadius: '8px',
@@ -864,7 +1009,7 @@ const ProtectiveLabel: React.FC<ProtectiveLabelProps> = ({ title, short, x, y, o
       top: y,
       transform: 'translate(-50%, -50%)',
       padding: '12px 18px', // Slightly larger padding
-      background: 'rgba(50, 90, 70, 0.8)', // Lighter, brighter
+      background: 'transparent', // Transparent background
       backdropFilter: 'blur(5px)',
       border: '1px solid rgba(140, 200, 160, 0.7)', // Brighter border
       borderRadius: '8px',
@@ -904,14 +1049,21 @@ interface CultureCardProps {
 const CultureCard: React.FC<CultureCardProps> = ({ country, abbreviation, flag, insight }) => (
   <div style={{
     padding: '20px',
-    background: 'rgba(30, 40, 50, 0.7)',
+    background: 'transparent',
     backdropFilter: 'blur(8px)',
     borderRadius: '10px',
     border: '1px solid rgba(255, 215, 120, 0.3)',
     transition: 'all 0.3s ease',
     boxShadow: '0 4px 15px rgba(0,0,0,0.3)'
   }}>
-    <div style={{ fontSize: '2.5rem', textAlign: 'center', marginBottom: '10px' }}>{flag}</div>
+    <div style={{ 
+      fontSize: '3rem', 
+      textAlign: 'center', 
+      marginBottom: '12px',
+      lineHeight: '1'
+    }}>
+      {flag}
+    </div>
     <h4 style={{
       fontSize: '1.2rem',
       fontWeight: '500',
@@ -943,7 +1095,7 @@ interface ApplicationBoxProps {
 const ApplicationBox: React.FC<ApplicationBoxProps> = ({ title, icon, insight }) => (
   <div style={{
     padding: '25px',
-    background: 'rgba(40, 50, 60, 0.75)',
+    background: 'transparent',
     backdropFilter: 'blur(10px)',
     borderRadius: '12px',
     border: '2px solid rgba(120, 180, 140, 0.4)',

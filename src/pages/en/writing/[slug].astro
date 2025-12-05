@@ -193,7 +193,7 @@ const date = new Date(post.data.date).toLocaleDateString('en-US', {
     margin-block-end: var(--space-4);
   }
 
-  /* Default: make all images smaller (50% width) */
+  /* Default: make all images in content smaller (50% width) */
   .post__content :global(img) {
     width: 50% !important;
     max-width: 600px !important;
@@ -206,8 +206,10 @@ const date = new Date(post.data.date).toLocaleDateString('en-US', {
     display: block;
   }
 
-  /* Keep ONLY the first image (FIGURE 1a - before Introduction) large */
-  /* Target the first img element directly, not the first p */
+  /* Keep ONLY the first image in content (FIGURE 1a - before Introduction) large */
+  /* More specific selector to ensure it targets the first image in the content area */
+  .post__content > :global(*:first-child) img,
+  .post__content :global(p:first-of-type) img,
   .post__content :global(img:first-of-type) {
     width: 100% !important;
     max-width: 100% !important;
