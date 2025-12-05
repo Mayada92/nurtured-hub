@@ -324,18 +324,7 @@ const EnchantedValleyMap = () => {
               strokeWidth="1.5"
               strokeDasharray="4,4"
             />
-            
-            {/* Center Village to Loss of Community */}
-            <line
-              x1="50%"
-              y1="500"
-              x2="3%"
-              y2="200"
-              stroke="rgba(255, 215, 120, 0.3)"
-              strokeWidth="2"
-              strokeDasharray="5,5"
-            />
-            
+
             {/* Gathering Square to Loss of Meaning and Comparison Culture */}
             <line
               x1="50%"
@@ -491,20 +480,20 @@ const EnchantedValleyMap = () => {
             isHovered={hoveredNode === 'Peer Learning'}
           />
 
-          {/* RISK FACTORS - maximum spacing to prevent overlap */}
+          {/* RISK FACTORS - Exact positions as specified */}
           {/* TOP CLUSTER - Heartstream River */}
           <RiskLabel title="Emotional Fragility" x="32%" y="140px" />
-          
-          {/* RIGHT CLUSTER - Mirror Meadow - maximum spacing */}
-          <RiskLabel title="Identity Confusion" x="86%" y="210px" />
+
+          {/* RIGHT CLUSTER - Mirror Meadow */}
+          <RiskLabel title="Identity Confusion" x="89%" y="245px" />
           <RiskLabel title="Technology Overexposure" x="88%" y="820px" />
-          
+
           {/* BOTTOM CLUSTER - Gathering Square */}
           <RiskLabel title="Loss of Meaning" x="28%" y="890px" />
           <RiskLabel title="Comparison Culture" x="72%" y="890px" />
-          
-          {/* LEFT CLUSTER - Council Grove - maximum spacing from other elements */}
-          <RiskLabel title="Loss of Community" x="3%" y="200px" />
+
+          {/* LEFT CLUSTER - Council Grove */}
+          <RiskLabel title="Loss of Community" x="11%" y="245px" />
 
       </div>
       {/* ═══════════════════════════════════════════════════════════
