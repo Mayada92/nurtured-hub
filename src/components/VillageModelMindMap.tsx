@@ -116,11 +116,11 @@ const EnchantedValleyMap = () => {
         width: '100%',                   
         height: '1200px',                // ← FIXED HEIGHT
         backgroundImage: `url(${imagePath})`,
-        backgroundSize: 'cover',         
+        backgroundSize: 'cover',
         backgroundPosition: 'center top',
         backgroundRepeat: 'no-repeat',
         overflow: 'visible',             // ← Allow elements to be visible
-        backgroundColor: '#1a1a1a'
+        backgroundColor: 'transparent'
         // NO position: fixed!
         // NO position: absolute!
         // NO backgroundAttachment!
