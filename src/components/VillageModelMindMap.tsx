@@ -74,88 +74,72 @@ const EnchantedValleyMap = () => {
     <div style={{
       width: '100%',
       minHeight: '100vh',
-      position: 'relative',
       fontFamily: '"Cormorant Garamond", "Crimson Pro", Georgia, serif',
-      overflow: 'auto',
-      backgroundColor: '#1a1a1a' // Solid background to prevent transparency
+      background: '#0a0a0a'
     }}>
       
-      {/* Background Image - full page dimensions */}
+      {/* ═══════════════════════════════════════════════════════════
+          TITLE SECTION - SEPARATE FROM DIAGRAM
+          ═══════════════════════════════════════════════════════════ */}
       <div style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        width: '100vw',
-        height: '100vh',
+        padding: '40px 20px',
+        textAlign: 'center',
+        background: '#1a1a1a'
+      }}>
+        <h1 style={{
+          fontSize: '3.5rem',
+          fontWeight: '400',
+          color: '#fff8dc', /* Baby yellow/cream */
+          margin: '0 0 10px 0',
+          letterSpacing: '2px',
+          textShadow: '0 0 20px rgba(255,255,255,0.8), 0 0 40px rgba(255,255,255,0.5), 2px 2px 8px rgba(0,0,0,0.6)'
+        }}>
+          The Village Model
+        </h1>
+        <p style={{
+          fontSize: '1.3rem',
+          color: '#fffef5', /* Soft white */
+          fontStyle: 'italic',
+          margin: 0,
+          textShadow: '0 0 15px rgba(255,255,255,0.9), 1px 1px 5px rgba(0,0,0,0.5)'
+        }}>
+          An Interactive Metaphor for Social and Emotional Development
+        </p>
+      </div>
+
+      {/* ═══════════════════════════════════════════════════════════
+          DIAGRAM CONTAINER - BACKGROUND + ELEMENTS TOGETHER
+          THIS IS THE CRITICAL PART!
+          ═══════════════════════════════════════════════════════════ */}
+      <div style={{
+        position: 'relative',           // ← MUST BE RELATIVE
+        width: '100%',                   
+        height: '1200px',                // ← FIXED HEIGHT
         backgroundImage: `url(${imagePath})`,
-        backgroundSize: 'cover', // Fill entire viewport
+        backgroundSize: 'cover',         
         backgroundPosition: 'center top',
         backgroundRepeat: 'no-repeat',
-        backgroundColor: '#1a1a1a',
-        zIndex: 0,
-        opacity: 1,
-        filter: 'none'
-      }} />
-
-      {/* Content Container */}
-      <div style={{
-        position: 'relative',
-        zIndex: 2,
-        width: '100%',
-        minHeight: '100vh',
-        padding: '40px 20px',
-        backgroundColor: 'transparent' // Ensure content doesn't block background
+        overflow: 'visible',             // ← Allow elements to be visible
+        backgroundColor: '#1a1a1a'
+        // NO position: fixed!
+        // NO position: absolute!
+        // NO backgroundAttachment!
       }}>
-        
-        {/* Title */}
-        <div style={{
-          textAlign: 'center',
-          marginBottom: '60px'
-        }}>
-          <h1 style={{
-            fontSize: '3.5rem',
-            fontWeight: '400',
-            color: '#fff8dc', /* Baby yellow/cream */
-            marginBottom: '10px',
-            letterSpacing: '2px',
-            textShadow: '0 0 20px rgba(255,255,255,0.8), 0 0 40px rgba(255,255,255,0.5), 2px 2px 8px rgba(0,0,0,0.6)'
-          }}>
-            The Village Model
-          </h1>
-          <p style={{
-            fontSize: '1.3rem',
-            color: '#fffef5', /* Soft white */
-            fontStyle: 'italic',
-            textShadow: '0 0 15px rgba(255,255,255,0.9), 1px 1px 5px rgba(0,0,0,0.5)'
-          }}>
-            An Interactive Metaphor for Social and Emotional Development
-          </p>
-        </div>
 
-        {/* Main Map Container - Increased height for better spacing */}
-        <div style={{
-          position: 'relative',
-          width: '100%',
-          maxWidth: '1800px',
-          margin: '0 auto',
-          minHeight: '1400px',
-          zIndex: 2
-        }}>
-
-          {/* Connecting Lines - SVG overlay - behind everything */}
-          <svg
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-              pointerEvents: 'none',
-              zIndex: 10 // Behind all boxes, in front of background
-            }}
-          >
+        {/* ─────────────────────────────────────────────────────────
+            SVG LINES - BEHIND EVERYTHING
+            ───────────────────────────────────────────────────────── */}
+        <svg
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            pointerEvents: 'none',
+            zIndex: 1
+          }}
+        >
             {/* Lines from The Child's Village to main domains - exact center coordinates */}
             {/* To Heartstream River (top) - center to center */}
             <line
@@ -204,7 +188,7 @@ const EnchantedValleyMap = () => {
               x1="50%"
               y1="240"
               x2="68%"
-              y2="135"
+              y2="140"
               stroke="rgba(120, 255, 150, 0.5)"
               strokeWidth="1.5"
               strokeDasharray="4,4"
@@ -214,8 +198,8 @@ const EnchantedValleyMap = () => {
             <line
               x1="75%"
               y1="420"
-              x2="94%"
-              y2="300"
+              x2="92%"
+              y2="340"
               stroke="rgba(120, 255, 150, 0.5)"
               strokeWidth="1.5"
               strokeDasharray="4,4"
@@ -224,8 +208,8 @@ const EnchantedValleyMap = () => {
             <line
               x1="75%"
               y1="420"
-              x2="94%"
-              y2="540"
+              x2="92%"
+              y2="550"
               stroke="rgba(120, 255, 150, 0.5)"
               strokeWidth="1.5"
               strokeDasharray="4,4"
@@ -235,8 +219,8 @@ const EnchantedValleyMap = () => {
             <line
               x1="25%"
               y1="420"
-              x2="8%"
-              y2="300"
+              x2="7%"
+              y2="340"
               stroke="rgba(120, 255, 150, 0.5)"
               strokeWidth="1.5"
               strokeDasharray="4,4"
@@ -245,8 +229,8 @@ const EnchantedValleyMap = () => {
             <line
               x1="25%"
               y1="420"
-              x2="8%"
-              y2="540"
+              x2="7%"
+              y2="550"
               stroke="rgba(120, 255, 150, 0.5)"
               strokeWidth="1.5"
               strokeDasharray="4,4"
@@ -257,7 +241,7 @@ const EnchantedValleyMap = () => {
               x1="50%"
               y1="760"
               x2="50%"
-              y2="890"
+              y2="920"
               stroke="rgba(120, 255, 150, 0.5)"
               strokeWidth="1.5"
               strokeDasharray="4,4"
@@ -312,9 +296,9 @@ const EnchantedValleyMap = () => {
             {/* Heartstream River to Emotional Fragility */}
             <line
               x1="50%"
-              y1="240px"
-              x2="35%"
-              y2="135px"
+              y1="240"
+              x2="28%"
+              y2="120"
               stroke="rgba(255, 150, 150, 0.5)"
               strokeWidth="1.5"
               strokeDasharray="4,4"
@@ -323,9 +307,9 @@ const EnchantedValleyMap = () => {
             {/* Mirror Meadow to Identity Confusion */}
             <line
               x1="75%"
-              y1="420px"
+              y1="420"
               x2="88%"
-              y2="260px"
+              y2="220"
               stroke="rgba(255, 150, 150, 0.5)"
               strokeWidth="1.5"
               strokeDasharray="4,4"
@@ -333,9 +317,9 @@ const EnchantedValleyMap = () => {
             {/* Mirror Meadow to Technology Overexposure */}
             <line
               x1="75%"
-              y1="420px"
-              x2="90%"
-              y2="580px"
+              y1="420"
+              x2="88%"
+              y2="620"
               stroke="rgba(255, 150, 150, 0.5)"
               strokeWidth="1.5"
               strokeDasharray="4,4"
@@ -344,9 +328,9 @@ const EnchantedValleyMap = () => {
             {/* Council Grove to Loss of Community */}
             <line
               x1="25%"
-              y1="420px"
-              x2="10%"
-              y2="270px"
+              y1="420"
+              x2="2%"
+              y2="180"
               stroke="rgba(255, 150, 150, 0.5)"
               strokeWidth="1.5"
               strokeDasharray="4,4"
@@ -355,18 +339,18 @@ const EnchantedValleyMap = () => {
             {/* Gathering Square to Loss of Meaning and Comparison Culture */}
             <line
               x1="50%"
-              y1="760px"
-              x2="30%"
-              y2="870px"
+              y1="760"
+              x2="25%"
+              y2="900"
               stroke="rgba(255, 150, 150, 0.5)"
               strokeWidth="1.5"
               strokeDasharray="4,4"
             />
             <line
               x1="50%"
-              y1="760px"
-              x2="70%"
-              y2="870px"
+              y1="760"
+              x2="75%"
+              y2="900"
               stroke="rgba(255, 150, 150, 0.5)"
               strokeWidth="1.5"
               strokeDasharray="4,4"
@@ -451,21 +435,21 @@ const EnchantedValleyMap = () => {
           />
 
           {/* PROTECTIVE FACTORS - Exact positions as specified */}
-          {/* TOP CLUSTER - Heartstream River - more right for spacing */}
+          {/* TOP CLUSTER - Heartstream River */}
           <ProtectiveLabel
             title="Consistency Across Contexts"
             short="Consistency"
-            x="68%" y="135px"
+            x="68%" y="140px"
             onClick={() => setSelectedNode('Consistency')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Consistency'}
           />
           
-          {/* RIGHT CLUSTER - Mirror Meadow - spread vertically to avoid overlaps */}
+          {/* RIGHT CLUSTER - Mirror Meadow */}
           <ProtectiveLabel
             title="Shared Identity & Belonging"
             short="Shared Identity"
-            x="94%" y="300px"
+            x="92%" y="340px"
             onClick={() => setSelectedNode('Shared Identity')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Shared Identity'}
@@ -473,17 +457,17 @@ const EnchantedValleyMap = () => {
           <ProtectiveLabel
             title="Emotional Buffering & Co-Regulation"
             short="Co-Regulation"
-            x="94%" y="540px"
+            x="92%" y="550px"
             onClick={() => setSelectedNode('Co-Regulation')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Co-Regulation'}
           />
           
-          {/* LEFT CLUSTER - Council Grove - push further left */}
+          {/* LEFT CLUSTER - Council Grove */}
           <ProtectiveLabel
             title="Collective Advice & Wisdom"
             short="Collective Wisdom"
-            x="8%" y="300px"
+            x="7%" y="340px"
             onClick={() => setSelectedNode('Collective Wisdom')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Collective Wisdom'}
@@ -491,7 +475,7 @@ const EnchantedValleyMap = () => {
           <ProtectiveLabel
             title="Recognition of Individual Strengths"
             short="Individual Strengths"
-            x="8%" y="540px"
+            x="7%" y="550px"
             onClick={() => setSelectedNode('Individual Strengths')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Individual Strengths'}
@@ -501,111 +485,115 @@ const EnchantedValleyMap = () => {
           <ProtectiveLabel
             title="Peer-Based Learning"
             short="Peer Learning"
-            x="50%" y="890px"
+            x="50%" y="920px"
             onClick={() => setSelectedNode('Peer Learning')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Peer Learning'}
           />
 
           {/* RISK FACTORS - Exact positions as specified */}
-          {/* TOP CLUSTER - Heartstream River - more left for symmetry */}
-          <RiskLabel title="Emotional Fragility" x="32%" y="135px" />
+          {/* TOP CLUSTER - Heartstream River */}
+          <RiskLabel title="Emotional Fragility" x="32%" y="140px" />
           
-          {/* RIGHT CLUSTER - Mirror Meadow - spread vertically */}
-          <RiskLabel title="Identity Confusion" x="90%" y="240px" />
-          <RiskLabel title="Technology Overexposure" x="92%" y="600px" />
+          {/* RIGHT CLUSTER - Mirror Meadow */}
+          <RiskLabel title="Identity Confusion" x="89%" y="245px" />
+          <RiskLabel title="Technology Overexposure" x="90%" y="630px" />
           
           {/* BOTTOM CLUSTER - Gathering Square */}
-          <RiskLabel title="Loss of Meaning" x="30%" y="870px" />
-          <RiskLabel title="Comparison Culture" x="70%" y="870px" />
+          <RiskLabel title="Loss of Meaning" x="28%" y="890px" />
+          <RiskLabel title="Comparison Culture" x="72%" y="890px" />
           
-          {/* LEFT CLUSTER - Council Grove - push further left */}
-          <RiskLabel title="Loss of Community" x="8%" y="270px" />
+          {/* LEFT CLUSTER - Council Grove */}
+          <RiskLabel title="Loss of Community" x="11%" y="245px" />
 
-        </div>
+      </div>
+      {/* ═══════════════════════════════════════════════════════════
+          END OF DIAGRAM CONTAINER
+          ═══════════════════════════════════════════════════════════ */}
 
-        {/* Cultural Variation Section */}
-        <div style={{
-          maxWidth: '1400px',
-          margin: '80px auto 60px',
-          padding: '30px',
-          background: 'rgba(20, 30, 40, 0.95)',
-          borderRadius: '15px',
-          border: '2px solid rgba(255, 215, 120, 0.3)',
-          boxShadow: '0 0 30px rgba(0,0,0,0.5), inset 0 0 20px rgba(255,215,120,0.1)',
-          position: 'relative',
-          zIndex: 3
+      {/* ═══════════════════════════════════════════════════════════
+          CULTURAL SECTION - SCROLLS BELOW DIAGRAM
+          ═══════════════════════════════════════════════════════════ */}
+      <div style={{
+        maxWidth: '1400px',
+        margin: '80px auto 60px',
+        padding: '30px',
+        background: 'rgba(20, 30, 40, 0.95)',
+        borderRadius: '15px',
+        border: '2px solid rgba(255, 215, 120, 0.3)',
+        boxShadow: '0 0 30px rgba(0,0,0,0.5), inset 0 0 20px rgba(255,215,120,0.1)',
+        position: 'relative',
+        zIndex: 3
+      }}>
+        <h3 style={{
+          fontSize: '1.8rem',
+          color: '#ffd778',
+          marginBottom: '25px',
+          textAlign: 'center',
+          fontWeight: '400',
+          letterSpacing: '1px',
+          textShadow: '0 0 10px rgba(255,215,120,0.6)'
         }}>
-          <h3 style={{
-            fontSize: '1.8rem',
-            color: '#ffd778',
-            marginBottom: '25px',
-            textAlign: 'center',
-            fontWeight: '400',
-            letterSpacing: '1px',
-            textShadow: '0 0 10px rgba(255,215,120,0.6)'
-          }}>
-            Cultural Variation: The WEIRD Problem
-          </h3>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '20px'
-          }}>
-            <CultureCard
-              country="Palestine"
-              abbreviation="PS"
-              flag="🇵🇸"
-              insight="Collective identity and spirituality support resilience during hardship."
-            />
-            <CultureCard
-              country="Japan"
-              abbreviation="JP"
-              flag="🇯🇵"
-              insight="Social capital and family-centered norms strengthen emotional outcomes."
-            />
-            <CultureCard
-              country="South Korea"
-              abbreviation="KR"
-              flag="🇰🇷"
-              insight="Father's warmth predicts better self-control in children."
-            />
-            <CultureCard
-              country="Mexico"
-              abbreviation="MX"
-              flag="🇲🇽"
-              insight="Acculturative stress disrupts alignment between home and school, creating dual identity."
-            />
-          </div>
-        </div>
-
-        {/* Application Boxes */}
+          Cultural Variation: The WEIRD Problem
+        </h3>
         <div style={{
-          maxWidth: '1400px',
-          margin: '0 auto 60px',
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-          gap: '25px',
-          position: 'relative',
-          zIndex: 3
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gap: '20px'
         }}>
-          <ApplicationBox
-            title="For Me"
-            icon="🌱"
-            insight="Recognize how my own development was shaped by village-like support (or its absence)."
+          <CultureCard
+            country="Palestine"
+            abbreviation="PS"
+            flag="🇵🇸"
+            insight="Collective identity and spirituality support resilience during hardship."
           />
-          <ApplicationBox
-            title="For Parents"
-            icon="🏡"
-            insight="Build consistency across home, school, and community to create a supportive village."
+          <CultureCard
+            country="Japan"
+            abbreviation="JP"
+            flag="🇯🇵"
+            insight="Social capital and family-centered norms strengthen emotional outcomes."
           />
-          <ApplicationBox
-            title="For Policymakers & Educators"
-            icon="🎓"
-            insight="Design programs that strengthen community ties and align developmental contexts."
+          <CultureCard
+            country="South Korea"
+            abbreviation="KR"
+            flag="🇰🇷"
+            insight="Father's warmth predicts better self-control in children."
+          />
+          <CultureCard
+            country="Mexico"
+            abbreviation="MX"
+            flag="🇲🇽"
+            insight="Acculturative stress disrupts alignment between home and school, creating dual identity."
           />
         </div>
+      </div>
 
+      {/* Application Boxes - scrolls below cultural section */}
+      <div style={{
+        maxWidth: '1400px',
+        margin: '0 auto 60px',
+        padding: '40px 20px',
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+        gap: '25px',
+        position: 'relative',
+        zIndex: 3
+      }}>
+        <ApplicationBox
+          title="For Me"
+          icon="🌱"
+          insight="Recognize how my own development was shaped by village-like support (or its absence)."
+        />
+        <ApplicationBox
+          title="For Parents"
+          icon="🏡"
+          insight="Build consistency across home, school, and community to create a supportive village."
+        />
+        <ApplicationBox
+          title="For Policymakers & Educators"
+          icon="🎓"
+          insight="Design programs that strengthen community ties and align developmental contexts."
+        />
       </div>
 
       {/* Modal for Definitions */}
@@ -772,36 +760,49 @@ const MapLocation: React.FC<MapLocationProps> = ({ title, subtitle, x, y, size, 
         zIndex: -1
       }} />
       
-      <h3 style={{
-        position: 'relative',
-        fontSize: sizes[size].fontSize,
-        fontWeight: '500',
-        color: '#ffffff',
-        marginBottom: '6px',
-        textShadow: `0 0 25px ${glowColors[glow]}, 0 0 50px ${glowColors[glow]}, 2px 2px 8px rgba(0,0,0,0.8)`,
-        letterSpacing: '0.5px',
-        lineHeight: '1.2',
-        zIndex: 1
-      }}>
-        {title}
-      </h3>
-      <p style={{
-        position: 'relative',
-        fontSize: sizes[size].subtitleSize,
-        color: '#f0f0f0',
-        fontStyle: 'italic',
-        textShadow: '0 0 10px rgba(255,255,255,0.5), 1px 1px 4px rgba(0,0,0,0.9)',
-        zIndex: 1
-      }}>
-        {subtitle}
-      </p>
-      {/* Cursor indicator */}
       <div style={{
         position: 'relative',
-        marginTop: '8px',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        zIndex: 1,
+        marginTop: '-10px' // Fine-tune vertical centering
+      }}>
+        <h3 style={{
+          fontSize: sizes[size].fontSize,
+          fontWeight: '500',
+          color: '#ffffff',
+          marginBottom: '4px',
+          marginTop: 0,
+          textShadow: `0 0 25px ${glowColors[glow]}, 0 0 50px ${glowColors[glow]}, 2px 2px 8px rgba(0,0,0,0.8)`,
+          letterSpacing: '0.5px',
+          lineHeight: '1.2',
+          textAlign: 'center'
+        }}>
+          {title}
+        </h3>
+        <p style={{
+          fontSize: sizes[size].subtitleSize,
+          color: '#f0f0f0',
+          fontStyle: 'italic',
+          margin: 0,
+          textShadow: '0 0 10px rgba(255,255,255,0.5), 1px 1px 4px rgba(0,0,0,0.9)',
+          textAlign: 'center'
+        }}>
+          {subtitle}
+        </p>
+      </div>
+      {/* Cursor indicator - positioned absolutely at bottom */}
+      <div style={{
+        position: 'absolute',
+        bottom: '15px',
+        left: '50%',
+        transform: 'translateX(-50%)',
         fontSize: '1.2rem',
         opacity: isHovered ? 1 : 0.7,
-        transition: 'opacity 0.3s ease'
+        transition: 'opacity 0.3s ease',
+        zIndex: 1
       }}>
         ✦
       </div>
@@ -910,17 +911,6 @@ const CultureCard: React.FC<CultureCardProps> = ({ country, abbreviation, flag, 
     transition: 'all 0.3s ease',
     boxShadow: '0 4px 15px rgba(0,0,0,0.3)'
   }}>
-    <div style={{ 
-      fontSize: '0.9rem', 
-      textAlign: 'center', 
-      marginBottom: '8px',
-      color: '#ffd778', /* Golden yellow to match theme */
-      fontWeight: '600',
-      letterSpacing: '2px',
-      opacity: 0.8
-    }}>
-      {abbreviation}
-    </div>
     <div style={{ fontSize: '2.5rem', textAlign: 'center', marginBottom: '10px' }}>{flag}</div>
     <h4 style={{
       fontSize: '1.2rem',
