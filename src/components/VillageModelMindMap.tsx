@@ -75,7 +75,7 @@ const EnchantedValleyMap = () => {
       width: '100%',
       minHeight: '100vh',
       fontFamily: '"Cormorant Garamond", "Crimson Pro", Georgia, serif',
-      background: '#0a0a0a'
+      background: 'transparent'
     }}>
       
       {/* ═══════════════════════════════════════════════════════════
@@ -324,18 +324,7 @@ const EnchantedValleyMap = () => {
               strokeWidth="1.5"
               strokeDasharray="4,4"
             />
-            
-            {/* Council Grove to Loss of Community */}
-            <line
-              x1="25%"
-              y1="420"
-              x2="2%"
-              y2="180"
-              stroke="rgba(255, 150, 150, 0.5)"
-              strokeWidth="1.5"
-              strokeDasharray="4,4"
-            />
-            
+
             {/* Gathering Square to Loss of Meaning and Comparison Culture */}
             <line
               x1="50%"
@@ -497,7 +486,7 @@ const EnchantedValleyMap = () => {
           
           {/* RIGHT CLUSTER - Mirror Meadow */}
           <RiskLabel title="Identity Confusion" x="89%" y="245px" />
-          <RiskLabel title="Technology Overexposure" x="90%" y="630px" />
+          <RiskLabel title="Technology Overexposure" x="88%" y="820px" />
           
           {/* BOTTOM CLUSTER - Gathering Square */}
           <RiskLabel title="Loss of Meaning" x="28%" y="890px" />
