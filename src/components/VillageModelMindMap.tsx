@@ -725,15 +725,21 @@ const MapLocation: React.FC<MapLocationProps> = ({ title, subtitle, x, y, size, 
         top: y,
         transform: 'translate(-50%, -50%)',
         width: sizes[size].width,
-        height: sizes[size].height, // Equal height for perfect circle
+        height: sizes[size].height, // Equal width and height for perfect circle
+        minWidth: sizes[size].width, // Ensure minimum size
+        minHeight: sizes[size].height, // Ensure minimum size
+        maxWidth: sizes[size].width, // Ensure maximum size
+        maxHeight: sizes[size].height, // Ensure maximum size
         padding: '20px',
+        boxSizing: 'border-box', // Include padding in width/height
         cursor: 'pointer',
         transition: 'all 0.4s ease',
         textAlign: 'center',
         filter: isHovered ? 'brightness(1.3)' : 'brightness(1)',
         animation: isHovered ? 'pulse 1.5s infinite' : 'none',
         background: 'rgba(20, 30, 40, 0.9)', // More opaque to cover lines
-        borderRadius: '50%', // Perfect circle
+        borderRadius: '50%', // Perfect circle - MUST be 50%
+        overflow: 'hidden', // Clip content to circle
         backdropFilter: 'blur(10px)',
         border: `2px solid ${glowColors[glow]}60`, // Stronger border
         boxShadow: `0 4px 20px rgba(0,0,0,0.6), 0 0 40px ${glowColors[glow]}40`, // Stronger shadow
@@ -744,7 +750,7 @@ const MapLocation: React.FC<MapLocationProps> = ({ title, subtitle, x, y, size, 
         zIndex: 6 // Above lines and cluster circles
       }}
     >
-      {/* Glow effect */}
+      {/* Glow effect - circular */}
       <div style={{
         position: 'absolute',
         top: '50%',
@@ -752,12 +758,17 @@ const MapLocation: React.FC<MapLocationProps> = ({ title, subtitle, x, y, size, 
         transform: 'translate(-50%, -50%)',
         width: '100%',
         height: '100%',
+        minWidth: '100%',
+        minHeight: '100%',
+        maxWidth: '100%',
+        maxHeight: '100%',
         background: `radial-gradient(circle, ${glowColors[glow]} 0%, transparent 70%)`,
         opacity: isHovered ? 0.9 : 0.7, // Slightly brighter default
         transition: 'opacity 0.4s ease',
         pointerEvents: 'none',
         filter: 'blur(15px)',
         borderRadius: '50%', // Always circular for glow
+        overflow: 'hidden', // Ensure circular clipping
         zIndex: -1
       }} />
       
@@ -766,7 +777,7 @@ const MapLocation: React.FC<MapLocationProps> = ({ title, subtitle, x, y, size, 
         fontSize: sizes[size].fontSize,
         fontWeight: '500',
         color: '#ffffff',
-        marginBottom: isCircular ? '6px' : '8px',
+        marginBottom: '6px',
         textShadow: `0 0 25px ${glowColors[glow]}, 0 0 50px ${glowColors[glow]}, 2px 2px 8px rgba(0,0,0,0.8)`,
         letterSpacing: '0.5px',
         lineHeight: '1.2',
