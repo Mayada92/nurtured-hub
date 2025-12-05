@@ -84,7 +84,8 @@ const EnchantedValleyMap = () => {
       <div style={{
         padding: '40px 20px',
         textAlign: 'center',
-        background: 'transparent'
+        background: 'rgba(0, 0, 0, 0.4)',
+        backdropFilter: 'blur(8px)'
       }}>
         <h1 style={{
           fontSize: '3.5rem',
@@ -518,7 +519,7 @@ const EnchantedValleyMap = () => {
         maxWidth: '1400px',
         margin: '40px auto',
         padding: '24px',
-        background: 'transparent',
+        background: 'rgba(20, 30, 40, 0.85)',
         borderRadius: '12px',
         border: '2px solid rgba(255,215,120,0.5)',
         boxShadow: '0 4px 20px rgba(0,0,0,0.5)',
@@ -546,14 +547,14 @@ const EnchantedValleyMap = () => {
             display: 'flex',
             alignItems: 'center',
             padding: '12px',
-            background: 'rgba(20,30,40,0.3)',
+            background: 'rgba(40,50,60,0.6)',
             borderRadius: '8px'
           }}>
             <div style={{
               width: '40px',
               height: '40px',
               borderRadius: '50%',
-              background: 'transparent',
+              background: 'rgba(20, 30, 40, 0.9)',
               border: '2px solid rgba(255,200,100,0.8)',
               marginRight: '12px',
               flexShrink: 0
@@ -573,12 +574,12 @@ const EnchantedValleyMap = () => {
             display: 'flex',
             alignItems: 'center',
             padding: '12px',
-            background: 'rgba(20,30,40,0.3)',
+            background: 'rgba(40,50,60,0.6)',
             borderRadius: '8px'
           }}>
             <div style={{
               padding: '8px 12px',
-              background: 'transparent',
+              background: 'rgba(50, 90, 70, 0.8)',
               border: '2px solid rgba(120,200,140,0.7)',
               borderRadius: '6px',
               color: '#c8ffdc',
@@ -604,12 +605,12 @@ const EnchantedValleyMap = () => {
             display: 'flex',
             alignItems: 'center',
             padding: '12px',
-            background: 'rgba(20,30,40,0.3)',
+            background: 'rgba(40,50,60,0.6)',
             borderRadius: '8px'
           }}>
             <div style={{
               padding: '8px 12px',
-              background: 'transparent',
+              background: 'rgba(80, 40, 40, 0.7)',
               border: '2px solid rgba(180,80,80,0.7)',
               borderRadius: '6px',
               color: '#ffb8b8',
@@ -635,7 +636,7 @@ const EnchantedValleyMap = () => {
             display: 'flex',
             alignItems: 'center',
             padding: '12px',
-            background: 'rgba(20,30,40,0.3)',
+            background: 'rgba(40,50,60,0.6)',
             borderRadius: '8px'
           }}>
             <svg width="50" height="20" style={{ marginRight: '12px', flexShrink: 0 }}>
