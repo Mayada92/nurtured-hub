@@ -84,7 +84,7 @@ const EnchantedValleyMap = () => {
       <div style={{
         padding: '40px 20px',
         textAlign: 'center',
-        background: '#1a1a1a'
+        background: 'transparent'
       }}>
         <h1 style={{
           fontSize: '3.5rem',
