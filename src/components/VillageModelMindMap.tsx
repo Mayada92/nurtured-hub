@@ -834,7 +834,8 @@ const RiskLabel: React.FC<RiskLabelProps> = ({ title, x, y }) => (
     maxWidth: '130px',
     lineHeight: '1.2',
     textShadow: '0 0 8px rgba(255,100,100,0.5), 1px 1px 3px rgba(0,0,0,0.8)',
-    boxShadow: '0 2px 10px rgba(0,0,0,0.4)'
+    boxShadow: '0 2px 10px rgba(0,0,0,0.4)',
+    zIndex: 50 // Above lines, below main circles
   }}>
     ⚠️ {title}
   </div>
@@ -876,7 +877,8 @@ const ProtectiveLabel: React.FC<ProtectiveLabelProps> = ({ title, short, x, y, o
       transition: 'all 0.3s ease',
       textShadow: '0 0 10px rgba(140,255,180,0.6), 1px 1px 3px rgba(0,0,0,0.8)',
       boxShadow: isHovered ? '0 4px 15px rgba(120,180,140,0.5)' : '0 2px 10px rgba(0,0,0,0.4)',
-      filter: isHovered ? 'brightness(1.3)' : 'brightness(1.1)' // Slightly brighter by default
+      filter: isHovered ? 'brightness(1.3)' : 'brightness(1.1)', // Slightly brighter by default
+      zIndex: 50 // Above lines, below main circles
     }}
   >
     <div style={{ marginBottom: '4px' }}>✓ {title}</div>
