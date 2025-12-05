@@ -137,7 +137,7 @@ const EnchantedValleyMap = () => {
             width: '100%',
             height: '100%',
             pointerEvents: 'none',
-            zIndex: 1
+            zIndex: 10 // Behind all boxes, in front of background
           }}
         >
             {/* Lines from The Child's Village to main domains - exact center coordinates */}
@@ -297,8 +297,8 @@ const EnchantedValleyMap = () => {
             <line
               x1="50%"
               y1="240"
-              x2="28%"
-              y2="120"
+              x2="32%"
+              y2="140"
               stroke="rgba(255, 150, 150, 0.5)"
               strokeWidth="1.5"
               strokeDasharray="4,4"
@@ -308,8 +308,8 @@ const EnchantedValleyMap = () => {
             <line
               x1="75%"
               y1="420"
-              x2="88%"
-              y2="220"
+              x2="89%"
+              y2="245"
               stroke="rgba(255, 150, 150, 0.5)"
               strokeWidth="1.5"
               strokeDasharray="4,4"
@@ -318,8 +318,8 @@ const EnchantedValleyMap = () => {
             <line
               x1="75%"
               y1="420"
-              x2="88%"
-              y2="620"
+              x2="90%"
+              y2="630"
               stroke="rgba(255, 150, 150, 0.5)"
               strokeWidth="1.5"
               strokeDasharray="4,4"
@@ -329,8 +329,8 @@ const EnchantedValleyMap = () => {
             <line
               x1="25%"
               y1="420"
-              x2="2%"
-              y2="180"
+              x2="11%"
+              y2="245"
               stroke="rgba(255, 150, 150, 0.5)"
               strokeWidth="1.5"
               strokeDasharray="4,4"
@@ -340,8 +340,8 @@ const EnchantedValleyMap = () => {
             <line
               x1="50%"
               y1="760"
-              x2="25%"
-              y2="900"
+              x2="28%"
+              y2="890"
               stroke="rgba(255, 150, 150, 0.5)"
               strokeWidth="1.5"
               strokeDasharray="4,4"
@@ -349,8 +349,8 @@ const EnchantedValleyMap = () => {
             <line
               x1="50%"
               y1="760"
-              x2="75%"
-              y2="900"
+              x2="72%"
+              y2="890"
               stroke="rgba(255, 150, 150, 0.5)"
               strokeWidth="1.5"
               strokeDasharray="4,4"
