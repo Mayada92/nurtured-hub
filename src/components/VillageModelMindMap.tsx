@@ -153,113 +153,113 @@ const EnchantedValleyMap = () => {
               width: '100%',
               height: '100%',
               pointerEvents: 'none',
-              zIndex: 1 // Behind all elements
+              zIndex: 10 // Behind all boxes, in front of background
             }}
           >
-            {/* Lines from The Child's Village to main domains - updated positions */}
-            {/* To Heartstream River (top) */}
+            {/* Lines from The Child's Village to main domains - exact center coordinates */}
+            {/* To Heartstream River (top) - center to center */}
             <line
               x1="50%"
-              y1="500px"
+              y1="500"
               x2="50%"
-              y2="240px"
-              stroke="rgba(255, 215, 120, 0.6)"
-              strokeWidth="2.5"
-              filter="url(#glow)"
+              y2="240"
+              stroke="rgba(255, 215, 120, 0.4)"
+              strokeWidth="2"
+              strokeDasharray="5,5"
             />
-            {/* To Mirror Meadow (right) */}
+            {/* To Mirror Meadow (right) - center to center */}
             <line
               x1="50%"
-              y1="500px"
+              y1="500"
               x2="75%"
-              y2="420px"
-              stroke="rgba(255, 215, 120, 0.6)"
-              strokeWidth="2.5"
-              filter="url(#glow)"
+              y2="420"
+              stroke="rgba(255, 215, 120, 0.4)"
+              strokeWidth="2"
+              strokeDasharray="5,5"
             />
-            {/* To Gathering Square (bottom) */}
+            {/* To Gathering Square (bottom) - center to center */}
             <line
               x1="50%"
-              y1="500px"
+              y1="500"
               x2="50%"
-              y2="760px"
-              stroke="rgba(255, 215, 120, 0.6)"
-              strokeWidth="2.5"
-              filter="url(#glow)"
+              y2="760"
+              stroke="rgba(255, 215, 120, 0.4)"
+              strokeWidth="2"
+              strokeDasharray="5,5"
             />
-            {/* To Council Grove (left) */}
+            {/* To Council Grove (left) - center to center */}
             <line
               x1="50%"
-              y1="500px"
+              y1="500"
               x2="25%"
-              y2="420px"
-              stroke="rgba(255, 215, 120, 0.6)"
-              strokeWidth="2.5"
-              filter="url(#glow)"
+              y2="420"
+              stroke="rgba(255, 215, 120, 0.4)"
+              strokeWidth="2"
+              strokeDasharray="5,5"
             />
             
-            {/* Lines from domains to protective factors - updated positions */}
+            {/* Lines from domains to protective factors - center to center */}
             {/* Heartstream River to Consistency */}
             <line
               x1="50%"
-              y1="240px"
+              y1="240"
               x2="68%"
-              y2="135px"
-              stroke="rgba(120, 255, 150, 0.7)"
-              strokeWidth="2"
+              y2="135"
+              stroke="rgba(120, 255, 150, 0.5)"
+              strokeWidth="1.5"
               strokeDasharray="4,4"
             />
             
             {/* Mirror Meadow to Shared Identity */}
             <line
               x1="75%"
-              y1="420px"
+              y1="420"
               x2="94%"
-              y2="300px"
-              stroke="rgba(120, 255, 150, 0.7)"
-              strokeWidth="2"
+              y2="300"
+              stroke="rgba(120, 255, 150, 0.5)"
+              strokeWidth="1.5"
               strokeDasharray="4,4"
             />
             {/* Mirror Meadow to Co-Regulation */}
             <line
               x1="75%"
-              y1="420px"
+              y1="420"
               x2="94%"
-              y2="540px"
-              stroke="rgba(120, 255, 150, 0.7)"
-              strokeWidth="2"
+              y2="540"
+              stroke="rgba(120, 255, 150, 0.5)"
+              strokeWidth="1.5"
               strokeDasharray="4,4"
             />
             
             {/* Council Grove to Collective Wisdom */}
             <line
               x1="25%"
-              y1="420px"
+              y1="420"
               x2="8%"
-              y2="300px"
-              stroke="rgba(120, 255, 150, 0.7)"
-              strokeWidth="2"
+              y2="300"
+              stroke="rgba(120, 255, 150, 0.5)"
+              strokeWidth="1.5"
               strokeDasharray="4,4"
             />
             {/* Council Grove to Individual Strengths */}
             <line
               x1="25%"
-              y1="420px"
+              y1="420"
               x2="8%"
-              y2="540px"
-              stroke="rgba(120, 255, 150, 0.7)"
-              strokeWidth="2"
+              y2="540"
+              stroke="rgba(120, 255, 150, 0.5)"
+              strokeWidth="1.5"
               strokeDasharray="4,4"
             />
             
             {/* Gathering Square to Peer Learning */}
             <line
               x1="50%"
-              y1="760px"
+              y1="760"
               x2="50%"
-              y2="890px"
-              stroke="rgba(120, 255, 150, 0.7)"
-              strokeWidth="2"
+              y2="890"
+              stroke="rgba(120, 255, 150, 0.5)"
+              strokeWidth="1.5"
               strokeDasharray="4,4"
             />
             
@@ -747,7 +747,7 @@ const MapLocation: React.FC<MapLocationProps> = ({ title, subtitle, x, y, size, 
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        zIndex: 6 // Above lines and cluster circles
+        zIndex: 100 // Above all lines and small boxes
       }}
     >
       {/* Glow effect - circular */}
