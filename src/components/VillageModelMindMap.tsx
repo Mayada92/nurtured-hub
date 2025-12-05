@@ -130,7 +130,7 @@ const EnchantedValleyMap = () => {
             fontStyle: 'italic',
             textShadow: '0 0 15px rgba(255,255,255,0.9), 1px 1px 5px rgba(0,0,0,0.5)'
           }}>
-            A Metaphor for Social and Emotional Development
+            An Interactive Metaphor for Social and Emotional Development
           </p>
         </div>
 
