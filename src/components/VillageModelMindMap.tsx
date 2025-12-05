@@ -308,8 +308,8 @@ const EnchantedValleyMap = () => {
             <line
               x1="75%"
               y1="420"
-              x2="86%"
-              y2="210"
+              x2="89%"
+              y2="245"
               stroke="rgba(255, 150, 150, 0.5)"
               strokeWidth="1.5"
               strokeDasharray="4,4"
@@ -320,6 +320,17 @@ const EnchantedValleyMap = () => {
               y1="420"
               x2="88%"
               y2="820"
+              stroke="rgba(255, 150, 150, 0.5)"
+              strokeWidth="1.5"
+              strokeDasharray="4,4"
+            />
+
+            {/* Council Grove to Loss of Community */}
+            <line
+              x1="25%"
+              y1="420"
+              x2="11%"
+              y2="245"
               stroke="rgba(255, 150, 150, 0.5)"
               strokeWidth="1.5"
               strokeDasharray="4,4"
@@ -859,7 +870,7 @@ const MapLocation: React.FC<MapLocationProps> = ({ title, subtitle, x, y, size, 
         textAlign: 'center',
         filter: isHovered ? 'brightness(1.3)' : 'brightness(1)',
         animation: isHovered ? 'pulse 1.5s infinite' : 'none',
-        background: 'transparent', // Transparent background
+        background: 'rgba(20, 30, 40, 0.9)', // More opaque to cover lines
         borderRadius: '50%', // Perfect circle - MUST be 50%
         overflow: 'hidden', // Clip content to circle
         backdropFilter: 'blur(10px)',
@@ -958,7 +969,7 @@ const RiskLabel: React.FC<RiskLabelProps> = ({ title, x, y }) => (
     top: y,
     transform: 'translate(-50%, -50%)',
     padding: '8px 14px',
-    background: 'transparent',
+    background: 'rgba(80, 40, 40, 0.7)',
     backdropFilter: 'blur(5px)',
     border: '1px solid rgba(150, 80, 80, 0.5)',
     borderRadius: '8px',
@@ -998,7 +1009,7 @@ const ProtectiveLabel: React.FC<ProtectiveLabelProps> = ({ title, short, x, y, o
       top: y,
       transform: 'translate(-50%, -50%)',
       padding: '12px 18px', // Slightly larger padding
-      background: 'transparent', // Transparent background
+      background: 'rgba(50, 90, 70, 0.8)', // Lighter, brighter
       backdropFilter: 'blur(5px)',
       border: '1px solid rgba(140, 200, 160, 0.7)', // Brighter border
       borderRadius: '8px',
