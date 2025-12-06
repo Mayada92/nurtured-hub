@@ -376,7 +376,7 @@ const EnchantedValleyMap = () => {
             x="50%"
             y="500px"
             size="large"
-            glow="warm"
+            glow="cool"
             onClick={() => setSelectedNode('Village Model')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Village Model'}
