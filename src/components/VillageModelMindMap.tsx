@@ -689,26 +689,26 @@ const EnchantedValleyMap = () => {
         }}>
           <CultureCard
             country="Palestine"
-            abbreviation="PS"
-            flag="images/flags/palestine.png"
+            abbreviation="🇵🇸"
+            flag={`${basePath}images/blog/Palestine flag.png`.replace(/\/+/g, '/')}
             insight="Collective identity and spirituality support resilience during hardship."
           />
           <CultureCard
             country="Japan"
-            abbreviation="JP"
-            flag="images/flags/japan.png"
+            abbreviation="🇯🇵"
+            flag={`${basePath}images/blog/Japan flag.png`.replace(/\/+/g, '/')}
             insight="Social capital and family-centered norms strengthen emotional outcomes."
           />
           <CultureCard
             country="South Korea"
-            abbreviation="KR"
-            flag="images/flags/south-korea.png"
+            abbreviation="🇰🇷"
+            flag={`${basePath}images/blog/South Korea flag.png`.replace(/\/+/g, '/')}
             insight="Father's warmth predicts better self-control in children."
           />
           <CultureCard
             country="Mexico"
-            abbreviation="MX"
-            flag="images/flags/mexico.png"
+            abbreviation="🇲🇽"
+            flag={`${basePath}images/blog/Mexico flag.png`.replace(/\/+/g, '/')}
             insight="Acculturative stress disrupts alignment between home and school, creating dual identity."
           />
         </div>
@@ -1047,59 +1047,54 @@ interface CultureCardProps {
   insight: string;
 }
 
-const CultureCard: React.FC<CultureCardProps> = ({ country, abbreviation, flag, insight }) => {
-  const basePath = import.meta.env.BASE_URL || '/';
-  const flagPath = `${basePath}${flag}`.replace(/\/+/g, '/');
-  
-  return (
+const CultureCard: React.FC<CultureCardProps> = ({ country, abbreviation, flag, insight }) => (
+  <div style={{
+    padding: '20px',
+    background: 'transparent',
+    backdropFilter: 'blur(8px)',
+    borderRadius: '10px',
+    border: '1px solid rgba(255, 215, 120, 0.3)',
+    transition: 'all 0.3s ease',
+    boxShadow: '0 4px 15px rgba(0,0,0,0.3)'
+  }}>
     <div style={{
-      padding: '20px',
-      background: 'transparent',
-      backdropFilter: 'blur(8px)',
-      borderRadius: '10px',
-      border: '1px solid rgba(255, 215, 120, 0.3)',
-      transition: 'all 0.3s ease',
-      boxShadow: '0 4px 15px rgba(0,0,0,0.3)'
+      textAlign: 'center',
+      marginBottom: '12px',
+      height: '60px',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center'
     }}>
-      <div style={{ 
-        textAlign: 'center', 
-        marginBottom: '12px',
-        lineHeight: '1'
-      }}>
-        <img 
-          src={flagPath} 
-          alt={`${country} flag`}
-          style={{
-            width: '60px',
-            height: '40px',
-            objectFit: 'cover',
-            borderRadius: '4px',
-            boxShadow: '0 2px 8px rgba(0,0,0,0.4)',
-            border: '1px solid rgba(255,215,120,0.3)'
-          }}
-        />
-      </div>
-      <h4 style={{
-        fontSize: '1.2rem',
-        fontWeight: '500',
-        color: '#ffd778',
-        textAlign: 'center',
-        marginBottom: '12px',
-        textShadow: '0 0 8px rgba(255,215,120,0.4)'
-      }}>
-        {country}
-      </h4>
-      <p style={{
-        fontSize: '0.95rem',
-        color: '#d8d8d8',
-        lineHeight: '1.6',
-        textAlign: 'center'
-      }}>
-        {insight}
-      </p>
+      <img
+        src={flag}
+        alt={`${country} flag`}
+        style={{
+          maxWidth: '80px',
+          maxHeight: '60px',
+          objectFit: 'contain'
+        }}
+      />
     </div>
-  );
-};
+    <h4 style={{
+      fontSize: '1.2rem',
+      fontWeight: '500',
+      color: '#ffd778',
+      textAlign: 'center',
+      marginBottom: '12px',
+      textShadow: '0 0 8px rgba(255,215,120,0.4)'
+    }}>
+      {country}
+    </h4>
+    <p style={{
+      fontSize: '0.95rem',
+      color: '#d8d8d8',
+      lineHeight: '1.6',
+      textAlign: 'center'
+    }}>
+      {insight}
+    </p>
+  </div>
+);
 
 // Application Box
 interface ApplicationBoxProps {
