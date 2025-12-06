@@ -109,6 +109,151 @@ const EnchantedValleyMap = () => {
       </div>
 
       {/* ═══════════════════════════════════════════════════════════
+          LEGEND - BEFORE DIAGRAM FOR CONTEXT
+          ═══════════════════════════════════════════════════════════ */}
+      <div style={{
+        maxWidth: '1400px',
+        margin: '40px auto 20px',
+        padding: '24px',
+        background: 'rgba(20, 30, 40, 0.85)',
+        borderRadius: '12px',
+        border: '2px solid rgba(255,215,120,0.5)',
+        boxShadow: '0 4px 20px rgba(0,0,0,0.5)',
+        position: 'relative',
+        zIndex: 3
+      }}>
+        <h4 style={{
+          color: '#ffd778',
+          fontSize: '1.1rem',
+          marginBottom: '20px',
+          fontWeight: '600',
+          textAlign: 'center',
+          textShadow: '0 0 8px rgba(255,215,120,0.4)'
+        }}>
+          Legend
+        </h4>
+
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+          gap: '20px'
+        }}>
+          {/* Main Domains */}
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            padding: '12px',
+            background: 'rgba(40,50,60,0.6)',
+            borderRadius: '8px'
+          }}>
+            <div style={{
+              width: '40px',
+              height: '40px',
+              borderRadius: '50%',
+              background: 'rgba(20, 30, 40, 0.9)',
+              border: '2px solid rgba(255,200,100,0.8)',
+              marginRight: '12px',
+              flexShrink: 0
+            }} />
+            <div>
+              <div style={{ color: '#fff', fontSize: '0.9rem', fontWeight: '600', marginBottom: '4px' }}>
+                Developmental Domains
+              </div>
+              <div style={{ color: '#bbb', fontSize: '0.75rem' }}>
+                Core areas of growth
+              </div>
+            </div>
+          </div>
+
+          {/* Protective Factors */}
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            padding: '12px',
+            background: 'rgba(40,50,60,0.6)',
+            borderRadius: '8px'
+          }}>
+            <div style={{
+              padding: '8px 12px',
+              background: 'rgba(50, 90, 70, 0.8)',
+              border: '2px solid rgba(120,200,140,0.7)',
+              borderRadius: '6px',
+              color: '#c8ffdc',
+              fontSize: '0.85rem',
+              fontWeight: '600',
+              marginRight: '12px',
+              flexShrink: 0
+            }}>
+              ✓
+            </div>
+            <div>
+              <div style={{ color: '#fff', fontSize: '0.9rem', fontWeight: '600', marginBottom: '4px' }}>
+                Protective Factors
+              </div>
+              <div style={{ color: '#bbb', fontSize: '0.75rem' }}>
+                Village supports
+              </div>
+            </div>
+          </div>
+
+          {/* Risk Factors */}
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            padding: '12px',
+            background: 'rgba(40,50,60,0.6)',
+            borderRadius: '8px'
+          }}>
+            <div style={{
+              padding: '8px 12px',
+              background: 'rgba(80, 40, 40, 0.7)',
+              border: '2px solid rgba(180,80,80,0.7)',
+              borderRadius: '6px',
+              color: '#ffb8b8',
+              fontSize: '0.85rem',
+              fontWeight: '600',
+              marginRight: '12px',
+              flexShrink: 0
+            }}>
+              ⚠️
+            </div>
+            <div>
+              <div style={{ color: '#fff', fontSize: '0.9rem', fontWeight: '600', marginBottom: '4px' }}>
+                Risk Factors
+              </div>
+              <div style={{ color: '#bbb', fontSize: '0.75rem' }}>
+                Modern challenges
+              </div>
+            </div>
+          </div>
+
+          {/* Connections */}
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            padding: '12px',
+            background: 'rgba(40,50,60,0.6)',
+            borderRadius: '8px'
+          }}>
+            <svg width="50" height="20" style={{ marginRight: '12px', flexShrink: 0 }}>
+              <line x1="0" y1="10" x2="50" y2="10"
+                    stroke="rgba(255,215,120,0.6)"
+                    strokeWidth="2"
+                    strokeDasharray="5,5" />
+            </svg>
+            <div>
+              <div style={{ color: '#fff', fontSize: '0.9rem', fontWeight: '600', marginBottom: '4px' }}>
+                Connections
+              </div>
+              <div style={{ color: '#bbb', fontSize: '0.75rem' }}>
+                Interdependent relationships
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ═══════════════════════════════════════════════════════════
           DIAGRAM CONTAINER - BACKGROUND + ELEMENTS TOGETHER
           THIS IS THE CRITICAL PART!
           ═══════════════════════════════════════════════════════════ */}
@@ -511,151 +656,6 @@ const EnchantedValleyMap = () => {
       {/* ═══════════════════════════════════════════════════════════
           END OF DIAGRAM CONTAINER
           ═══════════════════════════════════════════════════════════ */}
-
-      {/* ═══════════════════════════════════════════════════════════
-          LEGEND - UNDER DIAGRAM, ABOVE CULTURAL SECTION
-          ═══════════════════════════════════════════════════════════ */}
-      <div style={{
-        maxWidth: '1400px',
-        margin: '40px auto',
-        padding: '24px',
-        background: 'rgba(20, 30, 40, 0.85)',
-        borderRadius: '12px',
-        border: '2px solid rgba(255,215,120,0.5)',
-        boxShadow: '0 4px 20px rgba(0,0,0,0.5)',
-        position: 'relative',
-        zIndex: 3
-      }}>
-        <h4 style={{
-          color: '#ffd778',
-          fontSize: '1.1rem',
-          marginBottom: '20px',
-          fontWeight: '600',
-          textAlign: 'center',
-          textShadow: '0 0 8px rgba(255,215,120,0.4)'
-        }}>
-          Legend
-        </h4>
-        
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-          gap: '20px'
-        }}>
-          {/* Main Domains */}
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            padding: '12px',
-            background: 'rgba(40,50,60,0.6)',
-            borderRadius: '8px'
-          }}>
-            <div style={{
-              width: '40px',
-              height: '40px',
-              borderRadius: '50%',
-              background: 'rgba(20, 30, 40, 0.9)',
-              border: '2px solid rgba(255,200,100,0.8)',
-              marginRight: '12px',
-              flexShrink: 0
-            }} />
-            <div>
-              <div style={{ color: '#fff', fontSize: '0.9rem', fontWeight: '600', marginBottom: '4px' }}>
-                Developmental Domains
-              </div>
-              <div style={{ color: '#bbb', fontSize: '0.75rem' }}>
-                Core areas of growth
-              </div>
-            </div>
-          </div>
-
-          {/* Protective Factors */}
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            padding: '12px',
-            background: 'rgba(40,50,60,0.6)',
-            borderRadius: '8px'
-          }}>
-            <div style={{
-              padding: '8px 12px',
-              background: 'rgba(50, 90, 70, 0.8)',
-              border: '2px solid rgba(120,200,140,0.7)',
-              borderRadius: '6px',
-              color: '#c8ffdc',
-              fontSize: '0.85rem',
-              fontWeight: '600',
-              marginRight: '12px',
-              flexShrink: 0
-            }}>
-              ✓
-            </div>
-            <div>
-              <div style={{ color: '#fff', fontSize: '0.9rem', fontWeight: '600', marginBottom: '4px' }}>
-                Protective Factors
-              </div>
-              <div style={{ color: '#bbb', fontSize: '0.75rem' }}>
-                Village supports
-              </div>
-            </div>
-          </div>
-
-          {/* Risk Factors */}
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            padding: '12px',
-            background: 'rgba(40,50,60,0.6)',
-            borderRadius: '8px'
-          }}>
-            <div style={{
-              padding: '8px 12px',
-              background: 'rgba(80, 40, 40, 0.7)',
-              border: '2px solid rgba(180,80,80,0.7)',
-              borderRadius: '6px',
-              color: '#ffb8b8',
-              fontSize: '0.85rem',
-              fontWeight: '600',
-              marginRight: '12px',
-              flexShrink: 0
-            }}>
-              ⚠️
-            </div>
-            <div>
-              <div style={{ color: '#fff', fontSize: '0.9rem', fontWeight: '600', marginBottom: '4px' }}>
-                Risk Factors
-              </div>
-              <div style={{ color: '#bbb', fontSize: '0.75rem' }}>
-                Modern challenges
-              </div>
-            </div>
-          </div>
-
-          {/* Connections */}
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            padding: '12px',
-            background: 'rgba(40,50,60,0.6)',
-            borderRadius: '8px'
-          }}>
-            <svg width="50" height="20" style={{ marginRight: '12px', flexShrink: 0 }}>
-              <line x1="0" y1="10" x2="50" y2="10" 
-                    stroke="rgba(255,215,120,0.6)" 
-                    strokeWidth="2" 
-                    strokeDasharray="5,5" />
-            </svg>
-            <div>
-              <div style={{ color: '#fff', fontSize: '0.9rem', fontWeight: '600', marginBottom: '4px' }}>
-                Connections
-              </div>
-              <div style={{ color: '#bbb', fontSize: '0.75rem' }}>
-                Interdependent relationships
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* ═══════════════════════════════════════════════════════════
           CULTURAL SECTION - SCROLLS BELOW DIAGRAM
