@@ -690,25 +690,25 @@ const EnchantedValleyMap = () => {
           <CultureCard
             country="Palestine"
             abbreviation="🇵🇸"
-            flag={`${basePath}images/blog/Palestine flag.png`.replace(/\/+/g, '/')}
+            flag={`${basePath}images/blog/palestine.png`.replace(/\/+/g, '/')}
             insight="Collective identity and spirituality support resilience during hardship."
           />
           <CultureCard
             country="Japan"
             abbreviation="🇯🇵"
-            flag={`${basePath}images/blog/Japan flag.png`.replace(/\/+/g, '/')}
+            flag={`${basePath}images/blog/japan.png`.replace(/\/+/g, '/')}
             insight="Social capital and family-centered norms strengthen emotional outcomes."
           />
           <CultureCard
             country="South Korea"
             abbreviation="🇰🇷"
-            flag={`${basePath}images/blog/South Korea flag.png`.replace(/\/+/g, '/')}
+            flag={`${basePath}images/blog/south-korea.png`.replace(/\/+/g, '/')}
             insight="Father's warmth predicts better self-control in children."
           />
           <CultureCard
             country="Mexico"
             abbreviation="🇲🇽"
-            flag={`${basePath}images/blog/Mexico flag.png`.replace(/\/+/g, '/')}
+            flag={`${basePath}images/blog/mexico.png`.replace(/\/+/g, '/')}
             insight="Acculturative stress disrupts alignment between home and school, creating dual identity."
           />
         </div>
