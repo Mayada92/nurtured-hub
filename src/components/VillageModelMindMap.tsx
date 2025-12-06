@@ -521,7 +521,7 @@ const EnchantedValleyMap = () => {
             x="50%"
             y="500px"
             size="large"
-            glow="warm"
+            glow="cool"
             onClick={() => setSelectedNode('Village Model')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Village Model'}
@@ -535,7 +535,7 @@ const EnchantedValleyMap = () => {
             x="50%"
             y="240px"
             size="medium"
-            glow="cool"
+            glow="golden"
             onClick={() => setSelectedNode('Emotional Regulation')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Emotional Regulation'}
@@ -561,7 +561,7 @@ const EnchantedValleyMap = () => {
             x="50%"
             y="760px"
             size="medium"
-            glow="warm"
+            glow="golden"
             onClick={() => setSelectedNode('Peer Relationships')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Peer Relationships'}
@@ -574,7 +574,7 @@ const EnchantedValleyMap = () => {
             x="25%"
             y="420px"
             size="medium"
-            glow="forest"
+            glow="golden"
             onClick={() => setSelectedNode('Moral Development')}
             onHover={setHoveredNode}
             isHovered={hoveredNode === 'Moral Development'}
