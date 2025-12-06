@@ -690,25 +690,25 @@ const EnchantedValleyMap = () => {
           <CultureCard
             country="Palestine"
             abbreviation="🇵🇸"
-            flag="🇵🇸"
+            flag={`${basePath}images/blog/Palestine flag.png`.replace(/\/+/g, '/')}
             insight="Collective identity and spirituality support resilience during hardship."
           />
           <CultureCard
             country="Japan"
             abbreviation="🇯🇵"
-            flag="🇯🇵"
+            flag={`${basePath}images/blog/Japan flag.png`.replace(/\/+/g, '/')}
             insight="Social capital and family-centered norms strengthen emotional outcomes."
           />
           <CultureCard
             country="South Korea"
             abbreviation="🇰🇷"
-            flag="🇰🇷"
+            flag={`${basePath}images/blog/South Korea flag.png`.replace(/\/+/g, '/')}
             insight="Father's warmth predicts better self-control in children."
           />
           <CultureCard
             country="Mexico"
             abbreviation="🇲🇽"
-            flag="🇲🇽"
+            flag={`${basePath}images/blog/Mexico flag.png`.replace(/\/+/g, '/')}
             insight="Acculturative stress disrupts alignment between home and school, creating dual identity."
           />
         </div>
@@ -1057,13 +1057,23 @@ const CultureCard: React.FC<CultureCardProps> = ({ country, abbreviation, flag, 
     transition: 'all 0.3s ease',
     boxShadow: '0 4px 15px rgba(0,0,0,0.3)'
   }}>
-    <div style={{ 
-      fontSize: '3rem', 
-      textAlign: 'center', 
+    <div style={{
+      textAlign: 'center',
       marginBottom: '12px',
-      lineHeight: '1'
+      height: '60px',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center'
     }}>
-      {flag}
+      <img
+        src={flag}
+        alt={`${country} flag`}
+        style={{
+          maxWidth: '80px',
+          maxHeight: '60px',
+          objectFit: 'contain'
+        }}
+      />
     </div>
     <h4 style={{
       fontSize: '1.2rem',
