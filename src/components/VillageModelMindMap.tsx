@@ -689,26 +689,26 @@ const EnchantedValleyMap = () => {
         }}>
           <CultureCard
             country="Palestine"
-            abbreviation="🇵🇸"
-            flag="🇵🇸"
+            abbreviation="PS"
+            flag="images/flags/palestine.png"
             insight="Collective identity and spirituality support resilience during hardship."
           />
           <CultureCard
             country="Japan"
-            abbreviation="🇯🇵"
-            flag="🇯🇵"
+            abbreviation="JP"
+            flag="images/flags/japan.png"
             insight="Social capital and family-centered norms strengthen emotional outcomes."
           />
           <CultureCard
             country="South Korea"
-            abbreviation="🇰🇷"
-            flag="🇰🇷"
+            abbreviation="KR"
+            flag="images/flags/south-korea.png"
             insight="Father's warmth predicts better self-control in children."
           />
           <CultureCard
             country="Mexico"
-            abbreviation="🇲🇽"
-            flag="🇲🇽"
+            abbreviation="MX"
+            flag="images/flags/mexico.png"
             insight="Acculturative stress disrupts alignment between home and school, creating dual identity."
           />
         </div>
@@ -1047,44 +1047,59 @@ interface CultureCardProps {
   insight: string;
 }
 
-const CultureCard: React.FC<CultureCardProps> = ({ country, abbreviation, flag, insight }) => (
-  <div style={{
-    padding: '20px',
-    background: 'transparent',
-    backdropFilter: 'blur(8px)',
-    borderRadius: '10px',
-    border: '1px solid rgba(255, 215, 120, 0.3)',
-    transition: 'all 0.3s ease',
-    boxShadow: '0 4px 15px rgba(0,0,0,0.3)'
-  }}>
-    <div style={{ 
-      fontSize: '3rem', 
-      textAlign: 'center', 
-      marginBottom: '12px',
-      lineHeight: '1'
+const CultureCard: React.FC<CultureCardProps> = ({ country, abbreviation, flag, insight }) => {
+  const basePath = import.meta.env.BASE_URL || '/';
+  const flagPath = `${basePath}${flag}`.replace(/\/+/g, '/');
+  
+  return (
+    <div style={{
+      padding: '20px',
+      background: 'transparent',
+      backdropFilter: 'blur(8px)',
+      borderRadius: '10px',
+      border: '1px solid rgba(255, 215, 120, 0.3)',
+      transition: 'all 0.3s ease',
+      boxShadow: '0 4px 15px rgba(0,0,0,0.3)'
     }}>
-      {flag}
+      <div style={{ 
+        textAlign: 'center', 
+        marginBottom: '12px',
+        lineHeight: '1'
+      }}>
+        <img 
+          src={flagPath} 
+          alt={`${country} flag`}
+          style={{
+            width: '60px',
+            height: '40px',
+            objectFit: 'cover',
+            borderRadius: '4px',
+            boxShadow: '0 2px 8px rgba(0,0,0,0.4)',
+            border: '1px solid rgba(255,215,120,0.3)'
+          }}
+        />
+      </div>
+      <h4 style={{
+        fontSize: '1.2rem',
+        fontWeight: '500',
+        color: '#ffd778',
+        textAlign: 'center',
+        marginBottom: '12px',
+        textShadow: '0 0 8px rgba(255,215,120,0.4)'
+      }}>
+        {country}
+      </h4>
+      <p style={{
+        fontSize: '0.95rem',
+        color: '#d8d8d8',
+        lineHeight: '1.6',
+        textAlign: 'center'
+      }}>
+        {insight}
+      </p>
     </div>
-    <h4 style={{
-      fontSize: '1.2rem',
-      fontWeight: '500',
-      color: '#ffd778',
-      textAlign: 'center',
-      marginBottom: '12px',
-      textShadow: '0 0 8px rgba(255,215,120,0.4)'
-    }}>
-      {country}
-    </h4>
-    <p style={{
-      fontSize: '0.95rem',
-      color: '#d8d8d8',
-      lineHeight: '1.6',
-      textAlign: 'center'
-    }}>
-      {insight}
-    </p>
-  </div>
-);
+  );
+};
 
 // Application Box
 interface ApplicationBoxProps {
