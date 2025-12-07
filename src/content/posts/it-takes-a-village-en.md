@@ -13,7 +13,7 @@ tags: ["education", "educational-psychology", "social-development", "emotional-d
 
 > **[Explore the Interactive Village Model Mind Map →](/nurtured-hub/en/writing/village-model-mindmap)**
 
-![The village model: where children develop through relationships, not isolation.](/images/blog/figure-1a-village-plaza.png)
+<img src="/images/blog/figure-1a-village-plaza.png" alt="The village model: where children develop through relationships, not isolation." style="width: 35%; display: block; margin: 0 auto;" />
 
 ## Introduction
 
@@ -21,11 +21,11 @@ The purpose of this reflection is to share my journey throughout EDPS 604, Socia
 
 I have also been reflecting recently on social and emotional challenges children face today: emotional fragility, identity confusion, overexposure to technology, comparison culture, loss of meaning, and lack of community. The issue is when many people do not see these as critical problems. An even larger problem is when they do recognize them and fail to understand their own responsibility in contributing to these risks. Adults have a huge responsibility toward children because whatever happens in their youth becomes magnified and carries into adolescence and adulthood. Small things matter: a teacher forgiving a child for being late, a peer showing empathy, or an adult offering kindness. These social influences shape who a child becomes all the way into adulthood. Each person needs to acknowledge their responsibility, role, and power of influence on the youth.
 
-![Village model influence on child development](/images/blog/figure-1b-village-influence.png)
+<img src="/images/blog/figure-1b-village-influence.png" alt="Village model influence on child development" style="width: 35%; display: block; margin: 0 auto;" />
 
 This course helped me realize that the healthiest environments for children's social and emotional development are those that function like a village, blending collectivist support systems with individualistic recognition. When children grow in an environment that has consistent values, shared meaning, and communal support, it creates the strongest foundation for resilience. Learning about emotional regulation socialization, identity development, peer relationships, moral development, and especially the WEIRD problem and cultural variation in parenting helped me see how important it is to understand development from different cultural perspectives. If the world takes lessons from many cultures and contributes research that reflects those differences, we would be much closer to understanding human beings and their social and emotional development in the most wholesome way.
 
-![The WEIRD problem: Most developmental research represents only a fraction of human experience.](/images/blog/figure-2-weird-problem.png)
+<img src="/images/blog/figure-2-weird-problem.png" alt="The WEIRD problem: Most developmental research represents only a fraction of human experience." style="width: 35%; display: block; margin: 0 auto;" />
 
 ## What Helped Me Personally: The WEIRD Problem
 
@@ -33,7 +33,7 @@ One assignment that deeply resonated with me was the one that addressed how 99 p
 
 Many of the examples my classmates and I explored came from collectivist contexts such as Japan, Palestine, China, and South Korea. These examples repeatedly highlighted the influence of community, extended family, and cultural harmony on emotional regulation and social development. For example, in Japan, social capital and family-centered norms supported children's emotional outcomes (Pofdf et al., 2025). In China, family harmony contributed to emotional regulation (Li et al., 2025). In South Korea, the father's warmth supported children's self-control (Kim et al., 2025). African American families also demonstrated how racial ethnic socialization can serve as a form of emotional protection, which shows how collectivist dynamics can buffer hardship (Stern et al., 2023).
 
-![Lessons from around the world: How different cultures support child development.](/images/blog/figure-3-world-map.png)
+<img src="/images/blog/figure-3-world-map.png" alt="Lessons from around the world: How different cultures support child development." style="width: 35%; display: block; margin: 0 auto;" />
 
 My own assignment on Palestinian children was especially inspiring. It showed how resilience can emerge through shared identity, spirituality, and collective meaning making, even in the context of war and political instability (Harazneh et al., 2021; Veronese et al., 2025). This helped me understand social development in a much deeper way. It helped me see that the world's richest lessons come from cultural diversity rather than sameness. A typical modern WEIRD child, with an individualistic and screen-based lifestyle, a small family structure, and inconsistent moral messages, actually represents a minority of the world's children. When comparing that to the collectivist examples, it became clear to me that a village-like environment offers major developmental advantages, including emotional regulation, identity grounding, and resilience.
 
@@ -47,7 +47,7 @@ This realization shaped my personal growth in this field. It shifted how I inter
 
 In terms of emotional fragility, I see that children, adolescents, and even adults are becoming emotionally fragile. I think that not being able to experience the full social life, the full range of experiences, and interacting with other people in a close way like it used to be is lacking nowadays. Therefore, children are not able to develop the right skills that will help them deal with difficult emotions and difficult situations in terms of behavior, emotional regulation, and responding appropriately to these situations (Twenge et al., 2023). This leads to them being sensitive and reactive. When a baby cries or a toddler screams, it is because they do not have the linguistic or emotional capability to express themselves. Emotional fragility is similar to this. There is an internal struggle, but the person does not have the emotional, social, behavioral, or psychological skills to cope with difficult situations.
 
-![The correlation between smartphone adoption and rising emotional struggles in youth (Twenge et al., 2023).](/images/blog/figure-4-depression-graph.png)
+<img src="/images/blog/figure-4-depression-graph.png" alt="The correlation between smartphone adoption and rising emotional struggles in youth (Twenge et al., 2023)." style="width: 35%; display: block; margin: 0 auto;" />
 
 I also think that with more mothers entering the workforce and the world becoming more fixated on capital, the focus is becoming less on the children. This is why parents are resorting to technology in order to distract them or even control them. Also, there is the peer gaming culture that influences one another. Thus, sometimes parents feel pressured to allow children to play games in order to be relevant to their peers. Research shows that excessive screen time in early childhood is associated with delayed emotional self-regulation and decreased social engagement (Muppalla et al., 2023; Vasconcellos et al., 2025).
 
@@ -61,7 +61,7 @@ When a child hears a message only from their parents and then goes out into the 
 
 In the past, especially in places like Saudi Arabia, it was normal for people outside the immediate nuclear family to participate in raising children. Uncles, aunts, neighbors, teachers, and community elders could offer moral guidance or help a child reflect on their behavior. I grew up hearing input from different people, and my parents played the role of filtering and reinforcing what aligned with our values. Over time, I learned how to distinguish between opinions I should let go and behavioral guidance that truly mattered. Some of the input was inspiring, especially when it came from a teacher I admired or one of my uncles. I perceived this guidance as a form of love. It meant that this person cared about who I was becoming and was giving part of their time to help me grow into a better person.
 
-![The shift from village to isolation: How modern families raise children with fewer support systems.](/images/blog/figure-5-comparison.png)
+<img src="/images/blog/figure-5-comparison.png" alt="The shift from village to isolation: How modern families raise children with fewer support systems." style="width: 35%; display: block; margin: 0 auto;" />
 
 But today, things feel different. Families are more siloed, more private, more isolated. I think twice before offering counsel to anyone's child, no matter how close, because parents today are not as welcoming to external involvement. This shift creates two consequences. First, children lose access to a broader support system. They grow up with fewer adults who can guide them. Second, children do not get early practice distinguishing between different kinds of input. When they grow up with very limited exposure to diverse moral perspectives, they may struggle to identify manipulation or harmful influence later in life. Instead of becoming better people, they may become more fragile and easier to influence. When this kind of natural mentorship disappears and families become siloed in nuclear structures, we are cutting off an entire source of social learning and collective development.
 
@@ -71,7 +71,7 @@ Policymakers and education leaders should help create a system that represents t
 
 Community leaders should emphasize community hubs, volunteering opportunities, school involvement in the community, and the relationship between parents and schools. They should support mentorship programs and volunteering programs, because when kids and adolescents become part of the bigger community and start acting responsibly, they are able to develop socially and emotionally better. They will face certain life challenges that they can learn to overcome, which is good for them in their critical ages rather than becoming isolated adults. Research shows that when adolescents have a strong sense of purpose through community involvement, they show more prosocial behavior, greater well-being, and lower rates of depression (Barcaccia et al., 2023).
 
-![The policy vision: Reconnecting children to their communities.](/images/blog/figure-6-policy-vision.png)
+<img src="/images/blog/figure-6-policy-vision.png" alt="The policy vision: Reconnecting children to their communities." style="width: 35%; display: block; margin: 0 auto;" />
 
 Leaders should also work on protecting family values, maternity rights, and the home environment instead of isolating families. Modern nuclear-family isolation reduces the social capital available to children, limiting the guidance they receive and weakening protective factors like belonging and moral mentorship (Putnam, 2015). Creating systems that reinforce consistent values across home, school, and community helps children develop stronger emotional regulation, identity clarity, and moral reasoning (Turiel, 2002).
 
@@ -87,7 +87,7 @@ The village metaphor has been at the center of my learning. It represents the id
 
 As I move forward, I will carry these insights with me. I will think about how to surround myself and my future children with healthy circles that create an environment similar to a village. I will recognize the value of community involvement, the importance of consistent messages across contexts, and the power of shared meaning in shaping children's development. I will also remain aware that every adult has a responsible role and power of influence on the youth around them.
 
-![The Village Model: A visual synthesis of how collectivist support, emotional regulation, identity development, and community resilience interconnect to support child development.](/images/blog/figure-7-concept-map.png)
+<img src="/images/blog/figure-7-concept-map.png" alt="The Village Model: A visual synthesis of how collectivist support, emotional regulation, identity development, and community resilience interconnect to support child development." style="width: 35%; display: block; margin: 0 auto;" />
 
 > **[Explore the Interactive Village Model Mind Map →](/nurtured-hub/en/writing/village-model-mindmap)**
 
