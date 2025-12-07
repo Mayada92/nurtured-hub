@@ -10,7 +10,7 @@ const EnchantedValleyMap = () => {
     'Village Model': {
       title: 'The Village Model of Social and Emotional Development',
       definition: 'A framework emphasizing that healthy child development emerges from interconnected support systems—family, peers, school, and community—working together with consistency and shared values, much like a traditional village raising a child.',
-      citation: 'Bronfenbrenner (1979); Rogoff (2003)'
+      citation: 'Personal synthesis drawing on Bronfenbrenner\'s ecological systems theory (1979) and Rogoff\'s cultural learning framework (2003)'
     },
     'Emotional Regulation': {
       title: 'Emotional Regulation Socialization',
