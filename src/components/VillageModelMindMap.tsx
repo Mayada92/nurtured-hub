@@ -15,37 +15,37 @@ const EnchantedValleyMap = () => {
     'Emotional Regulation': {
       title: 'Emotional Regulation Socialization',
       definition: 'Processes through which children learn how to monitor, express, and modify their emotional reactions. Parents, teachers, peers, and cultural norms shape children\'s strategies for regulating emotions.',
-      citation: 'Morris et al., as cited in course textbook'
+      citation: 'Morris et al., as cited in Parke et al., textbook'
     },
     'Identity Development': {
       title: 'Identity Development',
       definition: 'How children and adolescents form a stable sense of self, including personal values, cultural identity, gender identity, and their roles within the community.',
-      citation: 'Erikson\'s psychosocial theory; textbook chapter on identity'
+      citation: 'Erikson, as cited in Parke et al., textbook'
     },
     'Peer Relationships': {
       title: 'Peer Relationships',
       definition: 'The social interactions, friendships, and group dynamics that influence children\'s social skills, emotional development, and sense of belonging.',
-      citation: 'Rubin et al., textbook chapter on peers'
+      citation: 'Rubin et al., as cited in Parke et al., textbook'
     },
     'Moral Development': {
       title: 'Moral Development',
       definition: 'The gradual internalization of societal values, norms, and ethical principles that guide judgments of right and wrong.',
-      citation: 'Kohlberg, Turiel, plus textbook discussion of moral reasoning'
+      citation: 'Turiel (2002)'
     },
     'Consistency': {
       title: 'Consistency Across Contexts',
       definition: 'When expectations, values, and behavioral norms at home, school, and community are aligned, reducing confusion and strengthening resilience.',
-      citation: ''
+      citation: 'Inspired by Calzada et al. (2019); Causadias et al. (2018)'
     },
     'Shared Identity': {
       title: 'Shared Identity and Belonging',
       definition: 'A collective sense of purpose and membership that supports emotional well-being, empathy, and motivation.',
-      citation: ''
+      citation: 'Inspired by Harazneh et al. (2021); Barcaccia et al. (2023)'
     },
     'Co-Regulation': {
       title: 'Emotional Buffering & Co-Regulation',
       definition: 'Support from adults and peers during emotional distress, teaching children healthy regulation strategies.',
-      citation: ''
+      citation: 'Hrdy (2009); Kramer & Kim (2019)'
     },
     'Peer Learning': {
       title: 'Peer-Based Learning',
@@ -55,7 +55,7 @@ const EnchantedValleyMap = () => {
     'Collective Wisdom': {
       title: 'Collective Advice & Wisdom',
       definition: 'Shared cultural knowledge and guidance from multiple generations that provides children with diverse perspectives and problem-solving strategies.',
-      citation: ''
+      citation: 'Inspired by Hrdy (2009); Kramer & Kim (2019)'
     },
     'Individual Strengths': {
       title: 'Recognition of Individual Strengths',
