@@ -17,8 +17,8 @@ const featuredProjects = (await getCollection('projects'))
 
 const recentPosts = (await getCollection('posts'))
   .filter((p) => p.data.lang === 'ar')
-  .slice(0, 3)
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
 
 // Calculate actual stats from content
 const allProjects = await getCollection('projects');

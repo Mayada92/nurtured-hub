@@ -20,8 +20,8 @@ const featuredProjects = (await getCollection('projects'))
 
 const recentPosts = (await getCollection('posts'))
   .filter((p) => p.data.lang === 'en')
-  .slice(0, 3)
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
 
 const allPosts = await getCollection('posts');
 const postCount = allPosts.filter((p) => p.data.lang === 'en').length;
