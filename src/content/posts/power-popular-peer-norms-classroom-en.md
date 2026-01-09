@@ -1,7 +1,7 @@
 ---
 title: "The Power of the Popular: How One Student Can Change an Entire Classroom"
 lang: en
-date: 2025-04-05
+date: 2025-10-26
 excerpt: "Picture a middle school classroom where the top students deliberately underperform. Within weeks, their peers begin mirroring this behavior. What's the difference? Peer norm salience—how popular students become the architects of classroom culture."
 cover: "/images/blog/Peer influence on classroom outcomes.png"
 tags: ["education", "educational-psychology", "peer-influence", "classroom-culture", "adolescent-development", "social-emotional-development"]

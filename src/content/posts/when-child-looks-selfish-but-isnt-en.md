@@ -1,7 +1,7 @@
 ---
 title: "When a Child Looks Selfish, But Isn't"
 lang: en
-date: 2025-04-12
+date: 2026-01-10
 excerpt: "At first glance, it looks like a simple behavior problem. A child suddenly becomes tense, uncooperative, or withdrawn, right in the middle of a joyful moment. But sometimes, what looks like selfishness is actually a child trying to make sense of safety, attention, and belonging."
 cover: "/images/blog/selfish1.png"
 tags: ["education", "educational-psychology", "child-development", "social-emotional-development", "parenting", "emotion-coaching"]

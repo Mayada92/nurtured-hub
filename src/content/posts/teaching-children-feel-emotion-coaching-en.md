@@ -1,7 +1,7 @@
 ---
 title: "Teaching Children to Feel: Why We Coach Sadness but Control Anger"
 lang: en
-date: 2025-03-29
+date: 2025-10-03
 excerpt: "My four-year-old brother wanted the coloring markers. His almost-ten-year-old brother yanked them away. I soothed the sadness but ignored the anger. This pattern is surprisingly common—we coach children through sadness but control their anger. Why?"
 cover: "/images/blog/Three types of emotion coaching.png"
 tags: ["education", "educational-psychology", "emotion-coaching", "child-development", "social-emotional-development", "parenting"]

@@ -1,7 +1,7 @@
 ---
 title: "When Waiting Isn't Wise: Rethinking the Marshmallow Test"
 lang: en
-date: 2025-03-22
+date: 2025-09-28
 excerpt: "What if the famous marshmallow test doesn't measure what we think it does? For children from low-income families, choosing immediate gratification sometimes correlates with better school outcomes. Exploring context-dependent decision-making in delay of gratification."
 cover: "/images/blog/Cultural delay strategies comparison.png"
 tags: ["education", "educational-psychology", "self-control", "cultural-psychology", "child-development", "social-emotional-development"]

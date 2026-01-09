@@ -1,7 +1,7 @@
 ---
 title: "Hope in the Hardest Places: What Palestinian Children Teach Us About Resilience"
 lang: en
-date: 2025-03-15
+date: 2025-09-20
 excerpt: "Ninety-nine percent of psychological research comes from WEIRD populations. What happens when we look beyond this narrow lens? Exploring how Palestinian children maintain hope, resilience, and strong social bonds even in the most devastating circumstances."
 cover: "/images/blog/Positive outcomes in children's development.png"
 tags: ["education", "educational-psychology", "resilience", "cultural-psychology", "child-development", "social-emotional-development"]
