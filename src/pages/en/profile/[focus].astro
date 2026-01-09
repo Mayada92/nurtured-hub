@@ -495,6 +495,28 @@ else {
             <section id={focus === 'children-education' ? `work-${domain}` : focus === 'data-science' ? `work-${domain}` : focus === 'engineering' ? `work-${domain}` : `work-${domain}`}>
               <h2>{focus === 'children-education' ? `${domainLabels.en[domain]} - Experience` : focus === 'engineering' ? `${domainLabels.en[domain]} - Experience` : focus === 'data-science' ? `${domainLabels.en[domain]} - Experience` : `${domainLabels.en[domain]} - Work Experience`}</h2>
               
+              {/* Work Experience - Chronological Order (Newest First) */}
+              {domainWork && domainWork.length > 0 && (() => {
+                // Sort all work chronologically: ongoing first, then by start date descending (newest first)
+                const sortedWork = [...domainWork].sort((a, b) => {
+                  // Ongoing positions come first
+                  if (a.data.ongoing !== b.data.ongoing) return a.data.ongoing ? -1 : 1;
+                  // Then sort by start date descending (newest first)
+                  return new Date(b.data.start_date).getTime() - new Date(a.data.start_date).getTime();
+                });
+
+                return (
+                  <div class="subsection">
+                    <h3>Work Experience</h3>
+                    <div class="work-experience-list">
+                      {sortedWork.map((w) => (
+                        <ExpandableWorkCard work={w} />
+                      ))}
+                    </div>
+                  </div>
+                );
+              })()}
+              
               {/* Work Examples (Expandable) */}
               {workExamples.length > 0 && (
                 <div class="subsection">
@@ -519,28 +541,6 @@ else {
                   </div>
                 </div>
               )}
-              
-              {/* Work Experience - Chronological Order (Newest First) */}
-              {domainWork && domainWork.length > 0 && (() => {
-                // Sort all work chronologically: ongoing first, then by start date descending (newest first)
-                const sortedWork = [...domainWork].sort((a, b) => {
-                  // Ongoing positions come first
-                  if (a.data.ongoing !== b.data.ongoing) return a.data.ongoing ? -1 : 1;
-                  // Then sort by start date descending (newest first)
-                  return new Date(b.data.start_date).getTime() - new Date(a.data.start_date).getTime();
-                });
-
-                return (
-                  <div class="subsection">
-                    <h3>Work Experience</h3>
-                    <div class="work-experience-list">
-                      {sortedWork.map((w) => (
-                        <ExpandableWorkCard work={w} />
-                      ))}
-                    </div>
-                  </div>
-                );
-              })()}
 
             </section>
           );
