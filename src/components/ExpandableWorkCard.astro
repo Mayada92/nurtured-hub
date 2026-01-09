@@ -1,0 +1,374 @@
+---
+import Badge from './Badge.astro';
+import ImageStage from './ImageStage';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  work: CollectionEntry<'work'>;
+}
+
+const { work } = Astro.props;
+const { data } = work;
+const isRTL = data.lang === 'ar';
+const dateFormat = isRTL ? 'ar-SA' : 'en-US';
+
+// Render markdown content if it exists
+const { Content } = work.body ? await work.render() : { Content: null };
+
+// Check if dates represent a full year (Jan 1 to Dec 31 of same year)
+const startDateObj = new Date(data.start_date);
+const endDateObj = data.end_date ? new Date(data.end_date) : null;
+const isYearOnly = endDateObj && 
+  startDateObj.getFullYear() === endDateObj.getFullYear() &&
+  startDateObj.getMonth() === 0 && startDateObj.getDate() === 1 &&
+  endDateObj.getMonth() === 11 && endDateObj.getDate() === 31;
+
+const startDate = isYearOnly 
+  ? startDateObj.getFullYear().toString()
+  : new Date(data.start_date).toLocaleDateString(dateFormat, {
+      year: 'numeric',
+      month: 'short',
+    });
+const endDate = data.end_date && !isYearOnly
+  ? new Date(data.end_date).toLocaleDateString(dateFormat, {
+      year: 'numeric',
+      month: 'short',
+    })
+  : null;
+
+const workId = `work-${work.slug}`;
+---
+
+<div class="expandable-work-card" data-expandable>
+  <button class="expandable-work-card__header" aria-expanded="false" aria-controls={workId}>
+    <div class="expandable-work-card__title-group">
+      <h3>{data.title}</h3>
+      <div class="expandable-work-card__meta">
+        <span class="organization">{data.organization}</span>
+        <span class="role">{data.role}</span>
+      </div>
+      <div class="expandable-work-card__details">
+        <span class="date">
+          {startDate} {data.ongoing ? (isRTL ? '- حتى الآن' : '- Present') : (isYearOnly ? '' : endDate ? ` - ${endDate}` : '')}
+        </span>
+        {data.ongoing && <Badge label={isRTL ? 'مستمر' : 'Ongoing'} variant="accent-1" size="sm" />}
+      </div>
+    </div>
+    <span class="expandable-work-card__toggle" aria-hidden="true">▼</span>
+  </button>
+  
+  <div class="expandable-work-card__content" id={workId} hidden>
+    {data.description && (
+      <div class="expandable-work-card__description">
+        <p>{data.description}</p>
+      </div>
+    )}
+    
+    {Content && (
+      <div class="expandable-work-card__body">
+        <Content />
+      </div>
+    )}
+    
+    {data.achievements && data.achievements.length > 0 && (
+      <div class="expandable-work-card__achievements">
+        <h4>{isRTL ? 'الإنجازات' : 'Key Achievements'}</h4>
+        <ul>
+          {data.achievements.map((achievement) => (
+            <li>{achievement}</li>
+          ))}
+        </ul>
+      </div>
+    )}
+    
+    {data.skills && data.skills.length > 0 && (
+      <div class="expandable-work-card__skills">
+        <h4>{isRTL ? 'المهارات' : 'Skills'}</h4>
+        <div class="skills-list">
+          {data.skills.map((skill) => (
+            <Badge label={skill} variant="accent-2" size="sm" />
+          ))}
+        </div>
+      </div>
+    )}
+    
+    {data.images && data.images.length > 0 && (
+      <div class="expandable-work-card__images">
+        {data.images.map((img, idx) => (
+          <ImageStage client:load src={img} alt={`${data.title} - Image ${idx + 1}`} width={1200} height={600} />
+        ))}
+      </div>
+    )}
+    
+    {data.url && (
+      <div class="expandable-work-card__link">
+        <a href={data.url} target="_blank" rel="noopener noreferrer">
+          {isRTL ? 'عرض المزيد' : 'Learn More'} →
+        </a>
+      </div>
+    )}
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('[data-expandable]').forEach((card) => {
+    const button = card.querySelector('.expandable-work-card__header') as HTMLButtonElement | null;
+    const content = card.querySelector('.expandable-work-card__content') as HTMLElement | null;
+    
+    if (!button || !content) return;
+    
+    button.addEventListener('click', () => {
+      const isExpanded = button.getAttribute('aria-expanded') === 'true';
+      button.setAttribute('aria-expanded', String(!isExpanded));
+      content.hidden = isExpanded;
+      
+      // Animate toggle icon
+      const toggle = button.querySelector('.expandable-work-card__toggle') as HTMLElement | null;
+      if (toggle) {
+        toggle.style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(180deg)';
+      }
+    });
+  });
+</script>
+
+<style>
+  .expandable-work-card {
+    margin-block-end: var(--space-4);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all var(--motion-duration-normal) var(--motion-easing-smooth);
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+  }
+
+  .expandable-work-card:hover {
+    border-color: var(--color-accent-1);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .expandable-work-card__header {
+    width: 100%;
+    padding: var(--space-4);
+    background: var(--gradient-card);
+    border: none;
+    text-align: start;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-4);
+    transition: background-color var(--motion-duration-fast) var(--motion-easing);
+  }
+
+  .expandable-work-card__header:hover {
+    background: var(--color-accent-4);
+  }
+
+  .expandable-work-card__title-group {
+    flex: 1;
+  }
+
+  .expandable-work-card__title-group h3 {
+    margin-block-end: var(--space-2);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    line-height: 1.3;
+  }
+
+  .expandable-work-card__meta {
+    display: flex;
+    gap: var(--space-2);
+    align-items: center;
+    margin-block-end: var(--space-1);
+    flex-wrap: wrap;
+    font-size: 0.75rem;
+  }
+
+  .organization {
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+
+  .role {
+    font-weight: 400;
+    color: var(--color-muted-ink);
+  }
+
+  .expandable-work-card__details {
+    display: flex;
+    gap: var(--space-2);
+    align-items: center;
+    font-size: 0.75rem;
+    color: var(--color-muted-ink);
+    flex-wrap: wrap;
+  }
+
+  .expandable-work-card__details .date {
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+
+  .expandable-work-card__toggle {
+    font-size: 0.6125rem;
+    transition: transform var(--motion-duration-fast) var(--motion-easing);
+    color: var(--color-muted-ink);
+    flex-shrink: 0;
+  }
+
+  .expandable-work-card__content {
+    padding: var(--space-6);
+    background: white;
+    animation: slideDown var(--motion-duration-normal) var(--motion-easing-smooth);
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .expandable-work-card__description {
+    margin-block-end: var(--space-6);
+    line-height: 1.7;
+  }
+
+  .expandable-work-card__description p {
+    margin: 0;
+  }
+
+  .expandable-work-card__achievements,
+  .expandable-work-card__skills {
+    margin-block-start: var(--space-6);
+    padding-block-start: var(--space-6);
+    border-block-start: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .expandable-work-card__achievements h4,
+  .expandable-work-card__skills h4 {
+    margin-block-end: var(--space-3);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+
+  .expandable-work-card__achievements ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .expandable-work-card__achievements li {
+    padding-inline-start: var(--space-4);
+    position: relative;
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+
+  .expandable-work-card__achievements li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent-1);
+    font-weight: bold;
+  }
+
+  .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .expandable-work-card__images {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    margin-block-start: var(--space-6);
+  }
+
+  .expandable-work-card__link {
+    margin-block-start: var(--space-6);
+    padding-block-start: var(--space-6);
+    border-block-start: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .expandable-work-card__link a {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--color-accent-1);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all var(--motion-duration-fast) var(--motion-easing);
+  }
+
+  .expandable-work-card__link a:hover {
+    color: var(--color-accent-2);
+    transform: translateX(4px);
+  }
+
+  .expandable-work-card__body {
+    margin-block-start: var(--space-6);
+    padding-block-start: var(--space-6);
+    border-block-start: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .expandable-work-card__body :global(h2),
+  .expandable-work-card__body :global(h3),
+  .expandable-work-card__body :global(h4) {
+    margin-block-start: var(--space-4);
+    margin-block-end: var(--space-2);
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+
+  .expandable-work-card__body :global(h2) {
+    font-size: 1.125rem;
+  }
+
+  .expandable-work-card__body :global(h3) {
+    font-size: 1rem;
+  }
+
+  .expandable-work-card__body :global(h4) {
+    font-size: 0.875rem;
+  }
+
+  .expandable-work-card__body :global(p) {
+    margin-block-end: var(--space-3);
+    line-height: 1.7;
+  }
+
+  .expandable-work-card__body :global(ul),
+  .expandable-work-card__body :global(ol) {
+    margin-block-start: var(--space-2);
+    margin-block-end: var(--space-3);
+    padding-inline-start: var(--space-4);
+  }
+
+  .expandable-work-card__body :global(li) {
+    margin-block-end: var(--space-1);
+    line-height: 1.6;
+  }
+
+  .expandable-work-card__body :global(strong) {
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .expandable-work-card__content {
+      animation: none;
+    }
+  }
+</style>
+

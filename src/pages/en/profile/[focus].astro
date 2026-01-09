@@ -9,6 +9,7 @@ import TrainingCard from '../../../components/TrainingCard.astro';
 import SpeakingCard from '../../../components/SpeakingCard.astro';
 import CourseCard from '../../../components/CourseCard.astro';
 import WorkCard from '../../../components/WorkCard.astro';
+import ExpandableWorkCard from '../../../components/ExpandableWorkCard.astro';
 import ExpandableWorkExample from '../../../components/ExpandableWorkExample.astro';
 // News & Media removed - now has dedicated page
 import TableOfContents from '../../../components/TableOfContents.astro';
@@ -534,7 +535,7 @@ else {
                     <h3>Work Experience</h3>
                     <div class="work-experience-list">
                       {sortedWork.map((w) => (
-                        <WorkCard work={w} />
+                        <ExpandableWorkCard work={w} />
                       ))}
                     </div>
                   </div>
