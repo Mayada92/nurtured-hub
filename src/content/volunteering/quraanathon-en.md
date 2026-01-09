@@ -7,7 +7,7 @@ start_date: 2020-01-01
 end_date: 2020-12-31
 ongoing: false
 domain: ["general"]
-description: "Developed innovative social application serving the Holy Quran, focusing on reflecting on teachings and enhancing spiritual connection. Combined technology with meaningful content to enhance users' engagement with religious teachings."
+description: "Developed innovative social application serving the Holy Quran, focusing on reflecting on teachings and enhancing spiritual connection. Combined technology with meaningful content to enhance users' engagement with religious teachings. Created reflection tools and community engagement features designed to encourage thoughtful engagement with teachings. This project demonstrates the application of technology to support spiritual learning and community engagement, showing how digital tools can enhance traditional practices and make religious content more accessible and engaging."
 achievements:
   - "Developed social application for Holy Quran engagement"
   - "Created reflection tools and educational content"

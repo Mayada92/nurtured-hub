@@ -7,7 +7,7 @@ start_date: 2023-12-26
 end_date: 2023-12-26
 ongoing: false
 domain: ["general"]
-description: "Volunteered as a speaker for Arfa Association for Multiple Sclerosis, delivering a talk on 'Positive Coexistence with Multiple Sclerosis' as part of their Nasya Shifa series. Co-presented with Hamad Al-Shaifani, sharing personal experiences as an engineer and football player living with MS to inspire and support others in the MS community."
+description: "Volunteered as a speaker for Arfa Association for Multiple Sclerosis, delivering a talk on 'Positive Coexistence with Multiple Sclerosis' as part of their Nasya Shifa series. Co-presented with Hamad Al-Shaifani, sharing personal experiences as an engineer and football player living with MS to inspire and support others in the MS community. The talk focused on balancing professional life, maintaining an active lifestyle, and inspiring others to overcome challenges and pursue their goals despite health conditions. This engagement demonstrates commitment to supporting the MS community by sharing personal experiences and strategies for living positively with Multiple Sclerosis."
 achievements:
   - "Delivered talk on positive coexistence with MS"
   - "Shared personal journey balancing career and active lifestyle with MS"

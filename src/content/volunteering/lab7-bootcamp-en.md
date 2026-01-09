@@ -7,7 +7,7 @@ start_date: 2023-03-01
 end_date: 2023-03-03
 ongoing: false
 domain: ["engineering", "data-science", "general"]
-description: "Participated in Lab7 Professional Innovator Bootcamp, developing interactive live dashboard and computer vision model for caffeine to biofuel reactor prototype. Demonstrated innovation at the intersection of engineering, data science, and sustainability."
+description: "Participated in Lab7 Professional Innovator Bootcamp, developing interactive live dashboard and computer vision model for caffeine to biofuel reactor prototype. Demonstrated innovation at the intersection of engineering, data science, and sustainability. Built real-time monitoring and data visualization system for reactor performance with automated analysis capabilities. This project showcases innovative thinking in sustainable energy solutions, combining engineering expertise with data science capabilities to create practical solutions for biofuel production from waste materials."
 achievements:
   - "Developed interactive live dashboard for real-time reactor monitoring"
   - "Created computer vision model for reactor analysis"

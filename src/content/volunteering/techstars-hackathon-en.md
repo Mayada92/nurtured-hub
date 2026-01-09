@@ -7,7 +7,7 @@ start_date: 2020-07-01
 end_date: 2020-07-03
 ongoing: false
 domain: ["educational-psychology", "general"]
-description: "Created early childhood education app with adaptive learning for toddlers in 48-hour hackathon. Applied developmental psychology principles to design age-appropriate learning experiences that adjust to each child's developmental stage."
+description: "Created early childhood education app with adaptive learning for toddlers in 48-hour hackathon. Applied developmental psychology principles to design age-appropriate learning experiences that adjust to each child's developmental stage. Designed learning activities that adjust difficulty based on child's responses, focusing on foundational skills like shapes, colors, numbers, and early literacy. The app recognizes that toddlers develop at different rates and need personalized pacing, applying research on short attention spans, positive reinforcement, and play-based learning for effective early childhood education."
 achievements:
   - "Developed adaptive learning app for toddlers in 48-hour hackathon"
   - "Applied developmental psychology principles to educational design"

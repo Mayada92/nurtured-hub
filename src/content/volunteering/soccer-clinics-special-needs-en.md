@@ -7,7 +7,7 @@ start_date: 2017-01-01
 end_date: 2018-12-31
 ongoing: false
 domain: ["educational-psychology", "sports", "general"]
-description: "Organized and led soccer clinics for children with special needs, adapting training methods to individual developmental levels. Created inclusive, confidence-building athletic experiences that respect each child's unique abilities and needs."
+description: "Organized and led soccer clinics for children with special needs, adapting training methods to individual developmental levels. Created inclusive, confidence-building athletic experiences that respect each child's unique abilities and needs. Organized two clinics: one for 20+ children with developmental disabilities in 2017, and the first all-female youth soccer clinic in the Aramco community in 2018 with 20+ girls ages 8-14. This experience demonstrates practical application of educational psychology principles, working directly with children to support their development through sports while understanding individual developmental differences and creating inclusive learning environments."
 cover: "/images/volunteering/soccer-clinic-special-needs.jpg"
 ---
 

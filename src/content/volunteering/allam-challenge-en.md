@@ -7,7 +7,7 @@ start_date: 2024-01-01
 end_date: 2024-12-31
 ongoing: false
 domain: ["educational-psychology", "data-science", "general"]
-description: "Team lead for developing an interactive Arabic learning platform for children with decision-based stories utilizing IBM's Allam Arabic LLM. Led 4-person team to create engaging educational experiences that combine storytelling with language learning."
+description: "Team lead for developing an interactive Arabic learning platform for children with decision-based stories utilizing IBM's Allam Arabic LLM. Led 4-person team to create engaging educational experiences that combine storytelling with language learning. Applied developmental psychology principles to design age-appropriate content with scaffolded learning and adaptive features that adjust to each child's learning pace. The platform combines storytelling (proven effective for children's learning) with AI adaptivity to create personalized experiences that respond to each child's interests and developmental level."
 achievements:
   - "Led 4-person team in SDAIA Allam Challenge"
   - "Developed interactive Arabic learning platform for children"

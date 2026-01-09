@@ -7,7 +7,7 @@ start_date: 2023-05-01
 end_date: 2023-05-03
 ongoing: false
 domain: ["data-science", "general"]
-description: "🏆 4th place winner (out of 80 teams) in LabLabMe GAIA Hackathon. Developed MindFlow, an AI-powered mindfulness and meditation application in Arabic and English using Python Flask, GPT 3.5 Turbo, and Azure text-to-speech."
+description: "🏆 4th place winner (out of 80 teams) in LabLabMe GAIA Hackathon. Developed MindFlow, an AI-powered mindfulness and meditation application in Arabic and English using Python Flask, GPT 3.5 Turbo, and Azure text-to-speech. Created personalized meditation sessions that adapt to individual user needs, providing culturally appropriate content in both languages. The platform demonstrates how AI can be applied to create meaningful, personalized experiences that support mental wellness and mindfulness, with particular attention to cultural and linguistic diversity."
 achievements:
   - "🏆 4th Place Winner out of 80 teams in LabLabMe GAIA Hackathon"
   - "Developed full-stack AI application in 48-hour hackathon"

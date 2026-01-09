@@ -7,7 +7,7 @@ start_date: 2016-08-01
 end_date: 2017-08-31
 ongoing: false
 domain: ["general"]
-description: "Selected by Graduate Affairs to lead two-week intensive orientation program for new graduate students. Welcomed and oriented 100+ new students each year, organized campus tours, social events, and served as first point of contact for student questions and concerns."
+description: "Selected by Graduate Affairs to lead two-week intensive orientation program for new graduate students. Welcomed and oriented 100+ new students each year, organized campus tours, social events, and served as first point of contact for student questions and concerns. Facilitated integration into KAUST community and Saudi culture, helping international students adapt to their new environment. This leadership experience demonstrates event coordination, cross-cultural communication, and student mentorship skills while supporting successful transitions for 200+ students over two years."
 cover: "/images/volunteering/kaust-orientation.jpg"
 ---
 

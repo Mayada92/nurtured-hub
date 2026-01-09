@@ -7,7 +7,7 @@ start_date: 2024-07-01
 end_date: 2024-07-01
 ongoing: false
 domain: ["data-science", "general"]
-description: "Conducted live 2-hour Arabic workshop for 60+ displaced Palestinian professionals on AI tools for career development, job search, and skill enhancement. Demonstrated practical AI applications and provided hands-on training in using AI for professional growth."
+description: "Conducted live 2-hour Arabic workshop for 60+ displaced Palestinian professionals on AI tools for career development, job search, and skill enhancement. Demonstrated practical AI applications and provided hands-on training in using AI for professional growth. Covered ChatGPT, Claude, AI-powered resume builders, and job search optimization tools with interactive exercises and live demonstrations. The workshop empowered displaced professionals to leverage AI for career advancement and job opportunities, demonstrating ability to adapt technical content for diverse adult learners."
 cover: "/images/training/wasla-connect-presentation.webp"
 images:
   - "/images/training/wasla-connect-presentation.webp"

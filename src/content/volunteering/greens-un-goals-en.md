@@ -7,7 +7,7 @@ start_date: 2019-01-01
 end_date: 2020-12-31
 ongoing: false
 domain: ["sports", "general"]
-description: "Part of the Greens Saudi Arabia team supporting UN Sustainable Development Goals through football. Participated in international tournaments and forums including the UN Global Goals World Cup in New York, where the team won 2nd place representing Saudi Arabia. Used the power of sport to advocate for global goals and raise awareness about important social and environmental issues. Multiple videos and media coverage document the team's work in promoting UN SDGs through football."
+description: "Part of the Greens Saudi Arabia team supporting UN Sustainable Development Goals through football. Participated in international tournaments and forums including the UN Global Goals World Cup in New York, where the team won 2nd place representing Saudi Arabia. Used the power of sport to advocate for global goals and raise awareness about important social and environmental issues. Multiple videos and media coverage document the team's work in promoting UN SDGs through football. The team combines athletic excellence with social impact, participating in international tournaments and forums to advocate for global goals. This experience demonstrates how sports can be a powerful platform for positive social change and global awareness."
 achievements:
   - "Won 2nd place at UN Global Goals World Cup in New York (2020)"
   - "Represented Saudi Arabia in international tournaments"

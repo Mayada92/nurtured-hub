@@ -7,7 +7,7 @@ start_date: 2020-01-01
 end_date: 2020-12-31
 ongoing: false
 domain: ["sports", "general"]
-description: "Coached youth soccer with Saudi Aramco Youth Soccer Organization (SAYSO), working with young players to develop their skills, teamwork, and passion for the sport."
+description: "Coached youth soccer with Saudi Aramco Youth Soccer Organization (SAYSO), working with young players to develop their skills, teamwork, and passion for the sport. Worked with young players to help them develop their athletic abilities and build teamwork skills through soccer."
 video_url: "https://x.com/i/status/1236198784809472000"
 cover: "/images/volunteering/sayso-coaching.jpg"
 ---

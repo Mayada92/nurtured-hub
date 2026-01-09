@@ -7,7 +7,7 @@ start_date: 2014-11-01
 end_date: 2015-06-30
 ongoing: false
 domain: ["general"]
-description: "Paid student position organizing weekly educational and social programs for university apartment residents. Planned and executed programs, managed budget and logistics, and promoted events through social media and campus outreach."
+description: "Paid student position organizing weekly educational and social programs for university apartment residents. Planned and executed programs, managed budget and logistics, and promoted events through social media and campus outreach. Designed diverse programming including study skills workshops, wellness events, cultural celebrations, and career panels to support student success and community building. This early leadership experience demonstrates program development, resource management, and community engagement skills while contributing to positive campus experience for peers."
 cover: "/images/volunteering/ucsb-programs.jpg"
 ---
 

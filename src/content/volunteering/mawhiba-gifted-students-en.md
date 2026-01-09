@@ -7,7 +7,7 @@ start_date: 2018-01-01
 end_date: 2018-12-31
 ongoing: false
 domain: ["educational-psychology", "engineering", "general"]
-description: "Designed and taught petroleum engineering concepts to gifted high school students, adapting complex technical material for age-appropriate learning. Created engaging educational experiences that challenge advanced learners while respecting their developmental stage."
+description: "Designed and taught petroleum engineering concepts to gifted high school students, adapting complex technical material for age-appropriate learning. Created engaging educational experiences that challenge advanced learners while respecting their developmental stage. Developed age-appropriate lesson plans that introduced complex concepts like reservoir engineering, production systems, and artificial lift in accessible ways. This experience demonstrates understanding of adolescent cognitive development and ability to adapt technical content for gifted learners while maintaining academic rigor."
 cover: "/images/volunteering/mawhiba-instruction.jpg"
 ---
 
