@@ -37,6 +37,9 @@ This project is a practical guide to using AI tools to augment, not replace, hum
 
 The guide is designed as a living resource that can be shared with students, collaborators, and professionals who are curious about using AI to work more effectively without losing intentionality or critical thinking.
 
+➡️ **Interactive version:** You can explore the full interactive resource hub (with live examples and screenshots) here:  
+`https://mayada92.github.io/nurtured-hub/ai-tools-productivity.html`
+
 ## What This Guide Covers
 
 - **Writing & Ideation**: Using AI to brainstorm, outline, and edit while preserving your own voice and argument.

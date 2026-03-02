@@ -1,0 +1,1592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Tools for Productivity: Interactive Resource Hub</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        }
+        .section {
+            scroll-margin-top: 2rem;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        .tool-demo {
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.5rem;
+        }
+        .image-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 0.5rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        .image-container:hover .image-caption {
+            transform: translateY(0);
+        }
+        .tool-button {
+            transition: all 0.3s ease;
+        }
+        .tool-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4);
+        }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.35em 0.65em;
+            font-size: 0.75em;
+            font-weight: 700;
+            line-height: 1;
+            color: #fff;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+            border-radius: 0.25rem;
+        }
+         {
+            .section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="sticky top-0 bg-white shadow-md z-50 px-4 py-3">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-indigo-600">AI Productivity Tools</h1>
+            <div class="hidden md:flex space-x-4">
+                <a href="#communication" class="text-gray-700 hover:text-indigo-600">Communication</a>
+                <a href="#creative" class="text-gray-700 hover:text-indigo-600">Creative</a>
+                <a href="#visual" class="text-gray-700 hover:text-indigo-600">Visual</a>
+                <a href="#project-management" class="text-gray-700 hover:text-indigo-600">Project Management</a>
+                <a href="#presentations" class="text-gray-700 hover:text-indigo-600">Presentations</a>
+                <a href="#web-development" class="text-gray-700 hover:text-indigo-600">Web Development</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-gradient py-20 px-4 text-white">
+        <div class="container mx-auto text-center">
+            <h1 class="text-5xl font-bold mb-4">AI Tools for Productivity</h1>
+            <p class="text-xl mb-8">An interactive showcase of AI tools that enhance efficiency and effectiveness across various domains</p>
+            <div class="flex justify-center flex-wrap gap-4">
+                <a href="#communication" class="bg-white text-indigo-600 px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition duration-300">Explore Communication Tools</a>
+                <a href="#creative" class="bg-indigo-800 text-white px-6 py-3 rounded-full font-medium hover:bg-indigo-900 transition duration-300">Explore Creative Tools</a>
+                <a href="#visual" class="bg-pink-600 text-white px-6 py-3 rounded-full font-medium hover:bg-pink-700 transition duration-300">Explore Visual Tools</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Introduction Section -->
+    <section class="py-16 px-4 bg-white">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-10">Introduction</h2>
+            <p class="text-xl text-gray-600 max-w-4xl mx-auto text-center">
+                This interactive resource hub showcases various AI tools that significantly enhance productivity across different fields. Each tool includes practical demonstrations and direct links to try them yourself.
+            </p>
+            
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-all">
+                    <div class="text-3xl text-indigo-500 mb-4">🗣️</div>
+                    <h3 class="text-xl font-bold mb-2">Communication Tools</h3>
+                    <p class="text-gray-600 mb-4">AI tools that enhance communication through voice, text, and natural language processing.</p>
+                    <a href="#communication" class="text-indigo-600 font-medium hover:text-indigo-800 flex items-center">
+                        Learn More
+                        <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-all">
+                    <div class="text-3xl text-indigo-500 mb-4">🎵</div>
+                    <h3 class="text-xl font-bold mb-2">Creative Tools</h3>
+                    <p class="text-gray-600 mb-4">Tools for generating music, images, and other creative content with AI assistance.</p>
+                    <a href="#creative" class="text-indigo-600 font-medium hover:text-indigo-800 flex items-center">
+                        Learn More
+                        <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-all">
+                    <div class="text-3xl text-indigo-500 mb-4">📊</div>
+                    <h3 class="text-xl font-bold mb-2">Project Management</h3>
+                    <p class="text-gray-600 mb-4">Tools that streamline workflow, visualization, and collaborative projects.</p>
+                    <a href="#project-management" class="text-indigo-600 font-medium hover:text-indigo-800 flex items-center">
+                        Learn More
+                        <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Communication Tools Section -->
+    <section id="communication" class="section py-16 px-4 bg-gray-50">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12">Communication & Voice Tools</h2>
+            
+            <!-- ChatGPT Voice -->
+            <div class="bg-white p-8 rounded-lg shadow-lg mb-16">
+                <div class="flex items-center justify-between mb-8">
+                    <h3 class="text-3xl font-bold text-indigo-600">ChatGPT Voice Features</h3>
+                    <a href="https://chat.openai.com/" target="_blank" class="tool-button bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-6 py-3 rounded-lg font-bold flex items-center">
+                        <span>Try ChatGPT</span>
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <div class="flex flex-col md:flex-row items-center gap-10 mb-10">
+                    <div class="md:w-1/2">
+                        <img src="https://venturebeat.com/wp-content/uploads/2024/09/Advanced-Voice-Mode-Access.png" alt="ChatGPT Voice Interface" class="rounded-lg shadow-lg w-full">
+                    </div>
+                    <div class="md:w-1/2">
+                        <div class="inline-block mb-2">
+                            <span class="badge bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">Advanced Feature</span>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-4">Natural Voice Conversations</h4>
+                        <p class="text-lg text-gray-700 mb-6">
+                            ChatGPT offers advanced voice capabilities, enabling users to engage in natural and seamless conversations. This feature enhances accessibility and allows for hands-free interaction, making it ideal for multitasking.
+                        </p>
+                        <div class="bg-indigo-50 p-6 rounded-lg border-l-4 border-indigo-500">
+                            <h5 class="font-bold text-indigo-800 mb-2">Key Features:</h5>
+                            <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                                <li>Deep learning voice recognition with multilingual support</li>
+                                <li>Customizable voice settings including tone and speed</li>
+                                <li>Hands-free operation for multitasking scenarios</li>
+                                <li>Real-time conversation with minimal latency</li>
+                                <li>Integration with ChatGPT's other capabilities</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Practical Applications</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
+                            <div class="text-indigo-500 text-2xl mb-2">💼</div>
+                            <h5 class="font-bold mb-1">Business</h5>
+                            <p class="text-sm text-gray-600">Hands-free dictation of emails, reports, and meeting notes while multitasking.</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
+                            <div class="text-indigo-500 text-2xl mb-2">🎓</div>
+                            <h5 class="font-bold mb-1">Education</h5>
+                            <p class="text-sm text-gray-600">Accessible learning for those with visual impairments and practice for language learners.</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
+                            <div class="text-indigo-500 text-2xl mb-2">🧠</div>
+                            <h5 class="font-bold mb-1">Productivity</h5>
+                            <p class="text-sm text-gray-600">Quick information retrieval and task management through conversational commands.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ChatGPT Live Video -->
+            <div class="bg-white p-8 rounded-lg shadow-lg mb-16">
+                <div class="flex items-center justify-between mb-8">
+                    <h3 class="text-3xl font-bold text-indigo-600">ChatGPT Live Video</h3>
+                    <a href="https://chat.openai.com/" target="_blank" class="tool-button bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-6 py-3 rounded-lg font-bold flex items-center">
+                        <span>Try ChatGPT</span>
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <div class="flex flex-col md:flex-row items-center gap-10 mb-10">
+                    <div class="md:w-1/2">
+                        <div class="inline-block mb-2">
+                            <span class="badge bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">New Feature</span>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-4">Real-time Visual Interaction</h4>
+                        <p class="text-lg text-gray-700 mb-6">
+                            ChatGPT Live Video enables AI to see and interact with your environment in real-time through your device's camera. This powerful addition allows for contextual visual understanding and assistance in real-world scenarios.
+                        </p>
+                        <div class="bg-indigo-50 p-6 rounded-lg border-l-4 border-indigo-500">
+                            <h5 class="font-bold text-indigo-800 mb-2">Key Capabilities:</h5>
+                            <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                                <li>Real-time object and environment recognition</li>
+                                <li>Screen sharing for technical assistance</li>
+                                <li>Visual instructions and demonstrations</li>
+                                <li>Accessibility features for visually impaired users</li>
+                                <li>Integration with existing ChatGPT capabilities</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                        <img src="https://cdn.mos.cms.futurecdn.net/SsF6ydnPUfLTigLz7Y6Erh.png" alt="ChatGPT Live Video Feature" class="rounded-lg shadow-lg w-full">
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                        <div class="text-indigo-500 text-2xl mb-2">🔍</div>
+                        <h5 class="font-bold mb-2">Visual Assistance</h5>
+                        <p class="text-gray-700">Get real-time help with identifying objects, reading text, troubleshooting devices, or navigating unfamiliar environments.</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                        <div class="text-indigo-500 text-2xl mb-2">💻</div>
+                        <h5 class="font-bold mb-2">Screen Sharing</h5>
+                        <p class="text-gray-700">Share your screen to get technical support, software guidance, or collaborative problem-solving directly from ChatGPT.</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                        <div class="text-indigo-500 text-2xl mb-2">📚</div>
+                        <h5 class="font-bold mb-2">Educational Support</h5>
+                        <p class="text-gray-700">Show mathematical equations, diagrams, or physical objects for interactive learning experiences and immediate explanations.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ElevenLabs -->
+            <div class="bg-white p-8 rounded-lg shadow-lg mb-16">
+                <div class="flex items-center justify-between mb-8">
+                    <h3 class="text-3xl font-bold text-indigo-600">ElevenLabs Text to Speech</h3>
+                    <a href="https://elevenlabs.io/" target="_blank" class="tool-button bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-6 py-3 rounded-lg font-bold flex items-center">
+                        <span>Try ElevenLabs</span>
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <div class="flex flex-col md:flex-row items-center gap-10 mb-10">
+                    <div class="md:w-1/2">
+                        <img src="https://eleven-public-cdn.elevenlabs.io/payloadcms/wwtt8wgzj3n-SpeechSynthesis.png" alt="ElevenLabs Interface" class="rounded-lg shadow-lg w-full">
+                    </div>
+                    <div class="md:w-1/2">
+                        <div class="inline-block mb-2">
+                            <span class="badge bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">Audio Tool</span>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-4">Ultra-Realistic Voice Generation</h4>
+                        <p class="text-lg text-gray-700 mb-6">
+                            ElevenLabs offers state-of-the-art text-to-speech technology that transforms written content into lifelike, emotionally nuanced speech in over 30 languages. The voices sound remarkably human, with natural pacing, intonation, and expressiveness.
+                        </p>
+                        <div class="bg-indigo-50 p-6 rounded-lg border-l-4 border-indigo-500">
+                            <h5 class="font-bold text-indigo-800 mb-2">Key Features:</h5>
+                            <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                                <li>Ultra-realistic human-like voices with emotion</li>
+                                <li>Support for 30+ languages with native-sounding accents</li>
+                                <li>Voice cloning capabilities for personalized audio</li>
+                                <li>Adjustable speech attributes including pace and tone</li>
+                                <li>API integration for developers and businesses</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                    <div class="tool-demo">
+                        <img src="https://cdn.prod.website-files.com/665c948f9eb1d848b767c1a3/668fbbfd33d8946ba87bad5b_11Labs%204.webp" alt="ElevenLabs Voice Generator" class="w-full rounded-t-lg">
+                        <div class="p-6 bg-white shadow-md">
+                            <h4 class="font-bold mb-2">Voice Selection Interface</h4>
+                            <p class="text-gray-600">
+                                Choose from dozens of professionally created voices with different accents, ages, and emotional styles to match your content perfectly.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="tool-demo">
+                        <img src="https://cdn.prod.website-files.com/6558b275de12de54c5a146d2/6776ff4ae8709c1cd5d85caf_6776fdc3ad35a971927810e3_2-elevenlabs-text-to-speech-interface.webp" alt="ElevenLabs Text Editor" class="w-full rounded-t-lg">
+                        <div class="p-6 bg-white shadow-md">
+                            <h4 class="font-bold mb-2">Text Editor with SSML Support</h4>
+                            <p class="text-gray-600">
+                                Fine-tune your speech with Speech Synthesis Markup Language tags to control emphasis, pauses, pronunciation, and more.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Applications</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-5">
+                        <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
+                            <div class="text-indigo-500 text-xl mb-2">🎙️</div>
+                            <h5 class="font-bold mb-1">Podcasting</h5>
+                            <p class="text-xs text-gray-600">Create professional narration without recording equipment</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
+                            <div class="text-indigo-500 text-xl mb-2">📚</div>
+                            <h5 class="font-bold mb-1">Audiobooks</h5>
+                            <p class="text-xs text-gray-600">Transform written content into engaging audio narratives</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
+                            <div class="text-indigo-500 text-xl mb-2">🎮</div>
+                            <h5 class="font-bold mb-1">Gaming</h5>
+                            <p class="text-xs text-gray-600">Voice characters and NPCs with realistic dialogue</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
+                            <div class="text-indigo-500 text-xl mb-2">📺</div>
+                            <h5 class="font-bold mb-1">Video Content</h5>
+                            <p class="text-xs text-gray-600">Create voiceovers for videos, tutorials, and presentations</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ChatGPT Deep Research -->
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <div class="flex items-center justify-between mb-8">
+                    <h3 class="text-3xl font-bold text-indigo-600">Deep Research with ChatGPT</h3>
+                    <a href="https://chat.openai.com/" target="_blank" class="tool-button bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-6 py-3 rounded-lg font-bold flex items-center">
+                        <span>Try Deep Research</span>
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <div class="flex flex-col md:flex-row items-center gap-10 mb-10">
+                    <div class="md:w-1/2">
+                        <img src="https://images.ctfassets.net/lzny33ho1g45/BwGQR6jcTSt4hcxwhPOH9/bf035198dad1bd9927d4f1f39930090e/chatgpt-deep-research-image3.png" alt="ChatGPT Deep Research" class="rounded-lg shadow-lg w-full">
+                    </div>
+                    <div class="md:w-1/2">
+                        <div class="inline-block mb-2">
+                            <span class="badge bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">Research Assistant</span>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-4">Enhanced Research Capabilities</h4>
+                        <p class="text-lg text-gray-700 mb-6">
+                            Deep research capabilities within ChatGPT allow users to conduct comprehensive inquiries across various topics efficiently. By processing vast amounts of information, ChatGPT can provide insightful summaries, synthesize data, and generate relevant questions to guide further exploration.
+                        </p>
+                        <div class="bg-indigo-50 p-6 rounded-lg border-l-4 border-indigo-500">
+                            <h5 class="font-bold text-indigo-800 mb-2">Key Benefits:</h5>
+                            <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                                <li>Comprehensive information gathering across diverse topics</li>
+                                <li>Complex data synthesis into digestible insights</li>
+                                <li>Generation of follow-up questions for deeper exploration</li>
+                                <li>Contextual awareness for more accurate results</li>
+                                <li>Improved citations and source tracking</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md border-l-4 border-indigo-500">
+                        <div class="text-3xl text-indigo-500 mb-4">🔍</div>
+                        <h4 class="text-xl font-bold mb-3">For Academia</h4>
+                        <p class="text-gray-700 mb-4">
+                            Researchers and students can leverage Deep Research to explore scholarly literature, gather evidence for papers, and identify gaps in current research.
+                        </p>
+                        <a href="https://help.openai.com/en/articles/8077698-how-do-i-use-chatgpt-s-deep-research-capability" target="_blank" class="text-indigo-600 hover:text-indigo-800 font-medium inline-flex items-center">
+                            <span>Research guide</span>
+                            <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md border-l-4 border-indigo-500">
+                        <div class="text-3xl text-indigo-500 mb-4">📈</div>
+                        <h4 class="text-xl font-bold mb-3">For Business</h4>
+                        <p class="text-gray-700 mb-4">
+                            Marketing teams and analysts can gather competitive intelligence, analyze market trends, and gain insights for strategic planning.
+                        </p>
+                        <a href="https://openai.com/index/deep-research/" target="_blank" class="text-indigo-600 hover:text-indigo-800 font-medium inline-flex items-center">
+                            <span>Business guide</span>
+                            <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Creative Tools Section -->
+    <section id="creative" class="section py-16 px-4 bg-white">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12">Creative AI Tools</h2>
+            
+            <!-- Suno Music Generator -->
+            <div class="bg-gray-50 p-8 rounded-lg shadow-lg mb-16">
+                <div class="flex items-center justify-between mb-8">
+                    <h3 class="text-3xl font-bold text-blue-600">Suno Music Generator</h3>
+                    <a href="https://suno.com/" target="_blank" class="tool-button bg-gradient-to-r from-blue-500 to-teal-400 text-white px-6 py-3 rounded-lg font-bold flex items-center">
+                        <span>Try Suno</span>
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <div class="flex flex-col md:flex-row items-center gap-10 mb-8">
+                    <div class="md:w-1/2">
+                        <div class="inline-block mb-2">
+                            <span class="badge bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">AI Music Creator</span>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-4">AI-Powered Music Creation</h4>
+                        <p class="text-lg text-gray-700 mb-6">
+                            Suno is an innovative AI-driven music generator that allows users to create original music effortlessly. It uses machine learning to compose music across various genres and styles, from a simple text prompt.
+                        </p>
+                        <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
+                            <h5 class="font-bold text-blue-800 mb-2">Key Features:</h5>
+                            <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                                <li>Original song creation from text prompts</li>
+                                <li>Multiple genre and style options</li>
+                                <li>Adjustable mood, tempo, and instrumentation</li>
+                                <li>Full songs with vocals and instruments</li>
+                                <li>Easy export and sharing options</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                        <img src="https://cdn.mos.cms.futurecdn.net/8jEQbxZoF67cNeRWwNtE9H.jpg" alt="Suno AI Interface" class="rounded-lg shadow-lg w-full">
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="tool-demo">
+                        <img src="https://www.fahimai.com/wp-content/uploads/2024/08/Untitled-design-3-3.png" alt="Suno AI Music Creation" class="w-full rounded-t-lg">
+                        <div class="p-4 bg-white shadow-md">
+                            <h4 class="font-bold mb-2">Text-to-Music Generation</h4>
+                            <p class="text-gray-600 mb-4">Simply describe the type of music you want, and Suno creates a complete arrangement with instruments and vocals.</p>
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <p class="text-gray-700 italic">"Create an upbeat pop song with female vocals about overcoming challenges"</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tool-demo">
+                        <img src="https://www.cursor-ide.com/blog/suno-ai-free-guide-2025/suno-interface.png" alt="Suno AI Interface" class="w-full rounded-t-lg">
+                        <div class="p-4 bg-white shadow-md">
+                            <h4 class="font-bold mb-2">Fine-Tuning Your Creation</h4>
+                            <p class="text-gray-600 mb-4">Suno lets you adjust and fine-tune every aspect of your music with detailed controls.</p>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">Genre</span>
+                                <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">Tempo</span>
+                                <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">Mood</span>
+                                <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">Instruments</span>
+                                <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">Vocals</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- NotebookLM -->
+            <div class="bg-gray-50 p-8 rounded-lg shadow-lg mb-16">
+                <div class="flex items-center justify-between mb-8">
+                    <h3 class="text-3xl font-bold text-blue-600">Google NotebookLM</h3>
+                    <a href="https://notebooklm.google/" target="_blank" class="tool-button bg-gradient-to-r from-blue-500 to-teal-400 text-white px-6 py-3 rounded-lg font-bold flex items-center">
+                        <span>Try NotebookLM</span>
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <div class="flex flex-col md:flex-row items-center gap-10 mb-10">
+                    <div class="md:w-1/2">
+                        <img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/hero-audio_overview.width-1300.png" alt="NotebookLM Podcast Feature" class="rounded-lg shadow-lg w-full">
+                    </div>
+                    <div class="md:w-1/2">
+                        <div class="inline-block mb-2">
+                            <span class="badge bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Research & Creation Tool</span>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-4">Notes to Podcast Transformation</h4>
+                        <p class="text-lg text-gray-700 mb-6">
+                            Google's NotebookLM transforms your research notes and documents into engaging, podcast-style audio content. This innovative feature creates natural-sounding conversations between AI hosts who discuss your uploaded content in an accessible format.
+                        </p>
+                        <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
+                            <h5 class="font-bold text-blue-800 mb-2">Key Features:</h5>
+                            <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                                <li>Converts text documents into conversational podcasts</li>
+                                <li>Natural-sounding AI voices with realistic speech patterns</li>
+                                <li>Support for multiple languages</li>
+                                <li>Customizable conversation format and length</li>
+                                <li>One-click export and sharing options</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-8">
+                    <h4 class="text-2xl font-bold mb-4 text-center">NotebookLM Audio Overview</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Audio_Overview-UI.width-500.format-webp.webp" alt="NotebookLM Audio Interface" class="rounded-lg shadow-lg">
+                        <div>
+                            <h5 class="font-bold text-lg mb-3">How It Works:</h5>
+                            <ol class="list-decimal pl-6 space-y-3 text-gray-700">
+                                <li><strong>Upload Content</strong> - Add documents, research papers, notes, or any text content to your notebook</li>
+                                <li><strong>Generate Audio Overview</strong> - Click to create a podcast-style discussion about your content</li>
+                                <li><strong>Customize Format</strong> - Adjust length, level of detail, and conversation style</li>
+                                <li><strong>Listen & Share</strong> - Download the audio file or share directly to podcast platforms</li>
+                            </ol>
+                            <div class="mt-6 p-4 bg-blue-50 rounded-lg">
+                                <p class="italic text-gray-700">"NotebookLM's podcast feature creates stunningly realistic conversation that feels like listening to actual experts discuss your content."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Perfect For:</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-white p-5 rounded-lg shadow-sm border-t-4 border-blue-500">
+                            <div class="text-blue-500 text-2xl mb-3">🎓</div>
+                            <h5 class="font-bold mb-2">Students & Educators</h5>
+                            <p class="text-gray-600">Transform lecture notes, course materials, and research papers into engaging audio study resources.</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-lg shadow-sm border-t-4 border-blue-500">
+                            <div class="text-blue-500 text-2xl mb-3">📝</div>
+                            <h5 class="font-bold mb-2">Content Creators</h5>
+                            <p class="text-gray-600">Convert written blog posts, articles, and scripts into podcast episodes without recording equipment.</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-lg shadow-sm border-t-4 border-blue-500">
+                            <div class="text-blue-500 text-2xl mb-3">💼</div>
+                            <h5 class="font-bold mb-2">Professionals</h5>
+                            <p class="text-gray-600">Create audio summaries of reports, meeting notes, and industry research for easy consumption.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Visual Tools Section -->
+    <section id="visual" class="section py-16 px-4 bg-gray-50">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12">Visual Creation Tools</h2>
+            
+            <!-- Text to Image/Video Tools -->
+            <div class="bg-white p-8 rounded-lg shadow-lg mb-16">
+                <div class="flex items-center justify-between mb-8 flex-wrap gap-4">
+                    <h3 class="text-3xl font-bold text-pink-600">Text to Image/Video Tools</h3>
+                    <div class="flex gap-4 flex-wrap">
+                        <a href="https://klingai.com/" target="_blank" class="tool-button bg-gradient-to-r from-fuchsia-500 to-pink-500 text-white px-4 py-2 rounded-lg font-bold flex items-center">
+                            <span>Try Kling</span>
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                            </svg>
+                        </a>
+                        <a href="https://leonardo.ai/" target="_blank" class="tool-button bg-gradient-to-r from-pink-500 to-orange-400 text-white px-4 py-2 rounded-lg font-bold flex items-center">
+                            <span>Try Leonardo</span>
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <p class="text-lg text-gray-700 mb-8">
+                    Text to Image/Video tools like Kling and Leonardo utilize cutting-edge AI technologies to create stunning visuals and multimedia content from simple text prompts.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10">
+                    <div>
+                        <div class="inline-block mb-2">
+                            <span class="badge bg-pink-100 text-pink-800 text-xs px-2 py-1 rounded">Leonardo AI</span>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3">Image Generation</h4>
+                        <img src="https://letsenhance.io/blog/content/images/2024/08/ai-image-prompts-6.png" alt="AI Text to Image Generation" class="rounded-lg shadow-lg w-full mb-4">
+                        <p class="text-gray-600">
+                            Leonardo.AI transforms text descriptions into highly detailed and customizable images across various styles and contexts.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="inline-block mb-2">
+                            <span class="badge bg-pink-100 text-pink-800 text-xs px-2 py-1 rounded">Kling AI</span>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3">Video Creation</h4>
+                        <img src="https://www.simform.com/wp-content/uploads/2023/05/text-to-image.png" alt="Text to Image Examples" class="rounded-lg shadow-lg w-full mb-4 h-64 object-cover">
+                        <p class="text-gray-600">
+                            Kling AI specializes in converting text descriptions or static images into dynamic, animated video content.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="mb-10">
+                    <h4 class="text-xl font-bold mb-4">Leonardo.AI Features</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                        <div class="bg-pink-50 p-4 rounded-lg">
+                            <h5 class="font-medium text-pink-800 mb-2">Text-to-Image</h5>
+                            <p class="text-sm text-gray-700">Generate detailed images from text descriptions across various styles and artistic renditions.</p>
+                        </div>
+                        <div class="bg-pink-50 p-4 rounded-lg">
+                            <h5 class="font-medium text-pink-800 mb-2">Image-to-Motion</h5>
+                            <p class="text-sm text-gray-700">Transform static images into short animated sequences with natural movement.</p>
+                        </div>
+                        <div class="bg-pink-50 p-4 rounded-lg">
+                            <h5 class="font-medium text-pink-800 mb-2">3D Texturing</h5>
+                            <p class="text-sm text-gray-700">Create detailed textures for 3D models and environments for gaming and visualization.</p>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <a href="https://leonardo.ai/" target="_blank" class="text-pink-600 hover:text-pink-800 inline-flex items-center font-medium">
+                            <span>Learn more about Leonardo.AI</span>
+                            <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Kling AI Features</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                        <div class="bg-fuchsia-50 p-4 rounded-lg">
+                            <h5 class="font-medium text-fuchsia-800 mb-2">Text-to-Video</h5>
+                            <p class="text-sm text-gray-700">Generate high-definition videos from descriptive text prompts with creative control.</p>
+                        </div>
+                        <div class="bg-fuchsia-50 p-4 rounded-lg">
+                            <h5 class="font-medium text-fuchsia-800 mb-2">Image-to-Video</h5>
+                            <p class="text-sm text-gray-700">Transform still images into moving videos while maintaining the original aesthetics.</p>
+                        </div>
+                        <div class="bg-fuchsia-50 p-4 rounded-lg">
+                            <h5 class="font-medium text-fuchsia-800 mb-2">AI Lip Sync</h5>
+                            <p class="text-sm text-gray-700">Create realistic talking head videos with synchronized lip movements to audio input.</p>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <a href="https://klingai.com/" target="_blank" class="text-fuchsia-600 hover:text-fuchsia-800 inline-flex items-center font-medium">
+                            <span>Learn more about Kling AI</span>
+                            <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Napkin AI -->
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <div class="flex items-center justify-between mb-8">
+                    <h3 class="text-3xl font-bold text-cyan-600">Napkin AI for Diagrams</h3>
+                    <a href="https://app.napkin.ai/" target="_blank" class="tool-button bg-gradient-to-r from-cyan-500 to-teal-400 text-white px-6 py-3 rounded-lg font-bold flex items-center">
+                        <span>Try Napkin AI</span>
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <div class="flex flex-col md:flex-row items-center gap-10 mb-8">
+                    <div class="md:w-1/2">
+                        <img src="https://images.fastcompany.com/image/upload/f_webp,q_auto,c_fit/wp-cms-2/2024/08/p-91178294-napkin-AI.jpg" alt="Napkin AI Interface" class="rounded-lg shadow-lg w-full">
+                    </div>
+                    <div class="md:w-1/2">
+                        <div class="inline-block mb-2">
+                            <span class="badge bg-cyan-100 text-cyan-800 text-xs px-2 py-1 rounded">Visual AI Tool</span>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-4">Text-to-Diagram Transformation</h4>
+                        <p class="text-lg text-gray-700 mb-6">
+                            Napkin AI instantly transforms text into insightful visuals, making it easy to create professional diagrams, flowcharts, and conceptual illustrations without design skills.
+                        </p>
+                        <div class="bg-cyan-50 p-6 rounded-lg border-l-4 border-cyan-500">
+                            <h5 class="font-bold text-cyan-800 mb-2">Key Features:</h5>
+                            <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                                <li>One-click transformation of text into visuals</li>
+                                <li>Support for flowcharts, mind maps, and process diagrams</li>
+                                <li>Custom styling and branding options</li>
+                                <li>Export to PowerPoint, PNG, and other formats</li>
+                                <li>Collaboration and sharing capabilities</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div class="tool-demo">
+                        <img src="https://miro.medium.com/v2/resize:fit:1400/1*_tFNV6PTCpxZs6kGfatqCg.png" alt="Napkin AI Example" class="w-full rounded-t-lg">
+                        <div class="p-4 bg-gray-50 shadow-md">
+                            <h4 class="font-bold mb-2">Process Flow Visualization</h4>
+                            <p class="text-gray-600">
+                                Napkin AI can convert written process descriptions into clear, professional flowcharts with just one click.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="tool-demo">
+                        <img src="https://avidopenaccess.org/wp-content/uploads/2025/01/Untitled-picture-3.png" alt="Napkin AI Diagram" class="w-full rounded-t-lg">
+                        <div class="p-4 bg-gray-50 shadow-md">
+                            <h4 class="font-bold mb-2">Concept Visualization</h4>
+                            <p class="text-gray-600">
+                                Transform complex concepts into easy-to-understand visual diagrams that enhance comprehension and retention.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-cyan-50 p-6 rounded-lg">
+                    <h4 class="text-xl font-bold mb-4">Business Applications</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                            <div class="text-cyan-500 text-2xl mb-2">📊</div>
+                            <h5 class="font-bold mb-1">Presentations</h5>
+                            <p class="text-sm text-gray-600">Create professional diagrams for slides and presentations in seconds.</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                            <div class="text-cyan-500 text-2xl mb-2">📝</div>
+                            <h5 class="font-bold mb-1">Documentation</h5>
+                            <p class="text-sm text-gray-600">Enhance technical and process documentation with clear visual aids.</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                            <div class="text-cyan-500 text-2xl mb-2">🧠</div>
+                            <h5 class="font-bold mb-1">Brainstorming</h5>
+                            <p class="text-sm text-gray-600">Visualize ideas and concepts during brainstorming and planning sessions.</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 text-center">
+                        <a href="https://app.napkin.ai/" target="_blank" class="text-cyan-600 hover:text-cyan-800 font-medium">Learn more about Napkin AI →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Project Management Tools -->
+    <section id="project-management" class="section py-16 px-4 bg-white">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12">Project Management Tools</h2>
+            
+            <!-- Claude.ai Artifacts -->
+            <div class="bg-gray-50 p-8 rounded-lg shadow-lg">
+                <div class="flex items-center justify-between mb-8">
+                    <h3 class="text-3xl font-bold text-purple-600">Claude.ai Artifacts for Project Management</h3>
+                    <a href="https://claude.ai/" target="_blank" class="tool-button bg-gradient-to-r from-violet-500 to-purple-600 text-white px-6 py-3 rounded-lg font-bold flex items-center">
+                        <span>Try Claude</span>
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <div class="flex flex-col md:flex-row items-center gap-10 mb-10">
+                    <div class="md:w-1/2">
+                        <img src="https://cdn.prod.website-files.com/634e7aa49f5b025e1fd9e87b/66a948634eecd9df90562244_ptgyu8gldu.webp" alt="Claude AI Artifacts" class="rounded-lg shadow-lg w-full">
+                    </div>
+                    <div class="md:w-1/2">
+                        <div class="inline-block mb-2">
+                            <span class="badge bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Project Management</span>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-4">What are Claude Artifacts?</h4>
+                        <p class="text-lg text-gray-700 mb-6">
+                            Claude.ai Artifacts are self-contained outputs that appear in a dedicated window next to your conversation, making complex information easier to work with. They transform project management by providing interactive tools for visualization, coding, and documentation.
+                        </p>
+                        <div class="bg-purple-50 p-6 rounded-lg border-l-4 border-purple-500">
+                            <h5 class="font-bold text-purple-800 mb-2">Key Benefits:</h5>
+                            <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                                <li>Predictive analytics and task prioritization</li>
+                                <li>Interactive visualizations for complex data</li>
+                                <li>Real-time progress monitoring</li>
+                                <li>Enhanced team collaboration</li>
+                                <li>Exportable documentation and code</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div class="tool-demo">
+                        <img src="https://beginswithai.com/wp-content/uploads/2024/06/What-Are-Artifacts-in-Claude-explainer-video.webp" alt="Claude Artifacts Example" class="w-full rounded-t-lg">
+                        <div class="p-6 bg-white shadow-md">
+                            <h4 class="text-xl font-bold mb-2">Code Development</h4>
+                            <p class="text-gray-700">
+                                Generate, test, and debug code with interactive artifacts that allow for real-time editing and execution feedback.
+                            </p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">Python</span>
+                                <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">JavaScript</span>
+                                <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">HTML/CSS</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tool-demo">
+                        <img src="https://beginswithai.com/wp-content/uploads/2024/06/exporting-artifacts-in-Claude-conversations.png.webp" alt="Exporting Claude Artifacts" class="w-full rounded-t-lg">
+                        <div class="p-6 bg-white shadow-md">
+                            <h4 class="text-xl font-bold mb-2">Data Visualization & Export</h4>
+                            <p class="text-gray-700">
+                                Create interactive charts, diagrams, and dashboards to visualize data, then export them for team sharing.
+                            </p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">Charts</span>
+                                <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">Diagrams</span>
+                                <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">Data Tables</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-purple-50 p-8 rounded-lg">
+                    <h4 class="text-xl font-bold mb-6 text-center">Use Cases</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                            <div class="text-4xl text-purple-500 mb-4">🗂️</div>
+                            <h5 class="font-bold mb-2">Project Documentation</h5>
+                            <p class="text-gray-600">Generate comprehensive documentation, from requirements to technical specifications, in a consistent format.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                            <div class="text-4xl text-purple-500 mb-4">🔍</div>
+                            <h5 class="font-bold mb-2">Research Synthesis</h5>
+                            <p class="text-gray-600">Analyze and visualize research findings, create literature reviews, and identify patterns in data.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                            <div class="text-4xl text-purple-500 mb-4">📊</div>
+                            <h5 class="font-bold mb-2">Financial Analysis</h5>
+                            <p class="text-gray-600">Create financial models, projections, and reports with interactive charts and tables for better decision-making.</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 text-center">
+                        <a href="https://support.anthropic.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them" target="_blank" class="text-purple-600 hover:text-purple-800 font-medium">Learn more about Claude Artifacts →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Presentations Section -->
+    <section id="presentations" class="section py-16 px-4 bg-gray-50">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12">AI Presentation Tools</h2>
+            
+            <!-- Slidesgo AI -->
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <div class="flex items-center justify-between mb-8">
+                    <h3 class="text-3xl font-bold text-orange-600">Slidesgo AI Presentation Maker</h3>
+                    <a href="https://slidesgo.com/ai-presentations" target="_blank" class="tool-button bg-gradient-to-r from-orange-500 to-amber-400 text-white px-6 py-3 rounded-lg font-bold flex items-center">
+                        <span>Try Slidesgo</span>
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <div class="flex flex-col md:flex-row items-center gap-10 mb-10">
+                    <div class="md:w-1/2">
+                        <div class="inline-block mb-2">
+                            <span class="badge bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded">Presentation Creator</span>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-4">AI-Powered Presentation Creation</h4>
+                        <p class="text-lg text-gray-700 mb-6">
+                            Slidesgo AI transforms the presentation creation process, allowing users to generate professional, visually appealing slides from simple prompts or existing content. Perfect for business presentations, educational content, and more.
+                        </p>
+                        <div class="bg-orange-50 p-6 rounded-lg border-l-4 border-orange-500">
+                            <h5 class="font-bold text-orange-800 mb-2">Key Features:</h5>
+                            <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                                <li>One-click presentation generation from prompts</li>
+                                <li>Customizable templates and design styles</li>
+                                <li>AI-driven content organization and formatting</li>
+                                <li>Compatible with Google Slides and PowerPoint</li>
+                                <li>PDF to presentation conversion</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                        <img src="https://slidesgo.com/images/landing/ai-generator1.png" alt="Slidesgo AI Interface" class="rounded-lg shadow-lg w-full">
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                    <div class="tool-demo">
+                        <img src="https://media.slidesgo.com/storage/32777311/AI-presentationmaker.gif" alt="Slidesgo AI Example" class="w-full rounded-t-lg">
+                        <div class="p-6 bg-white shadow-md">
+                            <h4 class="text-xl font-bold mb-2">Prompt-to-Presentation</h4>
+                            <p class="text-gray-600">
+                                Simply describe the topic and purpose of your presentation, and Slidesgo AI generates a complete slide deck with organized content and professional design.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="tool-demo">
+                        <img src="https://gifluent.com/wp-content/uploads/2024/08/Featured-Image-SlidesGo.png" alt="Slidesgo AI Features" class="w-full rounded-t-lg">
+                        <div class="p-6 bg-white shadow-md">
+                            <h4 class="text-xl font-bold mb-2">Customization Options</h4>
+                            <p class="text-gray-600">
+                                After generating your presentation, easily customize colors, fonts, layouts, and content to match your brand or preferences.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-orange-50 p-6 rounded-lg">
+                        <div class="text-3xl text-orange-500 mb-4">🚀</div>
+                        <h4 class="font-bold mb-2">Time Efficiency</h4>
+                        <p class="text-gray-700">
+                            Create professional presentations in minutes instead of hours, freeing up valuable time for preparation and delivery.
+                        </p>
+                    </div>
+                    <div class="bg-orange-50 p-6 rounded-lg">
+                        <div class="text-3xl text-orange-500 mb-4">📚</div>
+                        <h4 class="font-bold mb-2">Content Organization</h4>
+                        <p class="text-gray-700">
+                            AI automatically structures your content in a logical flow with appropriate sections, bullet points, and visual elements.
+                        </p>
+                    </div>
+                    <div class="bg-orange-50 p-6 rounded-lg">
+                        <div class="text-3xl text-orange-500 mb-4">🎨</div>
+                        <h4 class="font-bold mb-2">Design Consistency</h4>
+                        <p class="text-gray-700">
+                            Ensure professional, cohesive design across all slides with automatic color schemes, typography, and layout consistency.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Web Development Section -->
+    <section id="web-development" class="section py-16 px-4 bg-white">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12">AI Web Development Tools</h2>
+            
+            <!-- Genspark Website Creation -->
+            <div class="bg-gray-50 p-8 rounded-lg shadow-lg mb-16">
+                <div class="flex items-center justify-between mb-8">
+                    <h3 class="text-3xl font-bold text-green-600">Genspark Website Creation</h3>
+                    <a href="https://www.genspark.ai/" target="_blank" class="tool-button bg-gradient-to-r from-green-500 to-emerald-400 text-white px-6 py-3 rounded-lg font-bold flex items-center">
+                        <span>Try Genspark</span>
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <div class="flex flex-col md:flex-row items-center gap-10 mb-10">
+                    <div class="md:w-1/2">
+                        <img src="https://miro.medium.com/v2/resize:fit:1400/1*_tNLSFfyQ4Q4T3T-E5bMlA.png" alt="Genspark AI Website Creation" class="rounded-lg shadow-lg w-full">
+                    </div>
+                    <div class="md:w-1/2">
+                        <div class="inline-block mb-2">
+                            <span class="badge bg-green-100 text-green-800 text-xs px-2 py-1 rounded">No-Code Website Builder</span>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-4">Website Creation Revolutionized</h4>
+                        <p class="text-lg text-gray-700 mb-6">
+                            Genspark revolutionizes website creation by allowing users to develop fully functional websites effortlessly using AI technology. Simply describe what you want, and Genspark builds it for you in minutes.
+                        </p>
+                        <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-500">
+                            <h5 class="font-bold text-green-800 mb-2">Key Features:</h5>
+                            <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                                <li>Text-prompt based website generation</li>
+                                <li>No coding required for responsive layouts</li>
+                                <li>Built-in e-commerce capabilities</li>
+                                <li>SEO optimization recommendations</li>
+                                <li>Mobile-responsive designs by default</li>
+                                <li>Custom domain integration</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <div class="text-3xl text-green-500 mb-4">💼</div>
+                        <h4 class="text-xl font-bold mb-3">For Small Business</h4>
+                        <p class="text-gray-700 mb-4">
+                            Create professional business websites without hiring designers or developers. Update content easily with simple text prompts.
+                        </p>
+                        <div class="flex">
+                            <a href="https://www.genspark.ai/spark/guide-to-creating-a-complete-website/d11093c2-db3c-40c8-a294-9039fc16edbb" target="_blank" class="text-sm text-green-500 hover:text-green-700 flex items-center">
+                                <span>Small business guide</span>
+                                <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <div class="text-3xl text-green-500 mb-4">🎨</div>
+                        <h4 class="text-xl font-bold mb-3">For Portfolio Sites</h4>
+                        <p class="text-gray-700 mb-4">
+                            Artists, photographers, and professionals can create stunning portfolio websites that showcase their work effectively.
+                        </p>
+                        <div class="flex">
+                            <a href="https://www.genspark.ai/spark/how-to-create-a-website/8c39c3c0-651b-465e-bdc9-250aae1955ee" target="_blank" class="text-sm text-green-500 hover:text-green-700 flex items-center">
+                                <span>Portfolio guide</span>
+                                <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <div class="text-3xl text-green-500 mb-4">🛒</div>
+                        <h4 class="text-xl font-bold mb-3">For E-commerce</h4>
+                        <p class="text-gray-700 mb-4">
+                            Launch online stores quickly with integrated payment processing, product catalogs, and customer management systems.
+                        </p>
+                        <div class="flex">
+                            <a href="https://www.genspark.ai/spark/top-free-ai-website-builders-for-designing-and-coding/5948178d-749a-40c4-943f-8d68267790c1" target="_blank" class="text-sm text-green-500 hover:text-green-700 flex items-center">
+                                <span>E-commerce guide</span>
+                                <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cursor AI - AI-Powered Code Editor -->
+            <div class="bg-gray-50 p-8 rounded-lg shadow-lg">
+                <div class="flex items-center justify-between mb-8">
+                    <h3 class="text-3xl font-bold text-indigo-600">Cursor AI Code Editor</h3>
+                    <a href="https://www.cursor.com/" target="_blank" class="tool-button bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-6 py-3 rounded-lg font-bold flex items-center">
+                        <span>Visit Cursor</span>
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="flex flex-col md:flex-row items-center gap-10 mb-10">
+                    <div class="md:w-1/2">
+                        <div class="image-gallery">
+                            <div class="image-container">
+                                <img src="images/projects/cursor-ai-guide-overview.png" alt="Cursor AI overview" class="w-full rounded-lg shadow-lg">
+                                <div class="image-caption text-xs">
+                                    High-level overview of how Cursor AI fits into a modern developer workflow.
+                                </div>
+                            </div>
+                            <div class="image-container">
+                                <img src="images/projects/cursor-ai-frontend.webp" alt="Cursor AI interface" class="w-full rounded-lg shadow-lg">
+                                <div class="image-caption text-xs">
+                                    Cursor AI interface embedded directly into the code editor for inline assistance.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                        <div class="inline-block mb-2">
+                            <span class="badge bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">Developer Workflow</span>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-4">Coding with an AI Partner</h4>
+                        <p class="text-lg text-gray-700 mb-6">
+                            Cursor AI is an AI-powered coding environment that integrates directly into your editor. Instead of switching between chat and code, you can ask questions, refactor, and generate new code in context. It is particularly helpful for understanding unfamiliar codebases and speeding up repetitive tasks while keeping humans in control of reviews and decisions.
+                        </p>
+                        <div class="bg-indigo-50 p-6 rounded-lg border-l-4 border-indigo-500">
+                            <h5 class="font-bold text-indigo-800 mb-2">Key Features:</h5>
+                            <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                                <li>Explain existing code in natural language and trace how functions connect.</li>
+                                <li>Generate boilerplate (routes, models, tests) so you can focus on design and logic.</li>
+                                <li>Refactor safely with diff previews you can review before applying changes.</li>
+                                <li>Navigate large codebases quickly with semantic search and context-aware suggestions.</li>
+                                <li>Supports collaborative workflows by documenting changes and rationale.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <div class="text-3xl text-indigo-500 mb-4">🧭</div>
+                        <h4 class="text-xl font-bold mb-3">Understanding Legacy Code</h4>
+                        <p class="text-gray-700 mb-4">
+                            Use Cursor to explain complex or legacy modules in plain language and generate quick summaries you can share with teammates.
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <div class="text-3xl text-indigo-500 mb-4">🛠️</div>
+                        <h4 class="text-xl font-bold mb-3">Safe Refactoring</h4>
+                        <p class="text-gray-700 mb-4">
+                            Ask Cursor to propose refactors, then inspect diffs and tests before merging, keeping humans in charge of code quality.
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <div class="text-3xl text-indigo-500 mb-4">🚀</div>
+                        <h4 class="text-xl font-bold mb-3">Faster Prototyping</h4>
+                        <p class="text-gray-700 mb-4">
+                            Quickly scaffold new features or experiments by combining your own ideas with Cursor’s suggestions, then refine manually.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Tool Comparison Section -->
+    <section id="tool-comparison" class="section py-16 px-4 bg-gray-50">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-10">AI Tool Comparison</h2>
+            
+            <div class="overflow-x-auto bg-white rounded-lg shadow">
+                <table class="min-w-full">
+                    <thead class="bg-gray-100">
+                        <tr>
+                            <th class="py-3 px-6 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tool</th>
+                            <th class="py-3 px-6 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Category</th>
+                            <th class="py-3 px-6 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Best For</th>
+                            <th class="py-3 px-6 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Free Option</th>
+                            <th class="py-3 px-6 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Website</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr>
+                            <td class="py-4 px-6 whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <div class="ml-4">
+                                        <div class="text-sm font-medium text-gray-900">ChatGPT</div>
+                                        <div class="text-sm text-gray-500">OpenAI</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
+                                Communication
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
+                                Voice interaction, deep research, content creation
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap">
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                    Yes
+                                </span>
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-indigo-600 hover:text-indigo-900">
+                                <a href="https://chat.openai.com/" target="_blank">chat.openai.com</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="py-4 px-6 whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <div class="ml-4">
+                                        <div class="text-sm font-medium text-gray-900">Cursor</div>
+                                        <div class="text-sm text-gray-500">Cursor AI</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
+                                Web Development
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
+                                Understanding codebases, refactoring safely, generating boilerplate, and speeding up development while keeping humans in control.
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap">
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                    Yes (limited)
+                                </span>
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-indigo-600 hover:text-indigo-900">
+                                <a href="https://www.cursor.com/" target="_blank">cursor.com</a>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="py-4 px-6 whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <div class="ml-4">
+                                        <div class="text-sm font-medium text-gray-900">Suno</div>
+                                        <div class="text-sm text-gray-500">Suno AI</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
+                                Creative
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
+                                Music generation, audio content creation
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap">
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                    Yes (limited)
+                                </span>
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-blue-600 hover:text-blue-900">
+                                <a href="https://suno.com/" target="_blank">suno.com</a>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="py-4 px-6 whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <div class="ml-4">
+                                        <div class="text-sm font-medium text-gray-900">Claude</div>
+                                        <div class="text-sm text-gray-500">Anthropic</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
+                                Project Management
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
+                                Project management, data visualization, coding
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap">
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                    Yes
+                                </span>
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-purple-600 hover:text-purple-900">
+                                <a href="https://claude.ai/" target="_blank">claude.ai</a>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="py-4 px-6 whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <div class="ml-4">
+                                        <div class="text-sm font-medium text-gray-900">Leonardo</div>
+                                        <div class="text-sm text-gray-500">Leonardo.AI</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
+                                Visual
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
+                                Text-to-image, image-to-video, creative visuals
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap">
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                    Yes (limited)
+                                </span>
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-pink-600 hover:text-pink-900">
+                                <a href="https://leonardo.ai/" target="_blank">leonardo.ai</a>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="py-4 px-6 whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <div class="ml-4">
+                                        <div class="text-sm font-medium text-gray-900">Kling</div>
+                                        <div class="text-sm text-gray-500">KlingAI</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
+                                Visual
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
+                                Video generation, image animation
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap">
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                    Yes (limited)
+                                </span>
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-fuchsia-600 hover:text-fuchsia-900">
+                                <a href="https://klingai.com/" target="_blank">klingai.com</a>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="py-4 px-6 whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <div class="ml-4">
+                                        <div class="text-sm font-medium text-gray-900">Genspark</div>
+                                        <div class="text-sm text-gray-500">Genspark AI</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
+                                Web Development
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
+                                Website creation, app building
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap">
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                    Yes
+                                </span>
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-green-600 hover:text-green-900">
+                                <a href="https://www.genspark.ai/" target="_blank">genspark.ai</a>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="py-4 px-6 whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <div class="ml-4">
+                                        <div class="text-sm font-medium text-gray-900">Napkin AI</div>
+                                        <div class="text-sm text-gray-500">Napkin</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
+                                Visual
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
+                                Diagram creation, process visualization
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap">
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                    Yes (limited)
+                                </span>
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-cyan-600 hover:text-cyan-900">
+                                <a href="https://app.napkin.ai/" target="_blank">app.napkin.ai</a>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="py-4 px-6 whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <div class="ml-4">
+                                        <div class="text-sm font-medium text-gray-900">Slidesgo</div>
+                                        <div class="text-sm text-gray-500">Slidesgo</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
+                                Presentations
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
+                                Presentation creation, slide design
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap">
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                    Yes
+                                </span>
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-orange-600 hover:text-orange-900">
+                                <a href="https://slidesgo.com/ai-presentations" target="_blank">slidesgo.com</a>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="py-4 px-6 whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <div class="ml-4">
+                                        <div class="text-sm font-medium text-gray-900">NotebookLM</div>
+                                        <div class="text-sm text-gray-500">Google</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
+                                Research & Audio
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
+                                Note-taking, podcast creation, research assistance
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap">
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                    Yes
+                                </span>
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-blue-600 hover:text-blue-900">
+                                <a href="https://notebooklm.google/" target="_blank">notebooklm.google</a>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="py-4 px-6 whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <div class="ml-4">
+                                        <div class="text-sm font-medium text-gray-900">ElevenLabs</div>
+                                        <div class="text-sm text-gray-500">ElevenLabs</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
+                                Audio
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
+                                Text-to-speech, voice cloning, audiobooks
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap">
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                    Yes (limited)
+                                </span>
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-indigo-600 hover:text-indigo-900">
+                                <a href="https://elevenlabs.io/" target="_blank">elevenlabs.io</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusions -->
+    <section class="py-16 px-4 bg-white">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-10">Conclusions</h2>
+            
+            <div class="bg-gray-50 p-8 rounded-lg shadow-md">
+                <p class="text-xl text-gray-700 mb-8 leading-relaxed">
+                    AI tools are transforming productivity across all domains by enhancing efficiency and creativity. As demonstrated in this resource hub, these tools empower users to streamline tasks, foster innovation, and produce professional results with minimal effort. Embracing these technologies not only improves operational performance but also allows individuals and organizations to focus on more strategic and creative aspects of their work.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="p-4 bg-indigo-50 rounded-lg">
+                        <h3 class="text-lg font-bold mb-2 text-indigo-700">Enhanced Communication</h3>
+                        <p class="text-gray-700">
+                            AI tools like ChatGPT Voice and Claude facilitate more natural and efficient communication, breaking down barriers and improving collaboration.
+                        </p>
+                    </div>
+                    <div class="p-4 bg-indigo-50 rounded-lg">
+                        <h3 class="text-lg font-bold mb-2 text-indigo-700">Creative Acceleration</h3>
+                        <p class="text-gray-700">
+                            Tools like Suno, Leonardo, and Kling enable rapid creation of high-quality content that previously required specialized skills and equipment.
+                        </p>
+                    </div>
+                    <div class="p-4 bg-indigo-50 rounded-lg">
+                        <h3 class="text-lg font-bold mb-2 text-indigo-700">Workflow Optimization</h3>
+                        <p class="text-gray-700">
+                            Project management tools and website builders like Genspark automate complex processes, reducing time-to-completion and technical barriers.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="py-16 px-4 bg-gray-50">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-10">All Tools at a Glance</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <a href="https://chat.openai.com/" target="_blank" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1 flex flex-col items-center">
+                    <div class="text-3xl mb-3">🗣️</div>
+                    <h3 class="text-lg font-bold mb-1 text-center">ChatGPT</h3>
+                    <p class="text-sm text-gray-600 text-center mb-3">Voice & Research</p>
+                    <span class="text-xs bg-indigo-100 text-indigo-800 px-2 py-1 rounded">Communication</span>
+                </a>
+                
+                <a href="https://suno.com/" target="_blank" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1 flex flex-col items-center">
+                    <div class="text-3xl mb-3">🎵</div>
+                    <h3 class="text-lg font-bold mb-1 text-center">Suno</h3>
+                    <p class="text-sm text-gray-600 text-center mb-3">Music Generation</p>
+                    <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">Creative</span>
+                </a>
+                
+                <a href="https://claude.ai/" target="_blank" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1 flex flex-col items-center">
+                    <div class="text-3xl mb-3">📊</div>
+                    <h3 class="text-lg font-bold mb-1 text-center">Claude</h3>
+                    <p class="text-sm text-gray-600 text-center mb-3">Artifacts & Projects</p>
+                    <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">Project Management</span>
+                </a>
+                
+                <a href="https://www.genspark.ai/" target="_blank" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1 flex flex-col items-center">
+                    <div class="text-3xl mb-3">🌐</div>
+                    <h3 class="text-lg font-bold mb-1 text-center">Genspark</h3>
+                    <p class="text-sm text-gray-600 text-center mb-3">Website Creation</p>
+                    <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">Web Development</span>
+                </a>
+                
+                <a href="https://leonardo.ai/" target="_blank" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1 flex flex-col items-center">
+                    <div class="text-3xl mb-3">🎨</div>
+                    <h3 class="text-lg font-bold mb-1 text-center">Leonardo</h3>
+                    <p class="text-sm text-gray-600 text-center mb-3">Image Generation</p>
+                    <span class="text-xs bg-pink-100 text-pink-800 px-2 py-1 rounded">Visual</span>
+                </a>
+                
+                <a href="https://klingai.com/" target="_blank" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1 flex flex-col items-center">
+                    <div class="text-3xl mb-3">🎬</div>
+                    <h3 class="text-lg font-bold mb-1 text-center">Kling</h3>
+                    <p class="text-sm text-gray-600 text-center mb-3">Video Creation</p>
+                    <span class="text-xs bg-fuchsia-100 text-fuchsia-800 px-2 py-1 rounded">Visual</span>
+                </a>
+                
+                <a href="https://app.napkin.ai/" target="_blank" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1 flex flex-col items-center">
+                    <div class="text-3xl mb-3">📝</div>
+                    <h3 class="text-lg font-bold mb-1 text-center">Napkin AI</h3>
+                    <p class="text-sm text-gray-600 text-center mb-3">Diagram Creation</p>
+                    <span class="text-xs bg-cyan-100 text-cyan-800 px-2 py-1 rounded">Visual</span>
+                </a>
+                
+                <a href="https://slidesgo.com/ai-presentations" target="_blank" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1 flex flex-col items-center">
+                    <div class="text-3xl mb-3">🖼️</div>
+                    <h3 class="text-lg font-bold mb-1 text-center">Slidesgo</h3>
+                    <p class="text-sm text-gray-600 text-center mb-3">Presentations</p>
+                    <span class="text-xs bg-orange-100 text-orange-800 px-2 py-1 rounded">Presentations</span>
+                </a>
+                
+                <a href="https://notebooklm.google/" target="_blank" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1 flex flex-col items-center">
+                    <div class="text-3xl mb-3">🎙️</div>
+                    <h3 class="text-lg font-bold mb-1 text-center">NotebookLM</h3>
+                    <p class="text-sm text-gray-600 text-center mb-3">Podcast Creator</p>
+                    <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">Audio</span>
+                </a>
+                
+                <a href="https://elevenlabs.io/" target="_blank" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1 flex flex-col items-center">
+                    <div class="text-3xl mb-3">🔊</div>
+                    <h3 class="text-lg font-bold mb-1 text-center">ElevenLabs</h3>
+                    <p class="text-sm text-gray-600 text-center mb-3">Voice Generation</p>
+                    <span class="text-xs bg-indigo-100 text-indigo-800 px-2 py-1 rounded">Audio</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="hero-gradient py-16 px-4 text-white">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-8">Ready to Transform Your Productivity?</h2>
+            <p class="text-xl mb-12">Explore these AI tools and discover how they can enhance your workflow.</p>
+            
+            <div class="flex justify-center flex-wrap gap-4 mb-12">
+                <a href="#communication" class="bg-white text-indigo-600 px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition duration-300">Communication Tools</a>
+                <a href="#creative" class="bg-white text-blue-600 px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition duration-300">Creative Tools</a>
+                <a href="#visual" class="bg-white text-pink-600 px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition duration-300">Visual Tools</a>
+                <a href="#project-management" class="bg-white text-purple-600 px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition duration-300">Project Management</a>
+            </div>
+            
+            <p class="text-sm opacity-75">© 2025 AI Productivity Tools Resource Hub</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Add hover effects for image captions
+            document.querySelectorAll('.image-container').forEach(container => {
+                container.addEventListener('mouseenter', function() {
+                    this.querySelector('.image-caption').style.transform = 'translateY(0)';
+                });
+                container.addEventListener('mouseleave', function() {
+                    this.querySelector('.image-caption').style.transform = 'translateY(100%)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDgntXSJQ61mA4vcyK%2F1cPSTW1%2Fc9P0c21edJNHIcfbkItWnDhMeqC0Zbdi%2Flyctq9ZqLvpOmks9Ie7wnGr66NRcYhEN5i4fA7VIttmW8JAuPD3x1JUIxBXu33phrEfi4HutZEdYIvvDkqk8V%2B44eY%2BUHx9XdJaYHRv9CqwyXcPnKZj9HZWwcgDbYLc9bE3WFi%2FdJOSSSTfHaEgQYHgiq%2FIUEn8MWSRCdEjNagfPqX9Jom077%2BUwhmN5JGUG8L4n9dQBBoB48NZg9wqM5bKCalMxDW2WI5GG6%2Bdai%2FgZ9QOQp%2BRP4u14kXfCMvQlAnaAFW6vgrRhfbSwudN65BkmHQic2dQP25ipOoFdrt0m%2FLDaKNRlkN4sPEiZUCydpcdsAWAU57KcsOcdaX9O783Ofk%2BCgiPKvLMoDuPhUaQX1%2B8IBNRb%2Bl8EytlWzeCdF3NYZPqrXBkrU4RxdX0xTc%2BbGB9WPNPY2dGuMdXqRyeDnCT49j9Z%2FHib7AAyL037M8m9v6Y6CSDC1aqrKFjNAD8srkJw%3D";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDgntXSJQ61mA4vcyK/1cPSTW1/c9P0c21edJNHIcfbkItWnDhMeqC0Zbdi/lyctq9ZqLvpOmks9Ie7wnGr66NRcYhEN5i4fA7VIttmW8JAuPD3x1JUIxBXu33phrEfi4HutZEdYIvvDkqk8V+44eY+UHx9XdJaYHRv9CqwyXcPnKZj9HZWwcgDbYLc9bE3WFi/dJOSSSTfHaEgQYHgiq/IUEn8MWSRCdEjNagfPqX9Jom077+UwhmN5JGUG8L4n9dQBBoB48NZg9wqM5bKCalMxDW2WI5GG6+dai/gZ9QOQp+RP4u14kXfCMvQlAnaAFW6vgrRhfbSwudN65BkmHQic2dQP25ipOoFdrt0m/LDaKNRlkN4sPEiZUCydpcdsAWAU57KcsOcdaX9O783Ofk+CgiPKvLMoDuPhUaQX1+8IBNRb+l8EytlWzeCdF3NYZPqrXBkrU4RxdX0xTc+bGB9WPNPY2dGuMdXqRyeDnCT49j9Z/Hib7AAyL037M8m9v6Y6CSDC1aqrKFjNAD8srkJw=";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    
