@@ -234,8 +234,9 @@
                     </a>
                 </div>
                 
-                <div class="flex flex-col md:flex-row items-center gap-10 mb-10">
-                    <div class="md:w-1/2">
+                <!-- Text column sets height; image column matches that height on md+ (no oversized portrait). -->
+                <div class="relative mb-10">
+                    <div class="md:w-1/2 md:pr-6">
                         <div class="inline-block mb-2">
                             <span class="badge bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">New Feature</span>
                         </div>
@@ -254,8 +255,8 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="md:w-1/2">
-                        <img src="images/projects/chatgpt-live.jpg?v=2" alt="ChatGPT mobile app during a live vision session showing the camera interface" class="rounded-lg shadow-lg w-full" width="1200" height="900" loading="lazy" decoding="async">
+                    <div class="mt-8 md:mt-0 md:absolute md:top-0 md:bottom-0 md:left-1/2 md:right-0 flex items-start justify-center md:pl-6">
+                        <img src="images/projects/chatgpt-live.jpg?v=3" alt="ChatGPT mobile app during a live vision session showing the camera interface" class="w-full max-w-full max-h-96 md:max-h-full rounded-lg shadow-lg object-contain object-top" width="1200" height="900" loading="lazy" decoding="async">
                     </div>
                 </div>
                 
