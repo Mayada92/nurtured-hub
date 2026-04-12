@@ -74,6 +74,13 @@
             vertical-align: baseline;
             border-radius: 0.25rem;
         }
+        /* Tailwind text-* on badges should win over default white (matches intended labels). */
+        .badge.text-green-800 {
+            color: #166534;
+        }
+        .badge.text-indigo-800 {
+            color: #3730a3;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -1047,15 +1054,12 @@
                 </div>
             </div>
 
-            <!-- Cursor AI - AI-Powered Code Editor -->
+            <!-- Cursor — AI code editor (matches Genspark tool block styling) -->
             <div class="bg-gray-50 p-8 rounded-lg shadow-lg">
-                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
-                    <div class="flex items-center gap-4">
-                        <img src="images/projects/cursor-ai-logo.jpg" alt="Cursor logo" class="h-12 w-auto rounded shadow" width="120" height="48" loading="lazy" decoding="async">
-                        <h3 class="text-3xl font-bold text-indigo-600">Cursor AI Code Editor</h3>
-                    </div>
-                    <a href="https://www.cursor.com/" target="_blank" class="tool-button bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-6 py-3 rounded-lg font-bold flex items-center">
-                        <span>Visit Cursor</span>
+                <div class="flex items-center justify-between mb-8">
+                    <h3 class="text-3xl font-bold text-green-600">Cursor — AI Code Editor</h3>
+                    <a href="https://cursor.com/" target="_blank" rel="noopener noreferrer" class="tool-button bg-gradient-to-r from-green-500 to-emerald-400 text-white px-6 py-3 rounded-lg font-bold flex items-center">
+                        <span>Try Cursor</span>
                         <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
                         </svg>
@@ -1064,43 +1068,24 @@
 
                 <div class="flex flex-col md:flex-row items-center gap-10 mb-10">
                     <div class="md:w-1/2">
-                        <div class="image-gallery">
-                            <div class="image-container">
-                                <img src="images/projects/cursor-ai-guide-overview.png" alt="Cursor AI overview" class="w-full rounded-lg shadow-lg">
-                                <div class="image-caption text-xs">
-                                    High-level overview of how Cursor AI fits into a modern developer workflow.
-                                </div>
-                            </div>
-                            <div class="image-container">
-                                <img src="images/projects/cursor-ai-frontend.webp" alt="Cursor AI interface" class="w-full rounded-lg shadow-lg">
-                                <div class="image-caption text-xs">
-                                    Cursor AI interface embedded directly into the code editor for inline assistance.
-                                </div>
-                            </div>
-                            <div class="image-container">
-                                <img src="images/projects/cursor-ai-usage.jpg" alt="Cursor AI usage example" class="w-full rounded-lg shadow-lg">
-                                <div class="image-caption text-xs">
-                                    Example workflow: navigating a multi-file project and iterating with AI-assisted edits.
-                                </div>
-                            </div>
-                        </div>
+                        <img src="images/projects/cursor-ai-frontend.webp" alt="Cursor AI editor with inline chat and code assistance" class="rounded-lg shadow-lg w-full" width="1200" height="675" loading="lazy" decoding="async">
                     </div>
                     <div class="md:w-1/2">
                         <div class="inline-block mb-2">
-                            <span class="badge bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">Developer Workflow</span>
+                            <span class="badge bg-green-100 text-green-800 text-xs px-2 py-1 rounded">AI-Assisted Development</span>
                         </div>
-                        <h4 class="text-2xl font-bold mb-4">Coding with an AI Partner</h4>
+                        <h4 class="text-2xl font-bold mb-4">Coding With Context</h4>
                         <p class="text-lg text-gray-700 mb-6">
-                            Cursor AI is an AI-powered coding environment that integrates directly into your editor. Instead of switching between chat and code, you can ask questions, refactor, and generate new code in context. It is particularly helpful for understanding unfamiliar codebases and speeding up repetitive tasks while keeping humans in control of reviews and decisions.
+                            Cursor is an AI-native code editor built on top of familiar developer workflows. Assistance stays next to your files—explain unfamiliar code, draft tests, and refactor with diff previews—so you move faster without outsourcing judgment.
                         </p>
-                        <div class="bg-indigo-50 p-6 rounded-lg border-l-4 border-indigo-500">
-                            <h5 class="font-bold text-indigo-800 mb-2">Key Features:</h5>
+                        <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-500">
+                            <h5 class="font-bold text-green-800 mb-2">Key Features:</h5>
                             <ul class="list-disc pl-6 space-y-2 text-gray-700">
-                                <li>Explain existing code in natural language and trace how functions connect.</li>
-                                <li>Generate boilerplate (routes, models, tests) so you can focus on design and logic.</li>
-                                <li>Refactor safely with diff previews you can review before applying changes.</li>
-                                <li>Navigate large codebases quickly with semantic search and context-aware suggestions.</li>
-                                <li>Supports collaborative workflows by documenting changes and rationale.</li>
+                                <li>Inline and sidebar chat grounded in your open project and selections</li>
+                                <li>Semantic codebase search to jump to the right symbol or pattern</li>
+                                <li>Apply multi-file edits with reviewable diffs before you commit</li>
+                                <li>Boilerplate and test scaffolding you refine and own</li>
+                                <li>Works alongside your usual stack, Git, and team review habits</li>
                             </ul>
                         </div>
                     </div>
@@ -1108,25 +1093,49 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                        <div class="text-3xl text-indigo-500 mb-4">🧭</div>
-                        <h4 class="text-xl font-bold mb-3">Understanding Legacy Code</h4>
+                        <div class="text-3xl text-green-500 mb-4">🧭</div>
+                        <h4 class="text-xl font-bold mb-3">Docs &amp; setup</h4>
                         <p class="text-gray-700 mb-4">
-                            Use Cursor to explain complex or legacy modules in plain language and generate quick summaries you can share with teammates.
+                            Official documentation for installation, models, rules, and editor features.
                         </p>
+                        <div class="flex">
+                            <a href="https://cursor.com/docs" target="_blank" rel="noopener noreferrer" class="text-sm text-green-500 hover:text-green-700 flex items-center">
+                                <span>Cursor documentation</span>
+                                <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
                     <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                        <div class="text-3xl text-indigo-500 mb-4">🛠️</div>
-                        <h4 class="text-xl font-bold mb-3">Safe Refactoring</h4>
+                        <div class="text-3xl text-green-500 mb-4">⚙️</div>
+                        <h4 class="text-xl font-bold mb-3">Learn the product</h4>
                         <p class="text-gray-700 mb-4">
-                            Ask Cursor to propose refactors, then inspect diffs and tests before merging, keeping humans in charge of code quality.
+                            Overview of how Cursor fits into professional development workflows.
                         </p>
+                        <div class="flex">
+                            <a href="https://cursor.com/features" target="_blank" rel="noopener noreferrer" class="text-sm text-green-500 hover:text-green-700 flex items-center">
+                                <span>Features overview</span>
+                                <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
                     <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                        <div class="text-3xl text-indigo-500 mb-4">🚀</div>
-                        <h4 class="text-xl font-bold mb-3">Faster Prototyping</h4>
+                        <div class="text-3xl text-green-500 mb-4">💬</div>
+                        <h4 class="text-xl font-bold mb-3">Community</h4>
                         <p class="text-gray-700 mb-4">
-                            Quickly scaffold new features or experiments by combining your own ideas with Cursor’s suggestions, then refine manually.
+                            Ask questions, browse tips, and see how other builders use Cursor day to day.
                         </p>
+                        <div class="flex">
+                            <a href="https://forum.cursor.com/" target="_blank" rel="noopener noreferrer" class="text-sm text-green-500 hover:text-green-700 flex items-center">
+                                <span>Cursor community forum</span>
+                                <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1172,31 +1181,6 @@
                             </td>
                             <td class="py-4 px-6 whitespace-nowrap text-sm text-indigo-600 hover:text-indigo-900">
                                 <a href="https://chat.openai.com/" target="_blank">chat.openai.com</a>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="py-4 px-6 whitespace-nowrap">
-                                <div class="flex items-center">
-                                    <div class="ml-4">
-                                        <div class="text-sm font-medium text-gray-900">Cursor</div>
-                                        <div class="text-sm text-gray-500">Cursor AI</div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
-                                Web Development
-                            </td>
-                            <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
-                                Understanding codebases, refactoring safely, generating boilerplate, and speeding up development while keeping humans in control.
-                            </td>
-                            <td class="py-4 px-6 whitespace-nowrap">
-                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                    Yes (limited)
-                                </span>
-                            </td>
-                            <td class="py-4 px-6 whitespace-nowrap text-sm text-indigo-600 hover:text-indigo-900">
-                                <a href="https://www.cursor.com/" target="_blank">cursor.com</a>
                             </td>
                         </tr>
                         
@@ -1322,6 +1306,31 @@
                             </td>
                             <td class="py-4 px-6 whitespace-nowrap text-sm text-green-600 hover:text-green-900">
                                 <a href="https://www.genspark.ai/" target="_blank">genspark.ai</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="py-4 px-6 whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <div class="ml-4">
+                                        <div class="text-sm font-medium text-gray-900">Cursor</div>
+                                        <div class="text-sm text-gray-500">Cursor AI</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
+                                Web Development
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-500">
+                                Understanding codebases, refactoring safely, generating boilerplate, and speeding up development while keeping humans in control.
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap">
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                    Yes (limited)
+                                </span>
+                            </td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-green-600 hover:text-green-900">
+                                <a href="https://cursor.com/" target="_blank" rel="noopener noreferrer">cursor.com</a>
                             </td>
                         </tr>
                         
@@ -1456,7 +1465,7 @@
                     <div class="p-4 bg-indigo-50 rounded-lg">
                         <h3 class="text-lg font-bold mb-2 text-indigo-700">Workflow Optimization</h3>
                         <p class="text-gray-700">
-                            Project management tools and website builders like Genspark automate complex processes, reducing time-to-completion and technical barriers.
+                            Project management tools and website builders like Genspark automate complex processes, while AI-assisted editors like Cursor reduce friction in coding workflows—together they shorten time-to-completion and lower technical barriers when used thoughtfully.
                         </p>
                     </div>
                 </div>
@@ -1495,6 +1504,13 @@
                     <div class="text-3xl mb-3">🌐</div>
                     <h3 class="text-lg font-bold mb-1 text-center">Genspark</h3>
                     <p class="text-sm text-gray-600 text-center mb-3">Website Creation</p>
+                    <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">Web Development</span>
+                </a>
+
+                <a href="https://cursor.com/" target="_blank" rel="noopener noreferrer" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1 flex flex-col items-center">
+                    <div class="text-3xl mb-3">💻</div>
+                    <h3 class="text-lg font-bold mb-1 text-center">Cursor</h3>
+                    <p class="text-sm text-gray-600 text-center mb-3">AI Code Editor</p>
                     <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">Web Development</span>
                 </a>
                 
