@@ -74,11 +74,6 @@
             vertical-align: baseline;
             border-radius: 0.25rem;
         }
-         {
-            .section {
-                page-break-inside: avoid;
-            }
-        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -1054,8 +1049,11 @@
 
             <!-- Cursor AI - AI-Powered Code Editor -->
             <div class="bg-gray-50 p-8 rounded-lg shadow-lg">
-                <div class="flex items-center justify-between mb-8">
-                    <h3 class="text-3xl font-bold text-indigo-600">Cursor AI Code Editor</h3>
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
+                    <div class="flex items-center gap-4">
+                        <img src="images/projects/cursor-ai-logo.jpg" alt="Cursor logo" class="h-12 w-auto rounded shadow" width="120" height="48" loading="lazy" decoding="async">
+                        <h3 class="text-3xl font-bold text-indigo-600">Cursor AI Code Editor</h3>
+                    </div>
                     <a href="https://www.cursor.com/" target="_blank" class="tool-button bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-6 py-3 rounded-lg font-bold flex items-center">
                         <span>Visit Cursor</span>
                         <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -1077,6 +1075,12 @@
                                 <img src="images/projects/cursor-ai-frontend.webp" alt="Cursor AI interface" class="w-full rounded-lg shadow-lg">
                                 <div class="image-caption text-xs">
                                     Cursor AI interface embedded directly into the code editor for inline assistance.
+                                </div>
+                            </div>
+                            <div class="image-container">
+                                <img src="images/projects/cursor-ai-usage.jpg" alt="Cursor AI usage example" class="w-full rounded-lg shadow-lg">
+                                <div class="image-caption text-xs">
+                                    Example workflow: navigating a multi-file project and iterating with AI-assisted edits.
                                 </div>
                             </div>
                         </div>

@@ -29,6 +29,8 @@ interface Props {
 const { project, Content } = Astro.props;
 const { data } = project;
 const base = getBasePath();
+const isInteractiveAiToolsHub = project.slug === 'ai-tools-productivity-en';
+const interactiveHubSrc = `${base}ai-tools-productivity.html`.replace(/([^:]\/)\/+/g, '$1');
 
 // Get related papers if they exist
 const allPapers = await getCollection('papers');
@@ -40,164 +42,182 @@ const relatedPapers: Array<Awaited<ReturnType<typeof getCollection<'papers'>>>[n
 ---
 
 <BaseLayout title={data.title} description={data.summary} lang="en">
-  <AnimatedBackground client:load type="bubbles" density={55} speed={0.3} opacity={0.35} />
-  <article class="project-page">
-    <div class="container">
-      <SectionReveal client:load>
-        <div class="project-header">
-          <a href={`${base}en/projects`.replace(/\/+/g, '/')} class="back-link">← Back to Projects</a>
-          <h1>{data.title}</h1>
-          <div class="project-meta">
-            <span class="year">{data.year}</span>
-            {data.tags.map((tag) => (
-              <span class="tag">{tag}</span>
-            ))}
-          </div>
-        </div>
-      </SectionReveal>
+  {isInteractiveAiToolsHub ? (
+    <article class="interactive-hub-page">
+      <div class="container interactive-hub-toolbar">
+        <a href={`${base}en/projects`.replace(/\/+/g, '/')} class="back-link">← Back to Projects</a>
+        <a href={interactiveHubSrc} target="_blank" rel="noopener noreferrer" class="open-tab-link">
+          Open hub in new tab →
+        </a>
+      </div>
+      <iframe
+        class="interactive-hub-iframe"
+        src={interactiveHubSrc}
+        title={`${data.title} — interactive resource hub`}
+      />
+    </article>
+  ) : (
+    <>
+      <AnimatedBackground client:load type="bubbles" density={55} speed={0.3} opacity={0.35} />
+      <article class="project-page">
+        <div class="container">
+          <SectionReveal client:load>
+            <div class="project-header">
+              <a href={`${base}en/projects`.replace(/\/+/g, '/')} class="back-link">← Back to Projects</a>
+              <h1>{data.title}</h1>
+              <div class="project-meta">
+                <span class="year">{data.year}</span>
+                {data.tags.map((tag) => (
+                  <span class="tag">{tag}</span>
+                ))}
+              </div>
+            </div>
+          </SectionReveal>
 
-      {data.cover && (
-        <SectionReveal client:load delay={0.1}>
-          <div class="project-cover">
-            <img
-              src={getImagePath(data.cover)}
-              alt={`${data.title} - Cover image`}
-              loading="eager"
-              width="1200"
-              height="600"
-            />
-          </div>
-        </SectionReveal>
-      )}
+          {data.cover && (
+            <SectionReveal client:load delay={0.1}>
+              <div class="project-cover">
+                <img
+                  src={getImagePath(data.cover)}
+                  alt={`${data.title} - Cover image`}
+                  loading="eager"
+                  width="1200"
+                  height="600"
+                />
+              </div>
+            </SectionReveal>
+          )}
 
-      <SectionReveal client:load delay={0.2}>
-        <div class="project-content">
-          <Content />
-        </div>
-      </SectionReveal>
+          <SectionReveal client:load delay={0.2}>
+            <div class="project-content">
+              <Content />
+            </div>
+          </SectionReveal>
 
-      {(data.gallery && data.gallery.length > 0) || (data.images && data.images.length > 0) ? (
-        <SectionReveal client:load delay={0.3}>
-          <div class="project-gallery">
-            <h2>Project Gallery</h2>
-            <div class="gallery-grid">
-              {data.gallery && data.gallery.length > 0 ? (
-                data.gallery.map((item, i) => (
-                  <div class="gallery-item">
-                    {item.type === 'video' ? (
-                      <video controls preload="metadata" class="gallery-video" poster={data.cover}>
-                        <source src={getImagePath(item.src)} type="video/mp4" />
-                        Your browser does not support the video tag.
-                      </video>
-                    ) : (
-                      <img
-                        src={getImagePath(item.src)}
-                        alt={item.alt || `${data.title} - Image ${i + 1}`}
-                        loading="lazy"
-                        width="800"
-                        height="600"
-                        decoding="async"
-                        onerror="this.style.display='none'; this.parentElement.style.display='none';"
-                      />
-                    )}
-                    {item.caption && (
-                      <p class="gallery-caption">{item.caption}</p>
-                    )}
-                  </div>
-                ))
-              ) : (
-                data.images?.map((imagePath, i) => (
-                  <div class="gallery-item">
-                    <img
-                      src={getImagePath(imagePath)}
-                      alt={`${data.title} - Image ${i + 1}`}
-                      loading="lazy"
-                      width="800"
-                      height="600"
-                      decoding="async"
-                      onerror="this.style.display='none'; this.parentElement.style.display='none';"
-                    />
-                  </div>
-                ))
+          {(data.gallery && data.gallery.length > 0) || (data.images && data.images.length > 0) ? (
+            <SectionReveal client:load delay={0.3}>
+              <div class="project-gallery">
+                <h2>Project Gallery</h2>
+                <div class="gallery-grid">
+                  {data.gallery && data.gallery.length > 0 ? (
+                    data.gallery.map((item, i) => (
+                      <div class="gallery-item">
+                        {item.type === 'video' ? (
+                          <video controls preload="metadata" class="gallery-video" poster={data.cover}>
+                            <source src={getImagePath(item.src)} type="video/mp4" />
+                            Your browser does not support the video tag.
+                          </video>
+                        ) : (
+                          <img
+                            src={getImagePath(item.src)}
+                            alt={item.alt || `${data.title} - Image ${i + 1}`}
+                            loading="lazy"
+                            width="800"
+                            height="600"
+                            decoding="async"
+                            onerror="this.style.display='none'; this.parentElement.style.display='none';"
+                          />
+                        )}
+                        {item.caption && (
+                          <p class="gallery-caption">{item.caption}</p>
+                        )}
+                      </div>
+                    ))
+                  ) : (
+                    data.images?.map((imagePath, i) => (
+                      <div class="gallery-item">
+                        <img
+                          src={getImagePath(imagePath)}
+                          alt={`${data.title} - Image ${i + 1}`}
+                          loading="lazy"
+                          width="800"
+                          height="600"
+                          decoding="async"
+                          onerror="this.style.display='none'; this.parentElement.style.display='none';"
+                        />
+                      </div>
+                    ))
+                  )}
+                </div>
+              </div>
+            </SectionReveal>
+          ) : null}
+
+          {(data.video || (data.demo && (data.demo.includes('youtube.com') || data.demo.includes('youtu.be')))) && (
+            <SectionReveal client:load delay={0.4}>
+              <div class="project-demo">
+                <h2>Demo</h2>
+                <div class="demo-container">
+                  {data.video ? (
+                    <video controls class="demo-video" poster={data.cover}>
+                      <source src={getImagePath(data.video)} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  ) : data.demo && (data.demo.includes('youtube.com') || data.demo.includes('youtu.be')) ? (
+                    <iframe
+                      src={(() => {
+                        let embedUrl = data.demo;
+                        if (embedUrl.includes('watch?v=')) {
+                          const videoId = embedUrl.split('watch?v=')[1].split('&')[0].split('?')[0];
+                          const timeMatch = embedUrl.match(/[?&]t=(\d+)(?:s)?/);
+                          const time = timeMatch ? timeMatch[1] : '';
+                          embedUrl = `https://www.youtube.com/embed/${videoId}${time ? `?start=${time}` : ''}`;
+                        } else if (embedUrl.includes('youtu.be/')) {
+                          const videoId = embedUrl.split('youtu.be/')[1].split('?')[0].split('&')[0];
+                          const timeMatch = embedUrl.match(/[?&]t=(\d+)(?:s)?/);
+                          const time = timeMatch ? timeMatch[1] : '';
+                          embedUrl = `https://www.youtube.com/embed/${videoId}${time ? `?start=${time}` : ''}`;
+                        }
+                        return embedUrl;
+                      })()}
+                      title={`${data.title} - Demo Video`}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen
+                      class="demo-video"
+                    ></iframe>
+                  ) : null}
+                </div>
+              </div>
+            </SectionReveal>
+          )}
+
+          {relatedPapers.length > 0 && (
+            <SectionReveal client:load delay={0.5}>
+              <div class="project-related-papers">
+                <h2>Related Publications</h2>
+                <div class="related-papers-list">
+                  {relatedPapers.map((paper) => (
+                    <a
+                      href={`${base}en/papers#${paper.slug}`.replace(/\/+/g, '/')}
+                      class="related-paper-link"
+                    >
+                      <span class="paper-title">{paper.data.title}</span>
+                      <span class="paper-venue">{paper.data.venue} {paper.data.year}</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </SectionReveal>
+          )}
+
+          <SectionReveal client:load delay={0.6}>
+            <div class="project-links">
+              {data.repo && (
+                <a href={data.repo} target="_blank" rel="noopener noreferrer" class="project-link">
+                  View Repository →
+                </a>
+              )}
+              {data.demo && !data.demo.includes('youtube.com') && !data.demo.includes('youtu.be') && (
+                <a href={data.demo} target="_blank" rel="noopener noreferrer" class="project-link">
+                  View Demo →
+                </a>
               )}
             </div>
-          </div>
-        </SectionReveal>
-      ) : null}
-
-      {(data.video || (data.demo && (data.demo.includes('youtube.com') || data.demo.includes('youtu.be')))) && (
-        <SectionReveal client:load delay={0.4}>
-          <div class="project-demo">
-            <h2>Demo</h2>
-            <div class="demo-container">
-              {data.video ? (
-                <video controls class="demo-video" poster={data.cover}>
-                  <source src={getImagePath(data.video)} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              ) : data.demo && (data.demo.includes('youtube.com') || data.demo.includes('youtu.be')) ? (
-                <iframe
-                  src={(() => {
-                    let embedUrl = data.demo;
-                    if (embedUrl.includes('watch?v=')) {
-                      const videoId = embedUrl.split('watch?v=')[1].split('&')[0].split('?')[0];
-                      const timeMatch = embedUrl.match(/[?&]t=(\d+)(?:s)?/);
-                      const time = timeMatch ? timeMatch[1] : '';
-                      embedUrl = `https://www.youtube.com/embed/${videoId}${time ? `?start=${time}` : ''}`;
-                    } else if (embedUrl.includes('youtu.be/')) {
-                      const videoId = embedUrl.split('youtu.be/')[1].split('?')[0].split('&')[0];
-                      const timeMatch = embedUrl.match(/[?&]t=(\d+)(?:s)?/);
-                      const time = timeMatch ? timeMatch[1] : '';
-                      embedUrl = `https://www.youtube.com/embed/${videoId}${time ? `?start=${time}` : ''}`;
-                    }
-                    return embedUrl;
-                  })()}
-                  title={`${data.title} - Demo Video`}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                  class="demo-video"
-                ></iframe>
-              ) : null}
-            </div>
-          </div>
-        </SectionReveal>
-      )}
-
-      {relatedPapers.length > 0 && (
-        <SectionReveal client:load delay={0.5}>
-          <div class="project-related-papers">
-            <h2>Related Publications</h2>
-            <div class="related-papers-list">
-              {relatedPapers.map((paper) => (
-                <a
-                  href={`${base}en/papers#${paper.slug}`.replace(/\/+/g, '/')}
-                  class="related-paper-link"
-                >
-                  <span class="paper-title">{paper.data.title}</span>
-                  <span class="paper-venue">{paper.data.venue} {paper.data.year}</span>
-                </a>
-              ))}
-            </div>
-          </div>
-        </SectionReveal>
-      )}
-
-      <SectionReveal client:load delay={0.6}>
-        <div class="project-links">
-          {data.repo && (
-            <a href={data.repo} target="_blank" rel="noopener noreferrer" class="project-link">
-              View Repository →
-            </a>
-          )}
-          {data.demo && !data.demo.includes('youtube.com') && !data.demo.includes('youtu.be') && (
-            <a href={data.demo} target="_blank" rel="noopener noreferrer" class="project-link">
-              View Demo →
-            </a>
-          )}
+          </SectionReveal>
         </div>
-      </SectionReveal>
-    </div>
-  </article>
+      </article>
+    </>
+  )}
 
 </BaseLayout>
 
@@ -255,6 +275,54 @@ const relatedPapers: Array<Awaited<ReturnType<typeof getCollection<'papers'>>>[n
 </script>
 
 <style>
+  .interactive-hub-page {
+    padding-block: var(--space-4);
+    min-height: 70vh;
+  }
+
+  .interactive-hub-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    margin-block-end: var(--space-3);
+  }
+
+  .interactive-hub-toolbar .back-link {
+    margin-block-end: 0;
+  }
+
+  .open-tab-link {
+    display: inline-block;
+    padding: var(--space-2) var(--space-4);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-md);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    color: var(--color-ink);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.875rem;
+    transition: all var(--motion-duration-fast) var(--motion-easing);
+  }
+
+  .open-tab-link:hover {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+    color: var(--color-accent-1);
+  }
+
+  .interactive-hub-iframe {
+    display: block;
+    width: 100%;
+    min-height: calc(100dvh - 10rem);
+    border: 0;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    background: #fff;
+  }
+
   .project-page {
     padding-block: var(--space-8);
     position: relative;
