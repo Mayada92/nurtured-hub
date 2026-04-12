@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أدوات الذكاء الاصطناعي للإنتاجية - مركز الموارد التفاعلي</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ===== RTL + ARABIC FONT ===== */
+        body {
+            font-family: 'Cairo', -apple-system, sans-serif;
+            direction: rtl;
+            text-align: right;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cairo', sans-serif;
+            font-weight: 700;
+        }
+
+        /* RTL layout fixes */
+        [dir="rtl"] .border-l-4 {
+            border-left: none !important;
+            border-right-width: 4px !important;
+            border-right-style: solid !important;
+        }
+        [dir="rtl"] .list-disc.pl-6,
+        [dir="rtl"] .list-decimal.pl-6 {
+            padding-left: 0 !important;
+            padding-right: 1.5rem;
+        }
+        [dir="rtl"] .ml-1 { margin-left: 0 !important; margin-right: 0.25rem; }
+        [dir="rtl"] .ml-2 { margin-left: 0 !important; margin-right: 0.5rem; }
+        [dir="rtl"] .ml-4 { margin-left: 0 !important; margin-right: 1rem; }
+        [dir="rtl"] .mr-4 { margin-right: 0 !important; margin-left: 1rem; }
+        [dir="rtl"] .text-left { text-align: right !important; }
+
+        /* Flip inline arrow SVGs for RTL */
+        [dir="rtl"] a svg.w-4,
+        [dir="rtl"] a svg.w-5 {
+            transform: scaleX(-1);
+        }
+
+        /* ===== NURTURED MIND THEME ===== */
+        body {
+            background-color: #faf8f5;
+            background-image:
+                url('images/background/background3.png'),
+                radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(236, 72, 153, 0.04) 0%, transparent 50%);
+            background-size: cover, 100% 100%, 100% 100%, 100% 100%;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            color: #0f172a;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%);
+        }
+
+        .section { scroll-margin-top: 2rem; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .feature-card:hover { transform: translateY(-5px); }
+
+        .tool-demo {
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(139, 92, 246, 0.12), 0 4px 12px rgba(6, 182, 212, 0.08);
+        }
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+        .image-container { position: relative; overflow: hidden; border-radius: 0.5rem; }
+        .image-caption {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            background: rgba(0,0,0,0.7); color: white; padding: 0.5rem;
+            transform: translateY(100%); transition: transform 0.3s ease;
+        }
+        .image-container:hover .image-caption { transform: translateY(0); }
+
+        .tool-button {
+            background-image: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%) !important;
+            color: white !important;
+            box-shadow: 0 4px 14px rgba(139, 92, 246, 0.35) !important;
+            transition: all 0.3s ease;
+        }
+        .tool-button:hover {
+            transform: translateY(-3px) !important;
+            background-image: linear-gradient(135deg, #7c3aed 0%, #0891b2 100%) !important;
+            box-shadow: 0 8px 24px rgba(139, 92, 246, 0.5) !important;
+        }
+
+        .badge {
+            display: inline-flex; align-items: center; padding: 0.35em 0.65em;
+            font-size: 0.75em; font-weight: 700; line-height: 1; color: #fff;
+            text-align: center; white-space: nowrap; vertical-align: baseline;
+            border-radius: 0.375rem;
+        }
+        .badge.text-green-800  { color: #065f46 !important; }
+        .badge.text-indigo-800 { color: #6d28d9 !important; }
+        .badge.text-blue-800   { color: #0e7490 !important; }
+        .badge.text-orange-800 { color: #92400e !important; }
+
+        /* Colour palette */
+        .bg-gray-50  { background-color: #faf8f5 !important; }
+        nav.sticky {
+            background-color: rgba(255,255,255,0.95) !important;
+            border-bottom: 1px solid rgba(139,92,246,0.12);
+            box-shadow: 0 1px 8px rgba(139,92,246,0.08) !important;
+            backdrop-filter: blur(8px);
+        }
+        .shadow-lg  { box-shadow: 0 8px 24px rgba(139,92,246,0.12), 0 4px 12px rgba(6,182,212,0.08) !important; }
+        .shadow-md  { box-shadow: 0 4px 12px rgba(139,92,246,0.10), 0 2px 6px rgba(6,182,212,0.07) !important; }
+        .shadow-sm  { box-shadow: 0 2px 8px rgba(139,92,246,0.08) !important; }
+        .hover\:shadow-lg:hover { box-shadow: 0 16px 48px rgba(139,92,246,0.20), 0 8px 16px rgba(6,182,212,0.12) !important; }
+
+        .bg-white.rounded-lg {
+            background: rgba(255,255,255,0.92) !important;
+            backdrop-filter: blur(8px);
+        }
+
+        /* Indigo → Purple */
+        .text-indigo-500, .text-indigo-600 { color: #8b5cf6 !important; }
+        .text-indigo-800 { color: #6d28d9 !important; }
+        .bg-indigo-50  { background-color: rgba(139,92,246,0.08) !important; }
+        .bg-indigo-100 { background-color: rgba(139,92,246,0.15) !important; }
+        .border-indigo-500 { border-color: #8b5cf6 !important; }
+        .hover\:text-indigo-600:hover, .hover\:text-indigo-800:hover { color: #7c3aed !important; }
+        .from-indigo-500 { --tw-gradient-from: #8b5cf6 !important; }
+        .to-purple-600   { --tw-gradient-to:   #8b5cf6 !important; }
+        .from-violet-500 { --tw-gradient-from: #8b5cf6 !important; }
+
+        /* Blue → Cyan */
+        .text-blue-500, .text-blue-600 { color: #06b6d4 !important; }
+        .text-blue-800 { color: #0e7490 !important; }
+        .bg-blue-50  { background-color: rgba(6,182,212,0.08) !important; }
+        .bg-blue-100 { background-color: rgba(6,182,212,0.15) !important; }
+        .border-blue-500 { border-color: #06b6d4 !important; }
+        .from-blue-500 { --tw-gradient-from: #06b6d4 !important; }
+        .to-teal-400   { --tw-gradient-to: #0891b2 !important; }
+
+        /* Green → Emerald */
+        .text-green-500, .text-green-600 { color: #10b981 !important; }
+        .text-green-800 { color: #065f46 !important; }
+        .bg-green-50  { background-color: rgba(16,185,129,0.08) !important; }
+        .bg-green-100 { background-color: rgba(16,185,129,0.15) !important; }
+        .border-green-500 { border-color: #10b981 !important; }
+        .from-green-500 { --tw-gradient-from: #10b981 !important; }
+        .to-emerald-400 { --tw-gradient-to: #06b6d4 !important; }
+        .hover\:text-green-700:hover { color: #059669 !important; }
+
+        /* Orange → Amber */
+        .text-orange-500, .text-orange-600 { color: #f59e0b !important; }
+        .text-orange-800 { color: #92400e !important; }
+        .bg-orange-50  { background-color: rgba(245,158,11,0.08) !important; }
+        .bg-orange-100 { background-color: rgba(245,158,11,0.15) !important; }
+        .border-orange-500 { border-color: #f59e0b !important; }
+        .from-orange-500 { --tw-gradient-from: #f59e0b !important; }
+        .to-amber-400    { --tw-gradient-to: #fbbf24 !important; }
+
+        /* Purple → Pink rose */
+        .text-purple-500, .text-purple-600 { color: #ec4899 !important; }
+        .text-purple-800 { color: #be185d !important; }
+        .bg-purple-50  { background-color: rgba(236,72,153,0.08) !important; }
+        .bg-purple-100 { background-color: rgba(236,72,153,0.15) !important; }
+        .border-purple-500 { border-color: #ec4899 !important; }
+
+        /* Pink */
+        .text-pink-600  { color: #ec4899 !important; }
+        .bg-pink-50     { background-color: rgba(236,72,153,0.08) !important; }
+        .bg-pink-100    { background-color: rgba(236,72,153,0.15) !important; }
+        .border-pink-500 { border-color: #ec4899 !important; }
+        .from-pink-500  { --tw-gradient-from: #ec4899 !important; }
+        .from-fuchsia-500 { --tw-gradient-from: #d946ef !important; }
+        .text-fuchsia-600, .text-fuchsia-800 { color: #a21caf !important; }
+        .bg-fuchsia-50  { background-color: rgba(217,70,239,0.08) !important; }
+        .bg-fuchsia-100 { background-color: rgba(217,70,239,0.15) !important; }
+        .text-fuchsia-800 { color: #86198f !important; }
+
+        /* Cyan */
+        .text-cyan-500, .text-cyan-600 { color: #06b6d4 !important; }
+        .text-cyan-800 { color: #0e7490 !important; }
+        .bg-cyan-50  { background-color: rgba(6,182,212,0.08) !important; }
+        .bg-cyan-100 { background-color: rgba(6,182,212,0.15) !important; }
+        .border-cyan-500 { border-color: #06b6d4 !important; }
+        .from-cyan-500 { --tw-gradient-from: #06b6d4 !important; }
+        .hover\:text-cyan-800:hover { color: #0e7490 !important; }
+
+        .text-gray-600 { color: #475569 !important; }
+        .text-gray-700 { color: #334155 !important; }
+
+        /* Cards */
+        .bg-white.p-8.rounded-lg,
+        .bg-gray-50.p-8.rounded-lg {
+            background: linear-gradient(135deg, rgba(255,255,255,0.96) 0%, rgba(250,248,245,0.92) 100%) !important;
+            border: 1px solid rgba(0,0,0,0.05) !important;
+            backdrop-filter: blur(8px);
+        }
+        [class*="bg-indigo-50"],
+        [class*="bg-blue-50"],
+        [class*="bg-green-50"],
+        [class*="bg-orange-50"],
+        [class*="bg-purple-50"],
+        [class*="bg-cyan-50"],
+        [class*="bg-pink-50"],
+        [class*="bg-fuchsia-50"] {
+            background: linear-gradient(135deg,
+                rgba(139,92,246,0.08) 0%,
+                rgba(6,182,212,0.10) 50%,
+                rgba(236,72,153,0.08) 100%) !important;
+        }
+        .bg-gray-50.p-4.rounded-lg,
+        .bg-gray-50.p-6.rounded-lg {
+            background: linear-gradient(135deg, rgba(255,255,255,0.90) 0%, rgba(250,248,245,0.85) 100%) !important;
+            border: 1px solid rgba(0,0,0,0.05) !important;
+        }
+        .bg-white.p-6.rounded-lg,
+        .bg-white.p-4.rounded-lg {
+            background: linear-gradient(135deg, rgba(255,255,255,0.93) 0%, rgba(250,248,245,0.88) 100%) !important;
+            border: 1px solid rgba(0,0,0,0.05) !important;
+        }
+        .text-xs.px-2.py-1.rounded { border-radius: 9999px !important; font-weight: 600 !important; }
+
+        /* Section h2 gradient text */
+        section > .container > h2 {
+            background: linear-gradient(135deg, #6d28d9 0%, #0891b2 50%, #be185d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+            width: 100%;
+            letter-spacing: -0.01em;
+        }
+        footer h2 {
+            background: none !important;
+            -webkit-text-fill-color: white !important;
+            color: white !important;
+        }
+
+        /* h3 tool names gradient */
+        h3.text-3xl.font-bold {
+            background: linear-gradient(135deg, #6d28d9 0%, #0891b2 50%, #be185d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Hero */
+        header.hero-gradient { position: relative; overflow: hidden; }
+        header.hero-gradient::before {
+            content: '';
+            position: absolute; inset: 0;
+            background-image: url('images/background/background3.png'),
+                radial-gradient(circle at 15% 50%, rgba(255,255,255,0.18) 0%, transparent 40%),
+                radial-gradient(circle at 85% 20%, rgba(6,182,212,0.25) 0%, transparent 40%);
+            background-size: cover, 100% 100%, 100% 100%;
+            background-position: center;
+            background-attachment: fixed;
+            opacity: 0.35;
+            pointer-events: none;
+        }
+        header.hero-gradient > .container { position: relative; z-index: 1; }
+        header.hero-gradient h1 { display: inline-block; padding: 0.75rem 2rem; position: relative; }
+        header.hero-gradient h1::before {
+            content: ''; position: absolute; inset: 0;
+            background: rgba(255,255,255,0.18);
+            backdrop-filter: blur(8px); border-radius: 0.875rem; z-index: -1;
+        }
+        header.hero-gradient p.text-xl.mb-8 {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(6px); border-radius: 0.75rem;
+            padding: 0.75rem 1.5rem; display: inline-block;
+        }
+
+        /* Hero CTA buttons */
+        .hero-cta-btn {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.75rem 1.5rem; border-radius: 9999px;
+            font-family: 'Cairo', sans-serif; font-weight: 700;
+            font-size: 0.9375rem; text-decoration: none; color: white;
+            transition: transform 0.25s cubic-bezier(0.25,0.46,0.45,0.94),
+                        box-shadow 0.25s cubic-bezier(0.25,0.46,0.45,0.94);
+            position: relative; overflow: hidden;
+        }
+        .hero-cta-btn::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.25) 50%, transparent 60%);
+            transform: translateX(100%); transition: transform 0.45s ease;
+        }
+        .hero-cta-btn:hover::after { transform: translateX(-100%); }
+        .hero-cta-btn:hover { transform: translateY(-3px) scale(1.03); color: white; }
+        .hero-cta-btn__icon { font-size: 1.1em; line-height: 1; }
+        .hero-cta-btn__arrow {
+            width: 1rem; height: 1rem; flex-shrink: 0;
+            transition: transform 0.2s ease;
+            transform: scaleX(-1);
+        }
+        .hero-cta-btn:hover .hero-cta-btn__arrow { transform: scaleX(-1) translateX(3px); }
+
+        .hero-cta-btn--purple {
+            background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+            box-shadow: 0 4px 18px rgba(139,92,246,0.50), inset 0 1px 0 rgba(255,255,255,0.2);
+        }
+        .hero-cta-btn--purple:hover { box-shadow: 0 8px 28px rgba(139,92,246,0.70), inset 0 1px 0 rgba(255,255,255,0.2); }
+        .hero-cta-btn--cyan {
+            background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+            box-shadow: 0 4px 18px rgba(6,182,212,0.50), inset 0 1px 0 rgba(255,255,255,0.2);
+        }
+        .hero-cta-btn--cyan:hover { box-shadow: 0 8px 28px rgba(6,182,212,0.70), inset 0 1px 0 rgba(255,255,255,0.2); }
+        .hero-cta-btn--pink {
+            background: linear-gradient(135deg, #ec4899 0%, #be185d 100%);
+            box-shadow: 0 4px 18px rgba(236,72,153,0.50), inset 0 1px 0 rgba(255,255,255,0.2);
+        }
+        .hero-cta-btn--pink:hover { box-shadow: 0 8px 28px rgba(236,72,153,0.70), inset 0 1px 0 rgba(255,255,255,0.2); }
+
+        /* Table */
+        .overflow-x-auto.bg-white.rounded-lg {
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(250,248,245,0.90) 100%) !important;
+            border: 1px solid rgba(0,0,0,0.05) !important;
+        }
+        thead.bg-gray-100 {
+            background: linear-gradient(135deg, rgba(139,92,246,0.08) 0%, rgba(6,182,212,0.10) 100%) !important;
+        }
+
+        /* Footer CTA */
+        footer.hero-gradient a.bg-white { color: #8b5cf6 !important; }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 bg-white shadow-md z-50 px-4 py-3">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-indigo-600">أدوات الإنتاجية بالذكاء الاصطناعي</h1>
+            <div class="hidden md:flex space-x-4" style="gap:1rem; margin:0;">
+                <a href="#communication" class="text-gray-700 hover:text-indigo-600">التواصل</a>
+                <a href="#creative" class="text-gray-700 hover:text-indigo-600">الإبداع</a>
+                <a href="#visual" class="text-gray-700 hover:text-indigo-600">المرئيات</a>
+                <a href="#project-management" class="text-gray-700 hover:text-indigo-600">إدارة المشاريع</a>
+                <a href="#presentations" class="text-gray-700 hover:text-indigo-600">العروض التقديمية</a>
+                <a href="#web-development" class="text-gray-700 hover:text-indigo-600">تطوير الويب</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-gradient py-20 px-4 text-white">
+        <div class="container mx-auto text-center">
+            <h1 class="text-5xl font-bold mb-4">أدوات الذكاء الاصطناعي للإنتاجية</h1>
+            <p class="text-xl mb-8">عرض تفاعلي لأدوات الذكاء الاصطناعي التي تُعزِّز الكفاءة والفاعلية في مختلف المجالات</p>
+            <div class="flex justify-center flex-wrap gap-4">
+                <a href="#communication" class="hero-cta-btn hero-cta-btn--purple">
+                    <span class="hero-cta-btn__icon">🗣️</span>
+                    <span>أدوات التواصل</span>
+                    <svg class="hero-cta-btn__arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                </a>
+                <a href="#creative" class="hero-cta-btn hero-cta-btn--cyan">
+                    <span class="hero-cta-btn__icon">🎵</span>
+                    <span>الأدوات الإبداعية</span>
+                    <svg class="hero-cta-btn__arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                </a>
+                <a href="#visual" class="hero-cta-btn hero-cta-btn--pink">
+                    <span class="hero-cta-btn__icon">🎨</span>
+                    <span>الأدوات المرئية</span>
+                    <svg class="hero-cta-btn__arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Introduction Section -->
+    <section class="py-16 px-4 bg-white">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-10">مقدمة</h2>
+            <p class="text-xl text-gray-600 max-w-4xl mx-auto text-center">
+                يستعرض هذا المركز التفاعلي مجموعة من أدوات الذكاء الاصطناعي التي تُحسِّن الإنتاجية بشكل ملحوظ في مختلف المجالات. يتضمن كل أداة عروضاً عملية وروابط مباشرة لتجربتها بنفسك.
+            </p>
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-all">
+                    <div class="text-3xl text-indigo-500 mb-4">🗣️</div>
+                    <h3 class="text-xl font-bold mb-2">أدوات التواصل</h3>
+                    <p class="text-gray-600 mb-4">أدوات ذكاء اصطناعي تُعزِّز التواصل عبر الصوت والنص ومعالجة اللغة الطبيعية.</p>
+                    <a href="#communication" class="text-indigo-600 font-medium hover:text-indigo-800 flex items-center">
+                        اكتشف المزيد
+                        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
+                    </a>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-all">
+                    <div class="text-3xl text-indigo-500 mb-4">🎵</div>
+                    <h3 class="text-xl font-bold mb-2">الأدوات الإبداعية</h3>
+                    <p class="text-gray-600 mb-4">أدوات لإنشاء الموسيقى والصور والمحتوى الإبداعي بمساعدة الذكاء الاصطناعي.</p>
+                    <a href="#creative" class="text-indigo-600 font-medium hover:text-indigo-800 flex items-center">
+                        اكتشف المزيد
+                        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
+                    </a>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-all">
+                    <div class="text-3xl text-indigo-500 mb-4">📊</div>
+                    <h3 class="text-xl font-bold mb-2">إدارة المشاريع</h3>
+                    <p class="text-gray-600 mb-4">أدوات تُبسِّط سير العمل والتصور البصري والمشاريع التعاونية.</p>
+                    <a href="#project-management" class="text-indigo-600 font-medium hover:text-indigo-800 flex items-center">
+                        اكتشف المزيد
+                        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Communication Tools Section -->
+    <section id="communication" class="section py-16 px-4 bg-gray-50">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12">أدوات التواصل والصوت</h2>
+
+            <!-- ChatGPT Voice -->
+            <div class="bg-white p-8 rounded-lg shadow-lg mb-16">
+                <div class="flex items-center justify-between mb-8 flex-wrap gap-4">
+                    <h3 class="text-3xl font-bold text-indigo-600">ميزات الصوت في ChatGPT</h3>
+                    <a href="https://chat.openai.com/" target="_blank" class="tool-button bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-6 py-3 rounded-lg font-bold flex items-center">
+                        <span>جرّب ChatGPT</span>
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                </div>
+                <div class="flex flex-col md:flex-row items-center gap-10 mb-10">
+                    <div class="md:w-1/2">
+                        <img src="https://venturebeat.com/wp-content/uploads/2024/09/Advanced-Voice-Mode-Access.png" alt="واجهة ChatGPT الصوتية" class="rounded-lg shadow-lg w-full">
+                    </div>
+                    <div class="md:w-1/2">
+                        <div class="inline-block mb-2"><span class="badge bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">ميزة متقدمة</span></div>
+                        <h4 class="text-2xl font-bold mb-4">محادثات صوتية طبيعية</h4>
+                        <p class="text-lg text-gray-700 mb-6">
+                            يتيح ChatGPT إمكانيات صوتية متقدمة تُمكِّن المستخدمين من إجراء محادثات سلسة وطبيعية. تُعزِّز هذه الميزة إمكانية الوصول وتتيح التفاعل دون استخدام اليدين، مما يجعلها مثالية لتعدد المهام.
+                        </p>
+                        <div class="bg-indigo-50 p-6 rounded-lg border-r-4 border-indigo-500">
+                            <h5 class="font-bold text-indigo-800 mb-2">الميزات الرئيسية:</h5>
+                            <ul class="list-disc pr-6 space-y-2 text-gray-700">
+                                <li>التعرف على الكلام بالتعلم العميق مع دعم متعدد اللغات</li>
+                                <li>إعدادات صوت قابلة للتخصيص تشمل النبرة والسرعة</li>
+                                <li>التشغيل دون يدين لسيناريوهات تعدد المهام</li>
+                                <li>محادثة فورية بزمن استجابة منخفض</li>
+                                <li>التكامل مع قدرات ChatGPT الأخرى</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-4">التطبيقات العملية</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
+                            <div class="text-indigo-500 text-2xl mb-2">💼</div>
+                            <h5 class="font-bold mb-1">الأعمال</h5>
+                            <p class="text-sm text-gray-600">إملاء الرسائل الإلكترونية والتقارير وملاحظات الاجتماعات أثناء أداء مهام أخرى.</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
+                            <div class="text-indigo-500 text-2xl mb-2">🎓</div>
+                            <h5 class="font-bold mb-1">التعليم</h5>
+                            <p class="text-sm text-gray-600">تعليم سهل الوصول لذوي الإعاقات البصرية وممارسة اللغة للمتعلمين.</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
+                            <div class="text-indigo-500 text-2xl mb-2">🧠</div>
+                            <h5 class="font-bold mb-1">الإنتاجية</h5>
+                            <p class="text-sm text-gray-600">استرجاع المعلومات السريع وإدارة المهام عبر الأوامر الحوارية.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ChatGPT Live Video -->
+            <div class="bg-white p-8 rounded-lg shadow-lg mb-16">
+                <div class="flex items-center justify-between mb-8 flex-wrap gap-4">
+                    <h3 class="text-3xl font-bold text-indigo-600">ChatGPT Live Video</h3>
+                    <a href="https://chat.openai.com/" target="_blank" class="tool-button bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-6 py-3 rounded-lg font-bold flex items-center">
+                        <span>جرّب ChatGPT</span>
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                </div>
+                <div class="relative mb-10">
+                    <div class="md:w-1/2 md:pl-6">
+                        <div class="inline-block mb-2"><span class="badge bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">ميزة جديدة</span></div>
+                        <h4 class="text-2xl font-bold mb-4">تفاعل بصري فوري</h4>
+                        <p class="text-lg text-gray-700 mb-6">
+                            يُتيح ChatGPT Live Video للذكاء الاصطناعي رؤية بيئتك والتفاعل معها في الوقت الفعلي عبر كاميرا جهازك. تُوفِّر هذه الإضافة القوية فهماً بصرياً سياقياً ومساعدة في السيناريوهات الواقعية.
+                        </p>
+                        <div class="bg-indigo-50 p-6 rounded-lg border-r-4 border-indigo-500">
+                            <h5 class="font-bold text-indigo-800 mb-2">الإمكانيات الرئيسية:</h5>
+                            <ul class="list-disc pr-6 space-y-2 text-gray-700">
+                                <li>التعرف على الأشياء والبيئة في الوقت الفعلي</li>
+                                <li>مشاركة الشاشة للحصول على مساعدة تقنية</li>
+                                <li>تعليمات مرئية وعروض توضيحية</li>
+                                <li>ميزات إمكانية الوصول لضعاف البصر</li>
+                                <li>التكامل مع قدرات ChatGPT الحالية</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mt-8 md:mt-0 md:absolute md:top-0 md:bottom-0 md:right-1/2 md:left-0 flex items-start justify-center md:pr-6">
+                        <img src="images/projects/chatgpt-live.jpg?v=3" alt="تطبيق ChatGPT خلال جلسة رؤية مباشرة" class="w-full max-w-full max-h-96 md:max-h-full rounded-lg shadow-lg object-contain object-top" loading="lazy" decoding="async">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                        <div class="text-indigo-500 text-2xl mb-2">🔍</div>
+                        <h5 class="font-bold mb-2">المساعدة البصرية</h5>
+                        <p class="text-gray-700">احصل على مساعدة فورية في تحديد الأشياء وقراءة النصوص واستكشاف الأعطال أو التنقل في البيئات غير المألوفة.</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                        <div class="text-indigo-500 text-2xl mb-2">💻</div>
+                        <h5 class="font-bold mb-2">مشاركة الشاشة</h5>
+                        <p class="text-gray-700">شارك شاشتك للحصول على دعم تقني أو إرشادات برمجية أو حل مشكلات تعاوني مباشرةً من ChatGPT.</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                        <div class="text-indigo-500 text-2xl mb-2">📚</div>
+                        <h5 class="font-bold mb-2">الدعم التعليمي</h5>
+                        <p class="text-gray-700">اعرض المعادلات الرياضية والمخططات أو الأجسام المادية لتجارب تعليمية تفاعلية وشرح فوري.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ElevenLabs -->
+            <div class="bg-white p-8 rounded-lg shadow-lg mb-16">
+                <div class="flex items-center justify-between mb-8 flex-wrap gap-4">
+                    <h3 class="text-3xl font-bold text-indigo-600">ElevenLabs — تحويل النص إلى كلام</h3>
+                    <a href="https://elevenlabs.io/" target="_blank" class="tool-button bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-6 py-3 rounded-lg font-bold flex items-center">
+                        <span>جرّب ElevenLabs</span>
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                </div>
+                <div class="flex flex-col md:flex-row items-center gap-10 mb-10">
+                    <div class="md:w-1/2">
+                        <img src="https://eleven-public-cdn.elevenlabs.io/payloadcms/wwtt8wgzj3n-SpeechSynthesis.png" alt="واجهة ElevenLabs" class="rounded-lg shadow-lg w-full">
+                    </div>
+                    <div class="md:w-1/2">
+                        <div class="inline-block mb-2"><span class="badge bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">أداة صوتية</span></div>
+                        <h4 class="text-2xl font-bold mb-4">توليد أصوات فائقة الواقعية</h4>
+                        <p class="text-lg text-gray-700 mb-6">
+                            تُقدِّم ElevenLabs تقنية تحويل نص إلى كلام متطورة تُحوِّل المحتوى المكتوب إلى كلام بشري حيّ وعاطفي بأكثر من 30 لغة. تبدو الأصوات بشرية بشكل لافت مع نبر طبيعي وتعبير صادق.
+                        </p>
+                        <div class="bg-indigo-50 p-6 rounded-lg border-r-4 border-indigo-500">
+                            <h5 class="font-bold text-indigo-800 mb-2">الميزات الرئيسية:</h5>
+                            <ul class="list-disc pr-6 space-y-2 text-gray-700">
+                                <li>أصوات بشرية فائقة الواقعية مع تعبير عاطفي</li>
+                                <li>دعم أكثر من 30 لغة بلكنات أصيلة</li>
+                                <li>استنساخ الصوت لتخصيص المحتوى الصوتي</li>
+                                <li>ضبط سمات الكلام كالإيقاع والنبرة</li>
+                                <li>تكامل API للمطورين والشركات</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                    <div class="tool-demo">
+                        <img src="https://cdn.prod.website-files.com/665c948f9eb1d848b767c1a3/668fbbfd33d8946ba87bad5b_11Labs%204.webp" alt="مولد أصوات ElevenLabs" class="w-full rounded-t-lg">
+                        <div class="p-6 bg-white shadow-md">
+                            <h4 class="font-bold mb-2">واجهة اختيار الصوت</h4>
+                            <p class="text-gray-600">اختر من بين عشرات الأصوات المحترفة بلكنات وأعمار وأنماط عاطفية مختلفة لتناسب محتواك تماماً.</p>
+                        </div>
+                    </div>
+                    <div class="tool-demo">
+                        <img src="https://cdn.prod.website-files.com/6558b275de12de54c5a146d2/6776ff4ae8709c1cd5d85caf_6776fdc3ad35a971927810e3_2-elevenlabs-text-to-speech-interface.webp" alt="محرر نصوص ElevenLabs" class="w-full rounded-t-lg">
+                        <div class="p-6 bg-white shadow-md">
+                            <h4 class="font-bold mb-2">محرر النصوص مع دعم SSML</h4>
+                            <p class="text-gray-600">دقِّق كلامك باستخدام وسوم لغة ترميز تركيب الكلام للتحكم في التشديد والتوقفات والنطق وغيرها.</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-4">تطبيقات متعددة</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-5">
+                        <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
+                            <div class="text-indigo-500 text-xl mb-2">🎙️</div>
+                            <h5 class="font-bold mb-1">البودكاست</h5>
+                            <p class="text-xs text-gray-600">أنشئ سرداً احترافياً دون معدات تسجيل</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
+                            <div class="text-indigo-500 text-xl mb-2">📚</div>
+                            <h5 class="font-bold mb-1">الكتب الصوتية</h5>
+                            <p class="text-xs text-gray-600">حوِّل المحتوى المكتوب إلى روايات صوتية شيِّقة</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
+                            <div class="text-indigo-500 text-xl mb-2">🎮</div>
+                            <h5 class="font-bold mb-1">الألعاب</h5>
+                            <p class="text-xs text-gray-600">أعطِ الشخصيات أصواتاً واقعية وحوارات حيّة</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
+                            <div class="text-indigo-500 text-xl mb-2">📺</div>
+                            <h5 class="font-bold mb-1">محتوى الفيديو</h5>
+                            <p class="text-xs text-gray-600">أنشئ تعليقات صوتية للفيديوهات والشروحات</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Deep Research with ChatGPT -->
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <div class="flex items-center justify-between mb-8 flex-wrap gap-4">
+                    <h3 class="text-3xl font-bold text-indigo-600">البحث المعمّق مع ChatGPT</h3>
+                    <a href="https://chat.openai.com/" target="_blank" class="tool-button bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-6 py-3 rounded-lg font-bold flex items-center">
+                        <span>جرّب البحث المعمّق</span>
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                </div>
+                <div class="flex flex-col md:flex-row items-center gap-10 mb-10">
+                    <div class="md:w-1/2">
+                        <img src="https://images.ctfassets.net/lzny33ho1g45/BwGQR6jcTSt4hcxwhPOH9/bf035198dad1bd9927d4f1f39930090e/chatgpt-deep-research-image3.png" alt="ChatGPT Deep Research" class="rounded-lg shadow-lg w-full">
+                    </div>
+                    <div class="md:w-1/2">
+                        <div class="inline-block mb-2"><span class="badge bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">مساعد البحث</span></div>
+                        <h4 class="text-2xl font-bold mb-4">قدرات بحثية متعمقة</h4>
+                        <p class="text-lg text-gray-700 mb-6">
+                            تُتيح قدرات البحث المعمّق في ChatGPT إجراء استفسارات شاملة عبر مواضيع متنوعة بكفاءة عالية. يعالج ChatGPT كميات هائلة من المعلومات لتقديم ملخصات ثاقبة وتوليف البيانات وصياغة أسئلة متابعة توجِّه الاستكشاف.
+                        </p>
+                        <div class="bg-indigo-50 p-6 rounded-lg border-r-4 border-indigo-500">
+                            <h5 class="font-bold text-indigo-800 mb-2">الفوائد الرئيسية:</h5>
+                            <ul class="list-disc pr-6 space-y-2 text-gray-700">
+                                <li>جمع معلومات شاملة عبر مواضيع متنوعة</li>
+                                <li>تحليل البيانات المعقدة في رؤى سهلة الفهم</li>
+                                <li>توليد أسئلة متابعة للتعمق أكثر</li>
+                                <li>وعي سياقي لنتائج أكثر دقة</li>
+                                <li>تحسين الاستشهادات وتتبع المصادر</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md border-r-4 border-indigo-500">
+                        <div class="text-3xl text-indigo-500 mb-4">🔍</div>
+                        <h4 class="text-xl font-bold mb-3">للأوساط الأكاديمية</h4>
+                        <p class="text-gray-700 mb-4">يستطيع الباحثون والطلاب الاستفادة من البحث المعمّق لاستكشاف الأدبيات العلمية وجمع الأدلة للأوراق البحثية وتحديد الثغرات في الأبحاث الحالية.</p>
+                        <a href="https://help.openai.com/en/articles/8077698-how-do-i-use-chatgpt-s-deep-research-capability" target="_blank" class="text-indigo-600 hover:text-indigo-800 font-medium inline-flex items-center">
+                            <span>دليل البحث</span>
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
+                        </a>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md border-r-4 border-indigo-500">
+                        <div class="text-3xl text-indigo-500 mb-4">📈</div>
+                        <h4 class="text-xl font-bold mb-3">للأعمال التجارية</h4>
+                        <p class="text-gray-700 mb-4">تستطيع فرق التسويق والمحللون جمع معلومات تنافسية وتحليل اتجاهات السوق واستخلاص رؤى للتخطيط الاستراتيجي.</p>
+                        <a href="https://openai.com/index/deep-research/" target="_blank" class="text-indigo-600 hover:text-indigo-800 font-medium inline-flex items-center">
+                            <span>دليل الأعمال</span>
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Creative Tools Section -->
+    <section id="creative" class="section py-16 px-4 bg-white">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12">أدوات الذكاء الاصطناعي الإبداعية</h2>
+
+            <!-- Suno -->
+            <div class="bg-gray-50 p-8 rounded-lg shadow-lg mb-16">
+                <div class="flex items-center justify-between mb-8 flex-wrap gap-4">
+                    <h3 class="text-3xl font-bold text-blue-600">Suno — مولِّد الموسيقى بالذكاء الاصطناعي</h3>
+                    <a href="https://suno.com/" target="_blank" class="tool-button bg-gradient-to-r from-blue-500 to-teal-400 text-white px-6 py-3 rounded-lg font-bold flex items-center">
+                        <span>جرّب Suno</span>
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                </div>
+                <div class="flex flex-col md:flex-row items-center gap-10 mb-8">
+                    <div class="md:w-1/2">
+                        <div class="inline-block mb-2"><span class="badge bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">منشئ موسيقى بالذكاء الاصطناعي</span></div>
+                        <h4 class="text-2xl font-bold mb-4">إنشاء موسيقى بقوة الذكاء الاصطناعي</h4>
+                        <p class="text-lg text-gray-700 mb-6">
+                            Suno أداة مبتكرة لتوليد الموسيقى بالذكاء الاصطناعي تُمكِّن المستخدمين من إنشاء موسيقى أصيلة بسهولة. تستخدم التعلم الآلي لتأليف الموسيقى عبر أنواع وأساليب متعددة انطلاقاً من نص بسيط.
+                        </p>
+                        <div class="bg-blue-50 p-6 rounded-lg border-r-4 border-blue-500">
+                            <h5 class="font-bold text-blue-800 mb-2">الميزات الرئيسية:</h5>
+                            <ul class="list-disc pr-6 space-y-2 text-gray-700">
+                                <li>إنشاء أغانٍ أصيلة من نصوص وصفية</li>
+                                <li>خيارات متعددة للأنواع الموسيقية والأساليب</li>
+                                <li>ضبط المزاج والإيقاع والآلات</li>
+                                <li>أغانٍ كاملة بأصوات وآلات موسيقية</li>
+                                <li>خيارات تصدير ومشاركة سهلة</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                        <img src="https://cdn.mos.cms.futurecdn.net/8jEQbxZoF67cNeRWwNtE9H.jpg" alt="واجهة Suno AI" class="rounded-lg shadow-lg w-full">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="tool-demo">
+                        <img src="https://www.fahimai.com/wp-content/uploads/2024/08/Untitled-design-3-3.png" alt="إنشاء موسيقى Suno" class="w-full rounded-t-lg">
+                        <div class="p-4 bg-white shadow-md">
+                            <h4 class="font-bold mb-2">توليد الموسيقى من النص</h4>
+                            <p class="text-gray-600 mb-4">صِف نوع الموسيقى التي تريدها ببساطة، وسيُنشئ Suno تنسيقاً كاملاً بآلات وأصوات.</p>
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <p class="text-gray-700 italic">"أنشئ أغنية بوب حيوية بصوت أنثوي تتحدث عن تجاوز التحديات"</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tool-demo">
+                        <img src="https://www.cursor-ide.com/blog/suno-ai-free-guide-2025/suno-interface.png" alt="واجهة Suno AI" class="w-full rounded-t-lg">
+                        <div class="p-4 bg-white shadow-md">
+                            <h4 class="font-bold mb-2">ضبط إبداعك الموسيقي</h4>
+                            <p class="text-gray-600 mb-4">يُتيح Suno ضبط كل جانب من جوانب موسيقاك بعناصر تحكم تفصيلية.</p>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">النوع</span>
+                                <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">الإيقاع</span>
+                                <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">المزاج</span>
+                                <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">الآلات</span>
+                                <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">الأصوات</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NotebookLM -->
+            <div class="bg-gray-50 p-8 rounded-lg shadow-lg mb-16">
+                <div class="flex items-center justify-between mb-8 flex-wrap gap-4">
+                    <h3 class="text-3xl font-bold text-blue-600">Google NotebookLM</h3>
+                    <a href="https://notebooklm.google/" target="_blank" class="tool-button bg-gradient-to-r from-blue-500 to-teal-400 text-white px-6 py-3 rounded-lg font-bold flex items-center">
+                        <span>جرّب NotebookLM</span>
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                </div>
+                <div class="flex flex-col md:flex-row items-center gap-10 mb-10">
+                    <div class="md:w-1/2">
+                        <img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/hero-audio_overview.width-1300.png" alt="ميزة بودكاست NotebookLM" class="rounded-lg shadow-lg w-full">
+                    </div>
+                    <div class="md:w-1/2">
+                        <div class="inline-block mb-2"><span class="badge bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">أداة بحث وإبداع</span></div>
+                        <h4 class="text-2xl font-bold mb-4">تحويل الملاحظات إلى بودكاست</h4>
+                        <p class="text-lg text-gray-700 mb-6">
+                            يُحوِّل NotebookLM من Google ملاحظاتك البحثية ومستنداتك إلى محتوى صوتي شيِّق بأسلوب البودكاست. تُنشئ هذه الميزة المبتكرة محادثات طبيعية بين مضيفَين افتراضيَّين يناقشان محتواك المُحمَّل بطريقة سهلة الوصول.
+                        </p>
+                        <div class="bg-blue-50 p-6 rounded-lg border-r-4 border-blue-500">
+                            <h5 class="font-bold text-blue-800 mb-2">الميزات الرئيسية:</h5>
+                            <ul class="list-disc pr-6 space-y-2 text-gray-700">
+                                <li>تحويل المستندات النصية إلى بودكاست حواري</li>
+                                <li>أصوات ذكاء اصطناعي طبيعية بأنماط كلام واقعية</li>
+                                <li>دعم لغات متعددة</li>
+                                <li>تنسيق حوار قابل للتخصيص بأطوال مرنة</li>
+                                <li>تصدير ومشاركة بنقرة واحدة</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-8">
+                    <h4 class="text-2xl font-bold mb-4 text-center">نظرة صوتية عامة عبر NotebookLM</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Audio_Overview-UI.width-500.format-webp.webp" alt="واجهة الصوت في NotebookLM" class="rounded-lg shadow-lg">
+                        <div>
+                            <h5 class="font-bold text-lg mb-3">كيف يعمل:</h5>
+                            <ol class="list-decimal pr-6 space-y-3 text-gray-700">
+                                <li><strong>رفع المحتوى</strong> — أضف مستندات أو أوراق بحثية أو ملاحظات إلى مفكرتك</li>
+                                <li><strong>توليد النظرة الصوتية العامة</strong> — انقر لإنشاء نقاش بأسلوب البودكاست حول محتواك</li>
+                                <li><strong>تخصيص التنسيق</strong> — اضبط الطول ومستوى التفصيل وأسلوب الحوار</li>
+                                <li><strong>الاستماع والمشاركة</strong> — حمِّل الملف الصوتي أو شاركه مباشرةً على منصات البودكاست</li>
+                            </ol>
+                            <div class="mt-6 p-4 bg-blue-50 rounded-lg">
+                                <p class="italic text-gray-700">"تُنشئ ميزة البودكاست في NotebookLM محادثات واقعية مذهلة تشعرك كأنك تستمع لخبراء حقيقيين يناقشون محتواك."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-4">مثالي لـ:</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-white p-5 rounded-lg shadow-sm border-t-4 border-blue-500">
+                            <div class="text-blue-500 text-2xl mb-3">🎓</div>
+                            <h5 class="font-bold mb-2">الطلاب والمعلمون</h5>
+                            <p class="text-gray-600">حوِّل ملاحظات المحاضرات والمواد الدراسية إلى موارد صوتية للدراسة.</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-lg shadow-sm border-t-4 border-blue-500">
+                            <div class="text-blue-500 text-2xl mb-3">📝</div>
+                            <h5 class="font-bold mb-2">صانعو المحتوى</h5>
+                            <p class="text-gray-600">حوِّل المقالات والمدونات المكتوبة إلى حلقات بودكاست دون معدات تسجيل.</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-lg shadow-sm border-t-4 border-blue-500">
+                            <div class="text-blue-500 text-2xl mb-3">💼</div>
+                            <h5 class="font-bold mb-2">المحترفون</h5>
+                            <p class="text-gray-600">أنشئ ملخصات صوتية للتقارير وملاحظات الاجتماعات والأبحاث القطاعية.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visual Tools Section -->
+    <section id="visual" class="section py-16 px-4 bg-gray-50">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12">أدوات الإنشاء البصري</h2>
+
+            <!-- Text to Image/Video -->
+            <div class="bg-white p-8 rounded-lg shadow-lg mb-16">
+                <div class="flex items-center justify-between mb-8 flex-wrap gap-4">
+                    <h3 class="text-3xl font-bold text-pink-600">أدوات تحويل النص إلى صورة وفيديو</h3>
+                    <div class="flex gap-4 flex-wrap">
+                        <a href="https://klingai.com/" target="_blank" class="tool-button bg-gradient-to-r from-fuchsia-500 to-pink-500 text-white px-4 py-2 rounded-lg font-bold flex items-center">
+                            <span>جرّب Kling</span>
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                        <a href="https://leonardo.ai/" target="_blank" class="tool-button bg-gradient-to-r from-pink-500 to-orange-400 text-white px-4 py-2 rounded-lg font-bold flex items-center">
+                            <span>جرّب Leonardo</span>
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                </div>
+                <p class="text-lg text-gray-700 mb-8">تستخدم أدوات تحويل النص إلى صورة وفيديو مثل Kling وLeonardo تقنيات الذكاء الاصطناعي المتطورة لإنشاء مرئيات ووسائط متعددة مذهلة من نصوص بسيطة.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10">
+                    <div>
+                        <div class="inline-block mb-2"><span class="badge bg-pink-100 text-pink-800 text-xs px-2 py-1 rounded">Leonardo AI</span></div>
+                        <h4 class="text-xl font-bold mb-3">توليد الصور</h4>
+                        <img src="https://letsenhance.io/blog/content/images/2024/08/ai-image-prompts-6.png" alt="توليد صور بالذكاء الاصطناعي" class="rounded-lg shadow-lg w-full mb-4">
+                        <p class="text-gray-600">يُحوِّل Leonardo.AI الأوصاف النصية إلى صور عالية التفصيل وقابلة للتخصيص عبر أنماط وسياقات متنوعة.</p>
+                    </div>
+                    <div>
+                        <div class="inline-block mb-2"><span class="badge bg-pink-100 text-pink-800 text-xs px-2 py-1 rounded">Kling AI</span></div>
+                        <h4 class="text-xl font-bold mb-3">إنشاء الفيديو</h4>
+                        <img src="https://www.simform.com/wp-content/uploads/2023/05/text-to-image.png" alt="أمثلة تحويل النص إلى صورة" class="rounded-lg shadow-lg w-full mb-4 h-64 object-cover">
+                        <p class="text-gray-600">يتخصص Kling AI في تحويل الأوصاف النصية أو الصور الثابتة إلى محتوى فيديو متحرك وديناميكي.</p>
+                    </div>
+                </div>
+                <div class="mb-10">
+                    <h4 class="text-xl font-bold mb-4">مميزات Leonardo.AI</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                        <div class="bg-pink-50 p-4 rounded-lg">
+                            <h5 class="font-medium text-pink-800 mb-2">نص إلى صورة</h5>
+                            <p class="text-sm text-gray-700">توليد صور مفصّلة من أوصاف نصية عبر أساليب فنية متنوعة.</p>
+                        </div>
+                        <div class="bg-pink-50 p-4 rounded-lg">
+                            <h5 class="font-medium text-pink-800 mb-2">صورة إلى حركة</h5>
+                            <p class="text-sm text-gray-700">تحويل الصور الثابتة إلى تسلسلات متحركة قصيرة بحركة طبيعية.</p>
+                        </div>
+                        <div class="bg-pink-50 p-4 rounded-lg">
+                            <h5 class="font-medium text-pink-800 mb-2">تأثير ثلاثي الأبعاد</h5>
+                            <p class="text-sm text-gray-700">إنشاء تأثيرات تفصيلية لنماذج وبيئات ثلاثية الأبعاد.</p>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <a href="https://leonardo.ai/" target="_blank" class="text-pink-600 hover:text-pink-800 inline-flex items-center font-medium">
+                            <span>اعرف المزيد عن Leonardo.AI</span>
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-4">مميزات Kling AI</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                        <div class="bg-fuchsia-50 p-4 rounded-lg">
+                            <h5 class="font-medium text-fuchsia-800 mb-2">نص إلى فيديو</h5>
+                            <p class="text-sm text-gray-700">توليد فيديوهات عالية الدقة من نصوص وصفية مع تحكم إبداعي.</p>
+                        </div>
+                        <div class="bg-fuchsia-50 p-4 rounded-lg">
+                            <h5 class="font-medium text-fuchsia-800 mb-2">صورة إلى فيديو</h5>
+                            <p class="text-sm text-gray-700">تحويل الصور الثابتة إلى فيديوهات متحركة مع الحفاظ على الجماليات الأصلية.</p>
+                        </div>
+                        <div class="bg-fuchsia-50 p-4 rounded-lg">
+                            <h5 class="font-medium text-fuchsia-800 mb-2">مزامنة الشفاه</h5>
+                            <p class="text-sm text-gray-700">إنشاء فيديوهات ناطقة واقعية بحركات شفاه متزامنة مع الصوت.</p>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <a href="https://klingai.com/" target="_blank" class="text-fuchsia-600 hover:text-fuchsia-800 inline-flex items-center font-medium">
+                            <span>اعرف المزيد عن Kling AI</span>
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Napkin AI -->
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <div class="flex items-center justify-between mb-8 flex-wrap gap-4">
+                    <h3 class="text-3xl font-bold text-cyan-600">Napkin AI — إنشاء المخططات</h3>
+                    <a href="https://app.napkin.ai/" target="_blank" class="tool-button bg-gradient-to-r from-cyan-500 to-teal-400 text-white px-6 py-3 rounded-lg font-bold flex items-center">
+                        <span>جرّب Napkin AI</span>
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                </div>
+                <div class="flex flex-col md:flex-row items-center gap-10 mb-8">
+                    <div class="md:w-1/2">
+                        <img src="https://images.fastcompany.com/image/upload/f_webp,q_auto,c_fit/wp-cms-2/2024/08/p-91178294-napkin-AI.jpg" alt="واجهة Napkin AI" class="rounded-lg shadow-lg w-full">
+                    </div>
+                    <div class="md:w-1/2">
+                        <div class="inline-block mb-2"><span class="badge bg-cyan-100 text-cyan-800 text-xs px-2 py-1 rounded">أداة مرئية بالذكاء الاصطناعي</span></div>
+                        <h4 class="text-2xl font-bold mb-4">تحويل النص إلى مخططات</h4>
+                        <p class="text-lg text-gray-700 mb-6">
+                            يُحوِّل Napkin AI النصوص فوراً إلى مرئيات ثاقبة، مما يجعل إنشاء مخططات ورسوم بيانية واحترافية أمراً سهلاً دون الحاجة لمهارات تصميم.
+                        </p>
+                        <div class="bg-cyan-50 p-6 rounded-lg border-r-4 border-cyan-500">
+                            <h5 class="font-bold text-cyan-800 mb-2">الميزات الرئيسية:</h5>
+                            <ul class="list-disc pr-6 space-y-2 text-gray-700">
+                                <li>تحويل النص إلى مرئيات بنقرة واحدة</li>
+                                <li>دعم مخططات التدفق وخرائط الأفكار ومخططات العمليات</li>
+                                <li>خيارات تخصيص وعلامة تجارية</li>
+                                <li>تصدير إلى PowerPoint وPNG وصيغ أخرى</li>
+                                <li>إمكانيات التعاون والمشاركة</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div class="tool-demo">
+                        <img src="https://miro.medium.com/v2/resize:fit:1400/1*_tFNV6PTCpxZs6kGfatqCg.png" alt="مثال Napkin AI" class="w-full rounded-t-lg">
+                        <div class="p-4 bg-gray-50 shadow-md">
+                            <h4 class="font-bold mb-2">تصور مخططات العمليات</h4>
+                            <p class="text-gray-600">يُحوِّل Napkin AI أوصاف العمليات المكتوبة إلى مخططات تدفق واضحة واحترافية بنقرة واحدة.</p>
+                        </div>
+                    </div>
+                    <div class="tool-demo">
+                        <img src="https://avidopenaccess.org/wp-content/uploads/2025/01/Untitled-picture-3.png" alt="مخطط Napkin AI" class="w-full rounded-t-lg">
+                        <div class="p-4 bg-gray-50 shadow-md">
+                            <h4 class="font-bold mb-2">تصور المفاهيم</h4>
+                            <p class="text-gray-600">حوِّل المفاهيم المعقدة إلى مخططات بصرية سهلة الفهم تُعزِّز الاستيعاب والاستذكار.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-cyan-50 p-6 rounded-lg">
+                    <h4 class="text-xl font-bold mb-4">تطبيقات الأعمال</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                            <div class="text-cyan-500 text-2xl mb-2">📊</div>
+                            <h5 class="font-bold mb-1">العروض التقديمية</h5>
+                            <p class="text-sm text-gray-600">أنشئ مخططات احترافية للشرائح والعروض في ثوانٍ.</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                            <div class="text-cyan-500 text-2xl mb-2">📝</div>
+                            <h5 class="font-bold mb-1">التوثيق</h5>
+                            <p class="text-sm text-gray-600">حسِّن التوثيق التقني وتوثيق العمليات بمساعدات بصرية واضحة.</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                            <div class="text-cyan-500 text-2xl mb-2">🧠</div>
+                            <h5 class="font-bold mb-1">العصف الذهني</h5>
+                            <p class="text-sm text-gray-600">تصوُّر الأفكار والمفاهيم خلال جلسات العصف الذهني والتخطيط.</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 text-center">
+                        <a href="https://app.napkin.ai/" target="_blank" class="text-cyan-600 hover:text-cyan-800 font-medium">اعرف المزيد عن Napkin AI ←</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Management Section -->
+    <section id="project-management" class="section py-16 px-4 bg-white">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12">أدوات إدارة المشاريع</h2>
+
+            <!-- Claude Artifacts -->
+            <div class="bg-gray-50 p-8 rounded-lg shadow-lg">
+                <div class="flex items-center justify-between mb-8 flex-wrap gap-4">
+                    <h3 class="text-3xl font-bold text-purple-600">Claude.ai Artifacts لإدارة المشاريع</h3>
+                    <a href="https://claude.ai/" target="_blank" class="tool-button bg-gradient-to-r from-violet-500 to-purple-600 text-white px-6 py-3 rounded-lg font-bold flex items-center">
+                        <span>جرّب Claude</span>
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                </div>
+                <div class="flex flex-col md:flex-row items-center gap-10 mb-10">
+                    <div class="md:w-1/2">
+                        <img src="https://cdn.prod.website-files.com/634e7aa49f5b025e1fd9e87b/66a948634eecd9df90562244_ptgyu8gldu.webp" alt="Claude AI Artifacts" class="rounded-lg shadow-lg w-full">
+                    </div>
+                    <div class="md:w-1/2">
+                        <div class="inline-block mb-2"><span class="badge bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">إدارة المشاريع</span></div>
+                        <h4 class="text-2xl font-bold mb-4">ما هي Claude Artifacts؟</h4>
+                        <p class="text-lg text-gray-700 mb-6">
+                            Claude.ai Artifacts هي مخرجات مستقلة تظهر في نافذة مخصصة بجانب محادثتك، مما يُسهِّل التعامل مع المعلومات المعقدة. تُحوِّل إدارة المشاريع بتوفير أدوات تفاعلية للتصور والبرمجة والتوثيق.
+                        </p>
+                        <div class="bg-purple-50 p-6 rounded-lg border-r-4 border-purple-500">
+                            <h5 class="font-bold text-purple-800 mb-2">الفوائد الرئيسية:</h5>
+                            <ul class="list-disc pr-6 space-y-2 text-gray-700">
+                                <li>تحليلات تنبؤية وتحديد أولويات المهام</li>
+                                <li>تصورات تفاعلية للبيانات المعقدة</li>
+                                <li>مراقبة التقدم في الوقت الفعلي</li>
+                                <li>تعزيز التعاون الجماعي</li>
+                                <li>توثيق وكود قابل للتصدير</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div class="tool-demo">
+                        <img src="https://beginswithai.com/wp-content/uploads/2024/06/What-Are-Artifacts-in-Claude-explainer-video.webp" alt="مثال Claude Artifacts" class="w-full rounded-t-lg">
+                        <div class="p-6 bg-white shadow-md">
+                            <h4 class="text-xl font-bold mb-2">تطوير الكود</h4>
+                            <p class="text-gray-700">توليد الكود واختباره وتصحيحه بواسطة Artifacts التفاعلية التي تتيح تعديلاً في الوقت الفعلي.</p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">Python</span>
+                                <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">JavaScript</span>
+                                <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">React</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tool-demo">
+                        <img src="https://images.ctfassets.net/lzny33ho1g45/4RNHSSXiGmPRzalFfJn1KP/f4d4e14e18edb09d4e34c9c6df4b8481/claude-artifacts-feature.png" alt="تصور Claude Artifacts" class="w-full rounded-t-lg">
+                        <div class="p-6 bg-white shadow-md">
+                            <h4 class="text-xl font-bold mb-2">تصور البيانات</h4>
+                            <p class="text-gray-700">أنشئ رسوماً بيانية ومخططات تفاعلية تُعرض مباشرةً في نافذة الـ Artifact.</p>
+                            <div class="mt-4 flex flex-wrap gap-2">
+                                <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">SVG</span>
+                                <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">Mermaid</span>
+                                <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">HTML</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-purple-50 p-6 rounded-lg">
+                    <h4 class="text-xl font-bold mb-4">حالات الاستخدام</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                            <div class="text-purple-500 text-2xl mb-2">📋</div>
+                            <h5 class="font-bold mb-1">خرائط المشروع</h5>
+                            <p class="text-sm text-gray-600">توليد مخططات جانت ومسارات حرجة تفاعلية لتتبع التقدم.</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                            <div class="text-purple-500 text-2xl mb-2">📊</div>
+                            <h5 class="font-bold mb-1">لوحات المعلومات</h5>
+                            <p class="text-sm text-gray-600">إنشاء لوحات معلومات مخصصة تعرض مقاييس المشروع في الوقت الفعلي.</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                            <div class="text-purple-500 text-2xl mb-2">📄</div>
+                            <h5 class="font-bold mb-1">التوثيق</h5>
+                            <p class="text-sm text-gray-600">توليد وثائق تقنية ومتطلبات ومواصفات شاملة.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Presentations Section -->
+    <section id="presentations" class="section py-16 px-4 bg-gray-50">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12">أدوات العروض التقديمية</h2>
+
+            <!-- Slidesgo -->
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <div class="flex items-center justify-between mb-8 flex-wrap gap-4">
+                    <h3 class="text-3xl font-bold text-orange-500">Slidesgo — قوالب العروض بالذكاء الاصطناعي</h3>
+                    <a href="https://slidesgo.com/" target="_blank" class="tool-button bg-gradient-to-r from-orange-400 to-pink-500 text-white px-6 py-3 rounded-lg font-bold flex items-center">
+                        <span>جرّب Slidesgo</span>
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                </div>
+                <div class="flex flex-col md:flex-row items-center gap-10 mb-10">
+                    <div class="md:w-1/2">
+                        <img src="https://slidesgo.com/storage/2023/11/AI-Presentation-Maker.png" alt="Slidesgo AI Presentation Maker" class="rounded-lg shadow-lg w-full">
+                    </div>
+                    <div class="md:w-1/2">
+                        <div class="inline-block mb-2"><span class="badge bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded">منشئ العروض</span></div>
+                        <h4 class="text-2xl font-bold mb-4">عروض تقديمية احترافية في دقائق</h4>
+                        <p class="text-lg text-gray-700 mb-6">
+                            يُقدِّم Slidesgo آلاف القوالب الجاهزة المدعومة بمنشئ عروض ذكاء اصطناعي متكامل. صِف موضوعك واحصل على عرض تقديمي كامل التصميم في دقائق.
+                        </p>
+                        <div class="bg-orange-50 p-6 rounded-lg border-r-4 border-orange-500">
+                            <h5 class="font-bold text-orange-800 mb-2">الميزات الرئيسية:</h5>
+                            <ul class="list-disc pr-6 space-y-2 text-gray-700">
+                                <li>مكتبة ضخمة من القوالب الاحترافية المجانية</li>
+                                <li>منشئ عروض مدعوم بالذكاء الاصطناعي</li>
+                                <li>تكامل مع Google Slides وPowerPoint</li>
+                                <li>أيقونات ورسومات قابلة للتخصيص بالكامل</li>
+                                <li>تصاميم تتوافق مع هوية علامتك التجارية</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-orange-50 p-5 rounded-lg shadow-sm">
+                        <div class="text-orange-500 text-2xl mb-3">🎓</div>
+                        <h5 class="font-bold mb-2">التعليم</h5>
+                        <p class="text-gray-600">قوالب خاصة للمعلمين والطلاب تناسب المحاضرات والمشاريع البحثية.</p>
+                    </div>
+                    <div class="bg-orange-50 p-5 rounded-lg shadow-sm">
+                        <div class="text-orange-500 text-2xl mb-3">💼</div>
+                        <h5 class="font-bold mb-2">الأعمال</h5>
+                        <p class="text-gray-600">قوالب احترافية لعروض المبيعات وتقارير الأداء وخطط العمل.</p>
+                    </div>
+                    <div class="bg-orange-50 p-5 rounded-lg shadow-sm">
+                        <div class="text-orange-500 text-2xl mb-3">🎨</div>
+                        <h5 class="font-bold mb-2">الإبداع</h5>
+                        <p class="text-gray-600">قوالب فنية وإبداعية لمحافظ الأعمال والحملات التسويقية.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Web Development Section -->
+    <section id="web-development" class="section py-16 px-4 bg-white">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12">أدوات الذكاء الاصطناعي لتطوير الويب</h2>
+
+            <!-- Genspark -->
+            <div class="bg-gray-50 p-8 rounded-lg shadow-lg mb-16">
+                <div class="flex items-center justify-between mb-8 flex-wrap gap-4">
+                    <h3 class="text-3xl font-bold text-green-600">Genspark — إنشاء المواقع الإلكترونية</h3>
+                    <a href="https://www.genspark.ai/" target="_blank" class="tool-button bg-gradient-to-r from-green-500 to-emerald-400 text-white px-6 py-3 rounded-lg font-bold flex items-center">
+                        <span>جرّب Genspark</span>
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                </div>
+                <div class="flex flex-col md:flex-row items-center gap-10 mb-10">
+                    <div class="md:w-1/2">
+                        <img src="https://miro.medium.com/v2/resize:fit:1400/1*_tNLSFfyQ4Q4T3T-E5bMlA.png" alt="Genspark AI Website Creation" class="rounded-lg shadow-lg w-full">
+                    </div>
+                    <div class="md:w-1/2">
+                        <div class="inline-block mb-2"><span class="badge bg-green-100 text-green-800 text-xs px-2 py-1 rounded">بناء مواقع بدون كود</span></div>
+                        <h4 class="text-2xl font-bold mb-4">ثورة في إنشاء المواقع</h4>
+                        <p class="text-lg text-gray-700 mb-6">
+                            يُحدث Genspark ثورة في إنشاء المواقع الإلكترونية بتمكين المستخدمين من بناء مواقع متكاملة الوظائف بسهولة عبر الذكاء الاصطناعي. صِف ما تريده ببساطة وسيبنيه Genspark في دقائق.
+                        </p>
+                        <div class="bg-green-50 p-6 rounded-lg border-r-4 border-green-500">
+                            <h5 class="font-bold text-green-800 mb-2">الميزات الرئيسية:</h5>
+                            <ul class="list-disc pr-6 space-y-2 text-gray-700">
+                                <li>توليد المواقع من نصوص وصفية</li>
+                                <li>تخطيطات متجاوبة بدون برمجة</li>
+                                <li>قدرات تجارة إلكترونية مدمجة</li>
+                                <li>توصيات تحسين محركات البحث</li>
+                                <li>تصاميم متوافقة مع الجوال افتراضياً</li>
+                                <li>تكامل النطاق المخصص</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <div class="text-3xl text-green-500 mb-4">💼</div>
+                        <h4 class="text-xl font-bold mb-3">للشركات الصغيرة</h4>
+                        <p class="text-gray-700 mb-4">أنشئ مواقع تجارية احترافية دون الحاجة لمصممين أو مطورين. حدِّث المحتوى بسهولة عبر نصوص بسيطة.</p>
+                        <a href="https://www.genspark.ai/spark/guide-to-creating-a-complete-website/d11093c2-db3c-40c8-a294-9039fc16edbb" target="_blank" class="text-sm text-green-500 hover:text-green-700 flex items-center">
+                            <span>دليل الشركات الصغيرة</span>
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
+                        </a>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <div class="text-3xl text-green-500 mb-4">🎨</div>
+                        <h4 class="text-xl font-bold mb-3">لمواقع المحافظ</h4>
+                        <p class="text-gray-700 mb-4">يستطيع الفنانون والمصورون والمحترفون إنشاء مواقع محافظ مذهلة تعرض أعمالهم بفاعلية.</p>
+                        <a href="https://www.genspark.ai/spark/how-to-create-a-website/8c39c3c0-651b-465e-bdc9-250aae1955ee" target="_blank" class="text-sm text-green-500 hover:text-green-700 flex items-center">
+                            <span>دليل المحافظ</span>
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
+                        </a>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <div class="text-3xl text-green-500 mb-4">🛒</div>
+                        <h4 class="text-xl font-bold mb-3">للتجارة الإلكترونية</h4>
+                        <p class="text-gray-700 mb-4">أطلق متاجرك الإلكترونية سريعاً مع معالجة الدفع المدمجة وكتالوجات المنتجات وأنظمة إدارة العملاء.</p>
+                        <a href="https://www.genspark.ai/spark/top-free-ai-website-builders-for-designing-and-coding/5948178d-749a-40c4-943f-8d68267790c1" target="_blank" class="text-sm text-green-500 hover:text-green-700 flex items-center">
+                            <span>دليل التجارة الإلكترونية</span>
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cursor -->
+            <div class="bg-gray-50 p-8 rounded-lg shadow-lg">
+                <div class="flex items-center justify-between mb-8 flex-wrap gap-4">
+                    <h3 class="text-3xl font-bold text-green-600">Cursor — محرر الكود بالذكاء الاصطناعي</h3>
+                    <a href="https://cursor.com/" target="_blank" rel="noopener noreferrer" class="tool-button bg-gradient-to-r from-green-500 to-emerald-400 text-white px-6 py-3 rounded-lg font-bold flex items-center">
+                        <span>جرّب Cursor</span>
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                </div>
+                <div class="flex flex-col md:flex-row items-center gap-10 mb-10">
+                    <div class="md:w-1/2">
+                        <img src="images/projects/cursor-ai-frontend.webp" alt="محرر Cursor AI مع المساعدة السياقية" class="rounded-lg shadow-lg w-full" loading="lazy" decoding="async">
+                    </div>
+                    <div class="md:w-1/2">
+                        <div class="inline-block mb-2"><span class="badge bg-green-100 text-green-800 text-xs px-2 py-1 rounded">تطوير بمساعدة الذكاء الاصطناعي</span></div>
+                        <h4 class="text-2xl font-bold mb-4">البرمجة مع السياق</h4>
+                        <p class="text-lg text-gray-700 mb-6">
+                            Cursor محرر كود أصيل للذكاء الاصطناعي مبني فوق سير عمل المطورين المألوف. تبقى المساعدة بجانب ملفاتك — اشرح الكود المجهول وأنشئ الاختبارات وأعد الهيكلة مع معاينات الفروق — فتتقدم أسرع دون التخلي عن حكمك.
+                        </p>
+                        <div class="bg-green-50 p-6 rounded-lg border-r-4 border-green-500">
+                            <h5 class="font-bold text-green-800 mb-2">الميزات الرئيسية:</h5>
+                            <ul class="list-disc pr-6 space-y-2 text-gray-700">
+                                <li>دردشة مضمّنة وجانبية مستندة إلى مشروعك المفتوح</li>
+                                <li>بحث دلالي في قاعدة الكود للوصول إلى الرمز الصحيح</li>
+                                <li>تطبيق تعديلات متعددة الملفات مع فروق قابلة للمراجعة</li>
+                                <li>سقالات الكود النمطي والاختبارات التي تعدّلها وتمتلكها</li>
+                                <li>يعمل مع مكدسك الحالي وGit وعادات مراجعة الفريق</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <div class="text-3xl text-green-500 mb-4">🧭</div>
+                        <h4 class="text-xl font-bold mb-3">التوثيق والإعداد</h4>
+                        <p class="text-gray-700 mb-4">التوثيق الرسمي للتثبيت والنماذج والقواعد وميزات المحرر.</p>
+                        <a href="https://cursor.com/docs" target="_blank" rel="noopener noreferrer" class="text-sm text-green-500 hover:text-green-700 flex items-center">
+                            <span>توثيق Cursor</span>
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
+                        </a>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <div class="text-3xl text-green-500 mb-4">⚙️</div>
+                        <h4 class="text-xl font-bold mb-3">تعلّم المنتج</h4>
+                        <p class="text-gray-700 mb-4">نظرة عامة على كيفية توافق Cursor مع سير عمل التطوير المهني.</p>
+                        <a href="https://cursor.com/features" target="_blank" rel="noopener noreferrer" class="text-sm text-green-500 hover:text-green-700 flex items-center">
+                            <span>نظرة على الميزات</span>
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
+                        </a>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <div class="text-3xl text-green-500 mb-4">💬</div>
+                        <h4 class="text-xl font-bold mb-3">المجتمع</h4>
+                        <p class="text-gray-700 mb-4">اطرح أسئلتك واستعرض النصائح وتعرّف على كيفية استخدام المطورين لـ Cursor يومياً.</p>
+                        <a href="https://forum.cursor.com/" target="_blank" rel="noopener noreferrer" class="text-sm text-green-500 hover:text-green-700 flex items-center">
+                            <span>منتدى مجتمع Cursor</span>
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Claude Code -->
+            <div class="bg-white p-8 rounded-lg shadow-lg mt-16">
+                <div class="flex items-center justify-between mb-8 flex-wrap gap-4">
+                    <h3 class="text-3xl font-bold text-indigo-600">Claude Code — ذكاء اصطناعي وكيل للمطورين</h3>
+                    <a href="https://claude.ai/code" target="_blank" rel="noopener noreferrer" class="tool-button bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-6 py-3 rounded-lg font-bold flex items-center">
+                        <span>جرّب Claude Code</span>
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                </div>
+                <div class="flex flex-col md:flex-row items-center gap-10 mb-10">
+                    <div class="md:w-1/2">
+                        <img src="images/projects/claude-code.jpeg?v=2" alt="Claude Code — واجهة سطر أوامر وكيل يعدّل ملفات وينفّذ اختبارات" class="rounded-lg shadow-lg w-full" loading="lazy" decoding="async">
+                    </div>
+                    <div class="md:w-1/2">
+                        <div class="inline-block mb-2"><span class="badge bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">تطوير وكيل</span></div>
+                        <h4 class="text-2xl font-bold mb-4">من الفكرة إلى الكود — في الطرفية</h4>
+                        <p class="text-lg text-gray-700 mb-6">
+                            Claude Code هو واجهة سطر أوامر وكيل من Anthropic تعمل مباشرةً داخل طرفيتك. تقرأ قاعدة كودك وتعدّل الملفات وتنفّذ الاختبارات وتدير git وتُنجز مهاماً متعددة الخطوات باستقلالية — تصف ما تريد بلغة طبيعية وتشاهده يتحقق.
+                        </p>
+                        <div class="bg-indigo-50 p-6 rounded-lg border-r-4 border-indigo-500">
+                            <h5 class="font-bold text-indigo-800 mb-2">الميزات الرئيسية:</h5>
+                            <ul class="list-disc pr-6 space-y-2 text-gray-700">
+                                <li>تقرأ مستودعك بالكامل للحصول على سياق شامل</li>
+                                <li>تعدّل الملفات وتنفّذ الاختبارات وتُودِع التغييرات باستقلالية</li>
+                                <li>تفويض المهام بلغة طبيعية مع استخدام الأدوات تحت الغطاء</li>
+                                <li>أمان مدمج: تعرض الفروق وتستأذن قبل الإجراءات الحساسة</li>
+                                <li>تعمل مع أي لغة أو إطار عمل أو سير عمل git موجود</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <div class="text-3xl text-indigo-500 mb-4">📖</div>
+                        <h4 class="text-xl font-bold mb-3">التوثيق والبدء السريع</h4>
+                        <p class="text-gray-700 mb-4">التوثيق الرسمي الذي يغطي التثبيت والإعداد وأوامر الشرطة وخوادم MCP.</p>
+                        <a href="https://docs.anthropic.com/en/docs/claude-code/overview" target="_blank" rel="noopener noreferrer" class="text-sm text-indigo-500 hover:text-indigo-700 flex items-center">
+                            <span>توثيق Claude Code</span>
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
+                        </a>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <div class="text-3xl text-indigo-500 mb-4">🤖</div>
+                        <h4 class="text-xl font-bold mb-3">سير عمل الوكيل</h4>
+                        <p class="text-gray-700 mb-4">افهم كيف يُخطِّط Claude Code ويستخدم الأدوات ويتعامل مع المهام متعددة الخطوات بأدنى قدر من التوجيه.</p>
+                        <a href="https://docs.anthropic.com/en/docs/claude-code/how-it-works" target="_blank" rel="noopener noreferrer" class="text-sm text-indigo-500 hover:text-indigo-700 flex items-center">
+                            <span>كيف يعمل</span>
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
+                        </a>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <div class="text-3xl text-indigo-500 mb-4">💬</div>
+                        <h4 class="text-xl font-bold mb-3">المجتمع</h4>
+                        <p class="text-gray-700 mb-4">نصائح وسير عمل ونقاشات من المطورين الذين يبنون مع Claude Code كل يوم.</p>
+                        <a href="https://github.com/anthropics/claude-code" target="_blank" rel="noopener noreferrer" class="text-sm text-indigo-500 hover:text-indigo-700 flex items-center">
+                            <span>مستودع GitHub</span>
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tool Comparison Section -->
+    <section id="tool-comparison" class="section py-16 px-4 bg-gray-50">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-10">مقارنة أدوات الذكاء الاصطناعي</h2>
+            <div class="overflow-x-auto bg-white rounded-lg shadow">
+                <table class="min-w-full">
+                    <thead class="bg-gray-100">
+                        <tr>
+                            <th class="py-3 px-6 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">الأداة</th>
+                            <th class="py-3 px-6 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">الفئة</th>
+                            <th class="py-3 px-6 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">الأنسب لـ</th>
+                            <th class="py-3 px-6 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">خيار مجاني</th>
+                            <th class="py-3 px-6 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">الموقع</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr>
+                            <td class="py-4 px-6 whitespace-nowrap"><div class="text-sm font-medium text-gray-900">ChatGPT</div><div class="text-sm text-gray-500">OpenAI</div></td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-500">التواصل</td>
+                            <td class="py-4 px-6 text-sm text-gray-500">التفاعل الصوتي والبحث المعمّق وإنشاء المحتوى</td>
+                            <td class="py-4 px-6 whitespace-nowrap"><span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">نعم</span></td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-indigo-600"><a href="https://chat.openai.com/" target="_blank">chat.openai.com</a></td>
+                        </tr>
+                        <tr>
+                            <td class="py-4 px-6 whitespace-nowrap"><div class="text-sm font-medium text-gray-900">Suno</div><div class="text-sm text-gray-500">Suno AI</div></td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-500">إبداعي</td>
+                            <td class="py-4 px-6 text-sm text-gray-500">توليد الموسيقى وإنشاء المحتوى الصوتي</td>
+                            <td class="py-4 px-6 whitespace-nowrap"><span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">نعم (محدود)</span></td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-blue-600"><a href="https://suno.com/" target="_blank">suno.com</a></td>
+                        </tr>
+                        <tr>
+                            <td class="py-4 px-6 whitespace-nowrap"><div class="text-sm font-medium text-gray-900">Claude</div><div class="text-sm text-gray-500">Anthropic</div></td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-500">إدارة المشاريع</td>
+                            <td class="py-4 px-6 text-sm text-gray-500">إدارة المشاريع وتصور البيانات والبرمجة</td>
+                            <td class="py-4 px-6 whitespace-nowrap"><span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">نعم</span></td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-purple-600"><a href="https://claude.ai/" target="_blank">claude.ai</a></td>
+                        </tr>
+                        <tr>
+                            <td class="py-4 px-6 whitespace-nowrap"><div class="text-sm font-medium text-gray-900">Leonardo</div><div class="text-sm text-gray-500">Leonardo.AI</div></td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-500">مرئي</td>
+                            <td class="py-4 px-6 text-sm text-gray-500">نص إلى صورة وصورة إلى فيديو ومرئيات إبداعية</td>
+                            <td class="py-4 px-6 whitespace-nowrap"><span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">نعم (محدود)</span></td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-pink-600"><a href="https://leonardo.ai/" target="_blank">leonardo.ai</a></td>
+                        </tr>
+                        <tr>
+                            <td class="py-4 px-6 whitespace-nowrap"><div class="text-sm font-medium text-gray-900">Kling</div><div class="text-sm text-gray-500">KlingAI</div></td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-500">مرئي</td>
+                            <td class="py-4 px-6 text-sm text-gray-500">توليد الفيديو وتحريك الصور</td>
+                            <td class="py-4 px-6 whitespace-nowrap"><span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">نعم (محدود)</span></td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-fuchsia-600"><a href="https://klingai.com/" target="_blank">klingai.com</a></td>
+                        </tr>
+                        <tr>
+                            <td class="py-4 px-6 whitespace-nowrap"><div class="text-sm font-medium text-gray-900">Genspark</div><div class="text-sm text-gray-500">Genspark AI</div></td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-500">تطوير الويب</td>
+                            <td class="py-4 px-6 text-sm text-gray-500">إنشاء المواقع وبناء التطبيقات</td>
+                            <td class="py-4 px-6 whitespace-nowrap"><span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">نعم</span></td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-green-600"><a href="https://www.genspark.ai/" target="_blank">genspark.ai</a></td>
+                        </tr>
+                        <tr>
+                            <td class="py-4 px-6 whitespace-nowrap"><div class="text-sm font-medium text-gray-900">Cursor</div><div class="text-sm text-gray-500">Cursor AI</div></td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-500">تطوير الويب</td>
+                            <td class="py-4 px-6 text-sm text-gray-500">فهم قواعد الكود وإعادة الهيكلة وتسريع التطوير</td>
+                            <td class="py-4 px-6 whitespace-nowrap"><span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">نعم (محدود)</span></td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-green-600"><a href="https://cursor.com/" target="_blank">cursor.com</a></td>
+                        </tr>
+                        <tr>
+                            <td class="py-4 px-6 whitespace-nowrap"><div class="text-sm font-medium text-gray-900">Claude Code</div><div class="text-sm text-gray-500">Anthropic</div></td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-500">تطوير الويب</td>
+                            <td class="py-4 px-6 text-sm text-gray-500">البرمجة الوكيلة وتعديل الملفات المتعددة وتشغيل الاختبارات من الطرفية</td>
+                            <td class="py-4 px-6 whitespace-nowrap"><span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-indigo-100 text-indigo-800">نعم (طبقة مجانية)</span></td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-indigo-600"><a href="https://claude.ai/code" target="_blank">claude.ai/code</a></td>
+                        </tr>
+                        <tr>
+                            <td class="py-4 px-6 whitespace-nowrap"><div class="text-sm font-medium text-gray-900">Napkin AI</div><div class="text-sm text-gray-500">Napkin</div></td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-500">مرئي</td>
+                            <td class="py-4 px-6 text-sm text-gray-500">إنشاء المخططات وتصور العمليات</td>
+                            <td class="py-4 px-6 whitespace-nowrap"><span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">نعم (محدود)</span></td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-cyan-600"><a href="https://app.napkin.ai/" target="_blank">app.napkin.ai</a></td>
+                        </tr>
+                        <tr>
+                            <td class="py-4 px-6 whitespace-nowrap"><div class="text-sm font-medium text-gray-900">Slidesgo</div><div class="text-sm text-gray-500">Slidesgo</div></td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-500">عروض تقديمية</td>
+                            <td class="py-4 px-6 text-sm text-gray-500">إنشاء العروض التقديمية وتصميم الشرائح</td>
+                            <td class="py-4 px-6 whitespace-nowrap"><span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">نعم</span></td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-orange-600"><a href="https://slidesgo.com/" target="_blank">slidesgo.com</a></td>
+                        </tr>
+                        <tr>
+                            <td class="py-4 px-6 whitespace-nowrap"><div class="text-sm font-medium text-gray-900">NotebookLM</div><div class="text-sm text-gray-500">Google</div></td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-500">بحث وصوت</td>
+                            <td class="py-4 px-6 text-sm text-gray-500">تدوين الملاحظات وإنشاء البودكاست والمساعدة البحثية</td>
+                            <td class="py-4 px-6 whitespace-nowrap"><span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">نعم</span></td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-blue-600"><a href="https://notebooklm.google/" target="_blank">notebooklm.google</a></td>
+                        </tr>
+                        <tr>
+                            <td class="py-4 px-6 whitespace-nowrap"><div class="text-sm font-medium text-gray-900">ElevenLabs</div><div class="text-sm text-gray-500">ElevenLabs</div></td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-gray-500">صوت</td>
+                            <td class="py-4 px-6 text-sm text-gray-500">تحويل النص إلى كلام واستنساخ الصوت والكتب الصوتية</td>
+                            <td class="py-4 px-6 whitespace-nowrap"><span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">نعم (محدود)</span></td>
+                            <td class="py-4 px-6 whitespace-nowrap text-sm text-indigo-600"><a href="https://elevenlabs.io/" target="_blank">elevenlabs.io</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusions -->
+    <section class="py-16 px-4 bg-white">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-10">خلاصة</h2>
+            <div class="bg-gray-50 p-8 rounded-lg shadow-md">
+                <p class="text-xl text-gray-700 mb-8 leading-relaxed">
+                    تُحوِّل أدوات الذكاء الاصطناعي الإنتاجية في جميع المجالات من خلال تعزيز الكفاءة والإبداع. كما يتجلى في هذا المركز التفاعلي، تُمكِّن هذه الأدوات المستخدمين من تبسيط المهام وتحفيز الابتكار وتحقيق نتائج احترافية بأقل جهد. لا يؤدي تبني هذه التقنيات إلى تحسين الأداء التشغيلي فحسب، بل يُتيح للأفراد والمنظمات التركيز على الجوانب الاستراتيجية والإبداعية من عملهم.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="p-4 bg-indigo-50 rounded-lg">
+                        <h3 class="text-lg font-bold mb-2 text-indigo-700">تواصل مُحسَّن</h3>
+                        <p class="text-gray-700">تُيسِّر أدوات كـ ChatGPT Voice وClaude تواصلاً أكثر طبيعية وكفاءة، مما يكسر الحواجز ويُعزِّز التعاون.</p>
+                    </div>
+                    <div class="p-4 bg-indigo-50 rounded-lg">
+                        <h3 class="text-lg font-bold mb-2 text-indigo-700">تسريع الإبداع</h3>
+                        <p class="text-gray-700">تُتيح أدوات كـ Suno وLeonardo وKling الإنشاء السريع لمحتوى عالي الجودة كان يتطلب مهارات متخصصة ومعدات باهظة.</p>
+                    </div>
+                    <div class="p-4 bg-indigo-50 rounded-lg">
+                        <h3 class="text-lg font-bold mb-2 text-indigo-700">تحسين سير العمل</h3>
+                        <p class="text-gray-700">تُؤتمت أدوات إدارة المشاريع وبناء المواقع مثل Genspark العمليات المعقدة، بينما يُقلِّل Cursor وClaude Code الاحتكاك في مسارات البرمجة، مما يُقصِّر وقت الإنجاز.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- All Tools at a Glance -->
+    <section class="py-16 px-4 bg-gray-50">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-10">جميع الأدوات في لمحة</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <a href="https://chat.openai.com/" target="_blank" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1 flex flex-col items-center">
+                    <div class="text-3xl mb-3">🗣️</div>
+                    <h3 class="text-lg font-bold mb-1 text-center">ChatGPT</h3>
+                    <p class="text-sm text-gray-600 text-center mb-3">صوت وبحث</p>
+                    <span class="text-xs bg-indigo-100 text-indigo-800 px-2 py-1 rounded">تواصل</span>
+                </a>
+                <a href="https://suno.com/" target="_blank" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1 flex flex-col items-center">
+                    <div class="text-3xl mb-3">🎵</div>
+                    <h3 class="text-lg font-bold mb-1 text-center">Suno</h3>
+                    <p class="text-sm text-gray-600 text-center mb-3">توليد الموسيقى</p>
+                    <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">إبداعي</span>
+                </a>
+                <a href="https://claude.ai/" target="_blank" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1 flex flex-col items-center">
+                    <div class="text-3xl mb-3">📊</div>
+                    <h3 class="text-lg font-bold mb-1 text-center">Claude</h3>
+                    <p class="text-sm text-gray-600 text-center mb-3">Artifacts والمشاريع</p>
+                    <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">إدارة المشاريع</span>
+                </a>
+                <a href="https://www.genspark.ai/" target="_blank" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1 flex flex-col items-center">
+                    <div class="text-3xl mb-3">🌐</div>
+                    <h3 class="text-lg font-bold mb-1 text-center">Genspark</h3>
+                    <p class="text-sm text-gray-600 text-center mb-3">إنشاء المواقع</p>
+                    <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">تطوير الويب</span>
+                </a>
+                <a href="https://cursor.com/" target="_blank" rel="noopener noreferrer" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1 flex flex-col items-center">
+                    <div class="text-3xl mb-3">💻</div>
+                    <h3 class="text-lg font-bold mb-1 text-center">Cursor</h3>
+                    <p class="text-sm text-gray-600 text-center mb-3">محرر كود ذكي</p>
+                    <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">تطوير الويب</span>
+                </a>
+                <a href="https://claude.ai/code" target="_blank" rel="noopener noreferrer" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1 flex flex-col items-center">
+                    <div class="text-3xl mb-3">🤖</div>
+                    <h3 class="text-lg font-bold mb-1 text-center">Claude Code</h3>
+                    <p class="text-sm text-gray-600 text-center mb-3">واجهة سطر أوامر وكيل</p>
+                    <span class="text-xs bg-indigo-100 text-indigo-800 px-2 py-1 rounded">تطوير الويب</span>
+                </a>
+                <a href="https://leonardo.ai/" target="_blank" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1 flex flex-col items-center">
+                    <div class="text-3xl mb-3">🎨</div>
+                    <h3 class="text-lg font-bold mb-1 text-center">Leonardo</h3>
+                    <p class="text-sm text-gray-600 text-center mb-3">توليد الصور</p>
+                    <span class="text-xs bg-pink-100 text-pink-800 px-2 py-1 rounded">مرئي</span>
+                </a>
+                <a href="https://klingai.com/" target="_blank" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1 flex flex-col items-center">
+                    <div class="text-3xl mb-3">🎬</div>
+                    <h3 class="text-lg font-bold mb-1 text-center">Kling</h3>
+                    <p class="text-sm text-gray-600 text-center mb-3">إنشاء الفيديو</p>
+                    <span class="text-xs bg-fuchsia-100 text-fuchsia-800 px-2 py-1 rounded">مرئي</span>
+                </a>
+                <a href="https://app.napkin.ai/" target="_blank" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1 flex flex-col items-center">
+                    <div class="text-3xl mb-3">📝</div>
+                    <h3 class="text-lg font-bold mb-1 text-center">Napkin AI</h3>
+                    <p class="text-sm text-gray-600 text-center mb-3">إنشاء المخططات</p>
+                    <span class="text-xs bg-cyan-100 text-cyan-800 px-2 py-1 rounded">مرئي</span>
+                </a>
+                <a href="https://slidesgo.com/" target="_blank" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1 flex flex-col items-center">
+                    <div class="text-3xl mb-3">🖼️</div>
+                    <h3 class="text-lg font-bold mb-1 text-center">Slidesgo</h3>
+                    <p class="text-sm text-gray-600 text-center mb-3">العروض التقديمية</p>
+                    <span class="text-xs bg-orange-100 text-orange-800 px-2 py-1 rounded">عروض</span>
+                </a>
+                <a href="https://notebooklm.google/" target="_blank" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1 flex flex-col items-center">
+                    <div class="text-3xl mb-3">🎙️</div>
+                    <h3 class="text-lg font-bold mb-1 text-center">NotebookLM</h3>
+                    <p class="text-sm text-gray-600 text-center mb-3">منشئ البودكاست</p>
+                    <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">صوت</span>
+                </a>
+                <a href="https://elevenlabs.io/" target="_blank" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1 flex flex-col items-center">
+                    <div class="text-3xl mb-3">🔊</div>
+                    <h3 class="text-lg font-bold mb-1 text-center">ElevenLabs</h3>
+                    <p class="text-sm text-gray-600 text-center mb-3">توليد الأصوات</p>
+                    <span class="text-xs bg-indigo-100 text-indigo-800 px-2 py-1 rounded">صوت</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="hero-gradient py-16 px-4 text-white">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-8">هل أنت مستعد لتحويل إنتاجيتك؟</h2>
+            <p class="text-xl mb-12">استكشف هذه الأدوات واكتشف كيف يمكنها تعزيز سير عملك.</p>
+            <div class="flex justify-center flex-wrap gap-4 mb-12">
+                <a href="#communication" class="bg-white text-indigo-600 px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition duration-300">أدوات التواصل</a>
+                <a href="#creative" class="bg-white text-blue-600 px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition duration-300">الأدوات الإبداعية</a>
+                <a href="#visual" class="bg-white text-pink-600 px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition duration-300">الأدوات المرئية</a>
+                <a href="#project-management" class="bg-white text-purple-600 px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition duration-300">إدارة المشاريع</a>
+            </div>
+            <p class="text-sm opacity-75">© 2025 مركز موارد أدوات الذكاء الاصطناعي للإنتاجية</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
