@@ -173,6 +173,7 @@ const workCollection = defineCollection({
     description: z.string(),
     achievements: z.array(z.string()).optional(),
     skills: z.array(z.string()).optional(),
+    technologies: z.array(z.string()).optional(), // Backward-compatible alias for skills
     url: z.string().url().optional(),
     cover: z.string().optional(), // Image path for work cover
     images: z.array(z.string()).optional(), // Additional images

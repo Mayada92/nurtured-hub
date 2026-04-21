@@ -7,7 +7,11 @@ import { getCollection } from 'astro:content';
 
 const projects = (await getCollection('projects'))
   .filter((p) => p.data.lang === 'en')
-  .sort((a, b) => b.data.year - a.data.year);
+  .sort((a, b) => {
+    if (a.data.featured !== b.data.featured) return a.data.featured ? -1 : 1;
+    if (b.data.year !== a.data.year) return b.data.year - a.data.year;
+    return a.data.title.localeCompare(b.data.title);
+  });
 ---
 
 <BaseLayout title="Projects" description="Explore my projects and work" lang="en">
@@ -16,7 +20,7 @@ const projects = (await getCollection('projects'))
     <div class="container">
       <SectionReveal client:load>
         <h1>Projects</h1>
-        <p>A collection of projects across different domains.</p>
+        <p>Selected projects across engineering, AI, education, and digital transformation, with emphasis on measurable impact.</p>
       </SectionReveal>
       <div class="grid grid--projects">
         {projects.map((project, i) => (

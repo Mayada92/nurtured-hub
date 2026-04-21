@@ -56,6 +56,17 @@ const training = allTraining.filter((t) => t.data.lang === lang);
 const allSpeakingFiltered = allSpeaking.filter((s) => s.data.lang === lang);
 const courses = allCourses.filter((c) => c.data.lang === lang);
 const work = allWork.filter((w) => w.data.lang === lang);
+const posts = allPosts.filter((p) => p.data.lang === lang);
+
+const pinnedPostOrder = new Map(data.pin_posts.map((slug, index) => [slug, index]));
+const pinnedPosts = posts
+  .filter((p) => data.pin_posts.includes(p.slug))
+  .sort((a, b) => {
+    const aOrder = pinnedPostOrder.get(a.slug) ?? Number.MAX_SAFE_INTEGER;
+    const bOrder = pinnedPostOrder.get(b.slug) ?? Number.MAX_SAFE_INTEGER;
+    if (aOrder !== bOrder) return aOrder - bOrder;
+    return b.data.date.getTime() - a.data.date.getTime();
+  });
 
 // Filter Toastmasters speeches - only show in education and volunteering profiles, not engineering
 const speaking = focus === 'engineering' 
@@ -99,10 +110,25 @@ const certificationsByDomain = organizeByDomain(certifications, lang);
 const coursesByDomain = organizeByDomain(coursework, lang);
 const trainingByDomain = organizeByDomain(training, lang);
 const speakingByDomain = organizeByDomain(speaking, lang);
-const projectsByDomain = organizeByDomain(
-  allProjects.filter((p) => p.data.lang === lang && data.include_tags.some((tag) => p.data.tags.includes(tag))),
-  lang
-);
+const pinnedProjectOrder = new Map(data.pin_projects.map((slug, index) => [slug, index]));
+const projectsForProfile = allProjects.filter((p) => {
+  if (p.data.lang !== lang) return false;
+  const isPinned = data.pin_projects.includes(p.slug);
+  const matchesTags = data.include_tags.some((tag) => p.data.tags.includes(tag));
+  return isPinned || matchesTags;
+});
+const sortProjectsForProfile = (a: (typeof projectsForProfile)[number], b: (typeof projectsForProfile)[number]) => {
+  const aOrder = pinnedProjectOrder.get(a.slug);
+  const bOrder = pinnedProjectOrder.get(b.slug);
+  const aPinned = aOrder !== undefined;
+  const bPinned = bOrder !== undefined;
+  if (aPinned && bPinned) return aOrder! - bOrder!;
+  if (aPinned) return -1;
+  if (bPinned) return 1;
+  if (b.data.year !== a.data.year) return b.data.year - a.data.year;
+  return a.data.title.localeCompare(b.data.title);
+};
+const projectsByDomain = organizeByDomain(projectsForProfile, lang);
 
 const focusLabels: Record<string, string> = {
   'children-education': 'Children & Education',
@@ -120,7 +146,7 @@ const education = [
     institution: 'UC Berkeley',
     location: 'Online degree',
     field: 'Master of Information and Data Science',
-    date: 'Expected Dec 2025',
+    date: 'Completed Dec 2025',
     url: 'https://www.ischool.berkeley.edu/people/mayadah-alhashem',
     note: 'Ranked #1 top DS online master\'s degree • Focus: Machine learning applications in petroleum engineering and EdTech • Featured on I School website'
   },
@@ -129,7 +155,7 @@ const education = [
     institution: 'Ball State University',
     location: 'Online degree',
     field: 'Human Development and Learning',
-    date: 'Expected Dec 2025',
+    date: 'Completed Dec 2025',
     note: 'Focus: Cognitive development in childhood/adolescence, educational psychology, learning theory, and developmental milestones'
   },
   {
@@ -187,7 +213,7 @@ if (focus === 'children-education') {
   if (speaking.length > 0) headings.push({ id: 'speaking', text: 'Speaking & Thought Leadership', level: 2 });
   if (training.length > 0) headings.push({ id: 'training', text: 'Training & Lectures', level: 2 });
   // Writing
-  if (allPosts.filter((p) => p.data.lang === lang && data.pin_posts.includes(p.slug)).length > 0) {
+  if (pinnedPosts.length > 0) {
     headings.push({ id: 'writing', text: 'Writing & Thought Leadership', level: 2 });
   }
   // News & Media - Removed from profiles, now has dedicated page
@@ -229,6 +255,8 @@ else if (focus === 'engineering') {
   if (certifications.length > 0) headings.push({ id: 'certifications', text: 'Certifications', level: 2 });
   // Courses (at the end)
   if (coursework.length > 0) headings.push({ id: 'courses', text: 'Courses', level: 2 });
+  // Writing
+  if (pinnedPosts.length > 0) headings.push({ id: 'writing', text: 'Writing', level: 2 });
   // News & Media - Removed from profiles, now has dedicated page
 }
 // Data Science Domain Order: Overview → Education → Projects → Technical Skills → Experience → Hackathons → Certifications → Courses
@@ -260,7 +288,7 @@ else if (focus === 'data-science') {
   // Courses (at the end)
   if (coursework.length > 0) headings.push({ id: 'courses', text: 'Courses', level: 2 });
   // Writing
-  if (allPosts.filter((p) => p.data.lang === lang && data.pin_posts.includes(p.slug)).length > 0) {
+  if (pinnedPosts.length > 0) {
     headings.push({ id: 'writing', text: 'Writing', level: 2 });
   }
   // News & Media - Removed from profiles, now has dedicated page
@@ -305,7 +333,7 @@ else {
   // Courses (at the end)
   if (coursework.length > 0) headings.push({ id: 'courses', text: 'Courses', level: 2 });
   // Writing
-  if (allPosts.filter((p) => p.data.lang === lang && data.pin_posts.includes(p.slug)).length > 0) {
+  if (pinnedPosts.length > 0) {
     headings.push({ id: 'writing', text: 'Writing', level: 2 });
   }
   // News & Media - Removed from profiles, now has dedicated page
@@ -364,7 +392,7 @@ else {
               <h2>{domainLabels.en[domain]} - Projects</h2>
               <div class="section-content">
                 {domainProjects
-                  .sort((a, b) => b.data.year - a.data.year)
+                  .sort(sortProjectsForProfile)
                   .map((p) => (
                     <ProjectCard project={p} />
                   ))}
@@ -555,7 +583,7 @@ else {
               <h2>{domainLabels.en[domain]} - Projects</h2>
               <div class="section-content">
                 {domainProjects
-                  .sort((a, b) => b.data.year - a.data.year)
+                  .sort(sortProjectsForProfile)
                   .map((p) => (
                     <ProjectCard project={p} />
                   ))}
@@ -573,7 +601,7 @@ else {
               <h2>{domainLabels.en[domain]} - Projects</h2>
               <div class="section-content">
                 {domainProjects
-                  .sort((a, b) => b.data.year - a.data.year)
+                  .sort(sortProjectsForProfile)
                   .map((p) => (
                     <ProjectCard project={p} />
                   ))}
@@ -799,13 +827,11 @@ else {
 
         {/* Writing Section - Children's Education: After Speaking */}
         {focus === 'children-education' && (() => {
-          const pinnedPosts = allPosts.filter((p) => p.data.lang === lang && data.pin_posts.includes(p.slug));
           return pinnedPosts.length > 0 ? (
             <section id="writing">
               <h2>Writing & Thought Leadership</h2>
               <div class="section-content">
                 {pinnedPosts
-                  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
                   .map((post) => (
                     <PostCard post={post} />
                   ))}
@@ -872,10 +898,13 @@ else {
         )}
 
         {/* Writing Section - Data Science & Other: After Courses */}
-        {(focus === 'data-science' || focus === 'volunteering' || focus === 'engineering') && allPosts.filter((p) => p.data.lang === lang && data.pin_posts.includes(p.slug)).length > 0 && (
+        {(focus === 'data-science' || focus === 'volunteering' || focus === 'engineering') && pinnedPosts.length > 0 && (
           <section id="writing">
             <h2>Writing</h2>
             <div class="section-content">
+              {pinnedPosts.map((post) => (
+                <PostCard post={post} />
+              ))}
               <a href={`${base}en/writing`.replace(/\/+/g, '/')} class="profile-section-link">
                 View all articles →
               </a>

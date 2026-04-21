@@ -5,9 +5,9 @@ year: 2022
 tags: ["engineering", "digital-transformation", "automation"]
 summary: "🏆 P&FDD Digital Transformation Award Winner 2022. Automated ESP function testing system that eliminated field visits and reduced testing time from 4+ hours to 30 minutes, improving safety and operational efficiency."
 featured: true
-cover: "/images/projects/remote-function-test.webp"
+cover: "/images/projects/remote-function-test.png"
 images:
-  - "/images/projects/remote-function-test.webp"
+  - "/images/projects/remote-function-test.png"
 ---
 
 **🏆 P&FDD Digital Transformation Award Winner 2022**

@@ -11,6 +11,21 @@ const { project } = Astro.props;
 const { data } = project;
 const isRTL = data.lang === 'ar';
 const arrow = isRTL ? '←' : '→';
+
+const getExternalLabel = (url: string, primaryLabel: string) => {
+  const normalized = url.toLowerCase();
+  if (primaryLabel === 'repo') {
+    return normalized.includes('github.com') || normalized.includes('gitlab.com') || normalized.includes('bitbucket.org')
+      ? 'Repository'
+      : 'Reference';
+  }
+  if (primaryLabel === 'demo') {
+    return normalized.includes('medium.com') || normalized.includes('linkedin.com') || normalized.includes('substack.com')
+      ? 'Article'
+      : 'Demo';
+  }
+  return 'Link';
+};
 ---
 
 <article class="project-card">
@@ -43,12 +58,12 @@ const arrow = isRTL ? '←' : '→';
       </a>
       {data.repo && (
         <a href={data.repo} target="_blank" rel="noopener noreferrer">
-          Repository {arrow}
+          {getExternalLabel(data.repo, 'repo')} {arrow}
         </a>
       )}
       {data.demo && (
         <a href={data.demo} target="_blank" rel="noopener noreferrer">
-          Demo {arrow}
+          {getExternalLabel(data.demo, 'demo')} {arrow}
         </a>
       )}
     </footer>
@@ -107,14 +122,14 @@ const arrow = isRTL ? '←' : '→';
   }
 
   .project-card h3 {
-    font-size: 0.7875rem;
+    font-size: 0.95rem;
     font-weight: 600;
     margin-block-end: var(--space-2);
     line-height: 1.3;
   }
 
   .project-card p {
-    font-size: 0.6125rem;
+    font-size: 0.78rem;
     line-height: 1.5;
     color: var(--color-muted-ink);
     margin-block-end: var(--space-2);
@@ -129,7 +144,7 @@ const arrow = isRTL ? '←' : '→';
   }
 
   .year {
-    font-size: 0.6125rem;
+    font-size: 0.75rem;
     color: var(--color-muted-ink);
   }
 
@@ -143,6 +158,7 @@ const arrow = isRTL ? '←' : '→';
   .project-card__links a {
     text-decoration: none;
     font-weight: 500;
+    font-size: 0.78rem;
   }
 </style>
 

@@ -11,6 +11,7 @@ const { work } = Astro.props;
 const { data } = work;
 const isRTL = data.lang === 'ar';
 const dateFormat = isRTL ? 'ar-SA' : 'en-US';
+const skillSet = Array.from(new Set([...(data.skills ?? []), ...(data.technologies ?? [])]));
 
 // Render markdown content if it exists
 const { Content } = work.body ? await work.render() : { Content: null };
@@ -81,11 +82,11 @@ const workId = `work-${work.slug}`;
       </div>
     )}
     
-    {data.skills && data.skills.length > 0 && (
+    {skillSet.length > 0 && (
       <div class="expandable-work-card__skills">
         <h4>{isRTL ? 'المهارات' : 'Skills'}</h4>
         <div class="skills-list">
-          {data.skills.map((skill) => (
+          {skillSet.map((skill) => (
             <Badge label={skill} variant="accent-2" size="sm" />
           ))}
         </div>
