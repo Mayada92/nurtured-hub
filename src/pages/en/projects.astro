@@ -8,7 +8,6 @@ import { getCollection } from 'astro:content';
 const projects = (await getCollection('projects'))
   .filter((p) => p.data.lang === 'en')
   .sort((a, b) => {
-    if (a.data.featured !== b.data.featured) return a.data.featured ? -1 : 1;
     if (b.data.year !== a.data.year) return b.data.year - a.data.year;
     return a.data.title.localeCompare(b.data.title);
   });

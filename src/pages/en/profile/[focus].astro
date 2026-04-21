@@ -58,15 +58,9 @@ const courses = allCourses.filter((c) => c.data.lang === lang);
 const work = allWork.filter((w) => w.data.lang === lang);
 const posts = allPosts.filter((p) => p.data.lang === lang);
 
-const pinnedPostOrder = new Map(data.pin_posts.map((slug, index) => [slug, index]));
 const pinnedPosts = posts
   .filter((p) => data.pin_posts.includes(p.slug))
-  .sort((a, b) => {
-    const aOrder = pinnedPostOrder.get(a.slug) ?? Number.MAX_SAFE_INTEGER;
-    const bOrder = pinnedPostOrder.get(b.slug) ?? Number.MAX_SAFE_INTEGER;
-    if (aOrder !== bOrder) return aOrder - bOrder;
-    return b.data.date.getTime() - a.data.date.getTime();
-  });
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
 // Filter Toastmasters speeches - only show in education and volunteering profiles, not engineering
 const speaking = focus === 'engineering' 
@@ -110,7 +104,6 @@ const certificationsByDomain = organizeByDomain(certifications, lang);
 const coursesByDomain = organizeByDomain(coursework, lang);
 const trainingByDomain = organizeByDomain(training, lang);
 const speakingByDomain = organizeByDomain(speaking, lang);
-const pinnedProjectOrder = new Map(data.pin_projects.map((slug, index) => [slug, index]));
 const projectsForProfile = allProjects.filter((p) => {
   if (p.data.lang !== lang) return false;
   const isPinned = data.pin_projects.includes(p.slug);
@@ -118,13 +111,6 @@ const projectsForProfile = allProjects.filter((p) => {
   return isPinned || matchesTags;
 });
 const sortProjectsForProfile = (a: (typeof projectsForProfile)[number], b: (typeof projectsForProfile)[number]) => {
-  const aOrder = pinnedProjectOrder.get(a.slug);
-  const bOrder = pinnedProjectOrder.get(b.slug);
-  const aPinned = aOrder !== undefined;
-  const bPinned = bOrder !== undefined;
-  if (aPinned && bPinned) return aOrder! - bOrder!;
-  if (aPinned) return -1;
-  if (bPinned) return 1;
   if (b.data.year !== a.data.year) return b.data.year - a.data.year;
   return a.data.title.localeCompare(b.data.title);
 };
