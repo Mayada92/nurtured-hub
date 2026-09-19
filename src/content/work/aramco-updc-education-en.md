@@ -6,7 +6,7 @@ role: "Internal Instructor, Content Developer & AI/Data Science SME"
 start_date: 2017-10-01
 ongoing: true
 domain: ["educational-psychology", "data-science", "engineering"]
-description: "Parallel to my primary engineering roles at Saudi Aramco (Flow Assurance, Artificial Lift, Reservoir Studies, Production Engineering), I have maintained an additional, concurrent role in the company's internal education ecosystem for eight years. This work is separate from my main engineering responsibilities and focuses exclusively on training, course development, digital capability building, and thought leadership. I contribute to the Upstream Professional Development Center (UPDC) and several upstream Communities of Practice, supporting the professional development of upstream engineers and technical staff across the organization. Delivered the flagship Digital Transformation in Upstream session as part of the UPOP curriculum, introducing early-career engineers to Aramco's digital ecosystem and data-driven decision-making. Developed the anomaly detection module for UPDC's Unsupervised Machine Learning course, creating comprehensive curriculum materials, hands-on exercises, and practical case studies. Appointed as the exclusive internal instructor for the DASCA (Data Science) certification track, designing the full 5-day course curriculum and building an adaptive learning platform with an extensive AI-generated question bank to identify learner weaknesses and boost exam readiness."
+description: "Parallel to my primary engineering roles at Saudi Aramco (Flow Assurance, Artificial Lift, Reservoir Studies, Production Engineering), I have maintained an additional, concurrent role in the company's internal education ecosystem for nine years. This work is separate from my main engineering responsibilities and focuses exclusively on training, course development, digital capability building, and thought leadership. I contribute to the Upstream Professional Development Center (UPDC) and several upstream Communities of Practice, supporting the professional development of upstream engineers and technical staff across the organization. Delivered the flagship Digital Transformation in Upstream session as part of the UPOP curriculum, introducing early-career engineers to Aramco's digital ecosystem and data-driven decision-making. Developed the anomaly detection module for UPDC's Unsupervised Machine Learning course, creating comprehensive curriculum materials, hands-on exercises, and practical case studies. Appointed as the exclusive internal instructor for the DASCA (Data Science) certification track, designing the full 5-day course curriculum and building an adaptive learning platform with an extensive AI-generated question bank to identify learner weaknesses and boost exam readiness."
 achievements:
   - "Instructor – Upstream Professional Onboarding Program (UPOP) (2024): Delivered flagship Digital Transformation in Upstream session"
   - "Content Developer – Unsupervised ML (Anomaly Detection) Course (2025): Developed curriculum materials, exercises, and practical case studies"
@@ -26,9 +26,9 @@ skills:
 
 **Oct 2017 – Present | Dhahran, Saudi Arabia**
 
-**Note:** This role runs parallel to my primary engineering positions at Saudi Aramco. While my main responsibilities have included Flow Assurance Engineering, Artificial Lift Engineering, Reservoir Studies, Production Engineering, and Data Science roles, I have simultaneously maintained this additional role in the company's internal education ecosystem for eight years.
+**Note:** This role runs parallel to my primary engineering positions at Saudi Aramco. While my main responsibilities have included Flow Assurance Engineering, Artificial Lift Engineering, Reservoir Studies, Production Engineering, and Data Science roles, I have simultaneously maintained this additional role in the company's internal education ecosystem for nine years.
 
-For eight years, I have been deeply involved in Saudi Aramco's internal education ecosystem, contributing to the Upstream Professional Development Center (UPDC) and several upstream Communities of Practice. This work is separate from my main engineering duties and focuses exclusively on training, course development, digital capability building, and thought leadership, supporting the professional development of upstream engineers and technical staff across the organization.
+For nine years, I have been deeply involved in Saudi Aramco's internal education ecosystem, contributing to the Upstream Professional Development Center (UPDC) and several upstream Communities of Practice. This work is separate from my main engineering duties and focuses exclusively on training, course development, digital capability building, and thought leadership, supporting the professional development of upstream engineers and technical staff across the organization.
 
 ## Key Contributions
 
@@ -70,7 +70,7 @@ These contributions include reviewing curriculum materials, providing technical 
 
 ## Scope & Impact
 
-This additional role has reached hundreds of engineers and technical staff across Saudi Aramco's upstream organization over eight years. The work demonstrates extensive experience in:
+This additional role has reached hundreds of engineers and technical staff across Saudi Aramco's upstream organization over nine years. The work demonstrates extensive experience in:
 
 - **Adult Learning & Pedagogy**: Adapting teaching methods for diverse professional audiences with varying technical backgrounds, from entry-level engineers to senior technical leaders
 - **Curriculum Development**: Creating comprehensive educational materials including course outlines, lecture content, hands-on exercises, case studies, and assessment tools
