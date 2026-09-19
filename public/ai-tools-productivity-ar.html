@@ -19,7 +19,10 @@
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Cairo', sans-serif;
             font-weight: 700;
+            line-height: 1.35;
+            overflow: visible;
         }
+        h1, h2 { padding-top: 0.08em; padding-bottom: 0.06em; }
 
         /* RTL layout fixes */
         [dir="rtl"] .border-l-4 {
@@ -255,6 +258,10 @@
 
         /* Hero */
         header.hero-gradient { position: relative; overflow: hidden; }
+        header.hero-gradient h1,
+        section > .container > h2 {
+            line-height: 1.4 !important;
+        }
         header.hero-gradient::before {
             content: '';
             position: absolute; inset: 0;
@@ -436,7 +443,7 @@
                 </div>
                 <div class="flex flex-col md:flex-row items-center gap-10 mb-10">
                     <div class="md:w-1/2">
-                        <img src="https://venturebeat.com/wp-content/uploads/2024/09/Advanced-Voice-Mode-Access.png" alt="واجهة ChatGPT الصوتية" class="rounded-lg shadow-lg w-full">
+                        <img src="images/projects/chatgpt-live.jpg?v=3" alt="واجهة ChatGPT الصوتية" class="rounded-lg shadow-lg w-full">
                     </div>
                     <div class="md:w-1/2">
                         <div class="inline-block mb-2"><span class="badge bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">ميزة متقدمة</span></div>
@@ -539,7 +546,7 @@
                 </div>
                 <div class="flex flex-col md:flex-row items-center gap-10 mb-10">
                     <div class="md:w-1/2">
-                        <img src="https://eleven-public-cdn.elevenlabs.io/payloadcms/wwtt8wgzj3n-SpeechSynthesis.png" alt="واجهة ElevenLabs" class="rounded-lg shadow-lg w-full">
+                        <img src="images/ai-tools/ar/02-wwtt8wgzj3n-SpeechSynthesis.png" alt="واجهة ElevenLabs" class="rounded-lg shadow-lg w-full">
                     </div>
                     <div class="md:w-1/2">
                         <div class="inline-block mb-2"><span class="badge bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">أداة صوتية</span></div>
@@ -561,14 +568,14 @@
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
                     <div class="tool-demo">
-                        <img src="https://cdn.prod.website-files.com/665c948f9eb1d848b767c1a3/668fbbfd33d8946ba87bad5b_11Labs%204.webp" alt="مولد أصوات ElevenLabs" class="w-full rounded-t-lg">
+                        <img src="images/ai-tools/ar/03-668fbbfd33d8946ba87bad5b_11Labs%204.webp" alt="مولد أصوات ElevenLabs" class="w-full rounded-t-lg">
                         <div class="p-6 bg-white shadow-md">
                             <h4 class="font-bold mb-2">واجهة اختيار الصوت</h4>
                             <p class="text-gray-600">اختر من بين عشرات الأصوات المحترفة بلكنات وأعمار وأنماط عاطفية مختلفة لتناسب محتواك تماماً.</p>
                         </div>
                     </div>
                     <div class="tool-demo">
-                        <img src="https://cdn.prod.website-files.com/6558b275de12de54c5a146d2/6776ff4ae8709c1cd5d85caf_6776fdc3ad35a971927810e3_2-elevenlabs-text-to-speech-interface.webp" alt="محرر نصوص ElevenLabs" class="w-full rounded-t-lg">
+                        <img src="images/ai-tools/ar/04-6776ff4ae8709c1cd5d85caf_6776fdc3ad35a971927810e3_2-elevenlabs-text-to-speech-interface.webp" alt="محرر نصوص ElevenLabs" class="w-full rounded-t-lg">
                         <div class="p-6 bg-white shadow-md">
                             <h4 class="font-bold mb-2">محرر النصوص مع دعم SSML</h4>
                             <p class="text-gray-600">دقِّق كلامك باستخدام وسوم لغة ترميز تركيب الكلام للتحكم في التشديد والتوقفات والنطق وغيرها.</p>
@@ -613,7 +620,7 @@
                 </div>
                 <div class="flex flex-col md:flex-row items-center gap-10 mb-10">
                     <div class="md:w-1/2">
-                        <img src="https://images.ctfassets.net/lzny33ho1g45/BwGQR6jcTSt4hcxwhPOH9/bf035198dad1bd9927d4f1f39930090e/chatgpt-deep-research-image3.png" alt="ChatGPT Deep Research" class="rounded-lg shadow-lg w-full">
+                        <img src="images/ai-tools/ar/05-chatgpt-deep-research-image3.png" alt="ChatGPT Deep Research" class="rounded-lg shadow-lg w-full">
                     </div>
                     <div class="md:w-1/2">
                         <div class="inline-block mb-2"><span class="badge bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">مساعد البحث</span></div>
@@ -690,12 +697,12 @@
                         </div>
                     </div>
                     <div class="md:w-1/2">
-                        <img src="https://cdn.mos.cms.futurecdn.net/8jEQbxZoF67cNeRWwNtE9H.jpg" alt="واجهة Suno AI" class="rounded-lg shadow-lg w-full">
+                        <img src="images/ai-tools/ar/06-8jEQbxZoF67cNeRWwNtE9H.jpg" alt="واجهة Suno AI" class="rounded-lg shadow-lg w-full">
                     </div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div class="tool-demo">
-                        <img src="https://www.fahimai.com/wp-content/uploads/2024/08/Untitled-design-3-3.png" alt="إنشاء موسيقى Suno" class="w-full rounded-t-lg">
+                        <img src="images/ai-tools/ar/07-Untitled-design-3-3.png" alt="إنشاء موسيقى Suno" class="w-full rounded-t-lg">
                         <div class="p-4 bg-white shadow-md">
                             <h4 class="font-bold mb-2">توليد الموسيقى من النص</h4>
                             <p class="text-gray-600 mb-4">صِف نوع الموسيقى التي تريدها ببساطة، وسيُنشئ Suno تنسيقاً كاملاً بآلات وأصوات.</p>
@@ -705,7 +712,7 @@
                         </div>
                     </div>
                     <div class="tool-demo">
-                        <img src="https://www.cursor-ide.com/blog/suno-ai-free-guide-2025/suno-interface.png" alt="واجهة Suno AI" class="w-full rounded-t-lg">
+                        <img src="images/ai-tools/ar/08-suno-interface.png" alt="واجهة Suno AI" class="w-full rounded-t-lg">
                         <div class="p-4 bg-white shadow-md">
                             <h4 class="font-bold mb-2">ضبط إبداعك الموسيقي</h4>
                             <p class="text-gray-600 mb-4">يُتيح Suno ضبط كل جانب من جوانب موسيقاك بعناصر تحكم تفصيلية.</p>
@@ -732,7 +739,7 @@
                 </div>
                 <div class="flex flex-col md:flex-row items-center gap-10 mb-10">
                     <div class="md:w-1/2">
-                        <img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/hero-audio_overview.width-1300.png" alt="ميزة بودكاست NotebookLM" class="rounded-lg shadow-lg w-full">
+                        <img src="images/ai-tools/ar/09-hero-audio_overview.width-1300.png" alt="ميزة بودكاست NotebookLM" class="rounded-lg shadow-lg w-full">
                     </div>
                     <div class="md:w-1/2">
                         <div class="inline-block mb-2"><span class="badge bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">أداة بحث وإبداع</span></div>
@@ -755,7 +762,7 @@
                 <div class="mb-8">
                     <h4 class="text-2xl font-bold mb-4 text-center">نظرة صوتية عامة عبر NotebookLM</h4>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Audio_Overview-UI.width-500.format-webp.webp" alt="واجهة الصوت في NotebookLM" class="rounded-lg shadow-lg">
+                        <img src="images/ai-tools/ar/10-Audio_Overview-UI.width-500.format-webp.webp" alt="واجهة الصوت في NotebookLM" class="rounded-lg shadow-lg">
                         <div>
                             <h5 class="font-bold text-lg mb-3">كيف يعمل:</h5>
                             <ol class="list-decimal pr-6 space-y-3 text-gray-700">
@@ -819,13 +826,13 @@
                     <div>
                         <div class="inline-block mb-2"><span class="badge bg-pink-100 text-pink-800 text-xs px-2 py-1 rounded">Leonardo AI</span></div>
                         <h4 class="text-xl font-bold mb-3">توليد الصور</h4>
-                        <img src="https://letsenhance.io/blog/content/images/2024/08/ai-image-prompts-6.png" alt="توليد صور بالذكاء الاصطناعي" class="rounded-lg shadow-lg w-full mb-4">
+                        <img src="images/ai-tools/ar/11-ai-image-prompts-6.png" alt="توليد صور بالذكاء الاصطناعي" class="rounded-lg shadow-lg w-full mb-4">
                         <p class="text-gray-600">يُحوِّل Leonardo.AI الأوصاف النصية إلى صور عالية التفصيل وقابلة للتخصيص عبر أنماط وسياقات متنوعة.</p>
                     </div>
                     <div>
                         <div class="inline-block mb-2"><span class="badge bg-pink-100 text-pink-800 text-xs px-2 py-1 rounded">Kling AI</span></div>
                         <h4 class="text-xl font-bold mb-3">إنشاء الفيديو</h4>
-                        <img src="https://www.simform.com/wp-content/uploads/2023/05/text-to-image.png" alt="أمثلة تحويل النص إلى صورة" class="rounded-lg shadow-lg w-full mb-4 h-64 object-cover">
+                        <img src="images/ai-tools/ar/12-text-to-image.png" alt="أمثلة تحويل النص إلى صورة" class="rounded-lg shadow-lg w-full mb-4 h-64 object-cover">
                         <p class="text-gray-600">يتخصص Kling AI في تحويل الأوصاف النصية أو الصور الثابتة إلى محتوى فيديو متحرك وديناميكي.</p>
                     </div>
                 </div>
@@ -888,7 +895,7 @@
                 </div>
                 <div class="flex flex-col md:flex-row items-center gap-10 mb-8">
                     <div class="md:w-1/2">
-                        <img src="https://images.fastcompany.com/image/upload/f_webp,q_auto,c_fit/wp-cms-2/2024/08/p-91178294-napkin-AI.jpg" alt="واجهة Napkin AI" class="rounded-lg shadow-lg w-full">
+                        <img src="images/ai-tools/ar/13-p-91178294-napkin-AI.jpg" alt="واجهة Napkin AI" class="rounded-lg shadow-lg w-full">
                     </div>
                     <div class="md:w-1/2">
                         <div class="inline-block mb-2"><span class="badge bg-cyan-100 text-cyan-800 text-xs px-2 py-1 rounded">أداة مرئية بالذكاء الاصطناعي</span></div>
@@ -910,14 +917,14 @@
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                     <div class="tool-demo">
-                        <img src="https://miro.medium.com/v2/resize:fit:1400/1*_tFNV6PTCpxZs6kGfatqCg.png" alt="مثال Napkin AI" class="w-full rounded-t-lg">
+                        <img src="images/ai-tools/ar/14-1-_tFNV6PTCpxZs6kGfatqCg.png" alt="مثال Napkin AI" class="w-full rounded-t-lg">
                         <div class="p-4 bg-gray-50 shadow-md">
                             <h4 class="font-bold mb-2">تصور مخططات العمليات</h4>
                             <p class="text-gray-600">يُحوِّل Napkin AI أوصاف العمليات المكتوبة إلى مخططات تدفق واضحة واحترافية بنقرة واحدة.</p>
                         </div>
                     </div>
                     <div class="tool-demo">
-                        <img src="https://avidopenaccess.org/wp-content/uploads/2025/01/Untitled-picture-3.png" alt="مخطط Napkin AI" class="w-full rounded-t-lg">
+                        <img src="images/ai-tools/ar/15-Untitled-picture-3.png" alt="مخطط Napkin AI" class="w-full rounded-t-lg">
                         <div class="p-4 bg-gray-50 shadow-md">
                             <h4 class="font-bold mb-2">تصور المفاهيم</h4>
                             <p class="text-gray-600">حوِّل المفاهيم المعقدة إلى مخططات بصرية سهلة الفهم تُعزِّز الاستيعاب والاستذكار.</p>
@@ -967,7 +974,7 @@
                 </div>
                 <div class="flex flex-col md:flex-row items-center gap-10 mb-10">
                     <div class="md:w-1/2">
-                        <img src="https://cdn.prod.website-files.com/634e7aa49f5b025e1fd9e87b/66a948634eecd9df90562244_ptgyu8gldu.webp" alt="Claude AI Artifacts" class="rounded-lg shadow-lg w-full">
+                        <img src="images/ai-tools/ar/16-66a948634eecd9df90562244_ptgyu8gldu.webp" alt="Claude AI Artifacts" class="rounded-lg shadow-lg w-full">
                     </div>
                     <div class="md:w-1/2">
                         <div class="inline-block mb-2"><span class="badge bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">إدارة المشاريع</span></div>
@@ -989,7 +996,7 @@
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                     <div class="tool-demo">
-                        <img src="https://beginswithai.com/wp-content/uploads/2024/06/What-Are-Artifacts-in-Claude-explainer-video.webp" alt="مثال Claude Artifacts" class="w-full rounded-t-lg">
+                        <img src="images/ai-tools/ar/17-What-Are-Artifacts-in-Claude-explainer-video.webp" alt="مثال Claude Artifacts" class="w-full rounded-t-lg">
                         <div class="p-6 bg-white shadow-md">
                             <h4 class="text-xl font-bold mb-2">تطوير الكود</h4>
                             <p class="text-gray-700">توليد الكود واختباره وتصحيحه بواسطة Artifacts التفاعلية التي تتيح تعديلاً في الوقت الفعلي.</p>
@@ -1001,7 +1008,7 @@
                         </div>
                     </div>
                     <div class="tool-demo">
-                        <img src="https://beginswithai.com/wp-content/uploads/2024/06/exporting-artifacts-in-Claude-conversations.png.webp" alt="تصور Claude Artifacts" class="w-full rounded-t-lg">
+                        <img src="images/ai-tools/ar/18-exporting-artifacts-in-Claude-conversations.png.webp" alt="تصور Claude Artifacts" class="w-full rounded-t-lg">
                         <div class="p-6 bg-white shadow-md">
                             <h4 class="text-xl font-bold mb-2">تصور البيانات</h4>
                             <p class="text-gray-700">أنشئ رسوماً بيانية ومخططات تفاعلية تُعرض مباشرةً في نافذة الـ Artifact.</p>
@@ -1053,7 +1060,7 @@
                 </div>
                 <div class="flex flex-col md:flex-row items-center gap-10 mb-10">
                     <div class="md:w-1/2">
-                        <img src="https://slidesgo.com/images/landing/ai-generator1.png" alt="Slidesgo AI Presentation Maker" class="rounded-lg shadow-lg w-full">
+                        <img src="images/ai-tools/ar/19-ai-generator1.png" alt="Slidesgo AI Presentation Maker" class="rounded-lg shadow-lg w-full">
                     </div>
                     <div class="md:w-1/2">
                         <div class="inline-block mb-2"><span class="badge bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded">منشئ العروض</span></div>
@@ -1110,7 +1117,7 @@
                 </div>
                 <div class="flex flex-col md:flex-row items-center gap-10 mb-10">
                     <div class="md:w-1/2">
-                        <img src="https://miro.medium.com/v2/resize:fit:1400/1*_tNLSFfyQ4Q4T3T-E5bMlA.png" alt="Genspark AI Website Creation" class="rounded-lg shadow-lg w-full">
+                        <img src="images/ai-tools/ar/20-1-_tNLSFfyQ4Q4T3T-E5bMlA.png" alt="Genspark AI Website Creation" class="rounded-lg shadow-lg w-full">
                     </div>
                     <div class="md:w-1/2">
                         <div class="inline-block mb-2"><span class="badge bg-green-100 text-green-800 text-xs px-2 py-1 rounded">بناء مواقع بدون كود</span></div>
