@@ -1,6 +1,7 @@
 {
   "focus": "children-education",
   "headline": "Multidisciplinary engineer and data scientist focused on elevating children's education through AI, data science, and developmental psychology. Currently pursuing dual specializations in data science (UC Berkeley) and human development & learning (Ball State) to design adaptive, evidence-based learning tools that respect how children naturally grow.",
+  "headline_ar": "مهندسة وعالمة بيانات متعددة التخصصات، تركز على الارتقاء بتعليم الأطفال من خلال الذكاء الاصطناعي وعلم البيانات وعلم النفس التنموي. تدرس حالياً تخصصين مزدوجين في علم البيانات (جامعة كاليفورنيا بيركلي) والتنمية البشرية والتعلم (جامعة بول ستيت) لتصميم أدوات تعلم تكيفية ومبنية على الأدلة تحترم الطريقة الطبيعية لنمو الأطفال.",
   "include_tags": ["education", "children", "pedagogy", "research", "educational-psychology", "edtech", "early-childhood", "human-development", "learning-analytics", "adaptive-learning"],
   "pin_projects": ["chronic-absenteeism-prediction-en", "allam-challenge-en", "techstars-hackathon-en"],
   "pin_posts": ["when-not-to-use-ml-en", "unlocking-fundamentals-learning-en", "are-we-preparing-kids-en"],

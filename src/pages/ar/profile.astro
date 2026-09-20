@@ -30,7 +30,7 @@ const profileLinks = {
             <SectionReveal client:load delay={i * 0.1}>
               <a href={link.href} class="profile-card">
                 <h2>{link.label}</h2>
-                <p>{profile.data.headline}</p>
+                <p>{profile.data.headline_ar || profile.data.headline}</p>
               </a>
             </SectionReveal>
           );

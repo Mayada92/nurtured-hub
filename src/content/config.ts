@@ -72,6 +72,7 @@ const profilesCollection = defineCollection({
   schema: z.object({
     focus: z.enum(['children-education', 'data-science', 'volunteering', 'engineering']),
     headline: z.string(),
+    headline_ar: z.string().optional(),
     include_tags: z.array(z.string()),
     pin_projects: z.array(z.string()).default([]),
     pin_posts: z.array(z.string()).default([]),

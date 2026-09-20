@@ -187,16 +187,16 @@ relevantDomains.forEach((domain) => {
 });
 ---
 
-<BaseLayout title={title} description={data.headline} lang="ar">
+<BaseLayout title={title} description={data.headline_ar || data.headline} lang="ar">
   <AnimatedBackground client:load type="molecules" density={50} speed={0.3} opacity={0.3} />
   <div class="content">
     <div style="display: grid; grid-template-columns: 1fr 300px; gap: var(--space-6); align-items: start;">
       <article>
         <ProfileHeader title={title} focus={focus} />
-        
+
         <section id="overview">
           <h2>نظرة عامة</h2>
-          <p>{data.headline}</p>
+          <p>{data.headline_ar || data.headline}</p>
         </section>
 
         {/* Education Section */}
