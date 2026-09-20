@@ -3,6 +3,7 @@ title: "Blazer Printer - Inkless Black-and-White Printing via Paper Pyrolysis"
 lang: en
 venue: "United States Patent and Trademark Office"
 year: 2015
+date: 2015-03-01
 authors: ["Mayadah Alhashem"]
 pdf_url: "https://patentimages.storage.googleapis.com/92/4a/b9/c8ff71349e3c0a/US20140267533A1.pdf"
 cover: "/images/papers/blazer-printer-patent.png"

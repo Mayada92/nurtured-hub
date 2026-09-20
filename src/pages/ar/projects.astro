@@ -3,10 +3,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
 import SectionReveal from '../../components/SectionReveal';
 import { getCollection } from 'astro:content';
+import { compareByRecency } from '../../utils/sort';
 
 const projects = (await getCollection('projects'))
   .filter((p) => p.data.lang === 'ar')
-  .sort((a, b) => b.data.year - a.data.year);
+  .sort(compareByRecency);
 ---
 
 <BaseLayout title="المشاريع" description="استكشف مشاريعي وأعمالي" lang="ar">

@@ -3,6 +3,7 @@ title: "Machine Learning Classification Model for Multiphase Flow Regimes in Hor
 lang: en
 venue: "International Petroleum Technology Conference (IPTC) 2020"
 year: 2020
+date: 2020-01-01
 authors: ["Mayadah Alhashem"]
 pdf_url: "https://onepetro.org/IPTCONF/proceedings/20IPTC/2-20IPTC/D023S042R001/154673"
 cover: "/images/papers/iptc-2020.webp"

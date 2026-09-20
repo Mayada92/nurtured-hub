@@ -2,6 +2,7 @@
 title: "AI Tools for Productivity - Practical Guide"
 lang: en
 year: 2025
+date: 2025-01-01
 tags: ["education", "productivity", "ai-tools", "workflows"]
 summary: "Practical guide to using modern AI tools to streamline knowledge work, with concrete workflows for writing, research, coding, and everyday productivity. Includes a dedicated section on Cursor AI as an AI-powered coding partner."
 cover: "/images/projects/cursor-ai-guide-overview.png"

@@ -2,6 +2,7 @@
 title: "MindFlow - AI-Powered Mindfulness Platform"
 lang: en
 year: 2023
+date: 2023-05-01
 tags: ["data-science", "machine-learning", "social-impact"]
 summary: "4th place winner in LabLabMe GAIA Hackathon out of 80 participants. Developed a web application using Python Flask and advanced AI technologies to create personalized mindfulness and meditation experiences in Arabic and English."
 featured: true

@@ -3,6 +3,7 @@ title: "High Rate Slim ESP Viability Assessment in the Field"
 lang: en
 venue: "Middle East Artificial Lift Conference & Exhibition (MEALC) 2022"
 year: 2022
+date: 2022-10-01
 authors: ["Mayadah Alhashem"]
 cover: "/images/papers/mealc.webp"
 ---

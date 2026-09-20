@@ -2,6 +2,7 @@
 title: "GazaChat - Offline Communication App"
 lang: en
 year: 2024
+date: 2024-07-01
 tags: ["social-impact", "data-science", "engineering"]
 summary: "Developed an offline messaging app for Gaza enabling communication without internet, WiFi, or SIM cards. Used WebRTC, React, LAN, and Mesh networks to address critical communication challenges in crisis situations."
 featured: true

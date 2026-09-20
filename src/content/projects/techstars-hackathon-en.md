@@ -2,6 +2,7 @@
 title: "Techstars Startup Weekend - FlexED/Labeeb"
 lang: en
 year: 2020
+date: 2020-07-01
 tags: ["educational-psychology", "data-science", "early-childhood"]
 summary: "Created early childhood education app with adaptive learning for toddlers during Techstars Startup Weekend hackathon."
 featured: true

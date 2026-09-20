@@ -3,6 +3,7 @@ title: "Leveraging Circular Economy Principles for Electrical Submersible Pump E
 lang: en
 venue: "Middle East Artificial Lift Conference & Exhibition (MEALC) 2024"
 year: 2024
+date: 2024-10-01
 authors: ["Mayadah Alhashem", "Serag Alaseef"]
 pdf_url: "https://www.researchgate.net/publication/385348434_Leveraging_Circular_Economy_Principles_for_Electrical_Submersible_Pump_Equipment"
 doi: "https://eurekamag.com/research/096/714/096714905.php"

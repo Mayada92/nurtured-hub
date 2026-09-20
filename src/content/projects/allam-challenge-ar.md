@@ -2,6 +2,7 @@
 title: "تحدي علام - منصة تعليم اللغة العربية للأطفال"
 lang: ar
 year: 2024
+date: 2024-10-01
 tags: ["educational-psychology", "edtech", "early-childhood", "children", "machine-learning"]
 summary: "قائدة فريق لتطوير منصة تعليمية تفاعلية للغة العربية للأطفال مع قصص قائمة على القرارات باستخدام نموذج علام العربي من آي بي إم. إنشاء تجارب تعليمية جذابة تجمع بين سرد القصص وتعلم اللغة."
 featured: true

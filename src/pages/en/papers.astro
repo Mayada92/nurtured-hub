@@ -4,10 +4,11 @@ import PaperCard from '../../components/PaperCard.astro';
 import SectionReveal from '../../components/SectionReveal';
 import AnimatedBackground from '../../components/AnimatedBackground';
 import { getCollection } from 'astro:content';
+import { compareByRecency } from '../../utils/sort';
 
 const papers = (await getCollection('papers'))
   .filter((p) => p.data.lang === 'en')
-  .sort((a, b) => b.data.year - a.data.year);
+  .sort(compareByRecency);
 
 const patents = papers.filter((p) => p.data.venue.includes('Patent'));
 const regularPapers = papers.filter((p) => !p.data.venue.includes('Patent'));

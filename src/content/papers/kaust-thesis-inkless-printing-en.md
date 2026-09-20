@@ -3,6 +3,7 @@ title: "Optimization of Paper Discoloration via Carbonization Using a CO2 Laser 
 lang: en
 venue: "King Abdullah University of Science and Technology (KAUST) - Master's Thesis in Mechanical Engineering"
 year: 2017
+date: 2017-05-01
 authors: ["Mayadah Alhashem"]
 pdf_url: "https://academia.kaust.edu.sa/en/studentTheses/optimization-of-paper-discoloration-via-pyrolysis-using-lasers-3"
 doi: "https://www.academia.edu/112259558/Optimization_of_Paper_Discoloration_via_Pyrolysis_Using_Lasers"

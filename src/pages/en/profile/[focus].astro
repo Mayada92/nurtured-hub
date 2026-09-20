@@ -18,6 +18,7 @@ import { getCollection } from 'astro:content';
 import { organizeByDomain, getDomainOrder, domainLabels } from '../../../utils/organize-by-domain';
 import type { Domain } from '../../../utils/organize-by-domain';
 import { getImagePath } from '../../../utils/path';
+import { compareByRecency } from '../../../utils/sort';
 
 export async function getStaticPaths() {
   const profiles = await getCollection('profiles');
@@ -111,7 +112,8 @@ const projectsForProfile = allProjects.filter((p) => {
   return isPinned || matchesTags;
 });
 const sortProjectsForProfile = (a: (typeof projectsForProfile)[number], b: (typeof projectsForProfile)[number]) => {
-  if (b.data.year !== a.data.year) return b.data.year - a.data.year;
+  const diff = compareByRecency(a, b);
+  if (diff !== 0) return diff;
   return a.data.title.localeCompare(b.data.title);
 };
 const projectsByDomain = organizeByDomain(projectsForProfile, lang);
@@ -605,8 +607,8 @@ else {
               <div class="section-content">
                 {pinnedPapers
                   .sort((a, b) => {
-                    // Sort by year descending, then by title
-                    if (b.data.year !== a.data.year) return b.data.year - a.data.year;
+                    const diff = compareByRecency(a, b);
+                    if (diff !== 0) return diff;
                     return a.data.title.localeCompare(b.data.title);
                   })
                   .map((paper) => (

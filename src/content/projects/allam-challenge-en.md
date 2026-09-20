@@ -2,6 +2,7 @@
 title: "Allam Challenge - Arabic Learning Platform for Children"
 lang: en
 year: 2024
+date: 2024-10-01
 tags: ["educational-psychology", "edtech", "early-childhood", "children", "machine-learning"]
 summary: "Team lead for developing an interactive Arabic learning platform for children with decision-based stories utilizing IBM's Allam Arabic LLM. Created engaging educational experiences that combine storytelling with language learning."
 featured: true

@@ -6,6 +6,7 @@ const projectsCollection = defineCollection({
     title: z.string(),
     lang: z.enum(['en', 'ar']),
     year: z.number(),
+    date: z.date().optional(), // More precise date for recency sorting; falls back to year when absent
     tags: z.array(z.string()),
     summary: z.string(),
     repo: z.string().url().optional(),
@@ -47,6 +48,7 @@ const papersCollection = defineCollection({
     lang: z.enum(['en', 'ar']),
     venue: z.string(),
     year: z.number(),
+    date: z.date().optional(), // More precise date for recency sorting; falls back to year when absent
     authors: z.array(z.string()),
     doi: z.string().optional(),
     pdf_url: z.string().optional(),

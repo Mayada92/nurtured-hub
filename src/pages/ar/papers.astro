@@ -3,10 +3,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import PaperCard from '../../components/PaperCard.astro';
 import SectionReveal from '../../components/SectionReveal';
 import { getCollection } from 'astro:content';
+import { compareByRecency } from '../../utils/sort';
 
 const papers = (await getCollection('papers'))
   .filter((p) => p.data.lang === 'ar')
-  .sort((a, b) => b.data.year - a.data.year);
+  .sort(compareByRecency);
 
 const patents = papers.filter((p) => p.data.venue.includes('Patent') || p.data.venue.includes('براءة'));
 const regularPapers = papers.filter((p) => !p.data.venue.includes('Patent') && !p.data.venue.includes('براءة'));

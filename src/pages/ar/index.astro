@@ -7,13 +7,15 @@ import PostCard from '../../components/PostCard.astro';
 import StatsSection from '../../components/StatsSection';
 import { getCollection } from 'astro:content';
 import { getBasePath, getImagePath } from '../../utils/path';
+import { compareByRecency } from '../../utils/sort';
 
 const base = getBasePath();
 
 const featuredProjects = (await getCollection('projects'))
   .filter((p) => p.data.lang === 'ar')
   .sort((a, b) => {
-    if (b.data.year !== a.data.year) return b.data.year - a.data.year;
+    const diff = compareByRecency(a, b);
+    if (diff !== 0) return diff;
     return a.data.title.localeCompare(b.data.title);
   })
   .slice(0, 6);

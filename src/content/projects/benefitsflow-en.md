@@ -2,6 +2,7 @@
 title: "BenefitsFlow - AI-Powered Public Benefits Navigator"
 lang: en
 year: 2025
+date: 2025-01-01
 tags: ["data-science", "machine-learning", "social-impact", "rag", "llm", "aws"]
 summary: "UC Berkeley MIDS Capstone project: AI-powered assistant helping millions navigate California's public benefits system. Built with full RAG architecture, AWS deployment, and privacy-first design."
 featured: true

@@ -2,6 +2,7 @@
 title: "Quraanathon Hackathon"
 lang: en
 year: 2020
+date: 2020-01-01
 tags: ["general", "social-impact"]
 summary: "Developed innovative social application serving the Holy Quran, focusing on reflecting on teachings and enhancing spiritual connection."
 featured: false

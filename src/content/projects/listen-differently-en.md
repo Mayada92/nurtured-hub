@@ -2,6 +2,7 @@
 title: "Listen Differently - SMRSEA"
 lang: en
 year: 2024
+date: 2024-05-01
 tags: ["data-science", "machine-learning", "graph-databases"]
 summary: "A smart music recommendation system for emerging artists (SMRSEA). Collaborated with UC Berkeley MIDS teammates to create a graph-based music discovery platform that prioritizes musical quality over popularity metrics."
 featured: true

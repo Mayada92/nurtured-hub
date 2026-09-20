@@ -3,6 +3,7 @@ title: "Removable Trap Stations for Hydrocarbon Flowlines"
 lang: en
 venue: "United States Patent and Trademark Office"
 year: 2021
+date: 2021-02-01
 authors: ["Mayadah Alhashem"]
 cover: "/images/papers/removable-trap-patent.png"
 images:

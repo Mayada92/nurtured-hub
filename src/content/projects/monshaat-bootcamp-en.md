@@ -2,6 +2,7 @@
 title: "Monshaat Bootcamp"
 lang: en
 year: 2024
+date: 2024-10-01
 tags: ["general", "business"]
 summary: "Led a 3-day bootcamp on AI applications in business development. Facilitated hands-on generative AI projects for entrepreneurs and SME owners, helping them understand and implement AI solutions in their businesses."
 featured: false

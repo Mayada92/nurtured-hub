@@ -2,6 +2,7 @@
 title: "Remote Function Test - ESP Monitoring Automation"
 lang: en
 year: 2022
+date: 2022-01-01
 tags: ["engineering", "digital-transformation", "automation"]
 summary: "🏆 P&FDD Digital Transformation Award Winner 2022. Automated ESP function testing system that eliminated field visits and reduced testing time from 4+ hours to 30 minutes, improving safety and operational efficiency."
 featured: true

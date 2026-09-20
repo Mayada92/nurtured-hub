@@ -2,6 +2,7 @@
 title: "Chronic Absenteeism Prediction - Educational Data Science"
 lang: en
 year: 2024
+date: 2024-12-01
 tags: ["data-science", "educational-psychology", "machine-learning", "edtech"]
 summary: "Educational data science application for predicting chronic absenteeism in students. Applied machine learning techniques to identify at-risk students and support early intervention strategies."
 featured: true

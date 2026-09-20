@@ -3,6 +3,7 @@ title: "The Optimization of Paper Discoloration via Carbonization Using a CO2 La
 lang: en
 venue: "7th Saudi Arabian Section of the Combustion Institute (SAS-CI) Annual Meeting"
 year: 2017
+date: 2017-05-01
 authors: ["Mayadah Alhashem"]
 cover: "/images/papers/co2-sasci-laser-discoloration.png"
 images:

@@ -2,6 +2,7 @@
 title: "Supercharge Your Career with Hands-On AI Tools"
 lang: en
 year: 2024
+date: 2024-07-01
 tags: ["data-science", "social-impact", "general"]
 summary: "Led 2-hour live Arabic workshop for 60+ displaced Palestinian tech professionals on AI tools for career development, job search, and skill enhancement. Demonstrated practical AI applications with hands-on training."
 featured: true

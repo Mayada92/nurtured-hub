@@ -2,6 +2,7 @@
 title: "Lab7 Bootcamp - Caffeine to Biofuel Reactor"
 lang: en
 year: 2023
+date: 2023-03-01
 tags: ["engineering", "data-science", "sustainability"]
 summary: "Developed interactive live dashboard and computer vision model for caffeine to biofuel reactor prototype as part of Lab7 Professional Innovator Bootcamp at Aramco Lab7."
 featured: true
