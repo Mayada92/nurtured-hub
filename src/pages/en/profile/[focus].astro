@@ -19,6 +19,7 @@ import { organizeByDomain, getDomainOrder, domainLabels } from '../../../utils/o
 import type { Domain } from '../../../utils/organize-by-domain';
 import { getImagePath } from '../../../utils/path';
 import { compareByRecency } from '../../../utils/sort';
+import { isPinned } from '../../../utils/content';
 
 export async function getStaticPaths() {
   const profiles = await getCollection('profiles');
@@ -60,7 +61,7 @@ const work = allWork.filter((w) => w.data.lang === lang);
 const posts = allPosts.filter((p) => p.data.lang === lang);
 
 const pinnedPosts = posts
-  .filter((p) => data.pin_posts.includes(p.slug))
+  .filter((p) => isPinned(p.slug, data.pin_posts))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
 // Filter Toastmasters speeches - only show in education and volunteering profiles, not engineering
@@ -107,9 +108,9 @@ const trainingByDomain = organizeByDomain(training, lang);
 const speakingByDomain = organizeByDomain(speaking, lang);
 const projectsForProfile = allProjects.filter((p) => {
   if (p.data.lang !== lang) return false;
-  const isPinned = data.pin_projects.includes(p.slug);
+  const pinned = isPinned(p.slug, data.pin_projects);
   const matchesTags = data.include_tags.some((tag) => p.data.tags.includes(tag));
-  return isPinned || matchesTags;
+  return pinned || matchesTags;
 });
 const sortProjectsForProfile = (a: (typeof projectsForProfile)[number], b: (typeof projectsForProfile)[number]) => {
   const diff = compareByRecency(a, b);
@@ -225,7 +226,7 @@ else if (focus === 'engineering') {
     }
   });
   // Patents & Publications
-  if (allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.slug)).length > 0) {
+  if (allPapers.filter((p) => p.data.lang === lang && isPinned(p.slug, data.pin_papers)).length > 0) {
     headings.push({ id: 'papers', text: 'Patents & Publications', level: 2 });
   }
   // Speaking & Knowledge Sharing
@@ -293,7 +294,7 @@ else {
     }
   });
   // Papers & Patents
-  if (allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.slug)).length > 0) {
+  if (allPapers.filter((p) => p.data.lang === lang && isPinned(p.slug, data.pin_papers)).length > 0) {
     headings.push({ id: 'papers', text: 'Papers & Patents', level: 2 });
   }
   // Public Speaking & Knowledge Sharing
@@ -600,7 +601,7 @@ else {
 
         {/* Papers & Patents Section - Engineering only, after Projects */}
         {focus === 'engineering' && (() => {
-          const pinnedPapers = allPapers.filter((p) => p.data.lang === lang && data.pin_papers.includes(p.slug));
+          const pinnedPapers = allPapers.filter((p) => p.data.lang === lang && isPinned(p.slug, data.pin_papers));
           return pinnedPapers.length > 0 ? (
             <section id="papers">
               <h2>Patents & Publications</h2>
