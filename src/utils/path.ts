@@ -8,6 +8,12 @@ export function getRelativePath(currentPath: string, targetLang: 'en' | 'ar'): s
   // Remove leading base path if present
   let path = currentPath.replace(new RegExp(`^${BASE_PATH}`), '');
 
+  // Ensure path starts with / before stripping the language prefix, since
+  // BASE_PATH's trailing slash otherwise eats the slash "en"/"ar" need to match
+  if (!path.startsWith('/')) {
+    path = '/' + path;
+  }
+
   // Remove current language prefix
   path = path.replace(/^\/(en|ar)/, '');
 

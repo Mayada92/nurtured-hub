@@ -17,6 +17,7 @@ import { getCollection } from 'astro:content';
 import { organizeByDomain, getDomainOrder, domainLabels } from '../../../utils/organize-by-domain';
 import type { Domain } from '../../../utils/organize-by-domain';
 import { getImagePath } from '../../../utils/path';
+import { compareByRecency } from '../../../utils/sort';
 
 export async function getStaticPaths() {
   const profiles = await getCollection('profiles');
@@ -228,13 +229,13 @@ relevantDomains.forEach((domain) => {
           const domainProjects = projectsByDomain[domain];
           
           // Work examples (BSU/UC Berkeley) - shown as expandable cards
-          const workExamples = domain === 'educational-psychology' 
+          const workExamples = domain === 'educational-psychology'
             ? [
                 {
-                  title: 'EDPS 604 - Praise Brochure',
+                  title: 'EDPS 604 - نشرة المديح التحفيزي',
                   institution: 'Ball State University',
                   course: 'EDPS 604',
-                  description: 'Created an educational brochure on the topic of praise in educational settings, focusing on effective praise strategies and their impact on student motivation.',
+                  description: 'إنشاء نشرة تعليمية حول موضوع المديح في البيئات التعليمية، مع التركيز على استراتيجيات المديح الفعالة وتأثيرها على دافعية الطلاب.',
                   images: [],
                   files: [
                     { name: 'Praise Brochure.pdf', url: getImagePath('/files/Praise Brochure EDPS 604.pdf'), type: 'pdf' },
@@ -245,29 +246,29 @@ relevantDomains.forEach((domain) => {
             : domain === 'data-science'
             ? [
                 {
-                  title: 'Chronic Absenteeism Prediction - ONGB Internship',
+                  title: 'التنبؤ بالتغيب المزمن - تدريب ONGB',
                   institution: 'Oakland Natives Give Back / UC Berkeley',
-                  course: 'MIDS Program',
+                  course: 'برنامج MIDS',
                   year: 2024,
-                  description: 'Applied machine learning to predict chronic absenteeism in Oakland schools; developed Random Forest and XGBoost models with ~80% accuracy. Data science internship project addressing challenges in education/schooling.',
+                  description: 'تطبيق التعلم الآلي للتنبؤ بالتغيب المزمن في مدارس أوكلاند؛ تطوير نماذج Random Forest وXGBoost بدقة ~80%. مشروع تدريب في علم البيانات يعالج تحديات في مجال التعليم.',
                   images: [],
                   files: [],
                   domain: domain as 'data-science',
                 },
                 {
-                  title: 'Research Design Final Project - DATASCI 201',
+                  title: 'المشروع النهائي لتصميم البحث - DATASCI 201',
                   institution: 'UC Berkeley',
                   course: 'DATASCI 201',
-                  description: 'Comprehensive research design project demonstrating statistical analysis and experimental design principles for data science applications.',
+                  description: 'مشروع شامل لتصميم البحث يوضح مبادئ التحليل الإحصائي والتصميم التجريبي لتطبيقات علم البيانات.',
                   images: [],
                   files: [],
                   domain: domain as 'data-science',
                 },
                 {
-                  title: 'Usability Study - Data Visualization',
+                  title: 'دراسة قابلية الاستخدام - تصور البيانات',
                   institution: 'UC Berkeley',
                   course: 'DATASCI 209',
-                  description: 'Conducted a comprehensive usability study for data visualization tools, analyzing user interactions and effectiveness metrics.',
+                  description: 'إجراء دراسة شاملة لقابلية استخدام أدوات تصور البيانات، وتحليل تفاعلات المستخدمين ومقاييس الفعالية.',
                   images: [],
                   files: [],
                   domain: domain as 'data-science',
@@ -276,48 +277,48 @@ relevantDomains.forEach((domain) => {
             : domain === 'engineering'
             ? [
                 {
-                  title: 'ESP Replacement Forecast Module - MIDAS',
+                  title: 'وحدة توقع استبدال المضخات الغاطسة (ESP) - MIDAS',
                   institution: 'Saudi Aramco / ExpecARC',
-                  course: 'ALFA Project',
-                  description: 'Deployed the ESP Replacement Forecast (RF) module for MIDAS, a data-driven monitoring and predictive tool for Aramco\'s Electrical Submersible Pumps. Created Microsoft Azure Repository and built web application on OpenShift to run the RF module on the server.',
+                  course: 'مشروع ALFA',
+                  description: 'نشر وحدة توقع الاستبدال (RF) لمضخات ESP ضمن نظام MIDAS، وهو أداة مراقبة وتنبؤ قائمة على البيانات للمضخات الغاطسة الكهربائية في أرامكو. إنشاء مستودع Microsoft Azure وبناء تطبيق ويب على OpenShift لتشغيل وحدة RF على الخادم.',
                   images: [],
                   files: [],
                   domain: domain as 'engineering',
                 },
                 {
-                  title: 'ESP Troubleshooting Automation Solution',
+                  title: 'حل آلي لاستكشاف أعطال ESP وإصلاحها',
                   institution: 'Saudi Aramco / UDC',
-                  course: 'PEASD Project',
-                  description: 'Prototyped an automation solution for ESP troubleshooting using real-time field data. Collaborated with production engineering clients to understand current processes and develop automated intelligent digital solutions.',
+                  course: 'مشروع PEASD',
+                  description: 'تطوير نموذج أولي لحل آلي لاستكشاف أعطال ESP باستخدام بيانات حقلية حية. التعاون مع عملاء هندسة الإنتاج لفهم العمليات الحالية وتطوير حلول رقمية ذكية آلية.',
                   images: [],
                   files: [],
                   domain: domain as 'engineering',
                 },
                 {
-                  title: 'Flow Assurance Studies - OLGA Simulations',
+                  title: 'دراسات ضمان التدفق - محاكاة OLGA',
                   institution: 'Saudi Aramco',
-                  course: 'Flow Assurance Unit',
-                  description: 'Completed flow assurance reports and studies using OLGA simulations, analyzing results, and reporting recommendations for production facilities.',
+                  course: 'وحدة ضمان التدفق',
+                  description: 'إنجاز تقارير ودراسات ضمان التدفق باستخدام محاكاة OLGA، وتحليل النتائج، ورفع التوصيات لمرافق الإنتاج.',
                   images: [],
                   files: [],
                   domain: domain as 'engineering',
                 },
                 {
-                  title: 'Machine Learning in Combustion Kinetics',
+                  title: 'التعلم الآلي في حركية الاحتراق',
                   institution: 'KAUST',
-                  course: 'Research Project',
+                  course: 'مشروع بحثي',
                   year: 2017,
-                  description: 'Built regression models to study the kinetics of combustion reactions. Developed a machine learning model to predict ignition delay times for n-heptane fuel based on selected features. Built training and testing database using ChemKin.',
+                  description: 'بناء نماذج انحدار لدراسة حركية تفاعلات الاحتراق. تطوير نموذج تعلم آلي للتنبؤ بأزمنة تأخر الاشتعال لوقود n-heptane بناءً على خصائص مختارة. بناء قاعدة بيانات التدريب والاختبار باستخدام ChemKin.',
                   images: [],
                   files: [],
                   domain: domain as 'engineering',
                 },
                 {
-                  title: 'Identifying Flow Regimes via Machine Learning',
+                  title: 'تحديد أنظمة التدفق باستخدام التعلم الآلي',
                   institution: 'Udacity',
-                  course: 'ML Engineering Nanodegree',
+                  course: 'نانوديجري هندسة التعلم الآلي',
                   year: 2018,
-                  description: 'Capstone project developing a classification algorithm for fluid flow regimes in horizontal pipes using machine learning techniques.',
+                  description: 'مشروع تخرج لتطوير خوارزمية تصنيف لأنظمة تدفق الموائع في الأنابيب الأفقية باستخدام تقنيات التعلم الآلي.',
                   images: [],
                   files: [],
                   domain: domain as 'engineering',
@@ -389,7 +390,7 @@ relevantDomains.forEach((domain) => {
               <h2>{domainLabels.ar[domain]} - المشاريع</h2>
               <div class="section-content">
                 {domainProjects
-                  .sort((a, b) => b.data.year - a.data.year)
+                  .sort(compareByRecency)
                   .map((p) => (
                     <ProjectCard project={p} />
                   ))}

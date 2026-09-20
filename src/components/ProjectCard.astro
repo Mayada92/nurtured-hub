@@ -16,15 +16,15 @@ const getExternalLabel = (url: string, primaryLabel: string) => {
   const normalized = url.toLowerCase();
   if (primaryLabel === 'repo') {
     return normalized.includes('github.com') || normalized.includes('gitlab.com') || normalized.includes('bitbucket.org')
-      ? 'Repository'
-      : 'Reference';
+      ? (isRTL ? 'المستودع' : 'Repository')
+      : (isRTL ? 'المرجع' : 'Reference');
   }
   if (primaryLabel === 'demo') {
     return normalized.includes('medium.com') || normalized.includes('linkedin.com') || normalized.includes('substack.com')
-      ? 'Article'
-      : 'Demo';
+      ? (isRTL ? 'المقال' : 'Article')
+      : (isRTL ? 'عرض توضيحي' : 'Demo');
   }
-  return 'Link';
+  return isRTL ? 'رابط' : 'Link';
 };
 ---
 
@@ -54,7 +54,7 @@ const getExternalLabel = (url: string, primaryLabel: string) => {
     <p>{data.summary}</p>
     <footer class="project-card__links">
       <a href={`${import.meta.env.BASE_URL}${data.lang}/projects/${project.slug}`.replace(/\/+/g, '/')}>
-        View Details {arrow}
+        {isRTL ? 'عرض التفاصيل' : 'View Details'} {arrow}
       </a>
       {data.repo && (
         <a href={data.repo} target="_blank" rel="noopener noreferrer">
