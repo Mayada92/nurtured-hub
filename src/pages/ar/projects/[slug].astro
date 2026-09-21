@@ -4,6 +4,7 @@ import SectionReveal from '../../../components/SectionReveal';
 import AnimatedBackground from '../../../components/AnimatedBackground';
 import { getCollection } from 'astro:content';
 import { getImagePath, getBasePath } from '../../../utils/path';
+import { translateTag } from '../../../utils/content';
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
@@ -67,7 +68,7 @@ const relatedPapers: Array<Awaited<ReturnType<typeof getCollection<'papers'>>>[n
               <div class="project-meta">
                 <span class="year">{data.year}</span>
                 {data.tags.map((tag) => (
-                  <span class="tag">{tag}</span>
+                  <span class="tag">{translateTag(tag, data.lang)}</span>
                 ))}
               </div>
             </div>

@@ -2,6 +2,7 @@
 import Badge from './Badge.astro';
 import type { CollectionEntry } from 'astro:content';
 import { getImagePath } from '../utils/path';
+import { translateTag } from '../utils/content';
 
 interface Props {
   project: CollectionEntry<'projects'>;
@@ -47,7 +48,7 @@ const getExternalLabel = (url: string, primaryLabel: string) => {
       <div class="project-card__meta">
         <span class="year">{data.year}</span>
         {data.tags.slice(0, 3).map((tag) => (
-          <Badge label={tag} variant="accent-2" size="sm" />
+          <Badge label={translateTag(tag, data.lang)} variant="accent-2" size="sm" />
         ))}
       </div>
     </header>
