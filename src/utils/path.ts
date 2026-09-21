@@ -28,7 +28,11 @@ export function getRelativePath(currentPath: string, targetLang: 'en' | 'ar'): s
 
 export function getLanguageFromPath(path: string): 'en' | 'ar' {
   // Remove base path first
-  const cleanPath = path.replace(new RegExp(`^${BASE_PATH}`), '');
+  let cleanPath = path.replace(new RegExp(`^${BASE_PATH}`), '');
+  // BASE_PATH's trailing slash eats the leading slash "ar" needs to match below
+  if (!cleanPath.startsWith('/')) {
+    cleanPath = '/' + cleanPath;
+  }
   if (cleanPath.startsWith('/ar')) return 'ar';
   return 'en';
 }
