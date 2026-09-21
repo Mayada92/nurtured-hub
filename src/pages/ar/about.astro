@@ -1,26 +1,461 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SectionReveal from '../../components/SectionReveal';
+import ImageStage from '../../components/ImageStage';
+import Icon from '../../components/Icon.astro';
+import AnimatedBackground from '../../components/AnimatedBackground';
+import { getBasePath, getImagePath } from '../../utils/path';
+
+const base = getBasePath();
 ---
 
-<BaseLayout title="حولي" description="تعرف على المزيد عني" lang="ar">
-  <section class="section">
+<BaseLayout
+  title="قصتي"
+  description="تعرف على الرحلة وراء العقل المربى - استكشاف تقاطع علم البيانات والتعليم والهندسة والتنمية البشرية"
+  lang="ar"
+>
+  <AnimatedBackground client:load type="bubbles" density={55} speed={0.3} opacity={0.35} />
+  <section class="hero-section">
     <div class="container">
-      <div class="content">
-        <SectionReveal client:load>
-          <h1>حولي</h1>
-          <p>هذه صفحة تجريبية لصفحة التعريف. أضف معلوماتك الشخصية هنا.</p>
-        </SectionReveal>
-      </div>
+      <SectionReveal client:load>
+        <div class="hero-content">
+          <div class="hero-image">
+            <ImageStage
+              src={getImagePath('/images/profile/maya-profile.png')}
+              alt="ميادة الهاشم"
+              width={400}
+              height={400}
+              parallax={true}
+            />
+          </div>
+          <div class="hero-text">
+            <h1>قصتي</h1>
+            <p class="hero-intro">
+              أنا ميادة الهاشم، ويُعرف عني أيضاً باسم مايا، مهندسة وعالمة بيانات ومتعلمة مدى الحياة، شغوفة بالتعليم والذكاء الاصطناعي والتنمية البشرية.
+            </p>
+          </div>
+        </div>
+      </SectionReveal>
+    </div>
+  </section>
+
+  <section class="section section--story">
+    <div class="container">
+      <SectionReveal client:load delay={0.1}>
+        <div class="story-content">
+          <p>
+            في صميم كل ما أقوم به إيماني الإسلامي. إنه أساسي وبوصلتي. فنحن كمسلمين وُضعنا على هذه الأرض كخلفاء، مؤتمَنين على رعاية عالمنا ومجتمعاتنا وبعضنا بعضاً. يدعونا القرآن إلى التدبر والتفكير واستخدام الهبة الاستثنائية التي وهبنا الله إياها، وهي العقل البشري. بالنسبة لي، فإن السعي وراء المعرفة، ورعاية الأطفال، وبناء أنظمة أفضل للتعلم ليست منفصلة عن إيماني، بل تنبع منه.
+          </p>
+          <p>
+            كما أحمل شعوراً عميقاً بالانتماء إلى الأمة الإسلامية الأوسع. فعندما يعاني أي جزء منها، سواء أكانوا أطفالاً في مناطق النزاع أو عائلات تتنقل بين تغيرات سريعة، فذلك ليس بعيداً عني. إنه يغذي هدفي.
+          </p>
+          <p>
+            بحصولي على ماجستير في علم البيانات وشهادة دراسات عليا في التنمية البشرية والتعلم، أجمع بين الخبرة التقنية وفهم السلوك البشري لاستكشاف كيف يمكن للتقنية أن تمكّن النمو، مستندةً دائماً إلى القيم الثقافية والأخلاقية والإسلامية.
+          </p>
+        </div>
+      </SectionReveal>
+    </div>
+  </section>
+
+  <section class="section section--purpose">
+    <div class="container">
+      <SectionReveal client:load delay={0.2}>
+        <div class="purpose-header">
+          <Icon name="sparkles" size={48} class="purpose-icon" />
+          <h2>الهدف والرؤية</h2>
+        </div>
+        <div class="purpose-content">
+          <p>
+            أُنشئ <strong>العقل المربى</strong> كمنصة من أجل:
+          </p>
+          <ul class="purpose-list">
+            <li>
+              <Icon name="chart" size={24} class="list-icon" />
+              <span>مشاركة الرؤى والأفكار المكتسبة من تجاربي الأكاديمية والمهنية، انطلاقاً من إيماني بأن المعرفة أمانة نحن مسؤولون عنها</span>
+            </li>
+            <li>
+              <Icon name="lightbulb" size={24} class="list-icon" />
+              <span>استكشاف تقاطع الذكاء الاصطناعي والتعليم وعلم النفس لإلهام تعلم هادف، لأن العقل البشري من أعظم هبات الله</span>
+            </li>
+            <li>
+              <Icon name="rocket" size={24} class="list-icon" />
+              <span>تقديم موارد وتأملات تدعم النمو، فكرياً وعاطفياً وروحياً</span>
+            </li>
+            <li>
+              <Icon name="users" size={24} class="list-icon" />
+              <span>تعزيز مجتمع من المفكرين والمتعلمين الفضوليين والمنفتحين والمدفوعين بهدف، أينما كانوا في العالم ومهما كانت التحديات التي يواجهونها</span>
+            </li>
+            <li>
+              <Icon name="book" size={24} class="list-icon" />
+              <span>الوقوف إلى جانب الأمة الإسلامية الأوسع، بمن فيهم من يواجهون المشقة، عبر إتاحة المعرفة والأدوات بما يرسخ الكرامة الإنسانية المشتركة</span>
+            </li>
+          </ul>
+        </div>
+      </SectionReveal>
+    </div>
+  </section>
+
+  <section class="section section--what-youll-find">
+    <div class="container">
+      <SectionReveal client:load delay={0.3}>
+        <h2>ماذا ستجد هنا</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <Icon name="user" size={32} class="feature-icon" />
+            <h3>ملفي الشخصي</h3>
+            <p>خبرتي وخلفيتي في مجالات متنوعة لفتح الباب أمام فرص التعاون</p>
+          </div>
+          <div class="feature-card">
+            <Icon name="document" size={32} class="feature-icon" />
+            <h3>مقالات وتأملات</h3>
+            <p>أفكار شخصية ودروس مستفادة من رحلتي الأكاديمية والمهنية</p>
+          </div>
+          <div class="feature-card">
+            <Icon name="code" size={32} class="feature-icon" />
+            <h3>رؤى في الذكاء الاصطناعي والتعليم</h3>
+            <p>استكشاف كيف تُشكّل التقنية التعلم والنمو الحديثين</p>
+          </div>
+          <div class="feature-card">
+            <Icon name="briefcase" size={32} class="feature-icon" />
+            <h3>مشاريع وموارد</h3>
+            <p>أدوات واستراتيجيات وقوالب عملية للنمو والتنظيم</p>
+          </div>
+          <div class="feature-card">
+            <Icon name="academic" size={32} class="feature-icon" />
+            <h3>منشورات وأبحاث</h3>
+            <p>أوراق أكاديمية، وعروض مؤتمرات، ومساهمات بحثية</p>
+          </div>
+          <div class="feature-card">
+            <Icon name="sparkles" size={32} class="feature-icon" />
+            <h3>قصص وتأملات</h3>
+            <p>مشاركة أفكار تُلهم الفضول والإبداع</p>
+          </div>
+        </div>
+      </SectionReveal>
+    </div>
+  </section>
+
+  <section class="section section--cta">
+    <div class="container">
+      <SectionReveal client:load delay={0.4}>
+        <div class="cta-content">
+          <h2>شكراً لزيارتك العقل المربى!</h2>
+          <p>
+            يسعدني مشاركة هذه الرحلة معك. لنُنمِّ عقولنا وننمو معاً.
+          </p>
+          <div class="cta-buttons">
+            <a href={`${base}ar/profile`.replace(/\/+/g, '/')} class="cta-button cta-button--profile">
+              <Icon name="user" size={20} />
+              <span>استكشاف الملفات الشخصية</span>
+            </a>
+            <a href={`${base}ar/projects`.replace(/\/+/g, '/')} class="cta-button cta-button--projects">
+              <Icon name="folder" size={20} />
+              <span>عرض المشاريع</span>
+            </a>
+            <a href={`${base}ar/writing`.replace(/\/+/g, '/')} class="cta-button cta-button--articles">
+              <Icon name="document" size={20} />
+              <span>قراءة المقالات</span>
+            </a>
+          </div>
+        </div>
+      </SectionReveal>
     </div>
   </section>
 </BaseLayout>
 
 <style>
+  .hero-section {
+    padding-block: var(--space-12);
+    background: var(--gradient-hero);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: var(--space-10);
+    align-items: center;
+  }
+
+  .hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .hero-image .image-stage {
+    max-width: 100%;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+    object-fit: contain;
+  }
+
+  .hero-text h1 {
+    font-size: var(--font-size-hero);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-block-end: var(--space-6);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 50%, rgba(250, 248, 245, 0.9) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  }
+
+  .hero-intro {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  :global(body)::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url('/images/background/background2.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    opacity: 0.3;
+    z-index: -1;
+    pointer-events: none;
+  }
+
   .section {
-    padding-block: var(--space-8);
+    padding-block: var(--section-spacing);
+  }
+
+  .section--story {
+    background: var(--color-bg);
+  }
+
+  .story-content {
+    max-width: 800px;
+    margin-inline: auto;
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--color-muted-ink);
+    text-align: center;
+  }
+
+  .story-content p {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: #000000;
+  }
+
+  .section--purpose {
+    background: var(--gradient-section);
+    border-radius: var(--radius-xl);
+    margin-block: var(--section-spacing);
+    padding: var(--space-12);
+  }
+
+  .purpose-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin-block-end: var(--space-8);
+    justify-content: center;
+  }
+
+  .purpose-icon {
+    color: var(--color-accent-1);
+  }
+
+  .purpose-header h2 {
+    font-size: var(--font-size-h1);
+    font-weight: 700;
+    color: var(--color-ink);
+  }
+
+  .purpose-content {
+    max-width: 900px;
+    margin-inline: auto;
+  }
+
+  .purpose-content > p {
+    font-size: var(--font-size-body);
+    margin-block-end: var(--space-6);
+    color: var(--color-ink);
+  }
+
+  .purpose-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  .purpose-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-body);
+    line-height: 1.6;
+  }
+
+  .list-icon {
+    flex-shrink: 0;
+    color: var(--color-accent-1);
+    margin-block-start: 2px;
+  }
+
+  .section--what-youll-find h2 {
+    font-size: var(--font-size-h1);
+    font-weight: 700;
+    text-align: center;
+    margin-block-end: var(--space-10);
+    color: var(--color-ink);
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .feature-card {
+    padding: var(--space-6);
+    background: var(--gradient-card);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-card);
+    transition: all var(--motion-duration-normal) var(--motion-easing-smooth);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  .feature-icon {
+    color: var(--color-accent-1);
+    margin-block-end: var(--space-3);
+  }
+
+  .feature-card h3 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-block-end: var(--space-2);
+    color: var(--color-ink);
+  }
+
+  .feature-card p {
+    color: var(--color-muted-ink);
+    line-height: 1.6;
+  }
+
+  .section--cta {
+    background: var(--gradient-section);
+    border-radius: var(--radius-xl);
+    margin-block: var(--section-spacing);
+    padding: var(--space-12);
+    text-align: center;
+  }
+
+  .cta-content h2 {
+    font-size: var(--font-size-h1);
+    font-weight: 700;
+    margin-block-end: var(--space-4);
+    color: var(--color-ink);
+  }
+
+  .cta-content > p {
+    font-size: var(--font-size-body);
+    color: var(--color-muted-ink);
+    margin-block-end: var(--space-8);
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-4) var(--space-8);
+    border-radius: var(--radius-xl);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.74375rem;
+    transition: all var(--motion-duration-normal) var(--motion-easing-smooth);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .cta-button svg {
+    flex-shrink: 0;
+  }
+
+  .cta-button--profile {
+    background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+    color: white;
+    box-shadow: 0 4px 14px rgba(139, 92, 246, 0.3);
+  }
+
+  .cta-button--profile:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+  }
+
+  .cta-button--projects {
+    background: linear-gradient(135deg, #06b6d4 0%, #22d3ee 100%);
+    color: white;
+    box-shadow: 0 4px 14px rgba(6, 182, 212, 0.3);
+  }
+
+  .cta-button--projects:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 6px 20px rgba(6, 182, 212, 0.4);
+  }
+
+  .cta-button--articles {
+    background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+    color: white;
+    box-shadow: 0 4px 14px rgba(245, 158, 11, 0.3);
+  }
+
+  .cta-button--articles:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+  }
+
+  @media (max-width: 768px) {
+    .hero-content {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .purpose-header {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+    }
+
+    .cta-button {
+      width: 100%;
+      justify-content: center;
+    }
   }
 </style>
-
-
-
