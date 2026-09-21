@@ -1,8 +1,8 @@
 ---
-import { getRelativePath } from '../utils/path';
+import { getRelativePath, getLanguageFromPath } from '../utils/path';
 
 const currentPath = Astro.url.pathname;
-const isArabic = currentPath.startsWith('/ar');
+const isArabic = getLanguageFromPath(currentPath) === 'ar';
 const alternateLang = isArabic ? 'en' : 'ar';
 const alternatePath = getRelativePath(currentPath, alternateLang);
 const currentLang = isArabic ? 'ar' : 'en';
